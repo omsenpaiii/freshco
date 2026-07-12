@@ -18,23 +18,23 @@ export default function WishlistPage() {
       <div className="max-w-6xl mx-auto text-left">
         
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 font-medium">
+        <div className="flex items-center gap-1.5 text-xs text-content-muted mb-6 font-medium">
           <Link href="/" className="hover:text-primary transition">Home</Link>
           <ChevronRight size={12} />
-          <span className="text-secondary font-semibold">My Wishlist</span>
+          <span className="text-content-strong font-semibold">My Wishlist</span>
         </div>
 
         <div className="border-b border-border-theme pb-4 mb-8">
-          <h1 className="text-xl md:text-2xl font-extrabold text-secondary">My Wishlist</h1>
-          <p className="text-xs text-gray-400 mt-1">Keep track of your favorite organic products.</p>
+          <h1 className="text-xl md:text-2xl font-extrabold text-content-strong">My Wishlist</h1>
+          <p className="text-xs text-content-muted mt-1">Keep track of your favorite organic products.</p>
         </div>
 
         {wishlistProducts.length === 0 ? (
           <div className="h-64 flex flex-col items-center justify-center text-center gap-4 text-body border border-dashed border-border-theme rounded-2xl bg-gray-50 p-6">
             <Heart size={48} className="text-gray-300 stroke-[1.5]" />
             <div>
-              <h3 className="font-semibold text-secondary text-base">Your Wishlist is Empty</h3>
-              <p className="text-xs text-gray-400 mt-1">You haven't added any products to your wishlist yet.</p>
+              <h3 className="font-semibold text-content-strong text-base">Your Wishlist is Empty</h3>
+              <p className="text-xs text-content-muted mt-1">You haven't added any products to your wishlist yet.</p>
             </div>
             <Link 
               href="/collections"

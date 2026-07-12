@@ -36,8 +36,8 @@ export default async function Home() {
               <Truck size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-secondary">Free Shipping</h4>
-              <p className="text-xs text-gray-400 mt-0.5">Across Melbourne on orders over A$50</p>
+              <h4 className="text-sm font-bold text-content-strong">Free Shipping</h4>
+              <p className="text-xs text-content-muted mt-0.5">Across Melbourne on orders over A$50</p>
             </div>
           </div>
           <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
@@ -45,8 +45,8 @@ export default async function Home() {
               <Leaf size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-secondary">100% Organic</h4>
-              <p className="text-xs text-gray-400 mt-0.5">Direct from local farms</p>
+              <h4 className="text-sm font-bold text-content-strong">100% Organic</h4>
+              <p className="text-xs text-content-muted mt-0.5">Direct from local farms</p>
             </div>
           </div>
           <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
@@ -54,8 +54,8 @@ export default async function Home() {
               <ShieldCheck size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-secondary">Secure Payments</h4>
-              <p className="text-xs text-gray-400 mt-0.5">100% SSL protected checkout</p>
+              <h4 className="text-sm font-bold text-content-strong">Secure Payments</h4>
+              <p className="text-xs text-content-muted mt-0.5">100% SSL protected checkout</p>
             </div>
           </div>
           <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
@@ -63,8 +63,8 @@ export default async function Home() {
               <Sparkles size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-secondary">Daily Deals</h4>
-              <p className="text-xs text-gray-400 mt-0.5">Up to 40% off on fresh veggies</p>
+              <h4 className="text-sm font-bold text-content-strong">Daily Deals</h4>
+              <p className="text-xs text-content-muted mt-0.5">Up to 40% off on fresh veggies</p>
             </div>
           </div>
         </SectionReveal>
@@ -97,7 +97,7 @@ export default async function Home() {
                     className="object-cover group-hover:scale-108 transition duration-500"
                   />
                 </div>
-                <h4 className="text-xs font-semibold text-secondary group-hover:text-primary transition line-clamp-1">
+                <h4 className="text-xs font-semibold text-content-strong group-hover:text-primary transition line-clamp-1">
                   {cat.name}
                 </h4>
               </Link>
@@ -152,7 +152,7 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto flex items-end justify-between border-b border-border-theme pb-4 mb-8">
           <div>
             <span className="text-xs uppercase font-bold tracking-widest text-primary">Top Choice</span>
-            <h2 className="text-xl md:text-2xl font-extrabold text-secondary mt-1">Trending Products</h2>
+            <h2 className="text-xl md:text-2xl font-extrabold text-content-strong mt-1">Trending Products</h2>
           </div>
           <Link href="/collections" className="text-xs font-bold text-primary hover:underline flex items-center gap-1">
             View All <ArrowRight size={14} />
@@ -184,7 +184,7 @@ export default async function Home() {
       <section className="section-shell bg-white">
         <div className="max-w-6xl mx-auto text-center space-y-2 mb-10">
           <span className="text-xs uppercase font-bold tracking-widest text-primary">Our Selection</span>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-secondary">Our Fresh Products</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-content-strong">Our Fresh Products</h2>
           <div className="w-12 h-1 bg-primary mx-auto rounded-full mt-2" />
         </div>
 
@@ -208,7 +208,7 @@ export default async function Home() {
       <section className="section-shell border-y border-border bg-brand-cream">
         <div className="max-w-6xl mx-auto text-center space-y-2 mb-10">
           <span className="text-xs uppercase font-bold tracking-widest text-primary">Feedbacks</span>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-secondary">Our Customer Say</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-content-strong">Our Customer Say</h2>
           <div className="w-12 h-1 bg-primary mx-auto rounded-full mt-2" />
         </div>
 
@@ -221,8 +221,8 @@ export default async function Home() {
               {`“Amazing quality of organic avocados and strawberries! They tasted incredibly fresh and arrived right on time. The biodegradable packaging is a massive plus.”`}
             </p>
             <div>
-              <h5 className="font-bold text-secondary text-sm">Tokenfaith</h5>
-              <span className="text-[10px] text-gray-400 block">Verified Buyer</span>
+              <h5 className="font-bold text-content-strong text-sm">Tokenfaith</h5>
+              <span className="text-[10px] text-content-muted block">Verified Buyer</span>
             </div>
           </div>
 
@@ -234,8 +234,8 @@ export default async function Home() {
               {`“The checkout feels fast, the vegetables stay crisp, and the baker’s-rack bagels were absolutely delicious. FreshCo has become our weekly shop.”`}
             </p>
             <div>
-              <h5 className="font-bold text-secondary text-sm">Refine Digital</h5>
-              <span className="text-[10px] text-gray-400 block">Loyal Customer</span>
+              <h5 className="font-bold text-content-strong text-sm">Refine Digital</h5>
+              <span className="text-[10px] text-content-muted block">Loyal Customer</span>
             </div>
           </div>
         </div>
@@ -246,7 +246,7 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto flex items-end justify-between border-b border-border-theme pb-4 mb-8">
           <div>
             <span className="text-xs uppercase font-bold tracking-widest text-primary">Our Stories</span>
-            <h2 className="text-xl md:text-2xl font-extrabold text-secondary mt-1">Recent Articles & News</h2>
+            <h2 className="text-xl md:text-2xl font-extrabold text-content-strong mt-1">Recent Articles & News</h2>
           </div>
           <Link href="/blogs/news" className="text-xs font-bold text-primary hover:underline flex items-center gap-1">
             Read Blogs <ArrowRight size={14} />
@@ -269,12 +269,12 @@ export default async function Home() {
                 />
               </div>
               <div className="space-y-2">
-                <div className="flex items-center gap-3 text-[10px] text-gray-400 font-bold">
+                <div className="flex items-center gap-3 text-[10px] text-content-muted font-bold">
                   <span>By {post.author}</span>
                   <span>•</span>
                   <span>{new Date(post.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                 </div>
-                <h3 className="text-sm font-bold text-secondary group-hover:text-primary transition leading-snug line-clamp-2 h-10">
+                <h3 className="text-sm font-bold text-content-strong group-hover:text-primary transition leading-snug line-clamp-2 h-10">
                   {post.title}
                 </h3>
                 <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">

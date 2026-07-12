@@ -21,8 +21,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
   if (!product) {
     return (
       <div className="w-full bg-white px-4 py-20 text-center space-y-4">
-        <h2 className="text-2xl font-extrabold text-secondary">Product Not Found</h2>
-        <p className="text-xs text-gray-400">The product you are looking for does not exist or has been removed.</p>
+        <h2 className="text-2xl font-extrabold text-content-strong">Product Not Found</h2>
+        <p className="text-xs text-content-muted">The product you are looking for does not exist or has been removed.</p>
         <Link href="/collections" className="bg-primary hover:bg-[#d89311] text-white text-xs font-bold px-6 py-3 rounded-full inline-block transition uppercase tracking-wider">
           Return to Shop
         </Link>
@@ -41,7 +41,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <div className="site-container">
         
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-8 font-medium">
+        <div className="flex items-center gap-1.5 text-xs text-content-muted mb-8 font-medium">
           <Link href="/" className="hover:text-primary transition">Home</Link>
           <ChevronRight size={12} />
           <Link href="/collections" className="hover:text-primary transition">Shop</Link>
@@ -54,7 +54,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </>
           )}
           <ChevronRight size={12} />
-          <span className="text-secondary font-semibold line-clamp-1">{product.name}</span>
+          <span className="text-content-strong font-semibold line-clamp-1">{product.name}</span>
         </div>
 
         {/* Client side Product Details Interactive view */}

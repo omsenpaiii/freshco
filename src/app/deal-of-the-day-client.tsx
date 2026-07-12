@@ -92,7 +92,7 @@ export default function DealOfTheDayClient({ product }: DealOfTheDayProps) {
             <Flame size={18} className="fill-current text-primary animate-pulse" /> Deal of the Day!
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-extrabold text-secondary leading-tight">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-content-strong leading-tight">
             {product.name}
           </h2>
 
@@ -101,7 +101,7 @@ export default function DealOfTheDayClient({ product }: DealOfTheDayProps) {
             {[...Array(5)].map((_, i) => (
               <Star key={i} size={15} fill={i < 4 ? 'currentColor' : 'none'} />
             ))}
-            <span className="text-xs text-gray-400 ml-2">({50 + (product.id % 12)} Reviews)</span>
+            <span className="text-xs text-content-muted ml-2">({50 + (product.id % 12)} Reviews)</span>
           </div>
 
           <div className="flex items-baseline gap-3">
@@ -109,7 +109,7 @@ export default function DealOfTheDayClient({ product }: DealOfTheDayProps) {
               {formatAUD(product.price)}
             </span>
             {product.compare_at_price && (
-              <span className="text-sm text-gray-400 line-through">
+              <span className="text-sm text-content-muted line-through">
                 {formatAUD(product.compare_at_price)}
               </span>
             )}
@@ -120,26 +120,26 @@ export default function DealOfTheDayClient({ product }: DealOfTheDayProps) {
           {/* Countdown Clock Displays */}
           <div className="grid grid-cols-4 gap-3 max-w-[320px]">
             <div className="bg-white border border-border-theme p-3 rounded-xl text-center shadow-2xs">
-              <span className="block text-xl font-bold text-secondary">{timeLeft.days}</span>
-              <span className="text-[10px] text-gray-400 uppercase font-semibold">Days</span>
+              <span className="block text-xl font-bold text-content-strong">{timeLeft.days}</span>
+              <span className="text-[10px] text-content-muted uppercase font-semibold">Days</span>
             </div>
             <div className="bg-white border border-border-theme p-3 rounded-xl text-center shadow-2xs">
-              <span className="block text-xl font-bold text-secondary">{timeLeft.hours}</span>
-              <span className="text-[10px] text-gray-400 uppercase font-semibold">Hrs</span>
+              <span className="block text-xl font-bold text-content-strong">{timeLeft.hours}</span>
+              <span className="text-[10px] text-content-muted uppercase font-semibold">Hrs</span>
             </div>
             <div className="bg-white border border-border-theme p-3 rounded-xl text-center shadow-2xs">
-              <span className="block text-xl font-bold text-secondary">{timeLeft.minutes}</span>
-              <span className="text-[10px] text-gray-400 uppercase font-semibold">Mins</span>
+              <span className="block text-xl font-bold text-content-strong">{timeLeft.minutes}</span>
+              <span className="text-[10px] text-content-muted uppercase font-semibold">Mins</span>
             </div>
             <div className="bg-white border border-border-theme p-3 rounded-xl text-center shadow-2xs">
-              <span className="block text-xl font-bold text-secondary">{timeLeft.seconds}</span>
-              <span className="text-[10px] text-gray-400 uppercase font-semibold">Secs</span>
+              <span className="block text-xl font-bold text-content-strong">{timeLeft.seconds}</span>
+              <span className="text-[10px] text-content-muted uppercase font-semibold">Secs</span>
             </div>
           </div>
 
           {/* Inventory bar */}
           <div className="space-y-2 max-w-md">
-            <div className="flex justify-between text-xs font-semibold text-secondary">
+            <div className="flex justify-between text-xs font-semibold text-content-strong">
               <span>Hurry Up! Only {totalQty - soldQty} items left in stock!</span>
               <span>{pctSold}% Sold</span>
             </div>

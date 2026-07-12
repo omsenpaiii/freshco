@@ -84,15 +84,15 @@ export default async function DynamicPolicyPage({ params }: DynamicPolicyPagePro
       <div className="max-w-3xl mx-auto text-left">
         
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 font-medium">
+        <div className="flex items-center gap-1.5 text-xs text-content-muted mb-6 font-medium">
           <Link href="/" className="hover:text-primary transition">Home</Link>
           <ChevronRight size={12} />
-          <span className="text-secondary font-semibold">{page.title}</span>
+          <span className="text-content-strong font-semibold">{page.title}</span>
         </div>
 
         {/* Content Panel */}
         <div className="border border-border-theme rounded-2xl p-6 md:p-10 shadow-2xs space-y-6">
-          <h1 className="text-xl md:text-2xl font-extrabold text-secondary border-b border-gray-100 pb-4 mb-4">
+          <h1 className="text-xl md:text-2xl font-extrabold text-content-strong border-b border-gray-100 pb-4 mb-4">
             {page.title}
           </h1>
 

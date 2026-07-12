@@ -38,23 +38,23 @@ export default function CartPage() {
       <div className="max-w-6xl mx-auto text-left">
         
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 font-medium">
+        <div className="flex items-center gap-1.5 text-xs text-content-muted mb-6 font-medium">
           <Link href="/" className="hover:text-primary transition">Home</Link>
           <ChevronRight size={12} />
-          <span className="text-secondary font-semibold">Shopping Cart</span>
+          <span className="text-content-strong font-semibold">Shopping Cart</span>
         </div>
 
         <div className="border-b border-border-theme pb-4 mb-8">
-          <h1 className="text-xl md:text-2xl font-extrabold text-secondary">Your Cart</h1>
-          <p className="text-xs text-gray-400 mt-1">Review the fresh products in your cart before check out.</p>
+          <h1 className="text-xl md:text-2xl font-extrabold text-content-strong">Your Cart</h1>
+          <p className="text-xs text-content-muted mt-1">Review the fresh products in your cart before check out.</p>
         </div>
 
         {cart.length === 0 ? (
           <div className="h-64 flex flex-col items-center justify-center text-center gap-4 text-body border border-dashed border-border-theme rounded-2xl bg-gray-50 p-6">
             <ShoppingBag size={48} className="text-gray-300 stroke-[1.5]" />
             <div>
-              <h3 className="font-semibold text-secondary text-base">Your Cart is Empty</h3>
-              <p className="text-xs text-gray-400 mt-1">Add organic goods to your shopping cart.</p>
+              <h3 className="font-semibold text-content-strong text-base">Your Cart is Empty</h3>
+              <p className="text-xs text-content-muted mt-1">Add organic goods to your shopping cart.</p>
             </div>
             <Link 
               href="/collections"
@@ -70,7 +70,7 @@ export default function CartPage() {
             <div className="lg:col-span-2 space-y-6">
               <div className="border border-border-theme rounded-2xl overflow-hidden shadow-2xs bg-white">
                 {/* Desktop Header */}
-                <div className="hidden sm:grid grid-cols-12 gap-4 bg-gray-50 border-b border-border-theme p-4 text-[10px] uppercase font-bold text-gray-400">
+                <div className="hidden sm:grid grid-cols-12 gap-4 bg-gray-50 border-b border-border-theme p-4 text-[10px] uppercase font-bold text-content-muted">
                   <div className="col-span-6">Product Details</div>
                   <div className="col-span-2 text-center">Price</div>
                   <div className="col-span-2 text-center">Quantity</div>
@@ -93,7 +93,7 @@ export default function CartPage() {
                           />
                         </div>
                         <div className="flex flex-col justify-center">
-                          <h3 className="text-xs md:text-sm font-semibold text-secondary hover:text-primary transition line-clamp-2">
+                          <h3 className="text-xs md:text-sm font-semibold text-content-strong hover:text-primary transition line-clamp-2">
                             <Link href={`/products/${item.slug}`}>{item.name}</Link>
                           </h3>
                         </div>
@@ -101,8 +101,8 @@ export default function CartPage() {
 
                       {/* Price (Mobile label + val) */}
                       <div className="col-span-4 sm:col-span-2 text-left sm:text-center mt-2 sm:mt-0">
-                        <span className="sm:hidden text-[9px] uppercase font-bold text-gray-400 block mb-0.5">Price</span>
-                        <span className="text-xs text-secondary font-semibold">{formatAUD(item.price)}</span>
+                        <span className="sm:hidden text-[9px] uppercase font-bold text-content-muted block mb-0.5">Price</span>
+                        <span className="text-xs text-content-strong font-semibold">{formatAUD(item.price)}</span>
                       </div>
 
                       {/* Qty controls */}
@@ -110,14 +110,14 @@ export default function CartPage() {
                         <div className="flex items-center border border-border-theme rounded-full bg-gray-50 p-0.5">
                           <button 
                             onClick={() => updateCartQuantity(item.product_id, item.quantity - 1)}
-                            className="px-2 py-0.5 text-secondary hover:text-primary transition cursor-pointer"
+                            className="px-2 py-0.5 text-content-strong hover:text-primary transition cursor-pointer"
                           >
                             <Minus size={11} />
                           </button>
-                          <span className="px-1.5 text-xs font-semibold text-secondary">{item.quantity}</span>
+                          <span className="px-1.5 text-xs font-semibold text-content-strong">{item.quantity}</span>
                           <button 
                             onClick={() => updateCartQuantity(item.product_id, item.quantity + 1)}
-                            className="px-2 py-0.5 text-secondary hover:text-primary transition cursor-pointer"
+                            className="px-2 py-0.5 text-content-strong hover:text-primary transition cursor-pointer"
                           >
                             <Plus size={11} />
                           </button>
@@ -126,11 +126,11 @@ export default function CartPage() {
 
                       {/* Total */}
                       <div className="col-span-3 sm:col-span-2 text-right flex sm:flex-col justify-end items-center sm:items-end mt-2 sm:mt-0 gap-2 sm:gap-0.5">
-                        <div className="sm:hidden text-[9px] uppercase font-bold text-gray-400">Total</div>
+                        <div className="sm:hidden text-[9px] uppercase font-bold text-content-muted">Total</div>
                         <span className="text-xs text-primary font-bold">{formatAUD(item.price * item.quantity)}</span>
                         <button 
                           onClick={() => removeFromCart(item.product_id)}
-                          className="text-gray-400 hover:text-red-500 transition p-1 ml-2 sm:ml-0 cursor-pointer"
+                          className="text-content-muted hover:text-red-500 transition p-1 ml-2 sm:ml-0 cursor-pointer"
                         >
                           <Trash2 size={13} />
                         </button>
@@ -147,7 +147,7 @@ export default function CartPage() {
               
               {/* Promo Coupon Form */}
               <div className="border border-border-theme bg-gray-50 rounded-2xl p-5 space-y-4">
-                <div className="flex items-center gap-2 text-xs font-bold text-secondary uppercase tracking-wider border-b border-border-theme pb-3">
+                <div className="flex items-center gap-2 text-xs font-bold text-content-strong uppercase tracking-wider border-b border-border-theme pb-3">
                   <Gift size={16} className="text-primary" /> Apply Coupon
                 </div>
                 <form onSubmit={handleApplyCoupon} className="flex gap-2">
@@ -156,7 +156,7 @@ export default function CartPage() {
                     placeholder="Enter code (e.g. FRESH10)" 
                     value={couponCode}
                     onChange={(e) => setCouponCode(e.target.value)}
-                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs focus:outline-none focus:border-primary text-secondary"
+                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs focus:outline-none focus:border-primary text-content-strong"
                   />
                   <button 
                     type="submit" 
@@ -171,13 +171,13 @@ export default function CartPage() {
 
               {/* Cart Totals */}
               <div className="border border-border-theme bg-gray-50 rounded-2xl p-6 space-y-4">
-                <h2 className="text-sm font-bold text-secondary border-b border-border-theme pb-3 uppercase tracking-wider">
+                <h2 className="text-sm font-bold text-content-strong border-b border-border-theme pb-3 uppercase tracking-wider">
                   Order Summary
                 </h2>
 
-                <div className="space-y-2.5 text-xs text-secondary font-semibold">
+                <div className="space-y-2.5 text-xs text-content-strong font-semibold">
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Cart Subtotal:</span>
+                    <span className="text-content-muted">Cart Subtotal:</span>
                     <span>{formatAUD(subtotal)}</span>
                   </div>
                   {discountAmount > 0 && (
@@ -187,13 +187,13 @@ export default function CartPage() {
                     </div>
                   )}
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Shipping:</span>
+                    <span className="text-content-muted">Shipping:</span>
                     <span>{shipping === 0 ? 'Free delivery' : formatAUD(shipping)}</span>
                   </div>
                   <div className="flex justify-between text-muted-foreground"><span>GST:</span><span>Included</span></div>
                 </div>
 
-                <div className="border-t border-border-theme pt-4 flex justify-between items-center font-bold text-secondary">
+                <div className="border-t border-border-theme pt-4 flex justify-between items-center font-bold text-content-strong">
                   <span className="text-sm">Total:</span>
                   <span className="text-lg text-primary">{formatAUD(total)}</span>
                 </div>

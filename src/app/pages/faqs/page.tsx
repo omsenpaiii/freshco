@@ -39,15 +39,15 @@ export default function FaqsPage() {
       <div className="max-w-4xl mx-auto text-left">
         
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 font-medium">
+        <div className="flex items-center gap-1.5 text-xs text-content-muted mb-6 font-medium">
           <Link href="/" className="hover:text-primary transition">Home</Link>
           <ChevronRight size={12} />
-          <span className="text-secondary font-semibold">FAQs & Help</span>
+          <span className="text-content-strong font-semibold">FAQs & Help</span>
         </div>
 
         <div className="border-b border-border-theme pb-4 mb-8">
-          <h1 className="text-xl md:text-2xl font-extrabold text-secondary">Frequently Asked Questions</h1>
-          <p className="text-xs text-gray-400 mt-1">Get quick answers to common questions about fresh products and delivery.</p>
+          <h1 className="text-xl md:text-2xl font-extrabold text-content-strong">Frequently Asked Questions</h1>
+          <p className="text-xs text-content-muted mt-1">Get quick answers to common questions about fresh products and delivery.</p>
         </div>
 
         {/* Accordions grid */}
@@ -61,7 +61,7 @@ export default function FaqsPage() {
               >
                 <button 
                   onClick={() => toggleFaq(idx)}
-                  className="w-full flex items-center justify-between p-5 text-left text-xs md:text-sm font-bold text-secondary hover:text-primary bg-gray-50/50 hover:bg-gray-50 transition cursor-pointer"
+                  className="w-full flex items-center justify-between p-5 text-left text-xs md:text-sm font-bold text-content-strong hover:text-primary bg-gray-50/50 hover:bg-gray-50 transition cursor-pointer"
                 >
                   <span className="flex items-center gap-2.5">
                     <HelpCircle size={16} className="text-primary flex-shrink-0" />
@@ -69,7 +69,7 @@ export default function FaqsPage() {
                   </span>
                   <ChevronDown 
                     size={16} 
-                    className={`transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary' : 'text-gray-400'}`} 
+                    className={`transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary' : 'text-content-muted'}`}
                   />
                 </button>
 
@@ -84,7 +84,7 @@ export default function FaqsPage() {
         </div>
 
         <div className="mt-10 p-6 bg-primary/5 rounded-2xl border border-primary/10 text-center space-y-3 max-w-xl mx-auto">
-          <h4 className="font-bold text-secondary text-sm">Still have questions?</h4>
+          <h4 className="font-bold text-content-strong text-sm">Still have questions?</h4>
           <p className="text-xs text-gray-500 max-w-sm mx-auto leading-relaxed">
             Our active organic farmer support team is here to assist you with wholesale requests or deliveries.
           </p>

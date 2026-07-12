@@ -98,21 +98,21 @@ export default function CheckoutPage() {
             <CheckCircle size={36} className="stroke-[2.5]" />
           </div>
           <div className="space-y-2 text-center">
-            <h1 className="text-xl md:text-2xl font-extrabold text-secondary">Order Placed!</h1>
-            <p className="text-xs text-gray-400">Thank you for your purchase. We are preparing your fresh organic goods.</p>
+            <h1 className="text-xl md:text-2xl font-extrabold text-content-strong">Order Placed!</h1>
+            <p className="text-xs text-content-muted">Thank you for your purchase. We are preparing your fresh organic goods.</p>
           </div>
 
-          <div className="bg-gray-50 border border-border-theme rounded-xl p-4 text-xs font-semibold text-secondary text-left space-y-2">
+          <div className="bg-gray-50 border border-border-theme rounded-xl p-4 text-xs font-semibold text-content-strong text-left space-y-2">
             <div className="flex justify-between">
-              <span className="text-gray-400">Order ID:</span>
+              <span className="text-content-muted">Order ID:</span>
               <span>{orderId}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-400">Estimated Delivery:</span>
+              <span className="text-content-muted">Estimated Delivery:</span>
               <span className="text-primary font-bold">Tomorrow, by 6:00 PM</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-400">Sent to:</span>
+              <span className="text-content-muted">Sent to:</span>
               <span className="line-clamp-1">{form.email}</span>
             </div>
           </div>
@@ -133,8 +133,8 @@ export default function CheckoutPage() {
   if (cart.length === 0) {
     return (
       <div className="w-full bg-white py-20 text-center space-y-4">
-        <h2 className="text-xl font-bold text-secondary">Your Cart is Empty</h2>
-        <p className="text-xs text-gray-400">Add products to your cart before checking out.</p>
+        <h2 className="text-xl font-bold text-content-strong">Your Cart is Empty</h2>
+        <p className="text-xs text-content-muted">Add products to your cart before checking out.</p>
         <Link href="/collections" className="bg-primary hover:bg-[#d89311] text-white text-xs font-bold px-6 py-2.5 rounded-full inline-block transition uppercase tracking-wider">
           Shop Now
         </Link>
@@ -145,7 +145,7 @@ export default function CheckoutPage() {
   return (
     <div className="w-full bg-[#f8f9fa] px-4 md:px-8 py-12">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-2xl font-extrabold text-secondary mb-8 text-left border-b border-border-theme pb-4">
+        <h1 className="text-2xl font-extrabold text-content-strong mb-8 text-left border-b border-border-theme pb-4">
           Checkout Securely
         </h1>
 
@@ -155,35 +155,35 @@ export default function CheckoutPage() {
             
             {/* 1. Shipping Details */}
             <div className="bg-white border border-border-theme rounded-2xl p-6 shadow-2xs space-y-4">
-              <h3 className="text-sm font-bold text-secondary flex items-center gap-2 border-b border-gray-100 pb-3 uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-content-strong flex items-center gap-2 border-b border-gray-100 pb-3 uppercase tracking-wider">
                 <User size={16} className="text-primary" /> Shipping Address
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">Full Name</label>
+                  <label className="block text-[10px] uppercase font-bold text-content-muted">Full Name</label>
                   <input 
                     type="text" 
                     name="name" 
                     required 
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">Email Address</label>
+                  <label className="block text-[10px] uppercase font-bold text-content-muted">Email Address</label>
                   <input 
                     type="email" 
                     name="email" 
                     required 
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
                   />
                 </div>
               </div>
               <div className="space-y-1">
-                <label className="block text-[10px] uppercase font-bold text-gray-400">Address Line 1</label>
+                <label className="block text-[10px] uppercase font-bold text-content-muted">Address Line 1</label>
                 <input 
                   type="text" 
                   name="address" 
@@ -191,23 +191,23 @@ export default function CheckoutPage() {
                   value={form.address}
                   onChange={handleChange}
                   placeholder="Street address"
-                  className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                  className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
                 />
               </div>
               <div className="grid grid-cols-3 gap-4">
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">Suburb</label>
+                  <label className="block text-[10px] uppercase font-bold text-content-muted">Suburb</label>
                   <input 
                     type="text" 
                     name="city" 
                     required 
                     value={form.city}
                     onChange={handleChange}
-                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">State</label>
+                  <label className="block text-[10px] uppercase font-bold text-content-muted">State</label>
                   <input 
                     type="text" 
                     name="state" 
@@ -215,18 +215,18 @@ export default function CheckoutPage() {
                     value={form.state}
                     onChange={handleChange}
                     placeholder="VIC"
-                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">Postcode</label>
+                  <label className="block text-[10px] uppercase font-bold text-content-muted">Postcode</label>
                   <input 
                     type="text" 
                     name="zip" 
                     required 
                     value={form.zip}
                     onChange={handleChange}
-                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
                   />
                 </div>
               </div>
@@ -234,11 +234,11 @@ export default function CheckoutPage() {
 
             {/* 2. Payment Details */}
             <div className="bg-white border border-border-theme rounded-2xl p-6 shadow-2xs space-y-4">
-              <h3 className="text-sm font-bold text-secondary flex items-center gap-2 border-b border-gray-100 pb-3 uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-content-strong flex items-center gap-2 border-b border-gray-100 pb-3 uppercase tracking-wider">
                 <CreditCard size={16} className="text-primary" /> Card Details
               </h3>
               <div className="space-y-1">
-                <label className="block text-[10px] uppercase font-bold text-gray-400">Card Number</label>
+                <label className="block text-[10px] uppercase font-bold text-content-muted">Card Number</label>
                 <input 
                   type="text" 
                   name="cardNumber" 
@@ -247,12 +247,12 @@ export default function CheckoutPage() {
                   placeholder="4111 2222 3333 4444"
                   value={form.cardNumber}
                   onChange={handleChange}
-                  className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                  className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">Expiry Date</label>
+                  <label className="block text-[10px] uppercase font-bold text-content-muted">Expiry Date</label>
                   <input 
                     type="text" 
                     name="expiry" 
@@ -261,11 +261,11 @@ export default function CheckoutPage() {
                     placeholder="MM/YY"
                     value={form.expiry}
                     onChange={handleChange}
-                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">CVV / Security Code</label>
+                  <label className="block text-[10px] uppercase font-bold text-content-muted">CVV / Security Code</label>
                   <input 
                     type="password" 
                     name="cvv" 
@@ -274,7 +274,7 @@ export default function CheckoutPage() {
                     placeholder="•••"
                     value={form.cvv}
                     onChange={handleChange}
-                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
                   />
                 </div>
               </div>
@@ -285,32 +285,32 @@ export default function CheckoutPage() {
           {/* Right Summary Column */}
           <div className="lg:col-span-4 space-y-6">
             <div className="bg-white border border-border-theme rounded-2xl p-6 shadow-2xs space-y-4">
-              <h3 className="text-sm font-bold text-secondary border-b border-gray-100 pb-3 uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-content-strong border-b border-gray-100 pb-3 uppercase tracking-wider">
                 Your Order
               </h3>
 
               <div className="divide-y divide-gray-100 max-h-48 overflow-y-auto pr-1">
                 {cart.map((item) => (
-                  <div key={item.product_id} className="flex justify-between items-center py-2.5 text-xs text-secondary font-semibold">
-                    <span className="line-clamp-1 max-w-[150px]">{item.name} <span className="text-gray-400 text-[10px]">x{item.quantity}</span></span>
+                  <div key={item.product_id} className="flex justify-between items-center py-2.5 text-xs text-content-strong font-semibold">
+                    <span className="line-clamp-1 max-w-[150px]">{item.name} <span className="text-content-muted text-[10px]">x{item.quantity}</span></span>
                     <span className="text-primary font-bold">{formatAUD(item.price * item.quantity)}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="border-t border-border-theme pt-4 space-y-2 text-xs font-semibold text-secondary">
+              <div className="border-t border-border-theme pt-4 space-y-2 text-xs font-semibold text-content-strong">
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Subtotal:</span>
+                  <span className="text-content-muted">Subtotal:</span>
                   <span>{formatAUD(subtotal)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Shipping:</span>
+                  <span className="text-content-muted">Shipping:</span>
                   <span>{shipping === 0 ? 'Free' : formatAUD(shipping)}</span>
                 </div>
-                <div className="flex justify-between"><span className="text-gray-400">GST:</span><span>Included</span></div>
+                <div className="flex justify-between"><span className="text-content-muted">GST:</span><span>Included</span></div>
               </div>
 
-              <div className="border-t border-border-theme pt-4 flex justify-between items-center font-bold text-secondary">
+              <div className="border-t border-border-theme pt-4 flex justify-between items-center font-bold text-content-strong">
                 <span className="text-sm">Total:</span>
                 <span className="text-lg text-primary">{formatAUD(total)}</span>
               </div>
@@ -323,7 +323,7 @@ export default function CheckoutPage() {
                 {isSubmitting ? 'Processing payment…' : `Pay ${formatAUD(total)}`}
               </button>
 
-              <div className="flex items-center gap-2 justify-center text-[10px] text-gray-400 font-bold">
+              <div className="flex items-center gap-2 justify-center text-[10px] text-content-muted font-bold">
                 <Shield size={12} className="text-green-500" /> Secure SSL Encrypted Checkout
               </div>
             </div>

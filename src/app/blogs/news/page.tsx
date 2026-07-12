@@ -15,15 +15,15 @@ export default async function BlogIndexPage() {
       <div className="max-w-6xl mx-auto">
         
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 font-medium">
+        <div className="flex items-center gap-1.5 text-xs text-content-muted mb-6 font-medium">
           <Link href="/" className="hover:text-primary transition">Home</Link>
           <ChevronRight size={12} />
-          <span className="text-secondary font-semibold">Blogs & News</span>
+          <span className="text-content-strong font-semibold">Blogs & News</span>
         </div>
 
         <div className="border-b border-border-theme pb-4 mb-10 text-left">
-          <h1 className="text-xl md:text-2xl font-extrabold text-secondary">News & Articles</h1>
-          <p className="text-xs text-gray-400 mt-1">Get the latest healthy organic recipes and picnic ideas from our team.</p>
+          <h1 className="text-xl md:text-2xl font-extrabold text-content-strong">News & Articles</h1>
+          <p className="text-xs text-content-muted mt-1">Get the latest healthy organic recipes and picnic ideas from our team.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
@@ -39,12 +39,12 @@ export default async function BlogIndexPage() {
               </Link>
               <div className="space-y-3 flex-grow flex flex-col justify-between">
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-[10px] text-gray-400 font-bold uppercase tracking-wider">
+                  <div className="flex items-center gap-2 text-[10px] text-content-muted font-bold uppercase tracking-wider">
                     <span>By {post.author}</span>
                     <span>•</span>
                     <span>{new Date(post.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                   </div>
-                  <h3 className="text-sm font-bold text-secondary hover:text-primary transition leading-snug line-clamp-2">
+                  <h3 className="text-sm font-bold text-content-strong hover:text-primary transition leading-snug line-clamp-2">
                     <Link href={`/blogs/news/${post.slug}`}>{post.title}</Link>
                   </h3>
                   <p className="text-xs text-gray-500 leading-relaxed line-clamp-3">

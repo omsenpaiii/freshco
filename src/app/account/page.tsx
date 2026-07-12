@@ -102,7 +102,7 @@ export default function AccountDashboardPage() {
 
   if (loading) {
     return (
-      <div className="w-full bg-white py-20 text-center text-xs font-semibold text-gray-400">
+      <div className="w-full bg-white py-20 text-center text-xs font-semibold text-content-muted">
         Loading dashboard details...
       </div>
     )
@@ -115,8 +115,8 @@ export default function AccountDashboardPage() {
         {/* Header Breadcrumbs Row */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-border-theme pb-5">
           <div className="text-left">
-            <h1 className="text-xl md:text-2xl font-extrabold text-secondary">My Account</h1>
-            <p className="text-xs text-gray-400 mt-1">Hello, <span className="text-secondary font-bold">{user?.email}</span></p>
+            <h1 className="text-xl md:text-2xl font-extrabold text-content-strong">My Account</h1>
+            <p className="text-xs text-content-muted mt-1">Hello, <span className="text-content-strong font-bold">{user?.email}</span></p>
           </div>
           <button 
             onClick={handleLogout}
@@ -132,7 +132,7 @@ export default function AccountDashboardPage() {
           {/* Column 1: Addresses */}
           <div className="md:col-span-1 bg-white border border-border-theme p-6 rounded-2xl shadow-2xs space-y-6 text-left">
             <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-              <h3 className="text-sm font-bold text-secondary flex items-center gap-2 uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-content-strong flex items-center gap-2 uppercase tracking-wider">
                 <MapPin size={16} className="text-primary" /> Saved Addresses
               </h3>
               <button 
@@ -146,56 +146,56 @@ export default function AccountDashboardPage() {
             {showAddressForm && (
               <form onSubmit={handleAddAddress} className="bg-gray-50 border border-border-theme p-4 rounded-xl space-y-3">
                 <div className="space-y-1">
-                  <label className="block text-[9px] uppercase font-bold text-gray-400">Street Address</label>
+                  <label className="block text-[9px] uppercase font-bold text-content-muted">Street Address</label>
                   <input 
                     type="text" 
                     required 
                     value={newAddress.line1}
                     onChange={(e) => setNewAddress({ ...newAddress, line1: e.target.value })}
-                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-secondary"
+                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-content-strong"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <label className="block text-[9px] uppercase font-bold text-gray-400">Suburb</label>
+                    <label className="block text-[9px] uppercase font-bold text-content-muted">Suburb</label>
                     <input 
                       type="text" 
                       required 
                       value={newAddress.city}
                       onChange={(e) => setNewAddress({ ...newAddress, city: e.target.value })}
-                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-secondary"
+                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-content-strong"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="block text-[9px] uppercase font-bold text-gray-400">State</label>
+                    <label className="block text-[9px] uppercase font-bold text-content-muted">State</label>
                     <input 
                       type="text" 
                       required 
                       value={newAddress.state}
                       onChange={(e) => setNewAddress({ ...newAddress, state: e.target.value })}
-                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-secondary"
+                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-content-strong"
                     />
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <label className="block text-[9px] uppercase font-bold text-gray-400">Postcode</label>
+                    <label className="block text-[9px] uppercase font-bold text-content-muted">Postcode</label>
                     <input 
                       type="text" 
                       required 
                       value={newAddress.zip}
                       onChange={(e) => setNewAddress({ ...newAddress, zip: e.target.value })}
-                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-secondary"
+                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-content-strong"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="block text-[9px] uppercase font-bold text-gray-400">Phone</label>
+                    <label className="block text-[9px] uppercase font-bold text-content-muted">Phone</label>
                     <input 
                       type="text" 
                       required 
                       value={newAddress.phone}
                       onChange={(e) => setNewAddress({ ...newAddress, phone: e.target.value })}
-                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-secondary"
+                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-content-strong"
                     />
                   </div>
                 </div>
@@ -211,18 +211,18 @@ export default function AccountDashboardPage() {
             {/* List saved addresses */}
             <div className="space-y-4">
               {addresses.length === 0 ? (
-                <p className="text-xs text-gray-400 italic">No saved addresses yet.</p>
+                <p className="text-xs text-content-muted italic">No saved addresses yet.</p>
               ) : (
                 addresses.map((addr) => (
                   <div key={addr.id} className="border border-border-theme rounded-xl p-4 space-y-2 relative bg-gray-50/50">
-                    <p className="text-xs text-secondary font-semibold leading-relaxed">
+                    <p className="text-xs text-content-strong font-semibold leading-relaxed">
                       {addr.address_line_1}<br />
                       {addr.city}, {addr.state} {addr.postal_code}<br />
-                      <span className="text-[10px] text-gray-400">Tel: {addr.phone}</span>
+                      <span className="text-[10px] text-content-muted">Tel: {addr.phone}</span>
                     </p>
                     <button 
                       onClick={() => handleDeleteAddress(addr.id)}
-                      className="absolute top-2 right-2 text-gray-400 hover:text-red-500 transition p-1 cursor-pointer"
+                      className="absolute top-2 right-2 text-content-muted hover:text-red-500 transition p-1 cursor-pointer"
                     >
                       <Trash2 size={13} />
                     </button>
@@ -234,14 +234,14 @@ export default function AccountDashboardPage() {
 
           {/* Column 2: Order History */}
           <div className="md:col-span-2 bg-white border border-border-theme p-6 rounded-2xl shadow-2xs space-y-6 text-left">
-            <h3 className="text-sm font-bold text-secondary flex items-center gap-2 border-b border-gray-100 pb-3 uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-content-strong flex items-center gap-2 border-b border-gray-100 pb-3 uppercase tracking-wider">
               <ShoppingBag size={16} className="text-primary" /> Order History ({orders.length})
             </h3>
 
             <div className="space-y-4">
               {orders.length === 0 ? (
                 <div className="text-center py-10 space-y-3">
-                  <p className="text-xs text-gray-400 italic">You haven’t placed any orders yet.</p>
+                  <p className="text-xs text-content-muted italic">You haven’t placed any orders yet.</p>
                   <Link 
                     href="/collections"
                     className="bg-primary hover:bg-[#d89311] text-white text-[10px] font-bold px-6 py-2 rounded-full uppercase tracking-wider inline-block"
@@ -253,8 +253,8 @@ export default function AccountDashboardPage() {
                 orders.map((ord) => (
                   <div key={ord.id} className="border border-border-theme rounded-xl p-4 flex justify-between items-center bg-gray-50/50">
                     <div className="space-y-1">
-                      <h4 className="text-xs font-bold text-secondary">ID: {ord.id.substring(0, 8).toUpperCase()}</h4>
-                      <div className="flex gap-3 text-[10px] text-gray-400 font-semibold">
+                      <h4 className="text-xs font-bold text-content-strong">ID: {ord.id.substring(0, 8).toUpperCase()}</h4>
+                      <div className="flex gap-3 text-[10px] text-content-muted font-semibold">
                         <span>{new Date(ord.created_at).toLocaleDateString()}</span>
                         <span>•</span>
                         <span className="text-primary font-bold">{formatAUD(ord.total_amount)}</span>

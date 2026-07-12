@@ -153,7 +153,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             {[...Array(5)].map((_, i) => (
               <Star key={i} size={15} fill={i < 4 ? 'currentColor' : 'none'} />
             ))}
-            <span className="text-xs text-gray-400 ml-2">({reviews.length} Customer Reviews)</span>
+            <span className="text-xs text-content-muted ml-2">({reviews.length} Customer Reviews)</span>
           </div>
         </div>
 
@@ -163,7 +163,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             {formatAUD(product.price)}
           </span>
           {product.compare_at_price && (
-            <span className="text-sm text-gray-400 line-through">
+            <span className="text-sm text-content-muted line-through">
               {formatAUD(product.compare_at_price)}
             </span>
           )}
@@ -182,7 +182,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               <button 
                 onClick={() => handleQuantityChange(quantity - 1)}
                 aria-label="Decrease quantity"
-                className="w-8 h-8 rounded-full flex items-center justify-center text-secondary hover:text-primary transition hover:bg-white cursor-pointer shadow-2xs"
+                className="w-8 h-8 rounded-full flex items-center justify-center text-content-strong hover:text-primary transition hover:bg-white cursor-pointer shadow-2xs"
               >
                 <Minus size={13} />
               </button>
@@ -190,12 +190,12 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 type="number" 
                 value={quantity}
                 onChange={(e) => handleQuantityChange(parseInt(e.target.value) || 1)}
-                className="w-12 text-center text-xs font-semibold text-secondary focus:outline-none bg-transparent"
+                className="w-12 text-center text-xs font-semibold text-content-strong focus:outline-none bg-transparent"
               />
               <button 
                 onClick={() => handleQuantityChange(quantity + 1)}
                 aria-label="Increase quantity"
-                className="w-8 h-8 rounded-full flex items-center justify-center text-secondary hover:text-primary transition hover:bg-white cursor-pointer shadow-2xs"
+                className="w-8 h-8 rounded-full flex items-center justify-center text-content-strong hover:text-primary transition hover:bg-white cursor-pointer shadow-2xs"
               >
                 <Plus size={13} />
               </button>
@@ -215,7 +215,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               className={`p-3 rounded-full border transition cursor-pointer ${
                 isWishlisted 
                   ? 'bg-red-500 border-red-500 text-white hover:bg-red-600' 
-                  : 'border-border-theme hover:border-primary text-secondary hover:text-primary'
+                  : 'border-border-theme hover:border-primary text-content-strong hover:text-primary'
               }`}
             >
               <Heart size={16} fill={isWishlisted ? 'currentColor' : 'none'} />
@@ -224,7 +224,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
         </div>
 
         {/* Brand Perks bullet row */}
-        <div className="pt-6 border-t border-border-theme grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-semibold text-secondary">
+        <div className="pt-6 border-t border-border-theme grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-semibold text-content-strong">
           <div className="flex items-center gap-2">
             <Truck size={16} className="text-primary" /> Free local delivery on orders over A$50.00
           </div>
@@ -243,7 +243,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             role="tab"
             aria-selected={activeTab === 'description'}
             className={`py-4 px-6 border-r border-border-theme cursor-pointer transition ${
-              activeTab === 'description' ? 'bg-white text-primary border-b-2 border-b-primary' : 'text-secondary hover:bg-gray-100'
+              activeTab === 'description' ? 'bg-white text-primary border-b-2 border-b-primary' : 'text-content-strong hover:bg-gray-100'
             }`}
           >
             Description
@@ -253,7 +253,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             role="tab"
             aria-selected={activeTab === 'reviews'}
             className={`py-4 px-6 border-r border-border-theme cursor-pointer transition ${
-              activeTab === 'reviews' ? 'bg-white text-primary border-b-2 border-b-primary' : 'text-secondary hover:bg-gray-100'
+              activeTab === 'reviews' ? 'bg-white text-primary border-b-2 border-b-primary' : 'text-content-strong hover:bg-gray-100'
             }`}
           >
             Reviews ({reviews.length})
@@ -263,7 +263,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             role="tab"
             aria-selected={activeTab === 'shipping'}
             className={`py-4 px-6 cursor-pointer transition ${
-              activeTab === 'shipping' ? 'bg-white text-primary border-b-2 border-b-primary' : 'text-secondary hover:bg-gray-100'
+              activeTab === 'shipping' ? 'bg-white text-primary border-b-2 border-b-primary' : 'text-content-strong hover:bg-gray-100'
             }`}
           >
             Shipping Info
@@ -283,7 +283,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
           {/* Tab: Shipping Info */}
           {activeTab === 'shipping' && (
-            <div className="space-y-4 text-secondary">
+            <div className="space-y-4 text-content-strong">
               <h4 className="font-bold text-sm">Shipping Policy</h4>
               <p>We pack and ship out all fresh vegetables daily from our local farms. Typical delivery schedules are as follows:</p>
               <ul className="list-disc pl-5 space-y-1.5 text-gray-500">
@@ -299,12 +299,12 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             <div className="space-y-8">
               <div className="flex flex-col md:flex-row gap-8 justify-between border-b border-border-theme pb-8">
                 <div>
-                  <h4 className="font-bold text-secondary text-sm">Customer Reviews</h4>
+                  <h4 className="font-bold text-content-strong text-sm">Customer Reviews</h4>
                   <div className="flex items-center gap-1 text-yellow-400 mt-2">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} size={15} fill={i < 4 ? 'currentColor' : 'none'} />
                     ))}
-                    <span className="text-xs text-gray-400 ml-2">Based on {reviews.length} reviews</span>
+                    <span className="text-xs text-content-muted ml-2">Based on {reviews.length} reviews</span>
                   </div>
                 </div>
                 
@@ -319,33 +319,33 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
               {/* Add a review form */}
               <form onSubmit={handleReviewSubmit} className="bg-[#f8f9fa] p-5 rounded-xl border border-border-theme space-y-4">
-                <h5 className="font-bold text-secondary text-xs uppercase tracking-wider">Write a review</h5>
+                <h5 className="font-bold text-content-strong text-xs uppercase tracking-wider">Write a review</h5>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="block text-[10px] uppercase font-bold text-gray-400">Display Name</label>
+                    <label className="block text-[10px] uppercase font-bold text-content-muted">Display Name</label>
                     <input 
                       type="text" 
                       placeholder="e.g. John Smith" 
                       value={newReview.name}
                       onChange={(e) => setNewReview(prev => ({ ...prev, name: e.target.value }))}
                       required
-                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-secondary"
+                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-content-strong"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="block text-[10px] uppercase font-bold text-gray-400">Review Title</label>
+                    <label className="block text-[10px] uppercase font-bold text-content-muted">Review Title</label>
                     <input 
                       type="text" 
                       placeholder="e.g. Excellent service" 
                       value={newReview.title}
                       onChange={(e) => setNewReview(prev => ({ ...prev, title: e.target.value }))}
-                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-secondary"
+                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-content-strong"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">Rating</label>
+                  <label className="block text-[10px] uppercase font-bold text-content-muted">Rating</label>
                   <div className="flex gap-1 text-yellow-400">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <button
@@ -361,14 +361,14 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 </div>
 
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">Review Content</label>
+                  <label className="block text-[10px] uppercase font-bold text-content-muted">Review Content</label>
                   <textarea 
                     placeholder="Tell us what you liked or disliked about this product..." 
                     rows={4}
                     value={newReview.comment}
                     onChange={(e) => setNewReview(prev => ({ ...prev, comment: e.target.value }))}
                     required
-                    className="w-full bg-white border border-border-theme rounded-lg py-2.5 px-4 focus:outline-none focus:border-primary text-secondary"
+                    className="w-full bg-white border border-border-theme rounded-lg py-2.5 px-4 focus:outline-none focus:border-primary text-content-strong"
                   />
                 </div>
 
@@ -386,17 +386,17 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                   <div key={rev.id} className="border-b border-border-theme pb-5 space-y-2">
                     <div className="flex justify-between items-center">
                       <div>
-                        <h5 className="font-bold text-secondary text-xs">{rev.name}</h5>
+                        <h5 className="font-bold text-content-strong text-xs">{rev.name}</h5>
                         <div className="flex items-center gap-0.5 text-yellow-400 mt-1">
                           {[...Array(5)].map((_, i) => (
                             <Star key={i} size={11} fill={i < rev.rating ? 'currentColor' : 'none'} />
                           ))}
                         </div>
                       </div>
-                      <span className="text-[10px] text-gray-400 font-semibold">{rev.date}</span>
+                      <span className="text-[10px] text-content-muted font-semibold">{rev.date}</span>
                     </div>
                     <div>
-                      <h6 className="font-semibold text-secondary text-xs">{rev.title}</h6>
+                      <h6 className="font-semibold text-content-strong text-xs">{rev.title}</h6>
                       <p className="text-xs text-gray-500 mt-1">{rev.comment}</p>
                     </div>
                   </div>

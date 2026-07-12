@@ -59,8 +59,8 @@ export default function RegisterPage() {
         
         {/* Header */}
         <div className="text-center space-y-2">
-          <h1 className="text-2xl font-extrabold text-secondary">Create Account</h1>
-          <p className="text-xs text-gray-400">Join Vegist to unlock personalized farm-fresh shopping benefits.</p>
+          <h1 className="text-2xl font-extrabold text-content-strong">Create Account</h1>
+          <p className="text-xs text-content-muted">Join Vegist to unlock personalized farm-fresh shopping benefits.</p>
         </div>
 
         {error && (
@@ -77,7 +77,7 @@ export default function RegisterPage() {
 
         <form onSubmit={handleRegister} className="space-y-4">
           <div className="space-y-1">
-            <label className="block text-[10px] uppercase font-bold text-gray-400">Full Name</label>
+            <label className="block text-[10px] uppercase font-bold text-content-muted">Full Name</label>
             <div className="relative">
               <input 
                 type="text" 
@@ -85,14 +85,14 @@ export default function RegisterPage() {
                 placeholder="John Smith"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="w-full bg-white border border-border-theme rounded-lg py-2.5 pl-10 pr-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                className="w-full bg-white border border-border-theme rounded-lg py-2.5 pl-10 pr-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
               />
-              <User size={14} className="text-gray-400 absolute left-3.5 top-3.5" />
+              <User size={14} className="text-content-muted absolute left-3.5 top-3.5" />
             </div>
           </div>
 
           <div className="space-y-1">
-            <label className="block text-[10px] uppercase font-bold text-gray-400">Email Address</label>
+            <label className="block text-[10px] uppercase font-bold text-content-muted">Email Address</label>
             <div className="relative">
               <input 
                 type="email" 
@@ -100,14 +100,14 @@ export default function RegisterPage() {
                 placeholder="yourname@domain.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-white border border-border-theme rounded-lg py-2.5 pl-10 pr-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                className="w-full bg-white border border-border-theme rounded-lg py-2.5 pl-10 pr-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
               />
-              <Mail size={14} className="text-gray-400 absolute left-3.5 top-3.5" />
+              <Mail size={14} className="text-content-muted absolute left-3.5 top-3.5" />
             </div>
           </div>
 
           <div className="space-y-1">
-            <label className="block text-[10px] uppercase font-bold text-gray-400">Password</label>
+            <label className="block text-[10px] uppercase font-bold text-content-muted">Password</label>
             <div className="relative">
               <input 
                 type="password" 
@@ -115,14 +115,14 @@ export default function RegisterPage() {
                 placeholder="Minimum 6 characters"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-white border border-border-theme rounded-lg py-2.5 pl-10 pr-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                className="w-full bg-white border border-border-theme rounded-lg py-2.5 pl-10 pr-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
               />
-              <Lock size={14} className="text-gray-400 absolute left-3.5 top-3.5" />
+              <Lock size={14} className="text-content-muted absolute left-3.5 top-3.5" />
             </div>
           </div>
 
           <div className="space-y-1">
-            <label className="block text-[10px] uppercase font-bold text-gray-400">Confirm Password</label>
+            <label className="block text-[10px] uppercase font-bold text-content-muted">Confirm Password</label>
             <div className="relative">
               <input 
                 type="password" 
@@ -130,9 +130,9 @@ export default function RegisterPage() {
                 placeholder="Confirm password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full bg-white border border-border-theme rounded-lg py-2.5 pl-10 pr-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                className="w-full bg-white border border-border-theme rounded-lg py-2.5 pl-10 pr-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
               />
-              <Lock size={14} className="text-gray-400 absolute left-3.5 top-3.5" />
+              <Lock size={14} className="text-content-muted absolute left-3.5 top-3.5" />
             </div>
           </div>
 
@@ -145,7 +145,7 @@ export default function RegisterPage() {
           </button>
         </form>
 
-        <div className="text-center pt-2 text-xs font-semibold text-gray-400">
+        <div className="text-center pt-2 text-xs font-semibold text-content-muted">
           Already have an account?{' '}
           <Link href="/account/login" className="text-primary hover:underline">
             Log In Here

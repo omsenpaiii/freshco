@@ -39,8 +39,8 @@ export default function LoginPage() {
         
         {/* Header */}
         <div className="text-center space-y-2">
-          <h1 className="text-2xl font-extrabold text-secondary">Welcome Back</h1>
-          <p className="text-xs text-gray-400">Log in to manage your orders, cart, and address details.</p>
+          <h1 className="text-2xl font-extrabold text-content-strong">Welcome Back</h1>
+          <p className="text-xs text-content-muted">Log in to manage your orders, cart, and address details.</p>
         </div>
 
         {error && (
@@ -51,7 +51,7 @@ export default function LoginPage() {
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div className="space-y-1">
-            <label className="block text-[10px] uppercase font-bold text-gray-400">Email Address</label>
+            <label className="block text-[10px] uppercase font-bold text-content-muted">Email Address</label>
             <div className="relative">
               <input 
                 type="email" 
@@ -59,14 +59,14 @@ export default function LoginPage() {
                 placeholder="yourname@domain.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-white border border-border-theme rounded-lg py-2.5 pl-10 pr-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                className="w-full bg-white border border-border-theme rounded-lg py-2.5 pl-10 pr-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
               />
-              <Mail size={14} className="text-gray-400 absolute left-3.5 top-3.5" />
+              <Mail size={14} className="text-content-muted absolute left-3.5 top-3.5" />
             </div>
           </div>
 
           <div className="space-y-1">
-            <label className="block text-[10px] uppercase font-bold text-gray-400">Password</label>
+            <label className="block text-[10px] uppercase font-bold text-content-muted">Password</label>
             <div className="relative">
               <input 
                 type="password" 
@@ -74,9 +74,9 @@ export default function LoginPage() {
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-white border border-border-theme rounded-lg py-2.5 pl-10 pr-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                className="w-full bg-white border border-border-theme rounded-lg py-2.5 pl-10 pr-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
               />
-              <Lock size={14} className="text-gray-400 absolute left-3.5 top-3.5" />
+              <Lock size={14} className="text-content-muted absolute left-3.5 top-3.5" />
             </div>
           </div>
 
@@ -89,7 +89,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <div className="text-center pt-2 text-xs font-semibold text-gray-400">
+        <div className="text-center pt-2 text-xs font-semibold text-content-muted">
           New to Vegist?{' '}
           <Link href="/account/register" className="text-primary hover:underline">
             Register an Account

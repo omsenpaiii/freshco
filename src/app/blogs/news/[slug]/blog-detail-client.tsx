@@ -73,7 +73,7 @@ export default function BlogDetailClient({ post, initialComments }: BlogDetailCl
       <div>
         <Link 
           href="/blogs/news"
-          className="text-xs font-bold text-gray-400 hover:text-primary transition flex items-center gap-1 w-fit"
+          className="text-xs font-bold text-content-muted hover:text-primary transition flex items-center gap-1 w-fit"
         >
           <ArrowLeft size={14} /> Back to Blogs
         </Link>
@@ -81,10 +81,10 @@ export default function BlogDetailClient({ post, initialComments }: BlogDetailCl
 
       {/* Main Title & Metadata */}
       <div className="space-y-4">
-        <h1 className="text-2xl md:text-4xl font-extrabold text-secondary leading-tight">
+        <h1 className="text-2xl md:text-4xl font-extrabold text-content-strong leading-tight">
           {post.title}
         </h1>
-        <div className="flex items-center gap-4 text-xs text-gray-400 font-semibold border-b border-border-theme pb-4">
+        <div className="flex items-center gap-4 text-xs text-content-muted font-semibold border-b border-border-theme pb-4">
           <span className="flex items-center gap-1.5"><User size={14} /> {post.author}</span>
           <span className="flex items-center gap-1.5">
             <Calendar size={14} /> 
@@ -107,7 +107,7 @@ export default function BlogDetailClient({ post, initialComments }: BlogDetailCl
 
       {/* Article Body Content */}
       <div className="text-sm text-gray-500 leading-relaxed space-y-4 py-4">
-        <p className="font-semibold text-secondary text-base">
+        <p className="font-semibold text-content-strong text-base">
           Fresh, certified organic elements from our farm direct to your table.
         </p>
         <p>
@@ -116,7 +116,7 @@ export default function BlogDetailClient({ post, initialComments }: BlogDetailCl
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac leo ac ante convallis pretium. Mauris finibus diam metus, sit amet fringilla enim luctus nec. Vestibulum viverra dictum metus, in facilisis arcu eleifend facilisis. Duis porta lectus at dui ultrices vulputate. Morbi in urna nisl. Integer interdum finibus dictum. Aliquam id massa sed nibh rhoncus hendrerit.
         </p>
-        <blockquote className="border-l-4 border-primary pl-4 py-2 my-6 bg-gray-50 text-secondary italic rounded-r-lg font-medium text-xs">
+        <blockquote className="border-l-4 border-primary pl-4 py-2 my-6 bg-gray-50 text-content-strong italic rounded-r-lg font-medium text-xs">
           "Eating organic produce is not just a diet choice; it's a pledge to support sustainable farming and care for your long-term physical wellness."
         </blockquote>
         <p>
@@ -126,20 +126,20 @@ export default function BlogDetailClient({ post, initialComments }: BlogDetailCl
 
       {/* Comments Section */}
       <div className="pt-10 border-t border-border-theme space-y-8">
-        <h3 className="text-lg font-bold text-secondary uppercase tracking-wider">
+        <h3 className="text-lg font-bold text-content-strong uppercase tracking-wider">
           Comments ({comments.length})
         </h3>
 
         {/* Comment list */}
         <div className="space-y-6">
           {comments.length === 0 ? (
-            <p className="text-xs text-gray-400 italic">No comments yet. Be the first to share your thoughts!</p>
+            <p className="text-xs text-content-muted italic">No comments yet. Be the first to share your thoughts!</p>
           ) : (
             comments.map((comm) => (
               <div key={comm.id} className="bg-[#f8f9fa] border border-border-theme p-5 rounded-2xl space-y-2">
-                <div className="flex justify-between items-center text-xs text-secondary font-bold">
+                <div className="flex justify-between items-center text-xs text-content-strong font-bold">
                   <span className="flex items-center gap-1.5"><User size={13} className="text-primary" /> {comm.author_name}</span>
-                  <span className="text-[10px] text-gray-400">{new Date(comm.created_at).toLocaleDateString('en-US')}</span>
+                  <span className="text-[10px] text-content-muted">{new Date(comm.created_at).toLocaleDateString('en-US')}</span>
                 </div>
                 <p className="text-xs text-gray-500 leading-relaxed font-semibold">
                   {comm.content}
@@ -151,7 +151,7 @@ export default function BlogDetailClient({ post, initialComments }: BlogDetailCl
 
         {/* Submit Comment Form */}
         <form onSubmit={handleSubmit} className="border border-border-theme rounded-2xl p-6 space-y-4 bg-white shadow-2xs">
-          <h4 className="font-bold text-secondary text-xs uppercase tracking-wider">Leave a Comment</h4>
+          <h4 className="font-bold text-content-strong text-xs uppercase tracking-wider">Leave a Comment</h4>
           
           {isSuccess && (
             <div className="text-green-600 bg-green-50 border border-green-100 p-3 rounded-lg text-xs font-semibold">
@@ -161,38 +161,38 @@ export default function BlogDetailClient({ post, initialComments }: BlogDetailCl
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="block text-[10px] uppercase font-bold text-gray-400">Name</label>
+              <label className="block text-[10px] uppercase font-bold text-content-muted">Name</label>
               <input 
                 type="text" 
                 name="name" 
                 required 
                 value={form.name}
                 onChange={handleChange}
-                className="w-full bg-white border border-border-theme rounded-lg py-2.5 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                className="w-full bg-white border border-border-theme rounded-lg py-2.5 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
               />
             </div>
             <div className="space-y-1">
-              <label className="block text-[10px] uppercase font-bold text-gray-400">Email</label>
+              <label className="block text-[10px] uppercase font-bold text-content-muted">Email</label>
               <input 
                 type="email" 
                 name="email" 
                 required 
                 value={form.email}
                 onChange={handleChange}
-                className="w-full bg-white border border-border-theme rounded-lg py-2.5 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+                className="w-full bg-white border border-border-theme rounded-lg py-2.5 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
               />
             </div>
           </div>
 
           <div className="space-y-1">
-            <label className="block text-[10px] uppercase font-bold text-gray-400">Comment</label>
+            <label className="block text-[10px] uppercase font-bold text-content-muted">Comment</label>
             <textarea 
               name="comment" 
               required 
               rows={4}
               value={form.comment}
               onChange={handleChange}
-              className="w-full bg-white border border-border-theme rounded-lg py-2.5 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
+              className="w-full bg-white border border-border-theme rounded-lg py-2.5 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-content-strong"
             />
           </div>
 

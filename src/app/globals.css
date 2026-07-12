@@ -35,6 +35,8 @@
   --color-primary: var(--fresh-blue);
   --color-secondary: var(--fresh-ink);
   --color-body: #65708a;
+  --content-strong: #17213a;
+  --content-muted: #59657f;
   --color-border-theme: var(--border);
   --shadow-soft: 0 16px 50px -30px rgba(23, 33, 58, 0.28);
   --shadow-card: 0 20px 55px -36px rgba(41, 101, 241, 0.38);
@@ -62,6 +64,8 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-body: var(--color-body);
+  --color-content-strong: var(--content-strong);
+  --color-content-muted: var(--content-muted);
   --color-border-theme: var(--color-border-theme);
   --color-brand-red: var(--fresh-red);
   --color-brand-blue: var(--fresh-blue);

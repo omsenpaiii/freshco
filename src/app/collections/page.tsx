@@ -31,10 +31,10 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
       <div className="site-container">
         
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 font-medium">
+        <div className="flex items-center gap-1.5 text-xs text-content-muted mb-6 font-medium">
           <Link href="/" className="hover:text-primary transition">Home</Link>
           <ChevronRight size={12} />
-          <span className="text-secondary font-semibold">Shop All Products</span>
+          <span className="text-content-strong font-semibold">Shop All Products</span>
         </div>
 
         {/* Collection banner spotlight */}
@@ -55,18 +55,18 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
           {/* Left Sidebar (Filters & Categories) */}
           <div className="space-y-8 md:col-span-1">
             <div className="sticky top-44 space-y-6 rounded-3xl border border-border bg-white p-6 text-left shadow-[0_20px_60px_-45px_rgba(23,33,58,.5)]">
-              <div className="flex items-center gap-2 text-secondary font-bold text-sm border-b border-border-theme pb-3 uppercase tracking-wider">
+              <div className="flex items-center gap-2 text-content-strong font-bold text-sm border-b border-border-theme pb-3 uppercase tracking-wider">
                 <Filter size={16} /> Shop Collections
               </div>
-              <ul className="flex flex-col gap-2.5 text-xs font-semibold text-secondary">
+              <ul className="flex flex-col gap-2.5 text-xs font-semibold text-content-strong">
                 {categories.map((cat) => (
                   <li key={cat.id}>
                     <Link 
                       href={`/collections/${cat.slug}`}
-                      className="hover:text-primary transition flex items-center justify-between text-secondary"
+                      className="hover:text-primary transition flex items-center justify-between text-content-strong"
                     >
                       <span>{cat.name}</span>
-                      <span className="text-[10px] bg-white border border-gray-150 px-2 py-0.5 rounded-full text-gray-400">
+                      <span className="text-[10px] bg-white border border-gray-150 px-2 py-0.5 rounded-full text-content-muted">
                         {cat.products_count}
                       </span>
                     </Link>
@@ -83,7 +83,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
             <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-border bg-white p-4 text-xs font-semibold text-brand-ink shadow-sm sm:flex-row">
               <div>
                 Showing {products.length} Products
-                {search && <span className="ml-1 text-gray-400">matching “{search}”</span>}
+                {search && <span className="ml-1 text-content-muted">matching “{search}”</span>}
               </div>
               <CollectionSort value={sortBy} />
             </div>
@@ -91,8 +91,8 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
             {/* Products Grid */}
             {products.length === 0 ? (
               <div className="h-64 flex flex-col items-center justify-center text-center gap-3 text-body border border-dashed border-border-theme rounded-2xl bg-gray-50">
-                <h3 className="font-bold text-secondary text-base">No Products Found</h3>
-                <p className="text-xs text-gray-400">We couldn’t find any products matching your selection.</p>
+                <h3 className="font-bold text-content-strong text-base">No Products Found</h3>
+                <p className="text-xs text-content-muted">We couldn’t find any products matching your selection.</p>
                 <Link 
                   href="/collections"
                   className="bg-primary hover:bg-[#d89311] text-white text-xs font-bold py-2.5 px-6 rounded-full mt-2 transition"
