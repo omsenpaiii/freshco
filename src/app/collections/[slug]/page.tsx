@@ -33,8 +33,8 @@ export default async function CollectionPage({ params, searchParams }: Collectio
   })
 
   return (
-    <div className="w-full bg-white px-4 md:px-8 py-10">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-brand-cloud py-10 md:py-14">
+      <div className="site-container">
         
         {/* Breadcrumbs */}
         <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 font-medium">
@@ -51,7 +51,7 @@ export default async function CollectionPage({ params, searchParams }: Collectio
 
         {/* Collection banner spotlight */}
         {currentCategory && (
-          <div className="relative w-full h-[150px] md:h-[220px] rounded-2xl overflow-hidden mb-10 border border-gray-100 shadow-2xs">
+          <div className="relative mb-10 h-[220px] w-full overflow-hidden rounded-3xl border-8 border-white shadow-2xl md:h-[300px]">
             <Image 
               src={currentCategory.image_url || 'https://images.unsplash.com/photo-1610348725531-843dff163e2c?q=80&w=1200'} 
               alt={currentCategory.name}
@@ -72,7 +72,7 @@ export default async function CollectionPage({ params, searchParams }: Collectio
           
           {/* Left Sidebar (Filters & Categories) */}
           <div className="space-y-8 md:col-span-1">
-            <div className="border border-border-theme rounded-xl p-5 bg-[#f8f9fa] space-y-6 text-left">
+            <div className="sticky top-44 space-y-6 rounded-3xl border border-border bg-white p-6 text-left shadow-[0_20px_60px_-45px_rgba(23,33,58,.5)]">
               <div className="flex items-center gap-2 text-secondary font-bold text-sm border-b border-border-theme pb-3 uppercase tracking-wider">
                 <Filter size={16} /> Categories
               </div>
@@ -100,10 +100,10 @@ export default async function CollectionPage({ params, searchParams }: Collectio
           <div className="md:col-span-3 space-y-6">
             
             {/* Header Control Row */}
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-gray-50 border border-border-theme rounded-xl p-4 text-xs font-semibold text-secondary">
+            <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-border bg-white p-4 text-xs font-semibold text-brand-ink shadow-sm sm:flex-row">
               <div>
                 Showing {products.length} Products
-                {search && <span className="text-gray-400 ml-1">matching "{search}"</span>}
+                {search && <span className="ml-1 text-gray-400">matching “{search}”</span>}
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-gray-400">Sort By:</span>
@@ -133,7 +133,7 @@ export default async function CollectionPage({ params, searchParams }: Collectio
             {products.length === 0 ? (
               <div className="h-64 flex flex-col items-center justify-center text-center gap-3 text-body border border-dashed border-border-theme rounded-2xl bg-gray-50">
                 <h3 className="font-bold text-secondary text-base">No Products Found</h3>
-                <p className="text-xs text-gray-400">We couldn't find any products matching your selection.</p>
+                <p className="text-xs text-gray-400">We couldn’t find any products matching your selection.</p>
                 <Link 
                   href="/collections"
                   className="bg-primary hover:bg-[#d89311] text-white text-xs font-bold py-2.5 px-6 rounded-full mt-2 transition"
@@ -142,7 +142,7 @@ export default async function CollectionPage({ params, searchParams }: Collectio
                 </Link>
               </div>
             ) : (
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-6">
                 {products.map((prod) => (
                   <ProductCard 
                     key={prod.id}

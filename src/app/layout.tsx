@@ -4,10 +4,14 @@ import { StoreProvider } from "@/context/store-context";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import CartDrawer from "@/components/cart/cart-drawer";
+import { Bricolage_Grotesque, Manrope } from "next/font/google";
+
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
+const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bricolage", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Vegist - Fresh Food and Organic Grocery Store",
-  description: "Shopify theme suitable for vegetable stores, organic food, supermarkets, grocery stores. High-fidelity Next.js and Supabase clone.",
+  title: "FreshCo Deli — Fresh Food, Delivered Bright",
+  description: "Shop fresh produce, bakery favourites, pantry staples and organic groceries from FreshCo Deli.",
 };
 
 export default function RootLayout({
@@ -16,11 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full scroll-smooth">
-      <body className="min-h-full flex flex-col font-sans selection:bg-primary selection:text-white">
+    <html lang="en" className={`${manrope.variable} ${bricolage.variable} h-full scroll-smooth`}>
+      <body className="min-h-full flex flex-col font-sans">
+        <a href="#main-content" className="sr-only fixed left-4 top-4 z-[100] rounded-full bg-primary px-5 py-3 font-bold text-white focus:not-sr-only">Skip to main content</a>
         <StoreProvider>
           <Header />
-          <main className="flex-grow">
+          <main id="main-content" className="flex-grow">
             {children}
           </main>
           <Footer />
@@ -30,4 +35,3 @@ export default function RootLayout({
     </html>
   );
 }
-

@@ -26,8 +26,8 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
   })
 
   return (
-    <div className="w-full bg-white px-4 md:px-8 py-10">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-brand-cloud py-10 md:py-14">
+      <div className="site-container">
         
         {/* Breadcrumbs */}
         <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 font-medium">
@@ -37,11 +37,13 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
         </div>
 
         {/* Collection banner spotlight */}
-        <div className="relative w-full h-[150px] md:h-[200px] rounded-2xl overflow-hidden mb-10 border border-gray-150 bg-gray-50 flex items-center justify-center p-8 text-center">
-          <div className="space-y-2">
-            <h1 className="text-2xl md:text-4xl font-extrabold text-secondary">Organic Grocery Marketplace</h1>
-            <p className="text-xs md:text-sm text-gray-400 max-w-xl mx-auto">
-              Shop over 70 unique fresh organic foods, bakery bagels, custom dairy products, and imported wines.
+        <div className="relative mb-10 flex min-h-[220px] w-full items-center overflow-hidden rounded-3xl bg-brand-ink p-8 text-left shadow-2xl md:p-12">
+          <div className="absolute -right-12 -top-24 size-64 rounded-full bg-primary/45 blur-3xl" />
+          <div className="relative max-w-2xl">
+            <span className="red-stamp">The whole market</span>
+            <h1 className="mt-4 text-4xl font-bold text-white md:text-6xl">Good food starts here.</h1>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-white/65 md:text-base">
+              Shop colourful produce, bakery favourites, pantry staples and delightful extras—all picked with FreshCo care.
             </p>
           </div>
         </div>
@@ -51,7 +53,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
           
           {/* Left Sidebar (Filters & Categories) */}
           <div className="space-y-8 md:col-span-1">
-            <div className="border border-border-theme rounded-xl p-5 bg-[#f8f9fa] space-y-6 text-left">
+            <div className="sticky top-44 space-y-6 rounded-3xl border border-border bg-white p-6 text-left shadow-[0_20px_60px_-45px_rgba(23,33,58,.5)]">
               <div className="flex items-center gap-2 text-secondary font-bold text-sm border-b border-border-theme pb-3 uppercase tracking-wider">
                 <Filter size={16} /> Shop Collections
               </div>
@@ -77,10 +79,10 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
           <div className="md:col-span-3 space-y-6">
             
             {/* Header Control Row */}
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-gray-50 border border-border-theme rounded-xl p-4 text-xs font-semibold text-secondary">
+            <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-border bg-white p-4 text-xs font-semibold text-brand-ink shadow-sm sm:flex-row">
               <div>
                 Showing {products.length} Products
-                {search && <span className="text-gray-400 ml-1">matching "{search}"</span>}
+                {search && <span className="ml-1 text-gray-400">matching “{search}”</span>}
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-gray-400">Sort By:</span>
@@ -110,7 +112,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
             {products.length === 0 ? (
               <div className="h-64 flex flex-col items-center justify-center text-center gap-3 text-body border border-dashed border-border-theme rounded-2xl bg-gray-50">
                 <h3 className="font-bold text-secondary text-base">No Products Found</h3>
-                <p className="text-xs text-gray-400">We couldn't find any products matching your selection.</p>
+                <p className="text-xs text-gray-400">We couldn’t find any products matching your selection.</p>
                 <Link 
                   href="/collections"
                   className="bg-primary hover:bg-[#d89311] text-white text-xs font-bold py-2.5 px-6 rounded-full mt-2 transition"
@@ -119,7 +121,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
                 </Link>
               </div>
             ) : (
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-6">
                 {products.map((prod) => (
                   <ProductCard 
                     key={prod.id}

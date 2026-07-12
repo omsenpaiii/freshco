@@ -20,6 +20,15 @@ interface ProductDetailClientProps {
   }
 }
 
+interface Review {
+  id: number
+  name: string
+  rating: number
+  title: string
+  comment: string
+  date: string
+}
+
 export default function ProductDetailClient({ product }: ProductDetailClientProps) {
   const { addToCart, toggleWishlist, isInWishlist } = useStore()
   const isWishlisted = isInWishlist(product.id)
@@ -29,9 +38,10 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
   )
   const [quantity, setQuantity] = useState(1)
   const [activeTab, setActiveTab] = useState<'description' | 'reviews' | 'shipping'>('description')
+  const shortDescription = product.description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220)
 
   // Review Form & List Local State
-  const [reviews, setReviews] = useState<any[]>([
+  const [reviews, setReviews] = useState<Review[]>([
     {
       id: 1,
       name: "John S.",
@@ -85,18 +95,19 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
+    <div className="grid grid-cols-1 gap-10 rounded-3xl border border-border bg-white p-5 text-left shadow-[0_28px_80px_-55px_rgba(23,33,58,.6)] md:grid-cols-2 md:p-9">
       
       {/* 1. Left Gallery Column */}
       <div className="space-y-4">
         {/* Main Image Spotlight */}
-        <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-gray-50 border border-border-theme">
+        <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-brand-cloud ring-1 ring-border">
           <Image 
             src={activeImage}
             alt={product.name}
             fill
             className="object-cover transition-all duration-300"
             priority
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
 
@@ -107,6 +118,8 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               <button
                 key={idx}
                 onClick={() => setActiveImage(img)}
+                aria-label={`View ${product.name} image ${idx + 1}`}
+                aria-pressed={activeImage === img}
                 className={`relative w-20 h-20 bg-gray-50 border rounded-xl overflow-hidden flex-shrink-0 cursor-pointer transition ${
                   activeImage === img ? 'border-primary ring-2 ring-primary/20' : 'border-border-theme hover:border-primary'
                 }`}
@@ -116,6 +129,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                   alt={`${product.name} Thumbnail ${idx + 1}`}
                   fill
                   className="object-cover"
+                  sizes="80px"
                 />
               </button>
             ))}
@@ -129,7 +143,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           <span className="text-xs uppercase font-extrabold tracking-widest text-primary block mb-1.5">
             {product.categories?.name || 'Organic'}
           </span>
-          <h1 className="text-2xl md:text-3xl font-extrabold text-secondary leading-tight">
+          <h1 className="text-4xl font-bold leading-[1.05] text-brand-ink md:text-5xl">
             {product.name}
           </h1>
           
@@ -158,10 +172,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
         </div>
 
         {/* Short description */}
-        <p 
-          className="text-xs text-gray-500 leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: product.description.substring(0, 200) + (product.description.length > 200 ? '...' : '') }}
-        />
+        <p className="text-sm leading-7 text-muted-foreground">{shortDescription}{shortDescription.length >= 220 ? '…' : ''}</p>
 
         {/* Quantity and Actions Row */}
         <div className="space-y-4">
@@ -169,6 +180,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             <div className="flex items-center border border-border-theme rounded-full bg-gray-50 p-1">
               <button 
                 onClick={() => handleQuantityChange(quantity - 1)}
+                aria-label="Decrease quantity"
                 className="w-8 h-8 rounded-full flex items-center justify-center text-secondary hover:text-primary transition hover:bg-white cursor-pointer shadow-2xs"
               >
                 <Minus size={13} />
@@ -181,6 +193,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               />
               <button 
                 onClick={() => handleQuantityChange(quantity + 1)}
+                aria-label="Increase quantity"
                 className="w-8 h-8 rounded-full flex items-center justify-center text-secondary hover:text-primary transition hover:bg-white cursor-pointer shadow-2xs"
               >
                 <Plus size={13} />
@@ -196,6 +209,8 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
             <button 
               onClick={() => toggleWishlist(product.id)}
+              aria-label={isWishlisted ? `Remove ${product.name} from wishlist` : `Add ${product.name} to wishlist`}
+              aria-pressed={isWishlisted}
               className={`p-3 rounded-full border transition cursor-pointer ${
                 isWishlisted 
                   ? 'bg-red-500 border-red-500 text-white hover:bg-red-600' 
@@ -219,11 +234,13 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
       </div>
 
       {/* 3. Below the fold Tabs panel */}
-      <div className="md:col-span-2 mt-12 border border-border-theme rounded-2xl overflow-hidden bg-white shadow-2xs">
+      <div className="mt-12 overflow-hidden rounded-3xl border border-border bg-white md:col-span-2">
         {/* Tab Headers */}
         <div className="flex border-b border-border-theme bg-[#f8f9fa] text-xs font-bold uppercase tracking-wider">
           <button 
             onClick={() => setActiveTab('description')}
+            role="tab"
+            aria-selected={activeTab === 'description'}
             className={`py-4 px-6 border-r border-border-theme cursor-pointer transition ${
               activeTab === 'description' ? 'bg-white text-primary border-b-2 border-b-primary' : 'text-secondary hover:bg-gray-100'
             }`}
@@ -232,6 +249,8 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           </button>
           <button 
             onClick={() => setActiveTab('reviews')}
+            role="tab"
+            aria-selected={activeTab === 'reviews'}
             className={`py-4 px-6 border-r border-border-theme cursor-pointer transition ${
               activeTab === 'reviews' ? 'bg-white text-primary border-b-2 border-b-primary' : 'text-secondary hover:bg-gray-100'
             }`}
@@ -240,6 +259,8 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           </button>
           <button 
             onClick={() => setActiveTab('shipping')}
+            role="tab"
+            aria-selected={activeTab === 'shipping'}
             className={`py-4 px-6 cursor-pointer transition ${
               activeTab === 'shipping' ? 'bg-white text-primary border-b-2 border-b-primary' : 'text-secondary hover:bg-gray-100'
             }`}

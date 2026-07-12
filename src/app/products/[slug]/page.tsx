@@ -37,8 +37,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const filteredRelated = relatedProducts.filter(p => p.id !== product.id).slice(0, 4)
 
   return (
-    <div className="w-full bg-white px-4 md:px-8 py-10">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-brand-cloud py-10 md:py-14">
+      <div className="site-container">
         
         {/* Breadcrumbs */}
         <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-8 font-medium">
@@ -62,9 +62,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         {/* Related Products Recommendations */}
         {filteredRelated.length > 0 && (
-          <section className="mt-16 pt-16 border-t border-border-theme text-left">
-            <h3 className="text-lg font-bold text-secondary mb-8 uppercase tracking-wider">
-              Related Products
+          <section className="mt-20 border-t border-border pt-16 text-left">
+            <span className="eyebrow">More from the market</span>
+            <h3 className="mb-8 mt-2 text-3xl font-bold text-brand-ink">
+              You might also love
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {filteredRelated.map((prod) => (

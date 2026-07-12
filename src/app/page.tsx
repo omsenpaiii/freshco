@@ -5,7 +5,8 @@ import { getCategories, getProducts, getBlogPosts } from '@/lib/db'
 import ProductCard from '@/components/ui/product-card'
 import HomeHeroClient from './home-hero-client'
 import DealOfTheDayClient from './deal-of-the-day-client'
-import { ArrowRight, Leaf, ShieldCheck, Heart, Truck, Sparkles } from 'lucide-react'
+import SectionReveal from '@/components/ui/section-reveal'
+import { ArrowRight, Leaf, ShieldCheck, Truck, Sparkles } from 'lucide-react'
 
 // Force Next.js to render page dynamically so it grabs latest products/DB state
 export const revalidate = 0
@@ -28,9 +29,9 @@ export default async function Home() {
       <HomeHeroClient />
 
       {/* 2. Features Badges Row */}
-      <section className="w-full bg-[#f8f9fa] border-b border-border-theme py-8 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="flex items-center gap-4 bg-white p-5 rounded-xl border border-gray-100 shadow-2xs hover:shadow-sm transition">
+      <section className="border-b border-border bg-brand-cloud py-7">
+        <SectionReveal className="site-container grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
             <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
               <Truck size={24} />
             </div>
@@ -39,7 +40,7 @@ export default async function Home() {
               <p className="text-xs text-gray-400 mt-0.5">On all orders over €50.00</p>
             </div>
           </div>
-          <div className="flex items-center gap-4 bg-white p-5 rounded-xl border border-gray-100 shadow-2xs hover:shadow-sm transition">
+          <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
             <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
               <Leaf size={24} />
             </div>
@@ -48,7 +49,7 @@ export default async function Home() {
               <p className="text-xs text-gray-400 mt-0.5">Direct from local farms</p>
             </div>
           </div>
-          <div className="flex items-center gap-4 bg-white p-5 rounded-xl border border-gray-100 shadow-2xs hover:shadow-sm transition">
+          <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
             <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
               <ShieldCheck size={24} />
             </div>
@@ -57,7 +58,7 @@ export default async function Home() {
               <p className="text-xs text-gray-400 mt-0.5">100% SSL protected checkout</p>
             </div>
           </div>
-          <div className="flex items-center gap-4 bg-white p-5 rounded-xl border border-gray-100 shadow-2xs hover:shadow-sm transition">
+          <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
             <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
               <Sparkles size={24} />
             </div>
@@ -66,31 +67,33 @@ export default async function Home() {
               <p className="text-xs text-gray-400 mt-0.5">Up to 40% off on fresh veggies</p>
             </div>
           </div>
-        </div>
+        </SectionReveal>
       </section>
 
       {/* 3. Shop By Category */}
-      <section className="w-full px-4 md:px-8 py-16 bg-white">
-        <div className="max-w-6xl mx-auto text-center space-y-2 mb-10">
+      <section className="section-shell bg-white">
+        <SectionReveal className="site-container">
+        <div className="mx-auto mb-12 max-w-2xl text-center">
           <span className="text-xs uppercase font-bold tracking-widest text-primary">Discover Freshness</span>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-secondary">Shop By Category</h2>
-          <div className="w-12 h-1 bg-primary mx-auto rounded-full mt-2" />
+          <h2 className="section-title">A colourful aisle for every craving.</h2>
+          <p className="section-copy mx-auto">From daily staples to something special, start with the part of the market you love most.</p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4 justify-center">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
           {featuredCategories.map((cat) => {
             const catImage = cat.image_url || 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=150'
             return (
               <Link 
                 key={cat.id} 
                 href={`/collections/${cat.slug}`}
-                className="group flex flex-col items-center text-center gap-3 p-3 rounded-2xl hover:bg-gray-50 border border-transparent hover:border-gray-100 transition duration-300"
+                className="group flex flex-col items-center gap-3 rounded-2xl border border-transparent p-3 text-center transition duration-300 hover:border-border hover:bg-brand-cloud"
               >
-                <div className="relative w-18 h-18 rounded-full overflow-hidden bg-gray-50 border border-gray-100 shadow-2xs group-hover:shadow-md transition duration-300">
+                <div className="relative size-20 overflow-hidden rounded-[1.6rem] border-4 border-white bg-brand-cloud shadow-lg transition duration-300 group-hover:-rotate-2 group-hover:shadow-xl">
                   <Image 
                     src={catImage} 
                     alt={cat.name}
                     fill
+                    sizes="(max-width: 640px) 40vw, (max-width: 1024px) 22vw, 12vw"
                     className="object-cover group-hover:scale-108 transition duration-500"
                   />
                 </div>
@@ -100,20 +103,21 @@ export default async function Home() {
               </Link>
             )
           })}
-        </div>
+        </div></SectionReveal>
       </section>
 
       {/* 4. Banner Promo Section */}
-      <section className="w-full px-4 md:px-8 py-4 bg-white">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="relative h-[200px] md:h-[250px] rounded-2xl overflow-hidden shadow-xs group cursor-pointer border border-gray-100">
+      <section className="bg-white pb-20">
+        <SectionReveal className="site-container grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="group relative h-[260px] overflow-hidden rounded-3xl border border-border shadow-xl">
             <Image 
-              src="https://images.unsplash.com/photo-1610348725531-843dff163e2c?q=80&w=800&auto=format&fit=crop" 
+              src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1000&auto=format&fit=crop"
               alt="Promo Banner 1"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover group-hover:scale-103 transition duration-700"
             />
-            <div className="absolute inset-0 bg-black/20 flex flex-col justify-center items-start p-8 md:p-10">
+            <div className="absolute inset-0 flex flex-col items-start justify-center bg-gradient-to-r from-brand-ink/85 to-transparent p-8 md:p-10">
               <span className="text-xs uppercase font-extrabold tracking-wider text-primary bg-white/95 px-3 py-1 rounded-full shadow-2xs">Best Offer</span>
               <h3 className="text-xl md:text-2xl font-bold text-white mt-3 leading-tight max-w-[200px]">Fresh Fruits & Vegetables</h3>
               <p className="text-xs text-white/90 mt-1.5 font-medium">Get €10.00 Off on orders above €80.00</p>
@@ -123,14 +127,15 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="relative h-[200px] md:h-[250px] rounded-2xl overflow-hidden shadow-xs group cursor-pointer border border-gray-100">
+          <div className="group relative h-[260px] overflow-hidden rounded-3xl border border-border shadow-xl">
             <Image 
               src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop" 
               alt="Promo Banner 2"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover group-hover:scale-103 transition duration-700"
             />
-            <div className="absolute inset-0 bg-black/20 flex flex-col justify-center items-start p-8 md:p-10">
+            <div className="absolute inset-0 flex flex-col items-start justify-center bg-gradient-to-r from-brand-ink/85 to-transparent p-8 md:p-10">
               <span className="text-xs uppercase font-extrabold tracking-wider text-primary bg-white/95 px-3 py-1 rounded-full shadow-2xs">100% Fresh</span>
               <h3 className="text-xl md:text-2xl font-bold text-white mt-3 leading-tight max-w-[200px]">Healthy Organic Wines</h3>
               <p className="text-xs text-white/90 mt-1.5 font-medium">Naturally brewed wines from premium vineyards</p>
@@ -139,11 +144,11 @@ export default async function Home() {
               </Link>
             </div>
           </div>
-        </div>
+        </SectionReveal>
       </section>
 
       {/* 5. Trending Products Grid */}
-      <section className="w-full px-4 md:px-8 py-16 bg-white">
+      <section className="section-shell bg-brand-cloud">
         <div className="max-w-6xl mx-auto flex items-end justify-between border-b border-border-theme pb-4 mb-8">
           <div>
             <span className="text-xs uppercase font-bold tracking-widest text-primary">Top Choice</span>
@@ -154,7 +159,7 @@ export default async function Home() {
           </Link>
         </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 md:grid-cols-4 md:gap-6">
           {trendingProducts.slice(0, 4).map((prod) => (
             <ProductCard 
               key={prod.id}
@@ -176,7 +181,7 @@ export default async function Home() {
       )}
 
       {/* 7. Featured Products Tabbed Section */}
-      <section className="w-full px-4 md:px-8 py-16 bg-white">
+      <section className="section-shell bg-white">
         <div className="max-w-6xl mx-auto text-center space-y-2 mb-10">
           <span className="text-xs uppercase font-bold tracking-widest text-primary">Our Selection</span>
           <h2 className="text-2xl md:text-3xl font-extrabold text-secondary">Our Fresh Products</h2>
@@ -200,7 +205,7 @@ export default async function Home() {
       </section>
 
       {/* 8. Testimonials Section */}
-      <section className="w-full px-4 md:px-8 py-16 bg-[#f8f9fa] border-y border-border-theme">
+      <section className="section-shell border-y border-border bg-brand-cream">
         <div className="max-w-6xl mx-auto text-center space-y-2 mb-10">
           <span className="text-xs uppercase font-bold tracking-widest text-primary">Feedbacks</span>
           <h2 className="text-2xl md:text-3xl font-extrabold text-secondary">Our Customer Say</h2>
@@ -213,7 +218,7 @@ export default async function Home() {
               {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
             </div>
             <p className="text-xs leading-relaxed text-gray-500 italic">
-              "Amazing quality of organic avocados and strawberries! They tasted incredibly fresh and were delivered on time. The packaging is fully biodegradable which is a massive plus. Highly recommend Vegist!"
+              {`“Amazing quality of organic avocados and strawberries! They tasted incredibly fresh and arrived right on time. The biodegradable packaging is a massive plus.”`}
             </p>
             <div>
               <h5 className="font-bold text-secondary text-sm">Tokenfaith</h5>
@@ -226,7 +231,7 @@ export default async function Home() {
               {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
             </div>
             <p className="text-xs leading-relaxed text-gray-500 italic">
-              "This checkout flow and cart drawer feels so fast. The fresh vegetables stay crisp since they are sourced locally. We ordered Baker's rack bagels as well and they were absolutely delicious!"
+              {`“The checkout feels fast, the vegetables stay crisp, and the baker’s-rack bagels were absolutely delicious. FreshCo has become our weekly shop.”`}
             </p>
             <div>
               <h5 className="font-bold text-secondary text-sm">Refine Digital</h5>
@@ -237,7 +242,7 @@ export default async function Home() {
       </section>
 
       {/* 9. Blog Section */}
-      <section className="w-full px-4 md:px-8 py-16 bg-white">
+      <section className="section-shell bg-white">
         <div className="max-w-6xl mx-auto flex items-end justify-between border-b border-border-theme pb-4 mb-8">
           <div>
             <span className="text-xs uppercase font-bold tracking-widest text-primary">Our Stories</span>

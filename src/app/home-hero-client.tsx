@@ -1,131 +1,80 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Pause, Play, ArrowUpRight } from 'lucide-react'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 const slides = [
-  {
-    id: 1,
-    title: "Fresh fruits & vegetable",
-    subtitle: "Organic Elements Store",
-    desc: "100% natural, certified pesticide-free vegetables and fruits harvested daily from family-owned local farms.",
-    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop",
-    btnText: "Shop Fresh Produce",
-    link: "/collections/fruits",
-    accentColor: "text-primary"
-  },
-  {
-    id: 2,
-    title: "Prod of indian 100% packaging",
-    subtitle: "Organic Spices & Herbs",
-    desc: "Rich local Indian blends, freshly ground spices, and hand-selected whole kernels for authentic culinary tastes.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1200&auto=format&fit=crop",
-    btnText: "Explore Herbs & Grains",
-    link: "/collections/dry-fruits",
-    accentColor: "text-[#82ae46]"
-  },
-  {
-    id: 3,
-    title: "Fresh for your heath & mind",
-    subtitle: "Natural Bakery Fresh",
-    desc: "Every day freshly baked sourdough bread, croissants, muffins, and bagels using organic unbleached flour.",
-    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop",
-    btnText: "Shop Bakery",
-    link: "/collections/bread",
-    accentColor: "text-primary"
-  }
+  { id: 1, title: 'Fresh food, full of colour.', subtitle: 'Picked for today', desc: 'Pesticide-conscious produce and everyday essentials selected from growers and makers we trust.', image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1600&auto=format&fit=crop', btnText: 'Shop fresh produce', link: '/collections/fruits', note: 'Farm to fridge' },
+  { id: 2, title: 'Big flavour. Small-batch spice.', subtitle: 'Pantry with personality', desc: 'Fragrant Indian blends, whole spices and grains chosen to make weeknight cooking taste anything but ordinary.', image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1600&auto=format&fit=crop', btnText: 'Explore the pantry', link: '/collections/dry-fruits', note: 'Ground fresh' },
+  { id: 3, title: 'Better bread, baked daily.', subtitle: 'The morning counter', desc: 'Sourdough, seeded loaves and bakery favourites made with honest ingredients and delivered at their best.', image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop', btnText: 'Shop the bakery', link: '/collections/bread', note: 'Fresh every day' },
 ]
 
 export default function HomeHeroClient() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+  const rootRef = useRef<HTMLElement>(null)
+
+  const goTo = useCallback((index: number) => setCurrentSlide((index + slides.length) % slides.length), [])
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % slides.length)
-    }, 6000)
-    return () => clearInterval(timer)
-  }, [])
+    if (isPaused) return
+    const timer = window.setInterval(() => setCurrentSlide((slide) => (slide + 1) % slides.length), 6500)
+    return () => window.clearInterval(timer)
+  }, [isPaused])
 
-  const nextSlide = () => {
-    setCurrentSlide(prev => (prev + 1) % slides.length)
-  }
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    let cleanup = () => {}
+    void import('gsap').then(({ gsap }) => {
+      if (!rootRef.current) return
+      const context = gsap.context(() => {
+        gsap.fromTo('[data-hero-copy]', { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.75, ease: 'power3.out', stagger: 0.08 })
+      }, rootRef)
+      cleanup = () => context.revert()
+    })
+    return () => cleanup()
+  }, [currentSlide])
 
-  const prevSlide = () => {
-    setCurrentSlide(prev => (prev - 1 + slides.length) % slides.length)
-  }
+  const slide = slides[currentSlide]
 
   return (
-    <section className="relative w-full h-[350px] md:h-[550px] bg-gray-150 overflow-hidden">
-      {/* Slides wrap */}
-      {slides.map((slide, idx) => (
-        <div 
-          key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            idx === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
-        >
-          {/* Background image */}
-          <div className="absolute inset-0 bg-black/35 z-0" />
-          <Image 
-            src={slide.image} 
-            alt={slide.title} 
-            fill
-            priority={idx === 0}
-            className="object-cover"
-          />
+    <section ref={rootRef} aria-roledescription="carousel" aria-label="FreshCo seasonal highlights" className="relative isolate min-h-[620px] overflow-hidden bg-brand-ink md:min-h-[680px]">
+      <Image key={slide.id} src={slide.image} alt="" fill priority className="object-cover object-center" sizes="100vw" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,22,52,.92)_0%,rgba(15,31,67,.72)_48%,rgba(15,31,67,.18)_100%)]" />
+      <div className="absolute inset-0 opacity-25 [background-image:radial-gradient(circle_at_75%_20%,#2965f1_0,transparent_34%),radial-gradient(circle_at_20%_90%,#ff3038_0,transparent_24%)]" />
 
-          {/* Text Content Overlay */}
-          <div className="absolute inset-0 z-10 flex items-center px-6 md:px-20 max-w-6xl mx-auto">
-            <div className="max-w-xl text-left space-y-3 md:space-y-5 text-white animate-fade-in-up">
-              <span className="text-xs uppercase font-extrabold tracking-widest text-primary bg-white/95 px-3.5 py-1.5 rounded-full inline-block font-semibold">
-                {slide.subtitle}
-              </span>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-none drop-shadow-sm">
-                {slide.title}
-              </h1>
-              <p className="text-xs md:text-sm text-gray-200 leading-relaxed font-medium">
-                {slide.desc}
-              </p>
-              <div className="pt-2">
-                <Link 
-                  href={slide.link}
-                  className="bg-primary hover:bg-[#d89311] text-white font-bold text-xs md:text-sm px-6 md:px-8 py-3 rounded-full transition duration-300 shadow-md inline-block uppercase tracking-wider"
-                >
-                  {slide.btnText}
-                </Link>
-              </div>
-            </div>
+      <div className="site-container relative z-10 flex min-h-[620px] items-center py-20 md:min-h-[680px]">
+        <div className="max-w-3xl text-white">
+          <div data-hero-copy className="mb-6 flex items-center gap-3">
+            <span className="red-stamp">{slide.subtitle}</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/70">{slide.note}</span>
+          </div>
+          <h1 data-hero-copy className="max-w-3xl font-heading text-5xl font-bold leading-[0.92] tracking-[-0.055em] text-white sm:text-6xl md:text-7xl lg:text-[6.2rem]">{slide.title}</h1>
+          <p data-hero-copy className="mt-7 max-w-xl text-base leading-7 text-white/80 md:text-lg md:leading-8">{slide.desc}</p>
+          <div data-hero-copy className="mt-9 flex flex-wrap items-center gap-4">
+            <Link href={slide.link} className={cn(buttonVariants({ size: 'lg' }), 'h-13 rounded-full bg-primary px-7 text-sm font-extrabold shadow-xl shadow-blue-950/20 hover:bg-white hover:text-primary')}>
+              {slide.btnText}<ArrowUpRight data-icon="inline-end" />
+            </Link>
+            <Link href="/collections" className="rounded-full px-5 py-3 text-sm font-bold text-white underline decoration-white/30 underline-offset-8 transition hover:decoration-white">Browse every aisle</Link>
           </div>
         </div>
-      ))}
+      </div>
 
-      {/* Navigation Arrows */}
-      <button 
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-primary hover:text-white text-white backdrop-blur-xs flex items-center justify-center transition cursor-pointer border border-white/20"
-      >
-        <ChevronLeft size={20} />
-      </button>
-      <button 
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-primary hover:text-white text-white backdrop-blur-xs flex items-center justify-center transition cursor-pointer border border-white/20"
-      >
-        <ChevronRight size={20} />
-      </button>
-
-      {/* Pagination Indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        {slides.map((_, idx) => (
-          <button 
-            key={idx}
-            onClick={() => setCurrentSlide(idx)}
-            className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${
-              idx === currentSlide ? 'bg-primary w-6' : 'bg-white/50'
-            }`}
-          />
-        ))}
+      <div className="absolute bottom-6 left-0 right-0 z-20">
+        <div className="site-container flex items-center justify-between">
+          <div className="flex items-center gap-2" aria-label={`Slide ${currentSlide + 1} of ${slides.length}`}>
+            {slides.map((item, index) => <button key={item.id} aria-label={`Show slide ${index + 1}`} aria-current={index === currentSlide} onClick={() => goTo(index)} className={cn('h-1.5 rounded-full bg-white/35 transition-all', index === currentSlide ? 'w-10 bg-white' : 'w-4')} />)}
+          </div>
+          <div className="flex gap-2">
+            <button aria-label={isPaused ? 'Play carousel' : 'Pause carousel'} onClick={() => setIsPaused((paused) => !paused)} className="flex size-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition hover:bg-white hover:text-primary">{isPaused ? <Play /> : <Pause />}</button>
+            <button aria-label="Previous slide" onClick={() => goTo(currentSlide - 1)} className="flex size-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition hover:bg-white hover:text-primary"><ChevronLeft /></button>
+            <button aria-label="Next slide" onClick={() => goTo(currentSlide + 1)} className="flex size-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition hover:bg-white hover:text-primary"><ChevronRight /></button>
+          </div>
+        </div>
       </div>
     </section>
   )

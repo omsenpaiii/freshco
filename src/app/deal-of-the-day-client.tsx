@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useStore } from '@/context/store-context'
 import { ShoppingBag, Star, Flame } from 'lucide-react'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 interface DealOfTheDayProps {
   product: {
@@ -63,23 +65,23 @@ export default function DealOfTheDayClient({ product }: DealOfTheDayProps) {
   const pctSold = Math.round((soldQty / totalQty) * 100)
 
   return (
-    <section className="w-full bg-[#fceecf]/30 border-y border-border-theme px-4 md:px-8 py-16">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <section className="section-shell border-y border-border bg-brand-cream">
+      <div className="site-container grid grid-cols-1 items-center gap-10 md:grid-cols-2">
         
         {/* Banner Spotlight Graphic */}
-        <div className="relative aspect-video md:aspect-square max-h-[400px] rounded-2xl overflow-hidden shadow-xs border border-gray-150 bg-white">
+        <div className="relative aspect-video max-h-[440px] overflow-hidden rounded-3xl border-8 border-white bg-white shadow-2xl md:aspect-square">
           <Image 
             src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800"
             alt="Deal of the Day Banner"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/25 flex flex-col justify-end p-8 text-white text-left">
+          <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-brand-ink/90 via-brand-ink/25 to-transparent p-8 text-left text-white">
             <span className="text-xs uppercase font-extrabold tracking-widest text-primary bg-white/95 px-3 py-1 rounded-full inline-block w-fit mb-2">
               Limited Offer
             </span>
-            <h3 className="text-xl md:text-2xl font-bold max-w-[280px]">Hot Organic Vegetable Deals of the Week</h3>
-            <p className="text-xs text-gray-200 mt-1 font-medium">Flash sales refreshed daily at midnight</p>
+            <h3 className="max-w-[310px] text-2xl font-bold text-white md:text-3xl">Today’s brightest pick, at a kinder price.</h3>
+            <p className="mt-2 text-xs font-medium text-white/75">A limited market special while this batch lasts.</p>
           </div>
         </div>
 
@@ -112,10 +114,7 @@ export default function DealOfTheDayClient({ product }: DealOfTheDayProps) {
             )}
           </div>
 
-          <p 
-            className="text-xs text-gray-500 leading-relaxed line-clamp-3"
-            dangerouslySetInnerHTML={{ __html: product.description }}
-          />
+          <p className="max-w-lg text-sm leading-7 text-muted-foreground">Freshly selected, carefully packed and ready for your next meal. Add today’s market special to your basket before this batch sells through.</p>
 
           {/* Countdown Clock Displays */}
           <div className="grid grid-cols-4 gap-3 max-w-[320px]">
@@ -152,15 +151,15 @@ export default function DealOfTheDayClient({ product }: DealOfTheDayProps) {
           </div>
 
           <div className="pt-2 flex gap-4">
-            <button 
+            <Button
               onClick={handleAddToCart}
-              className="bg-primary hover:bg-[#d89311] text-white text-xs font-bold px-8 py-3 rounded-full flex items-center gap-2 transition cursor-pointer shadow-md uppercase tracking-wider"
+              className="h-12 rounded-full px-7 text-xs font-extrabold uppercase tracking-wider"
             >
-              Add To Cart <ShoppingBag size={15} />
-            </button>
+              Add To Cart <ShoppingBag data-icon="inline-end" />
+            </Button>
             <Link 
               href={`/products/${product.slug}`}
-              className="border border-border-theme hover:bg-white hover:border-primary text-secondary hover:text-primary text-xs font-bold px-8 py-3 rounded-full transition inline-block uppercase tracking-wider"
+              className={cn(buttonVariants({ variant: 'outline' }), 'h-12 rounded-full px-7 text-xs font-extrabold uppercase tracking-wider')}
             >
               Details
             </Link>
