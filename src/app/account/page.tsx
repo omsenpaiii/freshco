@@ -1,40 +1,31 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useStore } from '@/context/store-context'
 import { createClientComponentClient } from '@/lib/supabase-client'
+import { formatAUD } from '@/lib/store'
 import { 
-  User, MapPin, ShoppingBag, Plus, Trash2, Home, LogOut, ChevronRight, CheckCircle, Clock 
+  MapPin, ShoppingBag, Plus, Trash2, LogOut, CheckCircle
 } from 'lucide-react'
+
+interface SavedAddress { id: string; address_line_1: string; city: string; state: string; postal_code: string; phone: string }
+interface OrderSummary { id: string; created_at: string; total_amount: number; status: string }
 
 export default function AccountDashboardPage() {
   const router = useRouter()
   const { user, clearCart } = useStore()
-  const [addresses, setAddresses] = useState<any[]>([])
-  const [orders, setOrders] = useState<any[]>([])
+  const [addresses, setAddresses] = useState<SavedAddress[]>([])
+  const [orders, setOrders] = useState<OrderSummary[]>([])
   const [loading, setLoading] = useState(true)
   const [newAddress, setNewAddress] = useState({
     line1: '', city: '', state: '', zip: '', phone: ''
   })
   const [showAddressForm, setShowAddressForm] = useState(false)
-  const supabase = createClientComponentClient()
+  const supabase = useMemo(() => createClientComponentClient(), [])
 
-  useEffect(() => {
-    // Check auth status
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
-      if (!session) {
-        router.push('/account/login')
-      } else {
-        fetchAccountData(session.user.id)
-      }
-    }
-    checkAuth()
-  }, [router, supabase])
-
-  const fetchAccountData = async (userId: string) => {
+  const fetchAccountData = useCallback(async (userId: string) => {
     try {
       // Fetch addresses
       const { data: addrData } = await supabase
@@ -55,7 +46,16 @@ export default function AccountDashboardPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [supabase])
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) router.push('/account/login')
+      else void fetchAccountData(session.user.id)
+    }
+    void checkAuth()
+  }, [fetchAccountData, router, supabase])
 
   const handleAddAddress = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -69,7 +69,7 @@ export default function AccountDashboardPage() {
         state: newAddress.state,
         postal_code: newAddress.zip,
         phone: newAddress.phone,
-        country: 'United States'
+        country: 'Australia'
       }).select()
 
       if (!error && data) {
@@ -157,7 +157,7 @@ export default function AccountDashboardPage() {
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <label className="block text-[9px] uppercase font-bold text-gray-400">City</label>
+                    <label className="block text-[9px] uppercase font-bold text-gray-400">Suburb</label>
                     <input 
                       type="text" 
                       required 
@@ -179,7 +179,7 @@ export default function AccountDashboardPage() {
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <label className="block text-[9px] uppercase font-bold text-gray-400">Zip Code</label>
+                    <label className="block text-[9px] uppercase font-bold text-gray-400">Postcode</label>
                     <input 
                       type="text" 
                       required 
@@ -241,7 +241,7 @@ export default function AccountDashboardPage() {
             <div className="space-y-4">
               {orders.length === 0 ? (
                 <div className="text-center py-10 space-y-3">
-                  <p className="text-xs text-gray-400 italic">You haven't placed any orders yet.</p>
+                  <p className="text-xs text-gray-400 italic">You haven’t placed any orders yet.</p>
                   <Link 
                     href="/collections"
                     className="bg-primary hover:bg-[#d89311] text-white text-[10px] font-bold px-6 py-2 rounded-full uppercase tracking-wider inline-block"
@@ -257,7 +257,7 @@ export default function AccountDashboardPage() {
                       <div className="flex gap-3 text-[10px] text-gray-400 font-semibold">
                         <span>{new Date(ord.created_at).toLocaleDateString()}</span>
                         <span>•</span>
-                        <span className="text-primary font-bold">€{Number(ord.total_amount).toFixed(2)}</span>
+                        <span className="text-primary font-bold">{formatAUD(ord.total_amount)}</span>
                       </div>
                     </div>
                     

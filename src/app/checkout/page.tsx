@@ -2,15 +2,13 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 import { useStore } from '@/context/store-context'
 import { createClientComponentClient } from '@/lib/supabase-client'
-import { CheckCircle, CreditCard, User, Mail, Home, Shield, Sparkles } from 'lucide-react'
+import { CheckCircle, CreditCard, User, Shield } from 'lucide-react'
 import confetti from 'canvas-confetti'
+import { formatAUD, getDeliveryFee } from '@/lib/store'
 
 export default function CheckoutPage() {
-  const router = useRouter()
   const { cart, clearCart, user } = useStore()
   const supabase = createClientComponentClient()
 
@@ -32,9 +30,8 @@ export default function CheckoutPage() {
   const [orderId, setOrderId] = useState('')
 
   const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0)
-  const shipping = subtotal >= 50.00 ? 0.00 : 4.99
-  const tax = subtotal * 0.07
-  const total = subtotal + shipping + tax
+  const shipping = getDeliveryFee(subtotal)
+  const total = subtotal + shipping
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -193,13 +190,13 @@ export default function CheckoutPage() {
                   required 
                   value={form.address}
                   onChange={handleChange}
-                  placeholder="Street and house number"
+                  placeholder="Street address"
                   className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
                 />
               </div>
               <div className="grid grid-cols-3 gap-4">
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">City</label>
+                  <label className="block text-[10px] uppercase font-bold text-gray-400">Suburb</label>
                   <input 
                     type="text" 
                     name="city" 
@@ -210,18 +207,19 @@ export default function CheckoutPage() {
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">State / Region</label>
+                  <label className="block text-[10px] uppercase font-bold text-gray-400">State</label>
                   <input 
                     type="text" 
                     name="state" 
                     required 
                     value={form.state}
                     onChange={handleChange}
+                    placeholder="VIC"
                     className="w-full bg-white border border-border-theme rounded-lg py-2 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">Postal Code</label>
+                  <label className="block text-[10px] uppercase font-bold text-gray-400">Postcode</label>
                   <input 
                     type="text" 
                     name="zip" 
@@ -295,7 +293,7 @@ export default function CheckoutPage() {
                 {cart.map((item) => (
                   <div key={item.product_id} className="flex justify-between items-center py-2.5 text-xs text-secondary font-semibold">
                     <span className="line-clamp-1 max-w-[150px]">{item.name} <span className="text-gray-400 text-[10px]">x{item.quantity}</span></span>
-                    <span className="text-primary font-bold">€{(item.price * item.quantity).toFixed(2)}</span>
+                    <span className="text-primary font-bold">{formatAUD(item.price * item.quantity)}</span>
                   </div>
                 ))}
               </div>
@@ -303,21 +301,18 @@ export default function CheckoutPage() {
               <div className="border-t border-border-theme pt-4 space-y-2 text-xs font-semibold text-secondary">
                 <div className="flex justify-between">
                   <span className="text-gray-400">Subtotal:</span>
-                  <span>€{subtotal.toFixed(2)}</span>
+                  <span>{formatAUD(subtotal)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Shipping:</span>
-                  <span>{shipping === 0 ? 'Free' : `€${shipping.toFixed(2)}`}</span>
+                  <span>{shipping === 0 ? 'Free' : formatAUD(shipping)}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Taxes (7%):</span>
-                  <span>€{tax.toFixed(2)}</span>
-                </div>
+                <div className="flex justify-between"><span className="text-gray-400">GST:</span><span>Included</span></div>
               </div>
 
               <div className="border-t border-border-theme pt-4 flex justify-between items-center font-bold text-secondary">
                 <span className="text-sm">Total:</span>
-                <span className="text-lg text-primary">€{total.toFixed(2)}</span>
+                <span className="text-lg text-primary">{formatAUD(total)}</span>
               </div>
 
               <button 
@@ -325,7 +320,7 @@ export default function CheckoutPage() {
                 disabled={isSubmitting}
                 className="w-full bg-primary hover:bg-[#d89311] disabled:bg-gray-300 text-white text-xs font-bold py-3.5 text-center rounded-full transition shadow-md uppercase tracking-wider block cursor-pointer"
               >
-                {isSubmitting ? 'Processing Payment...' : `Pay €${total.toFixed(2)}`}
+                {isSubmitting ? 'Processing payment…' : `Pay ${formatAUD(total)}`}
               </button>
 
               <div className="flex items-center gap-2 justify-center text-[10px] text-gray-400 font-bold">

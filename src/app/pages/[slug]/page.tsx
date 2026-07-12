@@ -45,7 +45,7 @@ const policyPages: Record<string, { title: string; content: string[] }> = {
     content: [
       "We ship daily directly from our partner farm packing warehouses. We take great care to ensure that your fresh organic groceries are handled carefully during transport.",
       "Local same-day deliveries are available for orders completed before 10:00 AM. Orders completed after the cutoff qualify for next-day dispatch. Fresh vegetables are transported in insulated, cold-storage boxes.",
-      "Shipping is free for all orders over €50.00. Standard county delivery below the threshold carries a flat rate of €4.99."
+      "Local Melbourne delivery is free for orders over A$50. Orders below the threshold carry a flat A$4.99 delivery fee. All displayed prices include GST."
     ]
   },
   'terms-conditions': {

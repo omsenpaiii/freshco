@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { getCategories, getProducts } from '@/lib/db'
 import ProductCard from '@/components/ui/product-card'
 import { ChevronRight, Filter } from 'lucide-react'
+import CollectionSort from '@/components/collections/collection-sort'
 
 // Force Next.js to render page dynamically so it grabs latest products/DB state
 export const revalidate = 0
@@ -84,28 +85,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
                 Showing {products.length} Products
                 {search && <span className="ml-1 text-gray-400">matching “{search}”</span>}
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-gray-400">Sort By:</span>
-                <form method="GET" className="inline-block">
-                  {search && <input type="hidden" name="search" value={search} />}
-                  <select 
-                    name="sortBy" 
-                    defaultValue={sortBy}
-                    onChange={(e) => {
-                      const url = new URL(window.location.href)
-                      url.searchParams.set('sortBy', e.target.value)
-                      window.location.href = url.toString()
-                    }}
-                    className="border border-border-theme rounded bg-white py-1 px-3.5 focus:outline-none focus:border-primary text-secondary cursor-pointer"
-                  >
-                    <option value="newest">Newest Items</option>
-                    <option value="price-asc">Price: Low to High</option>
-                    <option value="price-desc">Price: High to Low</option>
-                    <option value="title-asc">Name: A to Z</option>
-                    <option value="title-desc">Name: Z to A</option>
-                  </select>
-                </form>
-              </div>
+              <CollectionSort value={sortBy} />
             </div>
 
             {/* Products Grid */}

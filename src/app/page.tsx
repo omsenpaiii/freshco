@@ -37,7 +37,7 @@ export default async function Home() {
             </div>
             <div>
               <h4 className="text-sm font-bold text-secondary">Free Shipping</h4>
-              <p className="text-xs text-gray-400 mt-0.5">On all orders over €50.00</p>
+              <p className="text-xs text-gray-400 mt-0.5">Across Melbourne on orders over A$50</p>
             </div>
           </div>
           <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
@@ -120,7 +120,7 @@ export default async function Home() {
             <div className="absolute inset-0 flex flex-col items-start justify-center bg-gradient-to-r from-brand-ink/85 to-transparent p-8 md:p-10">
               <span className="text-xs uppercase font-extrabold tracking-wider text-primary bg-white/95 px-3 py-1 rounded-full shadow-2xs">Best Offer</span>
               <h3 className="text-xl md:text-2xl font-bold text-white mt-3 leading-tight max-w-[200px]">Fresh Fruits & Vegetables</h3>
-              <p className="text-xs text-white/90 mt-1.5 font-medium">Get €10.00 Off on orders above €80.00</p>
+              <p className="text-xs text-white/90 mt-1.5 font-medium">Get A$10 off on orders above A$80</p>
               <Link href="/collections" className="inline-block bg-primary hover:bg-[#d89311] text-white text-xs font-bold px-4 py-2 rounded-full mt-4 transition">
                 Shop Fruits
               </Link>

@@ -1,21 +1,18 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { motion, useReducedMotion } from 'motion/react'
 
 export default function SectionReveal({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    let dispose = () => {}
-    void Promise.all([import('gsap'), import('gsap/ScrollTrigger')]).then(([{ gsap }, { ScrollTrigger }]) => {
-      if (!ref.current) return
-      gsap.registerPlugin(ScrollTrigger)
-      const context = gsap.context(() => {
-        gsap.fromTo(ref.current, { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.65, ease: 'power2.out', scrollTrigger: { trigger: ref.current, start: 'top 88%', once: true } })
-      }, ref)
-      dispose = () => context.revert()
-    })
-    return () => dispose()
-  }, [])
-  return <div ref={ref} className={className}>{children}</div>
+  const reduceMotion = useReducedMotion()
+  return (
+    <motion.div
+      initial={reduceMotion ? false : { opacity: 0, y: 34 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: .14 }}
+      transition={{ duration: .65, ease: [0.22, 1, 0.36, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  )
 }

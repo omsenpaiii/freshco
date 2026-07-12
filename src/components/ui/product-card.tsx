@@ -7,6 +7,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { useStore } from '@/context/store-context'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { formatAUD } from '@/lib/store'
 
 export interface ProductCardProps { id: number; name: string; slug: string; price: number; compare_at_price: number | null; images: string[]; is_featured?: boolean; is_trending?: boolean; category_name?: string }
 
@@ -30,7 +31,7 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
         <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-primary">{category_name}</span>
         <h3 className="mt-2 min-h-10 font-heading text-sm font-bold leading-5 text-brand-ink sm:text-base"><Link href={`/products/${slug}`} className="hover:text-primary">{name}</Link></h3>
         <div className="mt-2 flex items-center gap-1 text-brand-amber" aria-label="Rated 4 out of 5"><Star className="size-3.5" fill="currentColor" /><span className="text-[11px] font-bold text-muted-foreground">4.{id % 10} · {10 + (id % 40)} reviews</span></div>
-        <div className="mt-4 flex items-end justify-between border-t border-border/70 pt-4"><div>{compare_at_price && compare_at_price > price && <span className="mr-2 text-xs text-muted-foreground line-through">€{Number(compare_at_price).toFixed(2)}</span>}<strong className="font-heading text-lg text-primary">€{Number(price).toFixed(2)}</strong></div><Button size="icon-lg" aria-label={`Add ${name} to cart`} onClick={() => addToCart({ id, name, slug, price, image }, 1)} className="rounded-full shadow-lg shadow-blue-200"><ShoppingBag /></Button></div>
+        <div className="mt-4 flex items-end justify-between border-t border-border/70 pt-4"><div>{compare_at_price && compare_at_price > price && <span className="mr-2 text-xs text-muted-foreground line-through">{formatAUD(compare_at_price)}</span>}<strong className="font-heading text-lg text-primary">{formatAUD(price)}</strong></div><Button size="icon-lg" aria-label={`Add ${name} to cart`} onClick={() => addToCart({ id, name, slug, price, image }, 1)} className="rounded-full shadow-lg shadow-blue-200"><ShoppingBag /></Button></div>
       </div>
     </motion.article>
   )

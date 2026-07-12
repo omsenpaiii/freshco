@@ -1,160 +1,43 @@
 'use client'
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
-import { ChevronRight, Mail, Phone, MapPin, Send, HelpCircle } from 'lucide-react'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
+import { ChevronRight, Clock3, MapPin, Navigation, Phone, Send } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { STORE } from '@/lib/store'
 
 export default function ContactUsPage() {
+  const reduceMotion = useReducedMotion()
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate sending message
-    await new Promise(resolve => setTimeout(resolve, 1000))
-
-    setIsSuccess(true)
-    setIsSubmitting(false)
-    setForm({ name: '', email: '', subject: '', message: '' })
-    setTimeout(() => setIsSuccess(false), 3000)
-  }
+  const [submitting, setSubmitting] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const update = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setForm((current) => ({ ...current, [event.target.name]: event.target.value }))
 
   return (
-    <div className="w-full bg-white px-4 md:px-8 py-10">
-      <div className="max-w-6xl mx-auto text-left">
-        
-        {/* Breadcrumbs */}
-        <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-6 font-medium">
-          <Link href="/" className="hover:text-primary transition">Home</Link>
-          <ChevronRight size={12} />
-          <span className="text-secondary font-semibold">Contact Us</span>
-        </div>
+    <main className="bg-brand-cloud py-10 md:py-16">
+      <div className="site-container">
+        <nav aria-label="Breadcrumb" className="mb-7 flex items-center gap-1.5 text-xs font-medium text-muted-foreground"><Link href="/" className="hover:text-primary">Home</Link><ChevronRight className="size-3" /><span className="font-bold text-brand-ink">Visit & contact</span></nav>
+        <motion.header initial={reduceMotion ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} className="mb-10 max-w-3xl"><span className="red-stamp">Northcote’s local deli</span><h1 className="section-title">Come say hello at Northcote Plaza.</h1><p className="section-copy">Find us inside the plaza for deli favourites, local finds and helpful recommendations from the FreshCo team.</p></motion.header>
 
-        <div className="border-b border-border-theme pb-4 mb-8">
-          <h1 className="text-xl md:text-2xl font-extrabold text-secondary">Contact Us</h1>
-          <p className="text-xs text-gray-400 mt-1">Get in touch with us for bulk orders, farm visits, or support.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          
-          {/* Info Details sidebar Column */}
-          <div className="md:col-span-1 space-y-6">
-            <div className="bg-[#f8f9fa] border border-border-theme p-6 rounded-2xl space-y-5">
-              <h3 className="text-sm font-bold text-secondary border-b border-gray-200 pb-3 uppercase tracking-wider">
-                Store Location
-              </h3>
-              
-              <ul className="space-y-4 text-xs font-semibold text-secondary leading-relaxed">
-                <li className="flex items-start gap-3">
-                  <MapPin size={18} className="text-primary mt-0.5 flex-shrink-0" />
-                  <span>123 Organic Way, Greenhouse Suite 10, Farmville, CA 90210</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Phone size={18} className="text-primary flex-shrink-0" />
-                  <span>+1 (800) 123-4567</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Mail size={18} className="text-primary flex-shrink-0" />
-                  <span>support@freshco-vegist.com</span>
-                </li>
-              </ul>
+        <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr]">
+          <motion.section initial={reduceMotion ? false : { opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .1 }} className="brand-card overflow-hidden p-6 md:p-8">
+            <h2 className="font-heading text-2xl font-bold">Store details</h2>
+            <div className="mt-6 flex flex-col gap-5 text-sm">
+              <a href={STORE.mapsUrl} target="_blank" rel="noreferrer" className="flex gap-3 rounded-2xl bg-brand-cloud p-4 hover:ring-2 hover:ring-primary/20"><MapPin className="mt-0.5 size-5 shrink-0 text-primary" /><span><strong className="block text-brand-ink">{STORE.name}, {STORE.unit}</strong>{STORE.centre}<br />{STORE.street}, {STORE.suburb} {STORE.state} {STORE.postcode}</span></a>
+              <a href={STORE.phoneHref} className="flex items-center gap-3 rounded-2xl bg-brand-cloud p-4 font-bold text-brand-ink hover:text-primary"><Phone className="size-5 text-primary" />{STORE.phone}</a>
             </div>
+            <div className="mt-8"><h3 className="flex items-center gap-2 font-heading text-lg font-bold"><Clock3 className="size-5 text-brand-red" />Northcote Plaza hours</h3><p className="mt-1 text-xs text-muted-foreground">Store hours follow standard centre trading hours and may vary on public holidays.</p><dl className="mt-4 grid gap-2 text-sm">{STORE.hours.map((row) => <div key={row.days} className="flex justify-between gap-4 border-b border-border/70 py-2"><dt className="font-semibold text-brand-ink">{row.days}</dt><dd className="text-muted-foreground">{row.hours}</dd></div>)}</dl></div>
+            <div className="mt-7 flex flex-wrap gap-3"><Button nativeButton={false} render={<a href={STORE.mapsUrl} target="_blank" rel="noreferrer" />} className="h-11 rounded-full"><Navigation data-icon="inline-start" />Get directions</Button><Button nativeButton={false} variant="outline" render={<a href={STORE.phoneHref} />} className="h-11 rounded-full"><Phone data-icon="inline-start" />Call the store</Button></div>
+          </motion.section>
 
-            <div className="bg-[#fceecf]/25 border border-border-theme p-6 rounded-2xl space-y-3">
-              <h4 className="text-xs font-bold text-secondary flex items-center gap-1.5 uppercase tracking-wider">
-                <HelpCircle size={15} className="text-primary" /> Looking for FAQs?
-              </h4>
-              <p className="text-[11px] text-gray-500 leading-relaxed font-semibold">
-                Find quick answers regarding shipping schedules, return processes, and organic packaging on our support page.
-              </p>
-              <Link 
-                href="/pages/faqs" 
-                className="text-[11px] font-bold text-primary hover:underline inline-block pt-1"
-              >
-                Browse FAQs →
-              </Link>
-            </div>
-          </div>
-
-          {/* Contact form Column */}
-          <div className="md:col-span-2 space-y-6">
-            <form onSubmit={handleSubmit} className="border border-border-theme p-6 rounded-2xl bg-white shadow-2xs space-y-4">
-              <h3 className="text-sm font-bold text-secondary uppercase tracking-wider">Send us a message</h3>
-              
-              {isSuccess && (
-                <div className="text-green-600 bg-green-50 border border-green-100 p-3 rounded-lg text-xs font-semibold">
-                  ✓ Your message has been sent successfully. We will respond within 24 hours.
-                </div>
-              )}
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">Your Name</label>
-                  <input 
-                    type="text" 
-                    name="name" 
-                    required 
-                    value={form.name}
-                    onChange={handleChange}
-                    className="w-full bg-white border border-border-theme rounded-lg py-2.5 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
-                  />
-                </div>
-                <div className="space-y-1">
-                  <label className="block text-[10px] uppercase font-bold text-gray-400">Email Address</label>
-                  <input 
-                    type="email" 
-                    name="email" 
-                    required 
-                    value={form.email}
-                    onChange={handleChange}
-                    className="w-full bg-white border border-border-theme rounded-lg py-2.5 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <label className="block text-[10px] uppercase font-bold text-gray-400">Subject</label>
-                <input 
-                  type="text" 
-                  name="subject" 
-                  required 
-                  value={form.subject}
-                  onChange={handleChange}
-                  className="w-full bg-white border border-border-theme rounded-lg py-2.5 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
-                />
-              </div>
-
-              <div className="space-y-1">
-                <label className="block text-[10px] uppercase font-bold text-gray-400">Message</label>
-                <textarea 
-                  name="message" 
-                  required 
-                  rows={5}
-                  value={form.message}
-                  onChange={handleChange}
-                  className="w-full bg-white border border-border-theme rounded-lg py-2.5 px-4 focus:outline-none focus:border-primary text-xs font-semibold text-secondary"
-                />
-              </div>
-
-              <button 
-                type="submit" 
-                disabled={isSubmitting}
-                className="bg-primary hover:bg-[#d89311] text-white font-bold text-xs px-8 py-3 rounded-full flex items-center gap-2 transition cursor-pointer shadow-xs hover:shadow-md uppercase tracking-wider"
-              >
-                {isSubmitting ? 'Sending...' : <>Send Message <Send size={14} /></>}
-              </button>
-            </form>
-          </div>
-
+          <motion.div initial={reduceMotion ? false : { opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .16 }} className="flex flex-col gap-8">
+            <div className="brand-card overflow-hidden p-2"><iframe title="FreshCo Deli at Northcote Plaza" src={STORE.mapEmbedUrl} className="h-[360px] w-full rounded-[1.25rem] border-0 md:h-[430px]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /></div>
+            <form onSubmit={async (event) => { event.preventDefault(); setSubmitting(true); await new Promise((resolve) => setTimeout(resolve, 700)); setSubmitting(false); setSuccess(true); setForm({ name: '', email: '', subject: '', message: '' }) }} className="brand-card p-6 md:p-8"><h2 className="font-heading text-2xl font-bold">Send the team a message</h2><p className="mt-2 text-sm text-muted-foreground">Questions about products, platters or a visit? Leave your details below.</p><AnimatePresence>{success && <motion.p initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} role="status" className="mt-5 rounded-xl bg-green-50 p-3 text-sm font-bold text-brand-green">Thanks—your message has been received.</motion.p>}</AnimatePresence><div className="mt-6 grid gap-4 sm:grid-cols-2"><label className="text-xs font-bold text-brand-ink">Name<Input name="name" required value={form.name} onChange={update} className="mt-2 h-11" /></label><label className="text-xs font-bold text-brand-ink">Email<Input name="email" type="email" required value={form.email} onChange={update} className="mt-2 h-11" /></label></div><label className="mt-4 block text-xs font-bold text-brand-ink">Subject<Input name="subject" required value={form.subject} onChange={update} className="mt-2 h-11" /></label><label className="mt-4 block text-xs font-bold text-brand-ink">Message<textarea name="message" required rows={5} value={form.message} onChange={update} className="mt-2 w-full rounded-xl border border-input bg-white px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" /></label><Button type="submit" disabled={submitting} className="mt-5 h-11 rounded-full px-6">{submitting ? 'Sending…' : 'Send message'}<Send data-icon="inline-end" /></Button></form>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </main>
   )
 }
