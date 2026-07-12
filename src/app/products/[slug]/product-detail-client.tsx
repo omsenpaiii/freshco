@@ -6,6 +6,7 @@ import { useStore } from '@/context/store-context'
 import { 
   Heart, ShoppingBag, Plus, Minus, Star, Truck, Check, RefreshCw 
 } from 'lucide-react'
+import { formatAUD } from '@/lib/store'
 
 interface ProductDetailClientProps {
   product: {
@@ -159,11 +160,11 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
         {/* Price Tag */}
         <div className="flex items-baseline gap-3 pb-4 border-b border-border-theme">
           <span className="text-2xl font-bold text-primary">
-            €{Number(product.price).toFixed(2)}
+            {formatAUD(product.price)}
           </span>
           {product.compare_at_price && (
             <span className="text-sm text-gray-400 line-through">
-              €{Number(product.compare_at_price).toFixed(2)}
+              {formatAUD(product.compare_at_price)}
             </span>
           )}
           <span className="text-xs bg-green-50 text-green-600 font-bold px-2.5 py-1 rounded-full ml-2 flex items-center gap-1 border border-green-100">
@@ -225,7 +226,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
         {/* Brand Perks bullet row */}
         <div className="pt-6 border-t border-border-theme grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-semibold text-secondary">
           <div className="flex items-center gap-2">
-            <Truck size={16} className="text-primary" /> Free deliveries for orders over €50.00
+            <Truck size={16} className="text-primary" /> Free local delivery on orders over A$50.00
           </div>
           <div className="flex items-center gap-2">
             <RefreshCw size={16} className="text-primary" /> Easy 14-day hassle free returns

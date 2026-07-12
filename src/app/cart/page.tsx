@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useStore } from '@/context/store-context'
 import { Trash2, Plus, Minus, ShoppingBag, ChevronRight, Gift } from 'lucide-react'
+import { formatAUD, getDeliveryFee } from '@/lib/store'
 
 export default function CartPage() {
   const router = useRouter()
@@ -16,9 +17,8 @@ export default function CartPage() {
   const [couponSuccess, setCouponSuccess] = useState('')
 
   const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0)
-  const shipping = subtotal >= 50.00 || subtotal === 0 ? 0.00 : 4.99
-  const tax = subtotal * 0.07 // 7% VAT
-  const total = subtotal - discountAmount + shipping + tax
+  const shipping = getDeliveryFee(subtotal)
+  const total = subtotal - discountAmount + shipping
 
   const handleApplyCoupon = (e: React.FormEvent) => {
     e.preventDefault()
@@ -102,7 +102,7 @@ export default function CartPage() {
                       {/* Price (Mobile label + val) */}
                       <div className="col-span-4 sm:col-span-2 text-left sm:text-center mt-2 sm:mt-0">
                         <span className="sm:hidden text-[9px] uppercase font-bold text-gray-400 block mb-0.5">Price</span>
-                        <span className="text-xs text-secondary font-semibold">€{Number(item.price).toFixed(2)}</span>
+                        <span className="text-xs text-secondary font-semibold">{formatAUD(item.price)}</span>
                       </div>
 
                       {/* Qty controls */}
@@ -127,7 +127,7 @@ export default function CartPage() {
                       {/* Total */}
                       <div className="col-span-3 sm:col-span-2 text-right flex sm:flex-col justify-end items-center sm:items-end mt-2 sm:mt-0 gap-2 sm:gap-0.5">
                         <div className="sm:hidden text-[9px] uppercase font-bold text-gray-400">Total</div>
-                        <span className="text-xs text-primary font-bold">€{(item.price * item.quantity).toFixed(2)}</span>
+                        <span className="text-xs text-primary font-bold">{formatAUD(item.price * item.quantity)}</span>
                         <button 
                           onClick={() => removeFromCart(item.product_id)}
                           className="text-gray-400 hover:text-red-500 transition p-1 ml-2 sm:ml-0 cursor-pointer"
@@ -178,27 +178,24 @@ export default function CartPage() {
                 <div className="space-y-2.5 text-xs text-secondary font-semibold">
                   <div className="flex justify-between">
                     <span className="text-gray-400">Cart Subtotal:</span>
-                    <span>€{subtotal.toFixed(2)}</span>
+                    <span>{formatAUD(subtotal)}</span>
                   </div>
                   {discountAmount > 0 && (
                     <div className="flex justify-between text-green-600">
                       <span>Discount (10%):</span>
-                      <span>-€{discountAmount.toFixed(2)}</span>
+                      <span>−{formatAUD(discountAmount)}</span>
                     </div>
                   )}
                   <div className="flex justify-between">
                     <span className="text-gray-400">Shipping:</span>
-                    <span>{shipping === 0 ? 'Free Shipping' : `€${shipping.toFixed(2)}`}</span>
+                    <span>{shipping === 0 ? 'Free delivery' : formatAUD(shipping)}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Estimated Taxes (7%):</span>
-                    <span>€{tax.toFixed(2)}</span>
-                  </div>
+                  <div className="flex justify-between text-muted-foreground"><span>GST:</span><span>Included</span></div>
                 </div>
 
                 <div className="border-t border-border-theme pt-4 flex justify-between items-center font-bold text-secondary">
                   <span className="text-sm">Total:</span>
-                  <span className="text-lg text-primary">€{total.toFixed(2)}</span>
+                  <span className="text-lg text-primary">{formatAUD(total)}</span>
                 </div>
 
                 <button 

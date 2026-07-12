@@ -7,6 +7,7 @@ import { useStore } from '@/context/store-context'
 import { ShoppingBag, Star, Flame } from 'lucide-react'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { formatAUD } from '@/lib/store'
 
 interface DealOfTheDayProps {
   product: {
@@ -105,11 +106,11 @@ export default function DealOfTheDayClient({ product }: DealOfTheDayProps) {
 
           <div className="flex items-baseline gap-3">
             <span className="text-2xl font-bold text-primary">
-              €{Number(product.price).toFixed(2)}
+              {formatAUD(product.price)}
             </span>
             {product.compare_at_price && (
               <span className="text-sm text-gray-400 line-through">
-                €{Number(product.compare_at_price).toFixed(2)}
+                {formatAUD(product.compare_at_price)}
               </span>
             )}
           </div>

@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Pause, Play, ArrowUpRight } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 
 const slides = [
   { id: 1, title: 'Fresh food, full of colour.', subtitle: 'Picked for today', desc: 'Pesticide-conscious produce and everyday essentials selected from growers and makers we trust.', image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1600&auto=format&fit=crop', btnText: 'Shop fresh produce', link: '/collections/fruits', note: 'Farm to fridge' },
@@ -16,6 +17,7 @@ const slides = [
 export default function HomeHeroClient() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const reduceMotion = useReducedMotion()
   const rootRef = useRef<HTMLElement>(null)
 
   const goTo = useCallback((index: number) => setCurrentSlide((index + slides.length) % slides.length), [])
@@ -43,12 +45,16 @@ export default function HomeHeroClient() {
 
   return (
     <section ref={rootRef} aria-roledescription="carousel" aria-label="FreshCo seasonal highlights" className="relative isolate min-h-[620px] overflow-hidden bg-brand-ink md:min-h-[680px]">
-      <Image key={slide.id} src={slide.image} alt="" fill priority className="object-cover object-center" sizes="100vw" />
+      <AnimatePresence initial={false} mode="sync">
+        <motion.div key={slide.id} initial={reduceMotion ? false : { opacity: 0, scale: 1.025 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: .75, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-0">
+          <Image src={slide.image} alt="" fill loading="eager" className="object-cover object-center" sizes="100vw" />
+        </motion.div>
+      </AnimatePresence>
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,22,52,.92)_0%,rgba(15,31,67,.72)_48%,rgba(15,31,67,.18)_100%)]" />
       <div className="absolute inset-0 opacity-25 [background-image:radial-gradient(circle_at_75%_20%,#2965f1_0,transparent_34%),radial-gradient(circle_at_20%_90%,#ff3038_0,transparent_24%)]" />
 
       <div className="site-container relative z-10 flex min-h-[620px] items-center py-20 md:min-h-[680px]">
-        <div className="max-w-3xl text-white">
+        <motion.div key={`copy-${slide.id}`} initial={reduceMotion ? false : { opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .5 }} className="max-w-3xl text-white">
           <div data-hero-copy className="mb-6 flex items-center gap-3">
             <span className="red-stamp">{slide.subtitle}</span>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/70">{slide.note}</span>
@@ -61,7 +67,7 @@ export default function HomeHeroClient() {
             </Link>
             <Link href="/collections" className="rounded-full px-5 py-3 text-sm font-bold text-white underline decoration-white/30 underline-offset-8 transition hover:decoration-white">Browse every aisle</Link>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className="absolute bottom-6 left-0 right-0 z-20">
@@ -71,8 +77,8 @@ export default function HomeHeroClient() {
           </div>
           <div className="flex gap-2">
             <button aria-label={isPaused ? 'Play carousel' : 'Pause carousel'} onClick={() => setIsPaused((paused) => !paused)} className="flex size-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition hover:bg-white hover:text-primary">{isPaused ? <Play /> : <Pause />}</button>
-            <button aria-label="Previous slide" onClick={() => goTo(currentSlide - 1)} className="flex size-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition hover:bg-white hover:text-primary"><ChevronLeft /></button>
-            <button aria-label="Next slide" onClick={() => goTo(currentSlide + 1)} className="flex size-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition hover:bg-white hover:text-primary"><ChevronRight /></button>
+            <motion.button whileHover={reduceMotion ? undefined : { scale: 1.08 }} whileTap={reduceMotion ? undefined : { scale: .92 }} aria-label="Previous slide" onClick={() => goTo(currentSlide - 1)} className="flex size-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition hover:bg-white hover:text-primary"><ChevronLeft /></motion.button>
+            <motion.button whileHover={reduceMotion ? undefined : { scale: 1.08 }} whileTap={reduceMotion ? undefined : { scale: .92 }} aria-label="Next slide" onClick={() => goTo(currentSlide + 1)} className="flex size-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition hover:bg-white hover:text-primary"><ChevronRight /></motion.button>
           </div>
         </div>
       </div>
