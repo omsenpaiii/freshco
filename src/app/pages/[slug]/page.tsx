@@ -6,7 +6,6 @@ import { ChevronRight } from 'lucide-react'
 // Define the static routes to pre-compile them during build time
 export async function generateStaticParams() {
   return [
-    { slug: 'about-us' },
     { slug: 'privacy-policy' },
     { slug: 'return-policy' },
     { slug: 'shipping-policy' },
@@ -16,14 +15,6 @@ export async function generateStaticParams() {
 }
 
 const policyPages: Record<string, { title: string; content: string[] }> = {
-  'about-us': {
-    title: "About Vegist Store",
-    content: [
-      "Welcome to Vegist, the ultimate destination for fresh, organic, and locally-sourced food elements. Established in 2020, our mission is to make eating clean and sustainable produce easy, transparent, and affordable for modern families.",
-      "We partner directly with certified organic family-owned farms to deliver top-tier vegetables, fruits, and bakery goods. By bypassing traditional supermarket supply chains, we ensure that the produce is harvested at peak maturity and shipped straight to your doorstep, keeping nutrient density high and carbon footprint low.",
-      "Every single fruit and vegetable is hand-selected, cleaned, and packed in biodegradable materials. Thank you for choosing to feed your family with Vegist—your body and the planet will thank you."
-    ]
-  },
   'privacy-policy': {
     title: "Privacy Policy",
     content: [
