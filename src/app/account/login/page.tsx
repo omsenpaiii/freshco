@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { createClientComponentClient } from '@/lib/supabase-client'
-import { ChevronRight, Mail, Lock, AlertCircle } from 'lucide-react'
+import { Mail, Lock, AlertCircle } from 'lucide-react'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -28,7 +28,9 @@ export default function LoginPage() {
       setError(authErr.message)
       setLoading(false)
     } else {
-      router.push('/account')
+      const adminResponse = await fetch('/api/admin/status')
+      const adminJson = await adminResponse.json()
+      router.push(adminJson.isAdmin ? '/admin' : '/account')
       router.refresh()
     }
   }
@@ -90,7 +92,7 @@ export default function LoginPage() {
         </form>
 
         <div className="text-center pt-2 text-xs font-semibold text-content-muted">
-          New to Vegist?{' '}
+          New to FreshCo?{' '}
           <Link href="/account/register" className="text-primary hover:underline">
             Register an Account
           </Link>

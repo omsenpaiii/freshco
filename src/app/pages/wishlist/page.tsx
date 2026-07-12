@@ -1,17 +1,45 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useStore } from '@/context/store-context'
 import ProductCard from '@/components/ui/product-card'
-import productsData from '@/data/products.json'
 import { Heart, ChevronRight } from 'lucide-react'
+import { createClientComponentClient } from '@/lib/supabase-client'
+
+interface WishlistProduct {
+  id: number
+  name: string
+  slug: string
+  price: number
+  compare_at_price: number | null
+  images: string[]
+}
 
 export default function WishlistPage() {
   const { wishlist } = useStore()
+  const [wishlistProducts, setWishlistProducts] = useState<WishlistProduct[]>([])
+  const supabase = createClientComponentClient()
 
-  // Retrieve products in wishlist
-  const wishlistProducts = productsData.filter(p => wishlist.includes(p.id))
+  useEffect(() => {
+    const fetchWishlistProducts = async () => {
+      if (wishlist.length === 0) {
+        setWishlistProducts([])
+        return
+      }
+
+      const { data, error } = await supabase
+        .from('products')
+        .select('id, name, slug, price, compare_at_price, images')
+        .in('id', wishlist)
+
+      if (!error && data) {
+        setWishlistProducts(data)
+      }
+    }
+
+    void fetchWishlistProducts()
+  }, [supabase, wishlist])
 
   return (
     <div className="w-full bg-white px-4 md:px-8 py-10">

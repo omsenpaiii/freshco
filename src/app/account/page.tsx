@@ -7,7 +7,7 @@ import { useStore } from '@/context/store-context'
 import { createClientComponentClient } from '@/lib/supabase-client'
 import { formatAUD } from '@/lib/store'
 import { 
-  MapPin, ShoppingBag, Plus, Trash2, LogOut, CheckCircle
+  MapPin, ShoppingBag, Plus, Trash2, LogOut, CheckCircle, ShieldCheck
 } from 'lucide-react'
 
 interface SavedAddress { id: string; address_line_1: string; city: string; state: string; postal_code: string; phone: string }
@@ -19,6 +19,7 @@ export default function AccountDashboardPage() {
   const [addresses, setAddresses] = useState<SavedAddress[]>([])
   const [orders, setOrders] = useState<OrderSummary[]>([])
   const [loading, setLoading] = useState(true)
+  const [isAdmin, setIsAdmin] = useState(false)
   const [newAddress, setNewAddress] = useState({
     line1: '', city: '', state: '', zip: '', phone: ''
   })
@@ -52,7 +53,16 @@ export default function AccountDashboardPage() {
     const checkAuth = async () => {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) router.push('/account/login')
-      else void fetchAccountData(session.user.id)
+      else {
+        const adminResponse = await fetch('/api/admin/status')
+        const adminJson = await adminResponse.json()
+        if (adminJson.isAdmin) {
+          setIsAdmin(true)
+          router.replace('/admin')
+          return
+        }
+        void fetchAccountData(session.user.id)
+      }
     }
     void checkAuth()
   }, [fetchAccountData, router, supabase])
@@ -117,6 +127,7 @@ export default function AccountDashboardPage() {
           <div className="text-left">
             <h1 className="text-xl md:text-2xl font-extrabold text-content-strong">My Account</h1>
             <p className="text-xs text-content-muted mt-1">Hello, <span className="text-content-strong font-bold">{user?.email}</span></p>
+            {isAdmin ? <Link href="/admin" className="mt-2 inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline"><ShieldCheck size={14} />Open admin panel</Link> : null}
           </div>
           <button 
             onClick={handleLogout}

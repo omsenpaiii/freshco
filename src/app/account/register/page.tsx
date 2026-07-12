@@ -60,7 +60,7 @@ export default function RegisterPage() {
         {/* Header */}
         <div className="text-center space-y-2">
           <h1 className="text-2xl font-extrabold text-content-strong">Create Account</h1>
-          <p className="text-xs text-content-muted">Join Vegist to unlock personalized farm-fresh shopping benefits.</p>
+          <p className="text-xs text-content-muted">Join FreshCo to unlock personalized market favourites, saved addresses and faster checkout.</p>
         </div>
 
         {error && (
