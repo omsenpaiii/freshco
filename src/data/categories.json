@@ -1,0 +1,242 @@
+[
+  {
+    "id": 299653005461,
+    "name": "Bagel",
+    "slug": "bagel",
+    "description": "",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/menu-banner2.jpg?v=1661433334",
+    "products_count": 8
+  },
+  {
+    "id": 209745150101,
+    "name": "Baker's rack",
+    "slug": "bakers-rack",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/cat10.jpg?v=1595858914",
+    "products_count": 22
+  },
+  {
+    "id": 319946752149,
+    "name": "Beans",
+    "slug": "beans",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/menu-banner-17-2.jpg?v=1717475357",
+    "products_count": 12
+  },
+  {
+    "id": 201774989461,
+    "name": "Bestseller",
+    "slug": "frontpage",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/banner4.jpg?v=1595936653",
+    "products_count": 22
+  },
+  {
+    "id": 299652972693,
+    "name": "Biscuite",
+    "slug": "biscuite",
+    "description": "",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/menu-banner4.jpg?v=1661433243",
+    "products_count": 8
+  },
+  {
+    "id": 299652939925,
+    "name": "Bread",
+    "slug": "bread",
+    "description": "",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/menu-banner3.jpg?v=1661433337",
+    "products_count": 8
+  },
+  {
+    "id": 237397016725,
+    "name": "Breakfast",
+    "slug": "breakfast",
+    "description": "",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/banner27.jpg?v=1610199416",
+    "products_count": 16
+  },
+  {
+    "id": 325661065365,
+    "name": "Cabbage",
+    "slug": "cabbage",
+    "description": "",
+    "image_url": "",
+    "products_count": 0
+  },
+  {
+    "id": 299652808853,
+    "name": "Cake",
+    "slug": "cake",
+    "description": "",
+    "image_url": "",
+    "products_count": 8
+  },
+  {
+    "id": 325661032597,
+    "name": "Cocount",
+    "slug": "cocount",
+    "description": "",
+    "image_url": "",
+    "products_count": 0
+  },
+  {
+    "id": 299652874389,
+    "name": "Cookie",
+    "slug": "cookie",
+    "description": "",
+    "image_url": "",
+    "products_count": 8
+  },
+  {
+    "id": 299653038229,
+    "name": "Cupcake",
+    "slug": "cupcake",
+    "description": "",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/menu-banner1.jpg?v=1661433246",
+    "products_count": 8
+  },
+  {
+    "id": 202357801109,
+    "name": "Dairy & chesse",
+    "slug": "cat5",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/cat6.jpg?v=1592896212",
+    "products_count": 22
+  },
+  {
+    "id": 209745215637,
+    "name": "Dairy & chesse",
+    "slug": "dairy-chesse",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/cat11.jpg?v=1595858994",
+    "products_count": 22
+  },
+  {
+    "id": 209220075669,
+    "name": "Deal collection",
+    "slug": "deal-collection",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "",
+    "products_count": 5
+  },
+  {
+    "id": 237396885653,
+    "name": "Dinner",
+    "slug": "italian-food",
+    "description": "",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/banner29.jpg?v=1610200554",
+    "products_count": 16
+  },
+  {
+    "id": 319946686613,
+    "name": "Dry fruits",
+    "slug": "dry-fruits",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/menu-banner-17-1.jpg?v=1717475270",
+    "products_count": 12
+  },
+  {
+    "id": 201796714645,
+    "name": "Featured product",
+    "slug": "salads",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/banner5_19e6fd2c-70b2-459d-b4d5-d7680262856a.jpg?v=1595936691",
+    "products_count": 22
+  },
+  {
+    "id": 202357735573,
+    "name": "Fresh fruits",
+    "slug": "cat4",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/cat4.jpg?v=1592896212",
+    "products_count": 22
+  },
+  {
+    "id": 202357932181,
+    "name": "Fresh meat",
+    "slug": "cat9",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/cat5.jpg?v=1592896207",
+    "products_count": 22
+  },
+  {
+    "id": 202357866645,
+    "name": "Fresh vegetable",
+    "slug": "cat7",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/cat8.jpg?v=1592896145",
+    "products_count": 22
+  },
+  {
+    "id": 202357899413,
+    "name": "Green seafood",
+    "slug": "cat8",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/cat9.jpg?v=1592896206",
+    "products_count": 22
+  },
+  {
+    "id": 325660967061,
+    "name": "Juicy tomatos",
+    "slug": "juicy-tomatos",
+    "description": "",
+    "image_url": "",
+    "products_count": 0
+  },
+  {
+    "id": 325661098133,
+    "name": "Lichi",
+    "slug": "lichi",
+    "description": "",
+    "image_url": "",
+    "products_count": 0
+  },
+  {
+    "id": 237546471573,
+    "name": "Lunch",
+    "slug": "matar-paneer",
+    "description": "",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/banner29-1.jpg?v=1648794321",
+    "products_count": 16
+  },
+  {
+    "id": 307812040853,
+    "name": "Natural flavor",
+    "slug": "vegist-juice",
+    "description": "",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/menu-banner-02.webp?v=1683978167",
+    "products_count": 12
+  },
+  {
+    "id": 201796681877,
+    "name": "New product",
+    "slug": "fruits",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/cat2_d3ac7e6d-390d-4ddd-b12a-73f7313576b4.jpg?v=1595936679",
+    "products_count": 22
+  },
+  {
+    "id": 202357702805,
+    "name": "Organic dryfruit",
+    "slug": "cat3",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/cat3.jpg?v=1592896213",
+    "products_count": 22
+  },
+  {
+    "id": 202357833877,
+    "name": "Organic juice",
+    "slug": "cat6",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/cat7.jpg?v=1592896147",
+    "products_count": 22
+  },
+  {
+    "id": 209745248405,
+    "name": "Organic wine",
+    "slug": "organic-wine",
+    "description": "Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+    "image_url": "https://cdn.shopify.com/s/files/1/0412/8151/9765/collections/cat12.jpg?v=1595859133",
+    "products_count": 22
+  }
+]
