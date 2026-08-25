@@ -65,18 +65,18 @@ export default function Header({ initialCategories, initialProducts }: HeaderPro
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger render={<button className="flex size-11 items-center justify-center rounded-full text-brand-ink hover:bg-brand-cloud lg:hidden" aria-label="Open navigation" />}><Menu /></SheetTrigger>
           <SheetContent side="left" className="w-[88vw] max-w-sm gap-0 bg-white p-0">
-            <SheetHeader className="border-b border-border p-6"><SheetTitle><Image src="/logo.png" width={138} height={54} alt="FreshCo Deli" /></SheetTitle><SheetDescription>Fresh food and everyday groceries.</SheetDescription></SheetHeader>
+            <SheetHeader className="border-b border-border p-6"><SheetTitle><Image src="/logo.png" width={144} height={63} alt="FreshCo Deli" /></SheetTitle><SheetDescription>Fresh food and everyday groceries.</SheetDescription></SheetHeader>
             <form onSubmit={submitSearch} className="flex gap-2 border-b border-border p-5"><Input aria-label="Search products" placeholder="Search the aisles" value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} className="h-11" /><Button type="submit" size="icon-lg" aria-label="Submit search"><Search /></Button></form>
             <nav aria-label="Mobile navigation" className="flex flex-col p-3">{(adminUser ? [['Admin', '/admin'] as const, ...navItems] : navItems).map(([label, href]) => <Link key={href} href={href} onClick={() => setMobileOpen(false)} className="flex min-h-12 items-center justify-between rounded-xl px-4 font-bold text-brand-ink hover:bg-brand-cloud hover:text-primary">{label}<ArrowRight className="size-4" /></Link>)}</nav>
           </SheetContent>
         </Sheet>
 
-        <Link href="/" aria-label="FreshCo Deli home" className="shrink-0"><Image src="/logo.png" alt="FreshCo Deli" width={154} height={62} priority className="w-[118px] sm:w-[145px]" style={{ height: 'auto' }} /></Link>
+        <Link href="/" aria-label="FreshCo Deli home" className="shrink-0"><Image src="/logo.png" alt="FreshCo Deli" width={144} height={63} priority /></Link>
 
         <div ref={searchRef} className="relative mx-auto hidden w-full max-w-xl md:block">
           <form onSubmit={submitSearch} className="relative">
             <Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-primary" />
-            <Input aria-label="Search products" placeholder="Search fruit, bread, pantry and more" value={searchQuery} onChange={(event) => { setSearchQuery(event.target.value); setSearchFocused(true) }} onFocus={() => setSearchFocused(true)} className="h-12 rounded-full border-border bg-brand-cloud pl-11 pr-28 text-sm shadow-inner" />
+            <Input aria-label="Search products" placeholder="Search cheese, filo pies and pasta" value={searchQuery} onChange={(event) => { setSearchQuery(event.target.value); setSearchFocused(true) }} onFocus={() => setSearchFocused(true)} className="h-12 rounded-full border-border bg-brand-cloud pl-11 pr-28 text-sm shadow-inner" />
             <Button type="submit" className="absolute right-1.5 top-1.5 h-9 rounded-full px-5 font-bold">Search</Button>
           </form>
           {searchFocused && searchResults.length > 0 && <div className="absolute left-0 right-0 top-full mt-3 overflow-hidden rounded-2xl border border-border bg-white p-2 shadow-2xl">{searchResults.map((product) => <Link key={product.id} href={`/products/${product.slug}`} onClick={() => { setSearchQuery(''); setSearchFocused(false) }} className="flex items-center gap-3 rounded-xl p-2 hover:bg-brand-cloud"><span className="relative size-12 overflow-hidden rounded-xl bg-muted"><Image src={product.images?.[0]} alt="" fill className="object-cover" /></span><span className="min-w-0 flex-1"><strong className="block truncate text-sm text-brand-ink">{product.name}</strong><span className="text-xs font-bold text-primary">{formatAUD(product.price)}</span></span></Link>)}</div>}

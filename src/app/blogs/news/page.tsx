@@ -23,7 +23,7 @@ export default async function BlogIndexPage() {
 
         <div className="border-b border-border-theme pb-4 mb-10 text-left">
           <h1 className="text-xl md:text-2xl font-extrabold text-content-strong">News & Articles</h1>
-          <p className="text-xs text-content-muted mt-1">Get the latest healthy organic recipes and picnic ideas from our team.</p>
+          <p className="text-xs text-content-muted mt-1">Serving ideas and product guides for our Greek cheese, filo pie and pasta collections.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
@@ -31,9 +31,10 @@ export default async function BlogIndexPage() {
             <article key={post.id} className="flex flex-col gap-4 border border-border-theme p-4 rounded-2xl shadow-2xs hover:shadow-md transition bg-white">
               <Link href={`/blogs/news/${post.slug}`} className="relative aspect-video rounded-xl overflow-hidden bg-gray-50 border border-gray-100 block">
                 <Image 
-                  src={post.image_url || 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=400'} 
+                  src={post.image_url || '/blogs/freshco-greek-cheese.jpg'}
                   alt={post.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover hover:scale-103 transition duration-500"
                 />
               </Link>

@@ -6,6 +6,7 @@ import { useStore } from '@/context/store-context'
 import ProductCard from '@/components/ui/product-card'
 import { Heart, ChevronRight } from 'lucide-react'
 import { createClientComponentClient } from '@/lib/supabase-client'
+import type { ProductVariant } from '@/lib/catalog-types'
 
 interface WishlistProduct {
   id: number
@@ -14,6 +15,8 @@ interface WishlistProduct {
   price: number
   compare_at_price: number | null
   images: string[]
+  brand: string
+  variants: ProductVariant[]
 }
 
 export default function WishlistPage() {
@@ -30,11 +33,11 @@ export default function WishlistPage() {
 
       const { data, error } = await supabase
         .from('products')
-        .select('id, name, slug, price, compare_at_price, images')
+        .select('id, name, slug, price, compare_at_price, images, brand, product_variants(*)')
         .in('id', wishlist)
 
       if (!error && data) {
-        setWishlistProducts(data)
+        setWishlistProducts(data.map((product) => ({ ...product, price: Number(product.price), compare_at_price: product.compare_at_price == null ? null : Number(product.compare_at_price), variants: (product.product_variants || []).map((variant) => ({ ...variant, price: Number(variant.price) })) })))
       }
     }
 
@@ -54,7 +57,7 @@ export default function WishlistPage() {
 
         <div className="border-b border-border-theme pb-4 mb-8">
           <h1 className="text-xl md:text-2xl font-extrabold text-content-strong">My Wishlist</h1>
-          <p className="text-xs text-content-muted mt-1">Keep track of your favorite organic products.</p>
+          <p className="text-xs text-content-muted mt-1">Keep track of your favourite deli products.</p>
         </div>
 
         {wishlistProducts.length === 0 ? (
@@ -62,7 +65,7 @@ export default function WishlistPage() {
             <Heart size={48} className="text-gray-300 stroke-[1.5]" />
             <div>
               <h3 className="font-semibold text-content-strong text-base">Your Wishlist is Empty</h3>
-              <p className="text-xs text-content-muted mt-1">You haven't added any products to your wishlist yet.</p>
+              <p className="text-xs text-content-muted mt-1">Your saved products will appear here.</p>
             </div>
             <Link 
               href="/collections"
@@ -82,6 +85,8 @@ export default function WishlistPage() {
                 price={prod.price}
                 compare_at_price={prod.compare_at_price}
                 images={prod.images}
+                brand={prod.brand}
+                variants={prod.variants}
               />
             ))}
           </div>

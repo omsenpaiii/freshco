@@ -12,7 +12,7 @@ const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-br
 
 export const metadata: Metadata = {
   title: "FreshCo Deli — Fresh Food, Delivered Bright",
-  description: "Shop fresh produce, bakery favourites, pantry staples and organic groceries from FreshCo Deli.",
+  description: "Shop Greek cheese, frozen filo pies and pantry staples from FreshCo Deli.",
 };
 
 export default async function RootLayout({
@@ -26,7 +26,7 @@ export default async function RootLayout({
   ])
 
   return (
-    <html lang="en" className={`${manrope.variable} ${bricolage.variable} h-full scroll-smooth`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${manrope.variable} ${bricolage.variable} h-full scroll-smooth`}>
       <body className="min-h-full flex flex-col font-sans">
         <a href="#main-content" className="sr-only fixed left-4 top-4 z-[100] rounded-full bg-primary px-5 py-3 font-bold text-white focus:not-sr-only">Skip to main content</a>
         <StoreProvider>

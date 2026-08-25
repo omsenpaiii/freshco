@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getAdminSessionUser } from '@/lib/admin'
 import { createAdminClient } from '@/lib/supabase-admin'
-import { normalizeImageUrls, slugify } from '@/lib/catalog'
+import { normalizeImageUrls, normalizeVariants, slugify } from '@/lib/catalog'
 
 async function recalculateCategoryProductCount(categoryId: number | null) {
   if (!categoryId) return
@@ -11,6 +11,7 @@ async function recalculateCategoryProductCount(categoryId: number | null) {
     .from('products')
     .select('*', { head: true, count: 'exact' })
     .eq('category_id', categoryId)
+    .eq('status', 'published')
 
   await supabase
     .from('categories')
@@ -40,6 +41,17 @@ export async function PATCH(
 
   const categoryId = payload.category_id ? Number(payload.category_id) : null
   const supabase = createAdminClient()
+  let variants
+  try {
+    variants = normalizeVariants(payload.variants)
+  } catch (error) {
+    return NextResponse.json({ error: error instanceof Error ? error.message : 'Invalid variants.' }, { status: 400 })
+  }
+  const defaultVariant = variants.find((variant) => variant.is_default) || variants[0]
+  const images = normalizeImageUrls(payload.images)
+  if (payload.status === 'published' && (payload.image_match_status !== 'verified' || images.length === 0)) {
+    return NextResponse.json({ error: 'Published products require a verified exact-match image.' }, { status: 400 })
+  }
 
   const { data: previousProduct } = await supabase
     .from('products')
@@ -53,17 +65,26 @@ export async function PATCH(
       name,
       slug,
       description: String(payload.description || ''),
-      price: Number(payload.price || 0),
+      price: defaultVariant.price,
       compare_at_price:
         payload.compare_at_price === '' || payload.compare_at_price == null
           ? null
           : Number(payload.compare_at_price),
-      sku: String(payload.sku || '').trim(),
-      inventory_quantity: Number(payload.inventory_quantity || 0),
+      sku: defaultVariant.sku,
+      inventory_quantity: defaultVariant.inventory_quantity,
       is_featured: Boolean(payload.is_featured),
       is_trending: Boolean(payload.is_trending),
-      images: normalizeImageUrls(payload.images),
+      images,
       category_id: categoryId,
+      brand: String(payload.brand || '').trim(),
+      unit: String(payload.unit || 'EA').trim().toUpperCase(),
+      subcategory_1: String(payload.subcategory_1 || '').trim(),
+      subcategory_2: String(payload.subcategory_2 || '').trim(),
+      status: payload.status === 'published' ? 'published' : 'draft',
+      image_match_status: payload.image_match_status === 'verified' ? 'verified' : 'unverified',
+      product_source_url: String(payload.product_source_url || '').trim() || null,
+      image_source_url: String(payload.image_source_url || '').trim() || null,
+      draft_reason: String(payload.draft_reason || '').trim() || null,
     })
     .eq('id', productId)
     .select('*, categories(name, slug)')
@@ -73,10 +94,19 @@ export async function PATCH(
     return NextResponse.json({ error: error.message }, { status: 500 })
   }
 
+  const { data: savedVariants, error: variantError } = await supabase.from('product_variants').upsert(variants.map((variant) => ({ ...variant, product_id: productId }))).select('id')
+  if (variantError) return NextResponse.json({ error: variantError.message }, { status: 500 })
+  const keptVariantIds = (savedVariants || []).map((variant) => variant.id)
+  if (keptVariantIds.length) {
+    const { error: deleteVariantError } = await supabase.from('product_variants').delete().eq('product_id', productId).not('id', 'in', `(${keptVariantIds.join(',')})`)
+    if (deleteVariantError) return NextResponse.json({ error: deleteVariantError.message }, { status: 500 })
+  }
+
   await recalculateCategoryProductCount(previousProduct?.category_id ?? null)
   await recalculateCategoryProductCount(categoryId)
 
-  return NextResponse.json({ product: data })
+  const { data: completeProduct } = await supabase.from('products').select('*, categories(name, slug), product_variants(*)').eq('id', productId).single()
+  return NextResponse.json({ product: completeProduct || data })
 }
 
 export async function DELETE(
@@ -113,4 +143,3 @@ export async function DELETE(
 
   return NextResponse.json({ success: true })
 }
-

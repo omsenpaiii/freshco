@@ -78,6 +78,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   compare_at_price={prod.compare_at_price}
                   images={prod.images}
                   category_name={prod.categories?.name}
+                  brand={prod.brand}
+                  variants={prod.variants}
                 />
               ))}
             </div>

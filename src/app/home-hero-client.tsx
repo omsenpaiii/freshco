@@ -9,9 +9,9 @@ import { cn } from '@/lib/utils'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 
 const slides = [
-  { id: 1, title: 'Fresh food, full of colour.', subtitle: 'Picked for today', desc: 'Pesticide-conscious produce and everyday essentials selected from growers and makers we trust.', image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1600&auto=format&fit=crop', btnText: 'Shop fresh produce', link: '/collections/fruits', note: 'Farm to fridge' },
-  { id: 2, title: 'Big flavour. Small-batch spice.', subtitle: 'Pantry with personality', desc: 'Fragrant Indian blends, whole spices and grains chosen to make weeknight cooking taste anything but ordinary.', image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1600&auto=format&fit=crop', btnText: 'Explore the pantry', link: '/collections/dry-fruits', note: 'Ground fresh' },
-  { id: 3, title: 'Better bread, baked daily.', subtitle: 'The morning counter', desc: 'Sourdough, seeded loaves and bakery favourites made with honest ingredients and delivered at their best.', image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop', btnText: 'Shop the bakery', link: '/collections/bread', note: 'Fresh every day' },
+  { id: 1, title: 'Greek cheese, ready for the table.', subtitle: 'From the deli fridge', desc: 'Dodoni feta and speciality cheeses in carefully matched pack sizes.', image: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=85&w=1600&auto=format&fit=crop', btnText: 'Shop cheese', link: '/collections/cheese', note: 'Chilled selection' },
+  { id: 2, title: 'Filo favourites for the freezer.', subtitle: 'Filosophy pies', desc: 'Spirals, family pies and bite-size pastries for effortless sharing.', image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=85&w=1600&auto=format&fit=crop', btnText: 'Shop frozen', link: '/collections/frozen', note: 'Freezer ready' },
+  { id: 3, title: 'Greek pasta for every pantry.', subtitle: 'Misko classics', desc: 'Long, short and soup pasta shapes, each in the supplied 500 g pack.', image: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=85&w=1600&auto=format&fit=crop', btnText: 'Shop grocery', link: '/collections/grocery', note: 'Pantry staples' },
 ]
 
 export default function HomeHeroClient() {

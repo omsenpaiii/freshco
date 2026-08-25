@@ -54,7 +54,7 @@ export default function CartPage() {
             <ShoppingBag size={48} className="text-gray-300 stroke-[1.5]" />
             <div>
               <h3 className="font-semibold text-content-strong text-base">Your Cart is Empty</h3>
-              <p className="text-xs text-content-muted mt-1">Add organic goods to your shopping cart.</p>
+              <p className="text-xs text-content-muted mt-1">Add something from the deli catalog to your cart.</p>
             </div>
             <Link 
               href="/collections"
@@ -80,7 +80,7 @@ export default function CartPage() {
                 {/* Items List */}
                 <div className="divide-y divide-border-theme">
                   {cart.map((item) => (
-                    <div key={item.product_id} className="grid grid-cols-12 gap-4 p-4 items-center">
+                    <div key={`${item.product_id}:${item.variant_id}`} className="grid grid-cols-12 gap-4 p-4 items-center">
                       
                       {/* Details */}
                       <div className="col-span-12 sm:col-span-6 flex gap-4">
@@ -89,13 +89,15 @@ export default function CartPage() {
                             src={item.image || 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=200'}
                             alt={item.name}
                             fill
-                            className="object-cover"
+                            sizes="64px"
+                            className="object-contain p-1"
                           />
                         </div>
                         <div className="flex flex-col justify-center">
                           <h3 className="text-xs md:text-sm font-semibold text-content-strong hover:text-primary transition line-clamp-2">
                             <Link href={`/products/${item.slug}`}>{item.name}</Link>
                           </h3>
+                          <p className="mt-1 text-[10px] font-semibold text-muted-foreground">{item.variant_title} · {item.sku}</p>
                         </div>
                       </div>
 
@@ -109,14 +111,14 @@ export default function CartPage() {
                       <div className="col-span-5 sm:col-span-2 flex justify-start sm:justify-center mt-2 sm:mt-0">
                         <div className="flex items-center border border-border-theme rounded-full bg-gray-50 p-0.5">
                           <button 
-                            onClick={() => updateCartQuantity(item.product_id, item.quantity - 1)}
+                            onClick={() => updateCartQuantity(item.product_id, item.variant_id, item.quantity - 1)}
                             className="px-2 py-0.5 text-content-strong hover:text-primary transition cursor-pointer"
                           >
                             <Minus size={11} />
                           </button>
                           <span className="px-1.5 text-xs font-semibold text-content-strong">{item.quantity}</span>
                           <button 
-                            onClick={() => updateCartQuantity(item.product_id, item.quantity + 1)}
+                            onClick={() => updateCartQuantity(item.product_id, item.variant_id, item.quantity + 1)}
                             className="px-2 py-0.5 text-content-strong hover:text-primary transition cursor-pointer"
                           >
                             <Plus size={11} />
@@ -129,7 +131,7 @@ export default function CartPage() {
                         <div className="sm:hidden text-[9px] uppercase font-bold text-content-muted">Total</div>
                         <span className="text-xs text-primary font-bold">{formatAUD(item.price * item.quantity)}</span>
                         <button 
-                          onClick={() => removeFromCart(item.product_id)}
+                          onClick={() => removeFromCart(item.product_id, item.variant_id)}
                           className="text-content-muted hover:text-red-500 transition p-1 ml-2 sm:ml-0 cursor-pointer"
                         >
                           <Trash2 size={13} />

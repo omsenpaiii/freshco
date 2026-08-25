@@ -7,18 +7,10 @@ import {
   Heart, ShoppingBag, Plus, Minus, Star, Truck, Check, RefreshCw 
 } from 'lucide-react'
 import { formatAUD } from '@/lib/store'
+import type { CatalogProduct, ProductVariant } from '@/lib/catalog-types'
 
 interface ProductDetailClientProps {
-  product: {
-    id: number
-    name: string
-    slug: string
-    price: number
-    compare_at_price: number | null
-    images: string[]
-    description: string
-    categories?: { name: string; slug: string } | null
-  }
+  product: CatalogProduct
 }
 
 interface Review {
@@ -38,28 +30,15 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
     product.images?.[0] || 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600'
   )
   const [quantity, setQuantity] = useState(1)
+  const hasOptions = product.variants.length > 1
+  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
+    hasOptions ? null : (product.variants.find((variant) => variant.is_default) || product.variants[0] || null)
+  )
   const [activeTab, setActiveTab] = useState<'description' | 'reviews' | 'shipping'>('description')
   const shortDescription = product.description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220)
 
   // Review Form & List Local State
-  const [reviews, setReviews] = useState<Review[]>([
-    {
-      id: 1,
-      name: "John S.",
-      rating: 5,
-      title: "Extremely fresh and delicious!",
-      comment: "We order these weekly and they arrive in perfect shape. Very clean and fresh tasting.",
-      date: "07/10/2026"
-    },
-    {
-      id: 2,
-      name: "Mariam A.",
-      rating: 4,
-      title: "Highly recommended organic quality",
-      comment: "Taste is amazing, though the delivery took a bit longer than last time. Overall very satisfied.",
-      date: "07/08/2026"
-    }
-  ])
+  const [reviews, setReviews] = useState<Review[]>([])
   const [newReview, setNewReview] = useState({ name: '', title: '', comment: '', rating: 5 })
   const [reviewSubmitted, setReviewSubmitted] = useState(false)
 
@@ -68,12 +47,13 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
   }
 
   const handleAddToCart = () => {
+    if (!selectedVariant) return
     addToCart({
       id: product.id,
       name: product.name,
       slug: product.slug,
-      price: product.price,
-      image: product.images?.[0] || ''
+      image: product.images?.[0] || '',
+      variant: selectedVariant,
     }, quantity)
   }
 
@@ -106,7 +86,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             src={activeImage}
             alt={product.name}
             fill
-            className="object-cover transition-all duration-300"
+            className="object-contain p-8 transition-all duration-300"
             priority
             sizes="(max-width: 768px) 100vw, 50vw"
           />
@@ -129,7 +109,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                   src={img}
                   alt={`${product.name} Thumbnail ${idx + 1}`}
                   fill
-                  className="object-cover"
+                  className="object-contain p-2"
                   sizes="80px"
                 />
               </button>
@@ -142,25 +122,18 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
       <div className="space-y-6">
         <div>
           <span className="text-xs uppercase font-extrabold tracking-widest text-primary block mb-1.5">
-            {product.categories?.name || 'Organic'}
+            {product.brand || product.categories?.name || 'FreshCo Deli'}
           </span>
           <h1 className="text-4xl font-bold leading-[1.05] text-brand-ink md:text-5xl">
             {product.name}
           </h1>
           
-          {/* Star review header mock */}
-          <div className="flex items-center gap-0.5 text-yellow-400 mt-2">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={15} fill={i < 4 ? 'currentColor' : 'none'} />
-            ))}
-            <span className="text-xs text-content-muted ml-2">({reviews.length} Customer Reviews)</span>
-          </div>
         </div>
 
         {/* Price Tag */}
         <div className="flex items-baseline gap-3 pb-4 border-b border-border-theme">
           <span className="text-2xl font-bold text-primary">
-            {formatAUD(product.price)}
+            {selectedVariant ? formatAUD(selectedVariant.price) : `From ${formatAUD(product.price)}`}
           </span>
           {product.compare_at_price && (
             <span className="text-sm text-content-muted line-through">
@@ -174,6 +147,26 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
         {/* Short description */}
         <p className="text-sm leading-7 text-muted-foreground">{shortDescription}{shortDescription.length >= 220 ? '…' : ''}</p>
+
+        {product.variants.length > 0 && (
+          <fieldset className="space-y-3">
+            <legend className="text-xs font-extrabold uppercase tracking-wider text-brand-ink">Weight{hasOptions ? ' — choose one' : ''}</legend>
+            <div className="flex flex-wrap gap-2">
+              {product.variants.map((variant) => (
+                <button
+                  type="button"
+                  key={variant.id}
+                  onClick={() => setSelectedVariant(variant)}
+                  aria-pressed={selectedVariant?.id === variant.id}
+                  className={`rounded-full border px-4 py-2 text-xs font-bold transition ${selectedVariant?.id === variant.id ? 'border-primary bg-primary text-white' : 'border-border bg-white text-brand-ink hover:border-primary'}`}
+                >
+                  {variant.title} · {formatAUD(variant.price)}
+                </button>
+              ))}
+            </div>
+            {selectedVariant && <p className="text-[11px] text-muted-foreground">SKU: {selectedVariant.sku}</p>}
+          </fieldset>
+        )}
 
         {/* Quantity and Actions Row */}
         <div className="space-y-4">
@@ -203,9 +196,10 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
             <button 
               onClick={handleAddToCart}
-              className="bg-primary hover:bg-[#d89311] text-white font-bold text-xs px-8 py-3.5 rounded-full flex items-center gap-2 transition cursor-pointer shadow-md uppercase tracking-wider"
+              disabled={!selectedVariant}
+              className="bg-primary hover:bg-[#d89311] disabled:cursor-not-allowed disabled:opacity-45 text-white font-bold text-xs px-8 py-3.5 rounded-full flex items-center gap-2 transition cursor-pointer shadow-md uppercase tracking-wider"
             >
-              Add To Cart <ShoppingBag size={16} />
+              {selectedVariant ? 'Add To Cart' : 'Choose a weight'} <ShoppingBag size={16} />
             </button>
 
             <button 
@@ -285,11 +279,11 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           {activeTab === 'shipping' && (
             <div className="space-y-4 text-content-strong">
               <h4 className="font-bold text-sm">Shipping Policy</h4>
-              <p>We pack and ship out all fresh vegetables daily from our local farms. Typical delivery schedules are as follows:</p>
+              <p>We pack chilled, frozen and pantry items according to their handling needs. Typical delivery schedules are as follows:</p>
               <ul className="list-disc pl-5 space-y-1.5 text-gray-500">
                 <li>Local orders placed before 10 AM qualify for same-day evening delivery.</li>
                 <li>Standard delivery within the county takes 1 to 2 business days.</li>
-                <li>Fresh produce is transported in insulated cold storage cases to preserve nutritional content and maintain shelf life.</li>
+                <li>Chilled and frozen products are transported with temperature-conscious packing.</li>
               </ul>
             </div>
           )}

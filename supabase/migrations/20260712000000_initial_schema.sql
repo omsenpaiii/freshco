@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS public.blog_posts (
     slug TEXT UNIQUE NOT NULL,
     content TEXT NOT NULL,
     excerpt TEXT,
-    author TEXT DEFAULT 'Vegist Admin' NOT NULL,
+    author TEXT DEFAULT 'FreshCo Deli' NOT NULL,
     image_url TEXT,
     published_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL

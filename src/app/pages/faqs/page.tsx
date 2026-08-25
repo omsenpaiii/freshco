@@ -6,24 +6,24 @@ import { ChevronRight, ChevronDown, HelpCircle } from 'lucide-react'
 
 const faqItems = [
   {
-    q: "How organic is your organic produce?",
-    a: "All of our vegetables, fruits, and grains are sourced from certified organic farms that do not employ synthetic fertilizers, chemical pesticides, or genetic modification (Non-GMO). Our suppliers are audited and follow strict national agricultural guidelines."
+    q: "What products are available online?",
+    a: "The current FreshCo Deli catalog focuses on Dodoni cheese, Filosophy frozen filo pies and Misko pasta. Only products with a verified matching pack image are shown to shoppers."
   },
   {
-    q: "What are your delivery schedules and lead times?",
-    a: "Local orders made before 10:00 AM are eligible for same-day delivery by 6:00 PM. Standard county shipping typically delivers within 1 to 2 business days. Fresh produce is shipped inside temperature-controlled cooling containers."
+    q: "How are chilled and frozen items handled?",
+    a: "Cheese and frozen filo products are prepared according to their temperature needs. Contact FreshCo Deli if you need delivery timing or handling details for a particular order."
   },
   {
-    q: "How does the custom database cart syncing work?",
-    a: "If you log in via your Supabase account, your shopping cart and wishlist automatically sync to the database so that you can view them on other devices. Guest shopping profiles default to using local storage on the client side."
+    q: "How do I choose a Kefalograviera weight?",
+    a: "Open the Dodoni Kefalograviera product page and select 250 g, 500 g, 700 g or 1 kg before adding it to your cart. The selected weight, price and SKU remain visible in your cart and checkout summary."
   },
   {
-    q: "Do you support Stripe or other payment processing methods?",
-    a: "For demonstration purposes, we support a fully functional Mock Checkout. A real Stripe configuration can be enabled by setting the environment variables in .env.local with secure keys."
+    q: "Why can’t I see every item from the supplied list?",
+    a: "Items without a verified exact pack image remain hidden as drafts. This prevents a different product or pack size from being shown by mistake."
   },
   {
-    q: "What is your refund policy on fresh vegetables?",
-    a: "Since produce is perishable, we offer refunds or replacements for fresh vegetables within 24 hours of delivery if they arrive damaged, bruised, or spoiled. Please snap a picture and email our customer care team."
+    q: "What should I do if an item arrives damaged?",
+    a: "Contact FreshCo Deli promptly with your order details and a clear photograph of the item so the team can review the appropriate replacement or refund."
   }
 ]
 
@@ -47,7 +47,7 @@ export default function FaqsPage() {
 
         <div className="border-b border-border-theme pb-4 mb-8">
           <h1 className="text-xl md:text-2xl font-extrabold text-content-strong">Frequently Asked Questions</h1>
-          <p className="text-xs text-content-muted mt-1">Get quick answers to common questions about fresh products and delivery.</p>
+          <p className="text-xs text-content-muted mt-1">Get quick answers about our cheese, frozen filo, pasta and ordering experience.</p>
         </div>
 
         {/* Accordions grid */}
@@ -86,7 +86,7 @@ export default function FaqsPage() {
         <div className="mt-10 p-6 bg-primary/5 rounded-2xl border border-primary/10 text-center space-y-3 max-w-xl mx-auto">
           <h4 className="font-bold text-content-strong text-sm">Still have questions?</h4>
           <p className="text-xs text-gray-500 max-w-sm mx-auto leading-relaxed">
-            Our active organic farmer support team is here to assist you with wholesale requests or deliveries.
+            The FreshCo Deli team can help with product, wholesale and delivery questions.
           </p>
           <Link 
             href="/pages/contact-us"

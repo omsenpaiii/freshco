@@ -112,6 +112,8 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
                     compare_at_price={prod.compare_at_price}
                     images={prod.images}
                     category_name={prod.categories?.name}
+                    brand={prod.brand}
+                    variants={prod.variants}
                   />
                 ))}
               </div>

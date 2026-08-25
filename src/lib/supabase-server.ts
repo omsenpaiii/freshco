@@ -1,12 +1,12 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { cookies } from 'next/headers'
+import { getPublicSupabaseConfig } from '@/lib/supabase-config'
 
 // Server side supabase helper (Server Components, Actions, Routes)
 export const createServerComponentClient = async () => {
   const cookieStore = await cookies()
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder-project.supabase.co'
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key'
+  const { url, key } = getPublicSupabaseConfig()
 
   return createServerClient(
     url,
@@ -19,14 +19,14 @@ export const createServerComponentClient = async () => {
         set(name: string, value: string, options: CookieOptions) {
           try {
             cookieStore.set({ name, value, ...options })
-          } catch (error) {
+          } catch {
             // Handled when called from Server Component
           }
         },
         remove(name: string, options: CookieOptions) {
           try {
             cookieStore.set({ name, value: '', ...options })
-          } catch (error) {
+          } catch {
             // Handled when called from Server Component
           }
         },
@@ -34,4 +34,3 @@ export const createServerComponentClient = async () => {
     }
   )
 }
-

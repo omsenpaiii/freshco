@@ -13,8 +13,8 @@ export const revalidate = 0
 
 export default async function Home() {
   const categories = await getCategories()
-  const trendingProducts = await getProducts({ isTrending: true })
   const allProducts = await getProducts()
+  const trendingProducts = allProducts.slice(8, 12)
   const blogPosts = await getBlogPosts()
 
   // Get subset of featured categories for homepage circles (limit to 8)
@@ -45,8 +45,8 @@ export default async function Home() {
               <Leaf size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-content-strong">100% Organic</h4>
-              <p className="text-xs text-content-muted mt-0.5">Direct from local farms</p>
+              <h4 className="text-sm font-bold text-content-strong">Deli selection</h4>
+              <p className="text-xs text-content-muted mt-0.5">Cheese, frozen filo and pantry staples</p>
             </div>
           </div>
           <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
@@ -63,8 +63,8 @@ export default async function Home() {
               <Sparkles size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-content-strong">Daily Deals</h4>
-              <p className="text-xs text-content-muted mt-0.5">Up to 40% off on fresh veggies</p>
+              <h4 className="text-sm font-bold text-content-strong">Verified packs</h4>
+              <p className="text-xs text-content-muted mt-0.5">Only exact-image matches are published</p>
             </div>
           </div>
         </SectionReveal>
@@ -111,18 +111,18 @@ export default async function Home() {
         <SectionReveal className="site-container grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="group relative h-[260px] overflow-hidden rounded-3xl border border-border shadow-xl">
             <Image 
-              src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1000&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=85&w=1000&auto=format&fit=crop"
               alt="Promo Banner 1"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover group-hover:scale-103 transition duration-700"
             />
             <div className="absolute inset-0 flex flex-col items-start justify-center bg-gradient-to-r from-brand-ink/85 to-transparent p-8 md:p-10">
-              <span className="text-xs uppercase font-extrabold tracking-wider text-primary bg-white/95 px-3 py-1 rounded-full shadow-2xs">Best Offer</span>
-              <h3 className="text-xl md:text-2xl font-bold text-white mt-3 leading-tight max-w-[200px]">Fresh Fruits & Vegetables</h3>
-              <p className="text-xs text-white/90 mt-1.5 font-medium">Get A$10 off on orders above A$80</p>
-              <Link href="/collections" className="inline-block bg-primary hover:bg-[#d89311] text-white text-xs font-bold px-4 py-2 rounded-full mt-4 transition">
-                Shop Fruits
+              <span className="text-xs uppercase font-extrabold tracking-wider text-primary bg-white/95 px-3 py-1 rounded-full shadow-2xs">Deli fridge</span>
+              <h3 className="text-xl md:text-2xl font-bold text-white mt-3 leading-tight max-w-[220px]">Dodoni Greek Cheese</h3>
+              <p className="text-xs text-white/90 mt-1.5 font-medium">Feta and speciality cheese packs</p>
+              <Link href="/collections/cheese" className="inline-block bg-primary hover:bg-[#d89311] text-white text-xs font-bold px-4 py-2 rounded-full mt-4 transition">
+                Shop Cheese
               </Link>
             </div>
           </div>
@@ -136,11 +136,11 @@ export default async function Home() {
               className="object-cover group-hover:scale-103 transition duration-700"
             />
             <div className="absolute inset-0 flex flex-col items-start justify-center bg-gradient-to-r from-brand-ink/85 to-transparent p-8 md:p-10">
-              <span className="text-xs uppercase font-extrabold tracking-wider text-primary bg-white/95 px-3 py-1 rounded-full shadow-2xs">100% Fresh</span>
-              <h3 className="text-xl md:text-2xl font-bold text-white mt-3 leading-tight max-w-[200px]">Healthy Organic Wines</h3>
-              <p className="text-xs text-white/90 mt-1.5 font-medium">Naturally brewed wines from premium vineyards</p>
-              <Link href="/collections/organic-wine" className="inline-block bg-primary hover:bg-[#d89311] text-white text-xs font-bold px-4 py-2 rounded-full mt-4 transition">
-                Shop Wine
+              <span className="text-xs uppercase font-extrabold tracking-wider text-primary bg-white/95 px-3 py-1 rounded-full shadow-2xs">Pantry ready</span>
+              <h3 className="text-xl md:text-2xl font-bold text-white mt-3 leading-tight max-w-[220px]">Misko Greek Pasta</h3>
+              <p className="text-xs text-white/90 mt-1.5 font-medium">Classic shapes for weeknight cooking</p>
+              <Link href="/collections/grocery" className="inline-block bg-primary hover:bg-[#d89311] text-white text-xs font-bold px-4 py-2 rounded-full mt-4 transition">
+                Shop Grocery
               </Link>
             </div>
           </div>
@@ -170,6 +170,8 @@ export default async function Home() {
               compare_at_price={prod.compare_at_price}
               images={prod.images}
               category_name={prod.categories?.name}
+              brand={prod.brand}
+              variants={prod.variants}
             />
           ))}
         </div>
@@ -199,45 +201,10 @@ export default async function Home() {
               compare_at_price={prod.compare_at_price}
               images={prod.images}
               category_name={prod.categories?.name}
+              brand={prod.brand}
+              variants={prod.variants}
             />
           ))}
-        </div>
-      </section>
-
-      {/* 8. Testimonials Section */}
-      <section className="section-shell border-y border-border bg-brand-cream">
-        <div className="max-w-6xl mx-auto text-center space-y-2 mb-10">
-          <span className="text-xs uppercase font-bold tracking-widest text-primary">Feedbacks</span>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-content-strong">Our Customer Say</h2>
-          <div className="w-12 h-1 bg-primary mx-auto rounded-full mt-2" />
-        </div>
-
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white p-8 rounded-2xl shadow-2xs border border-gray-100 space-y-4">
-            <div className="flex items-center gap-0.5 text-yellow-400">
-              {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
-            </div>
-            <p className="text-xs leading-relaxed text-gray-500 italic">
-              {`“Amazing quality of organic avocados and strawberries! They tasted incredibly fresh and arrived right on time. The biodegradable packaging is a massive plus.”`}
-            </p>
-            <div>
-              <h5 className="font-bold text-content-strong text-sm">Tokenfaith</h5>
-              <span className="text-[10px] text-content-muted block">Verified Buyer</span>
-            </div>
-          </div>
-
-          <div className="bg-white p-8 rounded-2xl shadow-2xs border border-gray-100 space-y-4">
-            <div className="flex items-center gap-0.5 text-yellow-400">
-              {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
-            </div>
-            <p className="text-xs leading-relaxed text-gray-500 italic">
-              {`“The checkout feels fast, the vegetables stay crisp, and the baker’s-rack bagels were absolutely delicious. FreshCo has become our weekly shop.”`}
-            </p>
-            <div>
-              <h5 className="font-bold text-content-strong text-sm">Refine Digital</h5>
-              <span className="text-[10px] text-content-muted block">Loyal Customer</span>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -246,7 +213,7 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto flex items-end justify-between border-b border-border-theme pb-4 mb-8">
           <div>
             <span className="text-xs uppercase font-bold tracking-widest text-primary">Our Stories</span>
-            <h2 className="text-xl md:text-2xl font-extrabold text-content-strong mt-1">Recent Articles & News</h2>
+            <h2 className="text-xl md:text-2xl font-extrabold text-content-strong mt-1">From the FreshCo Deli Counter</h2>
           </div>
           <Link href="/blogs/news" className="text-xs font-bold text-primary hover:underline flex items-center gap-1">
             Read Blogs <ArrowRight size={14} />
@@ -262,9 +229,10 @@ export default async function Home() {
             >
               <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-50 border border-gray-100 shadow-2xs group-hover:shadow-md transition">
                 <Image 
-                  src={post.image_url || 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=400'} 
+                  src={post.image_url || '/blogs/freshco-greek-cheese.jpg'}
                   alt={post.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-103 transition duration-500"
                 />
               </div>
@@ -286,25 +254,5 @@ export default async function Home() {
         </div>
       </section>
     </div>
-  )
-}
-
-// Inline Testimonial Star Helper
-function Star({ size, fill }: { size: number, fill?: string }) {
-  return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width={size} 
-      height={size} 
-      viewBox="0 0 24 24" 
-      fill={fill || "none"} 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-      className="lucide lucide-star"
-    >
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-    </svg>
   )
 }

@@ -33,6 +33,16 @@ type Product = {
   images: string[]
   category_id: number | null
   categories?: { name: string; slug: string } | null
+  brand: string
+  unit: string
+  subcategory_1: string
+  subcategory_2: string
+  status: 'draft' | 'published'
+  image_match_status: 'unverified' | 'verified'
+  product_source_url: string | null
+  image_source_url: string | null
+  draft_reason: string | null
+  product_variants: Array<{ id: number; title: string; sku: string; weight_grams: number | null; price: number; inventory_quantity: number; is_default: boolean }>
 }
 
 type CategoryFormState = {
@@ -54,6 +64,16 @@ type ProductFormState = {
   images: string
   is_featured: boolean
   is_trending: boolean
+  brand: string
+  unit: string
+  subcategory_1: string
+  subcategory_2: string
+  status: 'draft' | 'published'
+  image_match_status: 'unverified' | 'verified'
+  product_source_url: string
+  image_source_url: string
+  draft_reason: string
+  variants: string
 }
 
 const emptyCategoryForm: CategoryFormState = {
@@ -75,6 +95,16 @@ const emptyProductForm: ProductFormState = {
   images: '',
   is_featured: false,
   is_trending: false,
+  brand: '',
+  unit: 'EA',
+  subcategory_1: '',
+  subcategory_2: '',
+  status: 'draft',
+  image_match_status: 'unverified',
+  product_source_url: '',
+  image_source_url: '',
+  draft_reason: '',
+  variants: JSON.stringify([{ title: 'Default', sku: '', weight_grams: null, price: 0, inventory_quantity: 100, is_default: true }], null, 2),
 }
 
 function categoryToForm(category: Category): CategoryFormState {
@@ -100,6 +130,16 @@ function productToForm(product: Product): ProductFormState {
     images: (product.images || []).join('\n'),
     is_featured: product.is_featured,
     is_trending: product.is_trending,
+    brand: product.brand || '',
+    unit: product.unit || 'EA',
+    subcategory_1: product.subcategory_1 || '',
+    subcategory_2: product.subcategory_2 || '',
+    status: product.status || 'draft',
+    image_match_status: product.image_match_status || 'unverified',
+    product_source_url: product.product_source_url || '',
+    image_source_url: product.image_source_url || '',
+    draft_reason: product.draft_reason || '',
+    variants: JSON.stringify(product.product_variants || [], null, 2),
   }
 }
 
@@ -527,6 +567,31 @@ export default function AdminPanel({
                   </div>
 
                   <div className="grid gap-4 md:grid-cols-2">
+                    <label className="text-xs font-bold text-brand-ink">Brand<Input value={productForm.brand} onChange={(event) => setProductForm((current) => ({ ...current, brand: event.target.value }))} className="mt-2 h-11" required /></label>
+                    <label className="text-xs font-bold text-brand-ink">Unit<select value={productForm.unit} onChange={(event) => setProductForm((current) => ({ ...current, unit: event.target.value }))} className="mt-2 h-11 w-full rounded-xl border border-input bg-white px-4 text-sm"><option value="EA">EA</option><option value="KG">KG</option></select></label>
+                    <label className="text-xs font-bold text-brand-ink">Primary subcategory<Input value={productForm.subcategory_1} onChange={(event) => setProductForm((current) => ({ ...current, subcategory_1: event.target.value }))} className="mt-2 h-11" /></label>
+                    <label className="text-xs font-bold text-brand-ink">Secondary subcategory<Input value={productForm.subcategory_2} onChange={(event) => setProductForm((current) => ({ ...current, subcategory_2: event.target.value }))} className="mt-2 h-11" /></label>
+                  </div>
+
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <label className="text-xs font-bold text-brand-ink">Publication status<select value={productForm.status} onChange={(event) => setProductForm((current) => ({ ...current, status: event.target.value as ProductFormState['status'] }))} className="mt-2 h-11 w-full rounded-xl border border-input bg-white px-4 text-sm"><option value="draft">Draft</option><option value="published">Published</option></select></label>
+                    <label className="text-xs font-bold text-brand-ink">Image validation<select value={productForm.image_match_status} onChange={(event) => setProductForm((current) => ({ ...current, image_match_status: event.target.value as ProductFormState['image_match_status'] }))} className="mt-2 h-11 w-full rounded-xl border border-input bg-white px-4 text-sm"><option value="unverified">Unverified</option><option value="verified">Verified exact match</option></select></label>
+                  </div>
+
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <label className="text-xs font-bold text-brand-ink">Product information source<Input type="url" value={productForm.product_source_url} onChange={(event) => setProductForm((current) => ({ ...current, product_source_url: event.target.value }))} className="mt-2 h-11" /></label>
+                    <label className="text-xs font-bold text-brand-ink">Image source<Input type="url" value={productForm.image_source_url} onChange={(event) => setProductForm((current) => ({ ...current, image_source_url: event.target.value }))} className="mt-2 h-11" /></label>
+                  </div>
+
+                  <label className="block text-xs font-bold text-brand-ink">Draft reason<Input value={productForm.draft_reason} onChange={(event) => setProductForm((current) => ({ ...current, draft_reason: event.target.value }))} className="mt-2 h-11" /></label>
+
+                  <label className="block text-xs font-bold text-brand-ink">
+                    Variants (JSON)
+                    <textarea value={productForm.variants} onChange={(event) => setProductForm((current) => ({ ...current, variants: event.target.value }))} rows={10} className="mt-2 w-full rounded-2xl border border-input bg-white px-4 py-3 font-mono text-xs outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+                    <span className="mt-1 block text-[10px] font-medium text-muted-foreground">Each row needs title, sku, weight_grams, price, inventory_quantity and is_default.</span>
+                  </label>
+
+                  <div className="grid gap-4 md:grid-cols-2">
                     <label className="text-xs font-bold text-brand-ink">
                       Product images
                       <textarea value={productForm.images} onChange={(event) => setProductForm((current) => ({ ...current, images: event.target.value }))} rows={5} placeholder="Paste one URL per line" className="mt-2 w-full rounded-2xl border border-input bg-white px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
@@ -706,4 +771,3 @@ export default function AdminPanel({
     </main>
   )
 }
-

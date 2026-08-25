@@ -11,7 +11,7 @@ export const revalidate = 0
 
 interface CollectionPageProps {
   params: Promise<{ slug: string }>
-  searchParams: Promise<{ sortBy?: string; search?: string }>
+  searchParams: Promise<{ sortBy?: string; search?: string; brand?: string; subcategory?: string }>
 }
 
 export default async function CollectionPage({ params, searchParams }: CollectionPageProps) {
@@ -21,16 +21,23 @@ export default async function CollectionPage({ params, searchParams }: Collectio
   const currentSlug = resolvedParams.slug
   const sortBy = resolvedSearchParams.sortBy || 'newest'
   const search = resolvedSearchParams.search || ''
+  const brand = resolvedSearchParams.brand || ''
+  const subcategory = resolvedSearchParams.subcategory || ''
 
   // Fetch data
   const categories = await getCategories()
   const currentCategory = await getCategoryBySlug(currentSlug)
   
-  // Fetch filtered products
+  const unfilteredProducts = await getProducts({ categorySlug: currentSlug })
+  const brands = [...new Set(unfilteredProducts.map((product) => product.brand))].sort()
+  const subcategories = [...new Set(unfilteredProducts.flatMap((product) => [product.subcategory_1, product.subcategory_2]).filter(Boolean))].sort()
+
   const products = await getProducts({
     categorySlug: currentSlug,
     sortBy: sortBy,
-    search: search
+    search: search,
+    brand,
+    subcategory,
   })
 
   return (
@@ -96,6 +103,24 @@ export default async function CollectionPage({ params, searchParams }: Collectio
                   </li>
                 ))}
               </ul>
+              <form className="space-y-4 border-t border-border pt-5" action={`/collections/${currentSlug}`}>
+                <div>
+                  <label htmlFor="brand" className="mb-1.5 block text-[10px] font-extrabold uppercase tracking-wider text-muted-foreground">Brand</label>
+                  <select id="brand" name="brand" defaultValue={brand} className="h-10 w-full rounded-xl border border-border bg-white px-3 text-xs font-semibold">
+                    <option value="">All brands</option>
+                    {brands.map((option) => <option key={option} value={option}>{option}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="subcategory" className="mb-1.5 block text-[10px] font-extrabold uppercase tracking-wider text-muted-foreground">Product type</label>
+                  <select id="subcategory" name="subcategory" defaultValue={subcategory} className="h-10 w-full rounded-xl border border-border bg-white px-3 text-xs font-semibold">
+                    <option value="">All types</option>
+                    {subcategories.map((option) => <option key={option} value={option}>{option}</option>)}
+                  </select>
+                </div>
+                <button className="h-10 w-full rounded-full bg-primary text-xs font-bold text-white">Apply filters</button>
+                {(brand || subcategory) && <Link href={`/collections/${currentSlug}`} className="block text-center text-xs font-bold text-primary hover:underline">Clear filters</Link>}
+              </form>
             </div>
           </div>
 
@@ -134,8 +159,10 @@ export default async function CollectionPage({ params, searchParams }: Collectio
                     price={prod.price}
                     compare_at_price={prod.compare_at_price}
                     images={prod.images}
-                    category_name={prod.categories?.name}
-                  />
+                  category_name={prod.categories?.name}
+                  brand={prod.brand}
+                  variants={prod.variants}
+                />
                 ))}
               </div>
             )}

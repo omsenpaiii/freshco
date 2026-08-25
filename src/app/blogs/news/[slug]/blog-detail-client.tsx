@@ -15,11 +15,20 @@ interface BlogDetailClientProps {
     image_url: string
     published_at: string
   }
-  initialComments: any[]
+  initialComments: BlogComment[]
+}
+
+interface BlogComment {
+  id: string
+  post_id: string
+  author_name: string
+  author_email?: string
+  content: string
+  created_at: string
 }
 
 export default function BlogDetailClient({ post, initialComments }: BlogDetailClientProps) {
-  const [comments, setComments] = useState<any[]>(initialComments || [])
+  const [comments, setComments] = useState<BlogComment[]>(initialComments || [])
   const [form, setForm] = useState({ name: '', email: '', comment: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
@@ -97,9 +106,10 @@ export default function BlogDetailClient({ post, initialComments }: BlogDetailCl
       {/* Featured Banner Image */}
       <div className="relative aspect-video max-h-[450px] w-full rounded-2xl overflow-hidden bg-gray-50 border border-border-theme shadow-2xs">
         <Image 
-          src={post.image_url || 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800'}
+          src={post.image_url || '/blogs/freshco-greek-cheese.jpg'}
           alt={post.title}
           fill
+          sizes="(max-width: 768px) 100vw, 896px"
           className="object-cover"
           priority
         />
@@ -107,20 +117,8 @@ export default function BlogDetailClient({ post, initialComments }: BlogDetailCl
 
       {/* Article Body Content */}
       <div className="text-sm text-gray-500 leading-relaxed space-y-4 py-4">
-        <p className="font-semibold text-content-strong text-base">
-          Fresh, certified organic elements from our farm direct to your table.
-        </p>
         <p>
           {post.content}
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac leo ac ante convallis pretium. Mauris finibus diam metus, sit amet fringilla enim luctus nec. Vestibulum viverra dictum metus, in facilisis arcu eleifend facilisis. Duis porta lectus at dui ultrices vulputate. Morbi in urna nisl. Integer interdum finibus dictum. Aliquam id massa sed nibh rhoncus hendrerit.
-        </p>
-        <blockquote className="border-l-4 border-primary pl-4 py-2 my-6 bg-gray-50 text-content-strong italic rounded-r-lg font-medium text-xs">
-          "Eating organic produce is not just a diet choice; it's a pledge to support sustainable farming and care for your long-term physical wellness."
-        </blockquote>
-        <p>
-          In aenean pretium facilisis accumsan at. At elementum pulvinar vitae facilisis volutpat scelerisque porttitor. Velit, dictumst sit dictumst et sodales in mi leo. Condimentum ac nisl vulputate sodales scelerisque donec. Vel, leo sit in diam dictumst.
         </p>
       </div>
 

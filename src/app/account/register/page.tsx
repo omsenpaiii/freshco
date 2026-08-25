@@ -2,12 +2,10 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { createClientComponentClient } from '@/lib/supabase-client'
-import { ChevronRight, Mail, Lock, User, AlertCircle } from 'lucide-react'
+import { Mail, Lock, User, AlertCircle } from 'lucide-react'
 
 export default function RegisterPage() {
-  const router = useRouter()
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')

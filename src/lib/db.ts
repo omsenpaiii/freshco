@@ -1,38 +1,40 @@
 import { createServerComponentClient } from './supabase-server'
 import categoriesData from '@/data/categories.json'
 import productsData from '@/data/products.json'
+import type { CatalogProduct } from '@/lib/catalog-types'
+import { isCatalogBackendEnabled } from '@/lib/supabase-config'
 
-// Fallback static mock blog data (in case DB isn't seeded)
+// FreshCo Deli editorial fallback (used until the dedicated catalog backend is enabled).
 const fallbackBlogs = [
   {
     id: "blog-1",
-    title: "All time fresh, every time healthy organic food recipes",
-    slug: "all-time-fresh-every-time-healthy",
-    excerpt: "Organic foods are grown without artificial chemicals. Here are some quick organic recipes to boost your health.",
-    content: "Prepare meals with fresh ingredients. Organic food has more nutrients, and eating fresh vegetables keeps your body energized throughout the day. Try blending avocado, spinach, and apples for a green health booster.",
-    author: "Vegist Admin",
-    image_url: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800&auto=format&fit=crop",
-    published_at: "2026-07-12T00:00:00Z"
+    title: "Build a Greek cheese board with FreshCo Deli favourites",
+    slug: "greek-cheese-board-freshco-deli-favourites",
+    excerpt: "Bring together feta, Manouri, Saganaki and Kefalograviera for a generous Greek-inspired cheese board.",
+    content: "Start with a mix of textures from the FreshCo Deli cheese collection. Dodoni feta brings a familiar crumbly centrepiece, Manouri adds a softer option, and Saganaki or Kefalograviera brings a firmer cheese to slice or cook. Keep each cheese in its original packaging until you are ready to prepare the board, and use the product page to choose the Kefalograviera weight that suits your gathering.",
+    author: "FreshCo Deli",
+    image_url: "/blogs/freshco-greek-cheese.jpg",
+    published_at: "2026-08-15T00:00:00Z"
   },
   {
     id: "blog-2",
-    title: "Fresh organics brand and picnic ideas for summer holidays",
-    slug: "fresh-organics-brand-and-picnic",
-    excerpt: "Planning a picnic? Here are some summer ideas using organic fresh goods that will surprise your family.",
-    content: "A summer picnic is the perfect way to connect with nature. Bundle organic grapes, fresh cherries, artisanal sourdough bread, and natural local cheeses. Keep things cooled using insulated bags.",
-    author: "Vegist Admin",
-    image_url: "https://images.unsplash.com/photo-1530124560072-aab9a51df75a?q=80&w=800&auto=format&fit=crop",
-    published_at: "2026-07-11T00:00:00Z"
+    title: "From freezer to table: choosing a Filosophy filo pie",
+    slug: "choosing-a-filosophy-filo-pie",
+    excerpt: "A quick guide to FreshCo Deli’s spiral pies, family pies and mini filo pieces.",
+    content: "Choose a large spiral when you want a centrepiece, a family pie for easy portions, or mini spirals, rolls and triangles for a shareable spread. The FreshCo Deli frozen collection includes feta, spinach and feta, wild greens, leek and feta, halloumi and sweet custard styles. Check the exact pack size on each product page before adding it to your cart.",
+    author: "FreshCo Deli",
+    image_url: "/blogs/freshco-filo-pies.jpg",
+    published_at: "2026-08-14T00:00:00Z"
   },
   {
     id: "blog-3",
-    title: "Green onion, knife and fresh salad placed on table",
-    slug: "green-onion-knife-and-salad-placed",
-    excerpt: "Learn how to prepare the perfect chef's salad using green onions and organic leafy greens.",
-    content: "Proper knife skills and fresh produce make cooking a delight. Chop organic red radishes, green onions, and sweet cucumbers. Toss in olive oil and organic lemon juice for a quick dressing.",
-    author: "Vegist Admin",
-    image_url: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop",
-    published_at: "2026-07-10T00:00:00Z"
+    title: "A simple guide to the Misko pasta shapes at FreshCo Deli",
+    slug: "guide-to-misko-pasta-shapes",
+    excerpt: "Meet the spaghetti, macaroni, soup pasta, Kritharaki and short shapes in our grocery collection.",
+    content: "FreshCo Deli stocks Misko pasta by shape and number so it is easier to find the pack you know. The collection covers long pasta such as Spaghetti No. 6 and No. 10, hollow Macaroni No. 2 and No. 5, rice-shaped Kritharaki, and short shapes including shells, twirls, tubetti and pennaki. Every published Misko product in the current range is listed as a 500 g pack.",
+    author: "FreshCo Deli",
+    image_url: "/blogs/freshco-misko-pasta.jpg",
+    published_at: "2026-08-13T00:00:00Z"
   }
 ]
 
@@ -40,7 +42,7 @@ const fallbackBlogs = [
 const isSupabaseConfigured = () => {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  return url && key && !url.includes('your-project') && !key.includes('...')
+  return isCatalogBackendEnabled() && url && key && !url.includes('your-project') && !key.includes('...')
 }
 
 // Categories Fetching
@@ -77,19 +79,38 @@ export interface GetProductsOptions {
   isTrending?: boolean
   search?: string
   sortBy?: string // 'price-asc', 'price-desc', 'title-asc', 'title-desc', 'newest'
+  brand?: string
+  subcategory?: string
 }
 
-export async function getProducts(options: GetProductsOptions = {}) {
-  const { categorySlug, isFeatured, isTrending, search, sortBy } = options
+const normalizeProduct = (input: unknown): CatalogProduct => {
+  const product = input as Record<string, unknown>
+  const rawVariants = (product.product_variants || product.variants || []) as Array<Record<string, unknown>>
+  const variants: Array<Record<string, unknown>> = rawVariants.map((variant) => ({
+    ...variant,
+    price: Number(variant.price),
+  })).sort((a: Record<string, unknown>, b: Record<string, unknown>) => (Number(a.weight_grams) || 0) - (Number(b.weight_grams) || 0))
+  return {
+    ...product,
+    price: Number(product.price),
+    compare_at_price: product.compare_at_price == null ? null : Number(product.compare_at_price),
+    variants,
+  } as unknown as CatalogProduct
+}
+
+export async function getProducts(options: GetProductsOptions = {}): Promise<CatalogProduct[]> {
+  const { categorySlug, isFeatured, isTrending, search, sortBy, brand, subcategory } = options
 
   if (isSupabaseConfigured()) {
     try {
       const supabase = await createServerComponentClient()
-      let query = supabase.from('products').select('*, categories(name, slug)')
+      let query = supabase.from('products').select('*, categories(name, slug), product_variants(*)').eq('status', 'published')
 
       if (isFeatured) query = query.eq('is_featured', true)
       if (isTrending) query = query.eq('is_trending', true)
       if (search) query = query.ilike('name', `%${search}%`)
+      if (brand) query = query.eq('brand', brand)
+      if (subcategory) query = query.or(`subcategory_1.eq.${subcategory},subcategory_2.eq.${subcategory}`)
 
       if (categorySlug) {
         // First find the category
@@ -111,14 +132,14 @@ export async function getProducts(options: GetProductsOptions = {}) {
       }
 
       const { data, error } = await query
-      if (!error && data && data.length > 0) return data
+      if (!error && data) return data.map(normalizeProduct)
     } catch (e) {
       console.warn("Supabase products fetch failed, falling back to JSON", e)
     }
   }
 
   // Fallback implementation using local products.json
-  let filtered = [...productsData] as any[]
+  let filtered = (productsData as unknown as CatalogProduct[]).map(normalizeProduct)
 
   if (categorySlug) {
     const cat = categoriesData.find(c => c.slug === categorySlug)
@@ -140,6 +161,9 @@ export async function getProducts(options: GetProductsOptions = {}) {
     filtered = filtered.filter(p => p.name.toLowerCase().includes(cleanSearch))
   }
 
+  if (brand) filtered = filtered.filter(p => p.brand === brand)
+  if (subcategory) filtered = filtered.filter(p => p.subcategory_1 === subcategory || p.subcategory_2 === subcategory)
+
   // Sorting
   if (sortBy) {
     if (sortBy === 'price-asc') filtered.sort((a, b) => a.price - b.price)
@@ -151,12 +175,12 @@ export async function getProducts(options: GetProductsOptions = {}) {
   return filtered
 }
 
-export async function getProductBySlug(slug: string) {
+export async function getProductBySlug(slug: string): Promise<CatalogProduct | null> {
   if (isSupabaseConfigured()) {
     try {
       const supabase = await createServerComponentClient()
-      const { data, error } = await supabase.from('products').select('*, categories(name, slug)').eq('slug', slug).single()
-      if (!error && data) return data
+      const { data, error } = await supabase.from('products').select('*, categories(name, slug), product_variants(*)').eq('slug', slug).eq('status', 'published').single()
+      if (!error && data) return normalizeProduct(data)
     } catch (e) {
       console.warn("Supabase single product fetch failed, falling back to JSON", e)
     }
@@ -167,10 +191,10 @@ export async function getProductBySlug(slug: string) {
 
   // Find category details for the product
   const category = categoriesData.find(c => c.id === product.category_id)
-  return {
+  return normalizeProduct({
     ...product,
     categories: category ? { name: category.name, slug: category.slug } : null
-  }
+  })
 }
 
 // Blog Fetching

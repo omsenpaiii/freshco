@@ -1,10 +1,9 @@
 import { createBrowserClient } from '@supabase/ssr'
+import { getPublicSupabaseConfig } from '@/lib/supabase-config'
 
 // Client side supabase helper
 export const createClientComponentClient = () => {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder-project.supabase.co'
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key'
+  const { url, key } = getPublicSupabaseConfig()
   
   return createBrowserClient(url, key)
 }
-

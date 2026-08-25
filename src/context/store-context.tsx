@@ -1,11 +1,16 @@
 'use client'
 
-import React, { createContext, useContext, useState, useEffect } from 'react'
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { createClientComponentClient } from '@/lib/supabase-client'
+import type { ProductVariant } from '@/lib/catalog-types'
+import type { User } from '@supabase/supabase-js'
 
 export interface CartItem {
-  id?: string // Supabase row ID
+  id?: string
   product_id: number
+  variant_id: number
+  variant_title: string
+  sku: string
   name: string
   slug: string
   price: number
@@ -13,216 +18,150 @@ export interface CartItem {
   quantity: number
 }
 
+type AddableProduct = { id: number; name: string; slug: string; image: string; variant: ProductVariant }
+
 interface StoreContextType {
   cart: CartItem[]
-  wishlist: number[] // array of product_ids
+  wishlist: number[]
   isCartOpen: boolean
   setCartOpen: (open: boolean) => void
-  addToCart: (product: { id: number; name: string; slug: string; price: number; image: string }, quantity?: number) => void
-  removeFromCart: (productId: number) => void
-  updateCartQuantity: (productId: number, quantity: number) => void
+  addToCart: (product: AddableProduct, quantity?: number) => void
+  removeFromCart: (productId: number, variantId: number) => void
+  updateCartQuantity: (productId: number, variantId: number, quantity: number) => void
   clearCart: () => void
   toggleWishlist: (productId: number) => void
   isInWishlist: (productId: number) => boolean
-  user: any
-  setUser: (user: any) => void
+  user: User | null
+  setUser: (user: User | null) => void
 }
 
 const StoreContext = createContext<StoreContextType | undefined>(undefined)
+const sameLine = (item: CartItem, productId: number, variantId: number) => item.product_id === productId && item.variant_id === variantId
 
 export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([])
   const [wishlist, setWishlist] = useState<number[]>([])
   const [isCartOpen, setCartOpen] = useState(false)
-  const [user, setUser] = useState<any>(null)
-  
-  const supabase = createClientComponentClient()
+  const [user, setUser] = useState<User | null>(null)
+  const [isStorageHydrated, setStorageHydrated] = useState(false)
+  const supabase = useMemo(() => createClientComponentClient(), [])
 
-  // 1. Listen for auth changes and fetch initial session
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null)
-    })
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null)
-    })
-
+    supabase.auth.getSession().then(({ data: { session } }) => setUser(session?.user ?? null))
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => setUser(session?.user ?? null))
     return () => subscription.unsubscribe()
   }, [supabase])
 
-  // 2. Load cart & wishlist from localStorage on mount (for guests)
   useEffect(() => {
-    const localCart = localStorage.getItem('freshco_cart')
-    const localWishlist = localStorage.getItem('freshco_wishlist')
-
-    if (localCart) setCart(JSON.parse(localCart))
-    if (localWishlist) setWishlist(JSON.parse(localWishlist))
+    queueMicrotask(() => {
+      try {
+        const savedCart: unknown = JSON.parse(localStorage.getItem('freshco_cart_v2') || '[]')
+        if (Array.isArray(savedCart)) setCart(savedCart.filter((item): item is CartItem => typeof item === 'object' && item !== null && Number.isInteger((item as CartItem).variant_id)))
+        const savedWishlist: unknown = JSON.parse(localStorage.getItem('freshco_wishlist') || '[]')
+        if (Array.isArray(savedWishlist)) setWishlist(savedWishlist.filter((item): item is number => Number.isInteger(item)))
+      } catch {
+        localStorage.removeItem('freshco_cart_v2')
+      } finally {
+        setStorageHydrated(true)
+      }
+    })
   }, [])
 
-  // 3. Sync state changes to localStorage
   useEffect(() => {
-    localStorage.setItem('freshco_cart', JSON.stringify(cart))
-  }, [cart])
-
+    if (isStorageHydrated) localStorage.setItem('freshco_cart_v2', JSON.stringify(cart))
+  }, [cart, isStorageHydrated])
   useEffect(() => {
-    localStorage.setItem('freshco_wishlist', JSON.stringify(wishlist))
-  }, [wishlist])
+    if (isStorageHydrated) localStorage.setItem('freshco_wishlist', JSON.stringify(wishlist))
+  }, [wishlist, isStorageHydrated])
 
-  // 4. Fetch Cart & Wishlist from Supabase if logged in
   useEffect(() => {
     if (!user) return
-
     const fetchDbData = async () => {
-      try {
-        // Fetch cart items
-        const { data: dbCart, error: cartErr } = await supabase
-          .from('cart_items')
-          .select('id, quantity, product_id, products(name, slug, price, images)')
-        
-        if (!cartErr && dbCart) {
-          const formattedCart: CartItem[] = dbCart.map(item => {
-            const prod = item.products as any
-            return {
-              id: item.id,
-              product_id: item.product_id,
-              name: prod.name,
-              slug: prod.slug,
-              price: prod.price,
-              image: prod.images?.[0] || '',
-              quantity: item.quantity
-            }
-          })
-          setCart(formattedCart)
-        }
-
-        // Fetch wishlist items
-        const { data: dbWish, error: wishErr } = await supabase
-          .from('wishlist_items')
-          .select('product_id')
-        
-        if (!wishErr && dbWish) {
-          setWishlist(dbWish.map(w => Number(w.product_id)))
-        }
-      } catch (err) {
-        console.error("Error syncing Supabase user data:", err)
+      const { data: dbCart, error: cartError } = await supabase
+        .from('cart_items')
+        .select('id, quantity, product_id, variant_id, products(name, slug, images), product_variants(title, sku, price)')
+      if (!cartError && dbCart) {
+        type DbCartRow = { id: string; quantity: number; product_id: number; variant_id: number | null; products: { name: string; slug: string; images: string[] } | null; product_variants: { title: string; sku: string; price: number | string } | null }
+        setCart((dbCart as unknown as DbCartRow[]).flatMap((item) => {
+          if (!item.products || !item.product_variants || !item.variant_id) return []
+          return [{
+            id: item.id,
+            product_id: Number(item.product_id),
+            variant_id: Number(item.variant_id),
+            variant_title: item.product_variants.title,
+            sku: item.product_variants.sku,
+            name: item.products.name,
+            slug: item.products.slug,
+            price: Number(item.product_variants.price),
+            image: item.products.images?.[0] || '',
+            quantity: item.quantity,
+          }]
+        }))
       }
+      const { data: dbWish } = await supabase.from('wishlist_items').select('product_id')
+      if (dbWish) setWishlist(dbWish.map((row) => Number(row.product_id)))
     }
-
-    fetchDbData()
+    fetchDbData().catch((error) => console.error('Error syncing account data:', error))
   }, [user, supabase])
 
-  // 5. Actions
-  const addToCart = async (product: { id: number; name: string; slug: string; price: number; image: string }, quantity = 1) => {
-    setCart(prev => {
-      const existing = prev.find(item => item.product_id === product.id)
-      if (existing) {
-        const newQty = existing.quantity + quantity
-        // Sync to Supabase in background
-        if (user) {
-          supabase.from('cart_items').upsert({
-            profile_id: user.id,
-            product_id: product.id,
-            quantity: newQty
-          }).then()
-        }
-        return prev.map(item => item.product_id === product.id ? { ...item, quantity: newQty } : item)
-      } else {
-        const newItem = {
-          product_id: product.id,
-          name: product.name,
-          slug: product.slug,
-          price: product.price,
-          image: product.image,
-          quantity: quantity
-        }
-        // Sync to Supabase in background
-        if (user) {
-          supabase.from('cart_items').insert({
-            profile_id: user.id,
-            product_id: product.id,
-            quantity: quantity
-          }).then()
-        }
-        return [...prev, newItem]
+  const addToCart = (product: AddableProduct, quantity = 1) => {
+    const { variant } = product
+    setCart((current) => {
+      const existing = current.find((item) => sameLine(item, product.id, variant.id))
+      const newQuantity = (existing?.quantity || 0) + quantity
+      if (user) {
+        supabase.from('cart_items').upsert({
+          profile_id: user.id, product_id: product.id, variant_id: variant.id, quantity: newQuantity,
+        }, { onConflict: 'profile_id,product_id,variant_id' }).then()
       }
+      if (existing) return current.map((item) => sameLine(item, product.id, variant.id) ? { ...item, quantity: newQuantity } : item)
+      return [...current, {
+        product_id: product.id,
+        variant_id: variant.id,
+        variant_title: variant.title,
+        sku: variant.sku,
+        name: product.name,
+        slug: product.slug,
+        price: variant.price,
+        image: product.image,
+        quantity,
+      }]
     })
     setCartOpen(true)
   }
 
-  const removeFromCart = async (productId: number) => {
-    setCart(prev => prev.filter(item => item.product_id !== productId))
-    if (user) {
-      await supabase.from('cart_items').delete().eq('profile_id', user.id).eq('product_id', productId)
-    }
+  const removeFromCart = async (productId: number, variantId: number) => {
+    setCart((current) => current.filter((item) => !sameLine(item, productId, variantId)))
+    if (user) await supabase.from('cart_items').delete().eq('profile_id', user.id).eq('product_id', productId).eq('variant_id', variantId)
   }
 
-  const updateCartQuantity = async (productId: number, quantity: number) => {
-    if (quantity <= 0) {
-      removeFromCart(productId)
-      return
-    }
-    setCart(prev => prev.map(item => item.product_id === productId ? { ...item, quantity } : item))
-    if (user) {
-      await supabase.from('cart_items').upsert({
-        profile_id: user.id,
-        product_id: productId,
-        quantity: quantity
-      })
-    }
+  const updateCartQuantity = async (productId: number, variantId: number, quantity: number) => {
+    if (quantity <= 0) return removeFromCart(productId, variantId)
+    setCart((current) => current.map((item) => sameLine(item, productId, variantId) ? { ...item, quantity } : item))
+    if (user) await supabase.from('cart_items').upsert({ profile_id: user.id, product_id: productId, variant_id: variantId, quantity }, { onConflict: 'profile_id,product_id,variant_id' })
   }
 
   const clearCart = async () => {
     setCart([])
-    if (user) {
-      await supabase.from('cart_items').delete().eq('profile_id', user.id)
-    }
+    if (user) await supabase.from('cart_items').delete().eq('profile_id', user.id)
   }
 
   const toggleWishlist = async (productId: number) => {
     const isAdded = wishlist.includes(productId)
-    if (isAdded) {
-      setWishlist(prev => prev.filter(id => id !== productId))
-      if (user) {
-        await supabase.from('wishlist_items').delete().eq('profile_id', user.id).eq('product_id', productId)
-      }
-    } else {
-      setWishlist(prev => [...prev, productId])
-      if (user) {
-        await supabase.from('wishlist_items').insert({
-          profile_id: user.id,
-          product_id: productId
-        })
-      }
-    }
+    setWishlist((current) => isAdded ? current.filter((id) => id !== productId) : [...current, productId])
+    if (!user) return
+    if (isAdded) await supabase.from('wishlist_items').delete().eq('profile_id', user.id).eq('product_id', productId)
+    else await supabase.from('wishlist_items').insert({ profile_id: user.id, product_id: productId })
   }
 
-  const isInWishlist = (productId: number) => wishlist.includes(productId)
-
-  return (
-    <StoreContext.Provider value={{
-      cart,
-      wishlist,
-      isCartOpen,
-      setCartOpen,
-      addToCart,
-      removeFromCart,
-      updateCartQuantity,
-      clearCart,
-      toggleWishlist,
-      isInWishlist,
-      user,
-      setUser
-    }}>
-      {children}
-    </StoreContext.Provider>
-  )
+  return <StoreContext.Provider value={{
+    cart, wishlist, isCartOpen, setCartOpen, addToCart, removeFromCart, updateCartQuantity, clearCart,
+    toggleWishlist, isInWishlist: (productId) => wishlist.includes(productId), user, setUser,
+  }}>{children}</StoreContext.Provider>
 }
 
 export function useStore() {
   const context = useContext(StoreContext)
-  if (context === undefined) {
-    throw new Error('useStore must be used within a StoreProvider')
-  }
+  if (!context) throw new Error('useStore must be used within a StoreProvider')
   return context
 }
