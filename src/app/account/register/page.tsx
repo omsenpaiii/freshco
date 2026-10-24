@@ -32,6 +32,7 @@ export default function RegisterPage() {
       email,
       password,
       options: {
+        emailRedirectTo: 'https://freshcodeli.com.au/auth/callback',
         data: {
           full_name: fullName
         }
@@ -42,7 +43,7 @@ export default function RegisterPage() {
       setError(authErr.message)
       setLoading(false)
     } else {
-      setSuccess("Registration successful! Check your email for a confirmation link or try logging in.")
+      setSuccess("Check your email to confirm your account. The confirmation link will bring you back to FreshCo Deli.")
       setLoading(false)
       setFullName('')
       setEmail('')
