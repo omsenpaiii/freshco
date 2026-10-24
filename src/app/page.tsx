@@ -98,15 +98,15 @@ export default async function Home() {
                     alt={cat.name}
                     fill
                     sizes="(max-width: 640px) 50vw, (max-width: 1280px) 33vw, 20vw"
-                    className="-z-20 object-cover transition duration-700 ease-out group-hover:scale-110"
+                    className="z-0 object-cover transition duration-700 ease-out group-hover:scale-110"
                   />
-                  <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-brand-ink/90 via-brand-ink/15 to-brand-ink/10 transition duration-500 group-hover:from-brand-ink/95" />
-                  <span className="absolute left-3.5 top-3.5 rounded-full border border-white/35 bg-white/90 px-3 py-1.5 text-[0.62rem] font-extrabold uppercase tracking-[0.12em] text-brand-ink shadow-sm backdrop-blur sm:left-4 sm:top-4">
+                  <div aria-hidden="true" className="absolute inset-0 z-10 bg-gradient-to-t from-brand-ink/90 via-brand-ink/15 to-brand-ink/10 transition duration-500 group-hover:from-brand-ink/95" />
+                  <span className="absolute left-3.5 top-3.5 z-20 rounded-full border border-white/35 bg-white/90 px-3 py-1.5 text-[0.62rem] font-extrabold uppercase tracking-[0.12em] text-brand-ink shadow-sm backdrop-blur sm:left-4 sm:top-4">
                     {cat.products_count} {cat.products_count === 1 ? 'item' : 'items'}
                   </span>
-                  <div className="mt-auto flex w-full items-end justify-between gap-2 p-3.5 text-white sm:p-5">
+                  <div className="relative z-20 mt-auto flex w-full items-end justify-between gap-2 p-3.5 text-white sm:p-5">
                     <div className="min-w-0">
-                      <h3 className="truncate font-heading text-lg font-bold tracking-tight sm:text-xl">{cat.name}</h3>
+                      <h3 className="truncate font-heading text-lg font-bold tracking-tight !text-white sm:text-xl">{cat.name}</h3>
                       <span className="mt-1 block text-xs font-semibold text-white/75 transition-colors group-hover:text-white">Explore the aisle</span>
                     </div>
                     <span aria-hidden="true" className="mb-0.5 flex size-10 shrink-0 items-center justify-center rounded-full border border-white/40 bg-white/15 text-white backdrop-blur transition duration-300 group-hover:translate-x-0.5 group-hover:border-white group-hover:bg-white group-hover:text-primary sm:size-11">
