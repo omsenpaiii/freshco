@@ -4,6 +4,7 @@ import { getCategories, getProducts } from '@/lib/db'
 import ProductCard from '@/components/ui/product-card'
 import { ChevronRight, Filter } from 'lucide-react'
 import CollectionSort from '@/components/collections/collection-sort'
+import SectionReveal from '@/components/ui/section-reveal'
 
 // Force Next.js to render page dynamically so it grabs latest products/DB state
 export const revalidate = 0
@@ -101,7 +102,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
                 </Link>
               </div>
             ) : (
-              <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-6">
+              <SectionReveal className="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-6">
                 {products.map((prod) => (
                   <ProductCard 
                     key={prod.id}
@@ -116,7 +117,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
                     variants={prod.variants}
                   />
                 ))}
-              </div>
+              </SectionReveal>
             )}
           </div>
 

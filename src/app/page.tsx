@@ -71,39 +71,53 @@ export default async function Home() {
       </section>
 
       {/* 3. Shop By Category */}
-      <section className="section-shell bg-white">
-        <SectionReveal className="site-container">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
-          <span className="text-xs uppercase font-bold tracking-widest text-primary">Discover Freshness</span>
-          <h2 className="section-title">A colourful aisle for every craving.</h2>
-          <p className="section-copy mx-auto">From daily staples to something special, start with the part of the market you love most.</p>
-        </div>
+      <section className="section-shell overflow-hidden bg-brand-cloud">
+        <div className="site-container">
+          <SectionReveal className="mb-9 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between md:mb-12">
+            <div className="max-w-2xl">
+              <span className="eyebrow">A good place to start</span>
+              <h2 className="section-title">Find your corner of the deli.</h2>
+              <p className="section-copy">Greek cheese for the table, filo for the freezer and the pantry favourites you reach for all week.</p>
+            </div>
+            <Link href="/collections" className="group inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-full border border-brand-ink/10 bg-white px-5 text-sm font-extrabold text-brand-ink shadow-sm transition duration-300 hover:border-primary/25 hover:bg-primary hover:text-white hover:shadow-[0_12px_30px_-14px_rgba(41,101,241,.65)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">
+              Browse all collections <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </SectionReveal>
 
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
-          {featuredCategories.map((cat) => {
-            const catImage = cat.image_url || 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=150'
-            return (
-              <Link 
-                key={cat.id} 
-                href={`/collections/${cat.slug}`}
-                className="group flex flex-col items-center gap-3 rounded-2xl border border-transparent p-3 text-center transition duration-300 hover:border-border hover:bg-brand-cloud"
-              >
-                <div className="relative size-20 overflow-hidden rounded-[1.6rem] border-4 border-white bg-brand-cloud shadow-lg transition duration-300 group-hover:-rotate-2 group-hover:shadow-xl">
-                  <Image 
-                    src={catImage} 
+          <SectionReveal className="grid grid-cols-2 gap-3.5 sm:grid-cols-3 sm:gap-4 xl:grid-cols-5">
+            {featuredCategories.map((cat) => {
+              const catImage = cat.image_url || 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600'
+              return (
+                <Link
+                  key={cat.id}
+                  href={`/collections/${cat.slug}`}
+                  className="group relative isolate flex min-h-[210px] overflow-hidden rounded-[1.6rem] border border-white bg-brand-ink shadow-[0_18px_45px_-32px_rgba(23,33,58,.55)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_55px_-30px_rgba(23,33,58,.48)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30 sm:min-h-[250px] sm:rounded-[1.9rem]"
+                >
+                  <Image
+                    src={catImage}
                     alt={cat.name}
                     fill
-                    sizes="(max-width: 640px) 40vw, (max-width: 1024px) 22vw, 12vw"
-                    className="object-cover group-hover:scale-108 transition duration-500"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1280px) 33vw, 20vw"
+                    className="-z-20 object-cover transition duration-700 ease-out group-hover:scale-110"
                   />
-                </div>
-                <h4 className="text-xs font-semibold text-content-strong group-hover:text-primary transition line-clamp-1">
-                  {cat.name}
-                </h4>
-              </Link>
-            )
-          })}
-        </div></SectionReveal>
+                  <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-brand-ink/90 via-brand-ink/15 to-brand-ink/10 transition duration-500 group-hover:from-brand-ink/95" />
+                  <span className="absolute left-3.5 top-3.5 rounded-full border border-white/35 bg-white/90 px-3 py-1.5 text-[0.62rem] font-extrabold uppercase tracking-[0.12em] text-brand-ink shadow-sm backdrop-blur sm:left-4 sm:top-4">
+                    {cat.products_count} {cat.products_count === 1 ? 'item' : 'items'}
+                  </span>
+                  <div className="mt-auto flex w-full items-end justify-between gap-2 p-3.5 text-white sm:p-5">
+                    <div className="min-w-0">
+                      <h3 className="truncate font-heading text-lg font-bold tracking-tight sm:text-xl">{cat.name}</h3>
+                      <span className="mt-1 block text-xs font-semibold text-white/75 transition-colors group-hover:text-white">Explore the aisle</span>
+                    </div>
+                    <span aria-hidden="true" className="mb-0.5 flex size-10 shrink-0 items-center justify-center rounded-full border border-white/40 bg-white/15 text-white backdrop-blur transition duration-300 group-hover:translate-x-0.5 group-hover:border-white group-hover:bg-white group-hover:text-primary sm:size-11">
+                      <ArrowRight size={18} />
+                    </span>
+                  </div>
+                </Link>
+              )
+            })}
+          </SectionReveal>
+        </div>
       </section>
 
       {/* 4. Banner Promo Section */}
@@ -149,7 +163,7 @@ export default async function Home() {
 
       {/* 5. Trending Products Grid */}
       <section className="section-shell bg-brand-cloud">
-        <div className="max-w-6xl mx-auto flex items-end justify-between border-b border-border-theme pb-4 mb-8">
+        <SectionReveal className="mx-auto mb-8 flex max-w-6xl items-end justify-between border-b border-border-theme pb-4">
           <div>
             <span className="text-xs uppercase font-bold tracking-widest text-primary">Top Choice</span>
             <h2 className="text-xl md:text-2xl font-extrabold text-content-strong mt-1">Trending Products</h2>
@@ -157,9 +171,9 @@ export default async function Home() {
           <Link href="/collections" className="text-xs font-bold text-primary hover:underline flex items-center gap-1">
             View All <ArrowRight size={14} />
           </Link>
-        </div>
+        </SectionReveal>
 
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 md:grid-cols-4 md:gap-6">
+        <SectionReveal className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 md:grid-cols-4 md:gap-6">
           {trendingProducts.slice(0, 4).map((prod) => (
             <ProductCard 
               key={prod.id}
@@ -174,7 +188,7 @@ export default async function Home() {
               variants={prod.variants}
             />
           ))}
-        </div>
+        </SectionReveal>
       </section>
 
       {/* 6. Deal Of the Day (Countdown Timer) */}
@@ -190,7 +204,7 @@ export default async function Home() {
           <div className="w-12 h-1 bg-primary mx-auto rounded-full mt-2" />
         </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+        <SectionReveal className="mx-auto grid max-w-6xl grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {featuredProducts.map((prod) => (
             <ProductCard 
               key={prod.id}
@@ -205,7 +219,7 @@ export default async function Home() {
               variants={prod.variants}
             />
           ))}
-        </div>
+        </SectionReveal>
       </section>
 
       {/* 9. Blog Section */}
@@ -220,7 +234,7 @@ export default async function Home() {
           </Link>
         </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <SectionReveal className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
           {blogPosts.slice(0, 3).map((post) => (
             <Link 
               key={post.id}
@@ -251,7 +265,7 @@ export default async function Home() {
               </div>
             </Link>
           ))}
-        </div>
+        </SectionReveal>
       </section>
     </div>
   )

@@ -5,6 +5,7 @@ import { getCategories, getCategoryBySlug, getProducts } from '@/lib/db'
 import ProductCard from '@/components/ui/product-card'
 import { ChevronRight, Filter } from 'lucide-react'
 import CollectionSort from '@/components/collections/collection-sort'
+import SectionReveal from '@/components/ui/section-reveal'
 
 // Force Next.js to render page dynamically so it grabs latest products/DB state
 export const revalidate = 0
@@ -91,8 +92,8 @@ export default async function CollectionPage({ params, searchParams }: Collectio
                   <li key={cat.id}>
                     <Link 
                       href={`/collections/${cat.slug}`}
-                      className={`hover:text-primary transition flex items-center justify-between ${
-                        currentSlug === cat.slug ? 'text-primary' : 'text-content-strong'
+                      className={`flex min-h-10 items-center justify-between rounded-xl px-3 transition hover:bg-brand-cloud hover:text-primary ${
+                        currentSlug === cat.slug ? 'bg-brand-cloud text-primary' : 'text-content-strong'
                       }`}
                     >
                       <span>{cat.name}</span>
@@ -106,19 +107,19 @@ export default async function CollectionPage({ params, searchParams }: Collectio
               <form className="space-y-4 border-t border-border pt-5" action={`/collections/${currentSlug}`}>
                 <div>
                   <label htmlFor="brand" className="mb-1.5 block text-[10px] font-extrabold uppercase tracking-wider text-muted-foreground">Brand</label>
-                  <select id="brand" name="brand" defaultValue={brand} className="h-10 w-full rounded-xl border border-border bg-white px-3 text-xs font-semibold">
+                  <select id="brand" name="brand" defaultValue={brand} className="h-12 w-full rounded-xl border border-border bg-white px-3 text-sm font-semibold text-brand-ink transition focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10">
                     <option value="">All brands</option>
                     {brands.map((option) => <option key={option} value={option}>{option}</option>)}
                   </select>
                 </div>
                 <div>
                   <label htmlFor="subcategory" className="mb-1.5 block text-[10px] font-extrabold uppercase tracking-wider text-muted-foreground">Product type</label>
-                  <select id="subcategory" name="subcategory" defaultValue={subcategory} className="h-10 w-full rounded-xl border border-border bg-white px-3 text-xs font-semibold">
+                  <select id="subcategory" name="subcategory" defaultValue={subcategory} className="h-12 w-full rounded-xl border border-border bg-white px-3 text-sm font-semibold text-brand-ink transition focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10">
                     <option value="">All types</option>
                     {subcategories.map((option) => <option key={option} value={option}>{option}</option>)}
                   </select>
                 </div>
-                <button className="h-10 w-full rounded-full bg-primary text-xs font-bold text-white">Apply filters</button>
+                <button className="h-12 w-full rounded-full bg-primary text-sm font-extrabold text-white shadow-[0_10px_24px_-14px_rgba(41,101,241,.85)] transition hover:-translate-y-0.5 hover:bg-brand-ink">Apply filters</button>
                 {(brand || subcategory) && <Link href={`/collections/${currentSlug}`} className="block text-center text-xs font-bold text-primary hover:underline">Clear filters</Link>}
               </form>
             </div>
@@ -149,7 +150,7 @@ export default async function CollectionPage({ params, searchParams }: Collectio
                 </Link>
               </div>
             ) : (
-              <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-6">
+              <SectionReveal className="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-6">
                 {products.map((prod) => (
                   <ProductCard 
                     key={prod.id}
@@ -164,7 +165,7 @@ export default async function CollectionPage({ params, searchParams }: Collectio
                   variants={prod.variants}
                 />
                 ))}
-              </div>
+              </SectionReveal>
             )}
           </div>
 

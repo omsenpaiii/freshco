@@ -44,7 +44,7 @@ export default function HomeHeroClient() {
   const slide = slides[currentSlide]
 
   return (
-    <section ref={rootRef} aria-roledescription="carousel" aria-label="FreshCo seasonal highlights" className="relative isolate min-h-[620px] overflow-hidden bg-brand-ink md:min-h-[680px]">
+    <section ref={rootRef} aria-roledescription="carousel" aria-label="FreshCo seasonal highlights" className="relative isolate mx-3 mt-3 min-h-[580px] overflow-hidden rounded-[1.6rem] border border-brand-ink/10 bg-brand-ink shadow-[0_28px_80px_-48px_rgba(23,33,58,.75)] sm:mx-5 sm:mt-5 sm:rounded-[2rem] md:mx-7 md:mt-7 md:min-h-[660px]">
       <AnimatePresence initial={false} mode="sync">
         <motion.div key={slide.id} initial={reduceMotion ? false : { opacity: 0, scale: 1.025 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: .75, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-0">
           <Image src={slide.image} alt="" fill loading="eager" className="object-cover object-center" sizes="100vw" />
@@ -53,7 +53,7 @@ export default function HomeHeroClient() {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,22,52,.92)_0%,rgba(15,31,67,.72)_48%,rgba(15,31,67,.18)_100%)]" />
       <div className="absolute inset-0 opacity-25 [background-image:radial-gradient(circle_at_75%_20%,#2965f1_0,transparent_34%),radial-gradient(circle_at_20%_90%,#ff3038_0,transparent_24%)]" />
 
-      <div className="site-container relative z-10 flex min-h-[620px] items-center py-20 md:min-h-[680px]">
+      <div className="site-container relative z-10 flex min-h-[580px] items-center py-20 md:min-h-[660px]">
         <motion.div key={`copy-${slide.id}`} initial={reduceMotion ? false : { opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .5 }} className="max-w-3xl text-white">
           <div data-hero-copy className="mb-6 flex items-center gap-3">
             <span className="red-stamp">{slide.subtitle}</span>

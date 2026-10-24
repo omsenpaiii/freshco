@@ -158,7 +158,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                   key={variant.id}
                   onClick={() => setSelectedVariant(variant)}
                   aria-pressed={selectedVariant?.id === variant.id}
-                  className={`rounded-full border px-4 py-2 text-xs font-bold transition ${selectedVariant?.id === variant.id ? 'border-primary bg-primary text-white' : 'border-border bg-white text-brand-ink hover:border-primary'}`}
+                  className={`min-h-11 rounded-full border px-4 py-2.5 text-sm font-bold transition duration-300 ${selectedVariant?.id === variant.id ? 'border-primary bg-primary text-white shadow-[0_8px_22px_-12px_rgba(41,101,241,.9)]' : 'border-border bg-white text-brand-ink hover:border-primary hover:bg-brand-cloud'}`}
                 >
                   {variant.title} · {formatAUD(variant.price)}
                 </button>
@@ -175,7 +175,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               <button 
                 onClick={() => handleQuantityChange(quantity - 1)}
                 aria-label="Decrease quantity"
-                className="w-8 h-8 rounded-full flex items-center justify-center text-content-strong hover:text-primary transition hover:bg-white cursor-pointer shadow-2xs"
+                className="flex size-10 items-center justify-center rounded-full text-content-strong shadow-2xs transition hover:bg-white hover:text-primary"
               >
                 <Minus size={13} />
               </button>
@@ -183,12 +183,12 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 type="number" 
                 value={quantity}
                 onChange={(e) => handleQuantityChange(parseInt(e.target.value) || 1)}
-                className="w-12 text-center text-xs font-semibold text-content-strong focus:outline-none bg-transparent"
+                className="w-12 bg-transparent text-center text-sm font-bold text-content-strong focus:outline-none"
               />
               <button 
                 onClick={() => handleQuantityChange(quantity + 1)}
                 aria-label="Increase quantity"
-                className="w-8 h-8 rounded-full flex items-center justify-center text-content-strong hover:text-primary transition hover:bg-white cursor-pointer shadow-2xs"
+                className="flex size-10 items-center justify-center rounded-full text-content-strong shadow-2xs transition hover:bg-white hover:text-primary"
               >
                 <Plus size={13} />
               </button>
@@ -197,16 +197,16 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             <button 
               onClick={handleAddToCart}
               disabled={!selectedVariant}
-              className="bg-primary hover:bg-[#d89311] disabled:cursor-not-allowed disabled:opacity-45 text-white font-bold text-xs px-8 py-3.5 rounded-full flex items-center gap-2 transition cursor-pointer shadow-md uppercase tracking-wider"
+              className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-extrabold text-white shadow-[0_14px_30px_-16px_rgba(41,101,241,.9)] transition duration-300 hover:-translate-y-0.5 hover:bg-brand-ink disabled:cursor-not-allowed disabled:opacity-45"
             >
-              {selectedVariant ? 'Add To Cart' : 'Choose a weight'} <ShoppingBag size={16} />
+              {selectedVariant ? 'Add to bag' : 'Choose a weight'} <ShoppingBag size={17} />
             </button>
 
             <button 
               onClick={() => toggleWishlist(product.id)}
               aria-label={isWishlisted ? `Remove ${product.name} from wishlist` : `Add ${product.name} to wishlist`}
               aria-pressed={isWishlisted}
-              className={`p-3 rounded-full border transition cursor-pointer ${
+              className={`flex size-12 items-center justify-center rounded-full border transition ${
                 isWishlisted 
                   ? 'bg-red-500 border-red-500 text-white hover:bg-red-600' 
                   : 'border-border-theme hover:border-primary text-content-strong hover:text-primary'
