@@ -9,41 +9,7 @@ import { formatAUD } from '@/lib/store'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-
-type Category = {
-  id: number
-  name: string
-  slug: string
-  description: string | null
-  image_url: string | null
-  products_count: number
-}
-
-type Product = {
-  id: number
-  name: string
-  slug: string
-  description: string | null
-  price: number
-  compare_at_price: number | null
-  sku: string | null
-  inventory_quantity: number
-  is_featured: boolean
-  is_trending: boolean
-  images: string[]
-  category_id: number | null
-  categories?: { name: string; slug: string } | null
-  brand: string
-  unit: string
-  subcategory_1: string
-  subcategory_2: string
-  status: 'draft' | 'published'
-  image_match_status: 'unverified' | 'verified'
-  product_source_url: string | null
-  image_source_url: string | null
-  draft_reason: string | null
-  product_variants: Array<{ id: number; title: string; sku: string; weight_grams: number | null; price: number; inventory_quantity: number; is_default: boolean }>
-}
+import type { AdminCatalogCategory as Category, AdminCatalogProduct as Product } from '@/lib/admin-types'
 
 type CategoryFormState = {
   name: string
@@ -287,7 +253,7 @@ export default function AdminPanel({
   }
 
   async function deleteCategory(id: number) {
-    if (!window.confirm('Delete this category? Products in it will lose their category link.')) {
+    if (!window.confirm('Delete this empty category? Categories containing products cannot be deleted.')) {
       return
     }
 
@@ -313,7 +279,7 @@ export default function AdminPanel({
   }
 
   async function deleteProduct(id: number) {
-    if (!window.confirm('Delete this product?')) {
+    if (!window.confirm('Retire this product from the storefront? It will remain in the admin catalog and existing orders will be preserved.')) {
       return
     }
 
@@ -330,8 +296,10 @@ export default function AdminPanel({
       return
     }
 
-    setProducts((current) => current.filter((item) => item.id !== id))
-    setFeedback('Product deleted.')
+    setProducts((current) => current.map((item) => item.id === id
+      ? { ...item, status: 'draft', inventory_quantity: 0, product_variants: item.product_variants.map((variant) => ({ ...variant, inventory_quantity: 0, is_default: false })) }
+      : item))
+    setFeedback('Product retired. It remains available in the admin catalog.')
     router.refresh()
   }
 
@@ -598,7 +566,7 @@ export default function AdminPanel({
                     </label>
                     <div className="rounded-[1.5rem] border border-border/80 bg-brand-cloud/45 p-4">
                       <p className="text-xs font-bold uppercase tracking-[0.14em] text-primary/80">Image upload</p>
-                      <p className="mt-2 text-sm leading-6 text-content-muted">Upload to Supabase Storage and append the public image URL automatically.</p>
+                      <p className="mt-2 text-sm leading-6 text-content-muted">Upload to Neon Object Storage and append the public image URL automatically.</p>
                       <label className="mt-4 inline-flex">
                         <input type="file" accept="image/*" className="hidden" onChange={(event) => handleImageUpload(event, 'product')} />
                         <span className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-bold text-white">
@@ -748,7 +716,7 @@ export default function AdminPanel({
 
                   <div className="rounded-[1.5rem] border border-border/80 bg-brand-cloud/45 p-4">
                     <p className="text-xs font-bold uppercase tracking-[0.14em] text-primary/80">Image upload</p>
-                    <p className="mt-2 text-sm leading-6 text-content-muted">Upload new category artwork to Supabase Storage and fill the image field automatically.</p>
+                    <p className="mt-2 text-sm leading-6 text-content-muted">Upload new category artwork to Neon Object Storage and fill the image field automatically.</p>
                     <label className="mt-4 inline-flex">
                       <input type="file" accept="image/*" className="hidden" onChange={(event) => handleImageUpload(event, 'category')} />
                       <span className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-bold text-white">

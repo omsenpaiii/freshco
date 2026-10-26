@@ -1,10 +1,10 @@
 'use client'
 
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useStore } from '@/context/store-context'
-import { createClientComponentClient } from '@/lib/supabase-client'
+import { authClient } from '@/lib/auth/client'
 import { formatAUD } from '@/lib/store'
 import { 
   MapPin, ShoppingBag, Plus, Trash2, LogOut, CheckCircle, ShieldCheck
@@ -20,39 +20,30 @@ export default function AccountDashboardPage() {
   const [orders, setOrders] = useState<OrderSummary[]>([])
   const [loading, setLoading] = useState(true)
   const [isAdmin, setIsAdmin] = useState(false)
+  const [accountError, setAccountError] = useState('')
   const [newAddress, setNewAddress] = useState({
     line1: '', city: '', state: '', zip: '', phone: ''
   })
   const [showAddressForm, setShowAddressForm] = useState(false)
-  const supabase = useMemo(() => createClientComponentClient(), [])
-
-  const fetchAccountData = useCallback(async (userId: string) => {
+  const fetchAccountData = useCallback(async () => {
     try {
-      // Fetch addresses
-      const { data: addrData } = await supabase
-        .from('addresses')
-        .select('*')
-        .eq('profile_id', userId)
-      if (addrData) setAddresses(addrData)
-
-      // Fetch orders
-      const { data: ordData } = await supabase
-        .from('orders')
-        .select('*')
-        .eq('profile_id', userId)
-        .order('created_at', { ascending: false })
-      if (ordData) setOrders(ordData)
+      const response = await fetch('/api/account', { cache: 'no-store' })
+      const result = await response.json()
+      if (!response.ok) throw new Error(result.error || 'Could not load account details.')
+      setAddresses(result.addresses || [])
+      setOrders(result.orders || [])
     } catch (e) {
-      console.warn("Failed to fetch database profiles data", e)
+      console.warn('Failed to fetch account details', e)
+      setAccountError(e instanceof Error ? e.message : 'Could not load account details.')
     } finally {
       setLoading(false)
     }
-  }, [supabase])
+  }, [])
 
   useEffect(() => {
     const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
-      if (!session) router.push('/account/login')
+      const { data } = await authClient.getSession()
+      if (!data?.user) router.push('/account/login')
       else {
         const adminResponse = await fetch('/api/admin/status')
         const adminJson = await adminResponse.json()
@@ -61,50 +52,48 @@ export default function AccountDashboardPage() {
           router.replace('/admin')
           return
         }
-        void fetchAccountData(session.user.id)
+        void fetchAccountData()
       }
     }
     void checkAuth()
-  }, [fetchAccountData, router, supabase])
+  }, [fetchAccountData, router])
 
   const handleAddAddress = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!user) return
 
     try {
-      const { data, error } = await supabase.from('addresses').insert({
-        profile_id: user.id,
-        address_line_1: newAddress.line1,
-        city: newAddress.city,
-        state: newAddress.state,
-        postal_code: newAddress.zip,
-        phone: newAddress.phone,
-        country: 'Australia'
-      }).select()
-
-      if (!error && data) {
-        setAddresses(prev => [...prev, ...data])
-        setNewAddress({ line1: '', city: '', state: '', zip: '', phone: '' })
-        setShowAddressForm(false)
-      }
+      const response = await fetch('/api/account', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ address_line_1: newAddress.line1, city: newAddress.city, state: newAddress.state, postal_code: newAddress.zip, phone: newAddress.phone }),
+      })
+      const result = await response.json()
+      if (!response.ok) throw new Error(result.error || 'Could not save address.')
+      setAddresses((prev) => [result.address, ...prev])
+      setNewAddress({ line1: '', city: '', state: '', zip: '', phone: '' })
+      setShowAddressForm(false)
+      setAccountError('')
     } catch (err) {
       console.error(err)
+      setAccountError(err instanceof Error ? err.message : 'Could not save address.')
     }
   }
 
   const handleDeleteAddress = async (addrId: string) => {
     try {
-      const { error } = await supabase.from('addresses').delete().eq('id', addrId)
-      if (!error) {
-        setAddresses(prev => prev.filter(a => a.id !== addrId))
-      }
+      const response = await fetch(`/api/account/addresses/${encodeURIComponent(addrId)}`, { method: 'DELETE' })
+      const result = await response.json()
+      if (!response.ok) throw new Error(result.error || 'Could not delete address.')
+      setAddresses((prev) => prev.filter((address) => address.id !== addrId))
     } catch (err) {
       console.error(err)
+      setAccountError(err instanceof Error ? err.message : 'Could not delete address.')
     }
   }
 
   const handleLogout = async () => {
-    await supabase.auth.signOut()
+    await authClient.signOut()
     clearCart()
     router.push('/account/login')
     router.refresh()
@@ -136,6 +125,8 @@ export default function AccountDashboardPage() {
             <LogOut size={14} /> Log Out
           </button>
         </div>
+
+        {accountError ? <div role="alert" className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-xs font-semibold text-red-700">{accountError}</div> : null}
 
         {/* Dashboard Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

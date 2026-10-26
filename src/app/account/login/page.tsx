@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@/lib/supabase-client'
+import { authClient } from '@/lib/auth/client'
 import { Mail, Lock, AlertCircle } from 'lucide-react'
 
 export default function LoginPage() {
@@ -11,27 +11,47 @@ export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [notice, setNotice] = useState('')
   const [loading, setLoading] = useState(false)
-  const supabase = createClientComponentClient()
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const noticeText = params.get('verified') === '1'
+      ? 'Email confirmed. You can now log in to FreshCo Deli.'
+      : params.get('created') === '1'
+        ? 'Your account is ready. You can now log in to FreshCo Deli.'
+        : ''
+    if (noticeText) {
+      const timer = window.setTimeout(() => setNotice(noticeText), 0)
+      return () => window.clearTimeout(timer)
+    }
+  }, [])
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setError('')
 
-    const { error: authErr } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    })
+    try {
+      const { error: authErr } = await authClient.signIn.email({ email, password })
+      if (authErr) {
+        setError(authErr.message || 'Unable to log in.')
+        return
+      }
 
-    if (authErr) {
-      setError(authErr.message)
+      try {
+        const adminResponse = await fetch('/api/admin/status')
+        const adminJson = adminResponse.ok ? await adminResponse.json() : null
+        router.push(adminJson?.isAdmin ? '/admin' : '/account')
+        router.refresh()
+      } catch {
+        router.push('/account')
+        router.refresh()
+      }
+    } catch {
+      setError('We could not reach the account service. Please try again in a moment.')
+    } finally {
       setLoading(false)
-    } else {
-      const adminResponse = await fetch('/api/admin/status')
-      const adminJson = await adminResponse.json()
-      router.push(adminJson.isAdmin ? '/admin' : '/account')
-      router.refresh()
     }
   }
 
@@ -50,6 +70,8 @@ export default function LoginPage() {
             <AlertCircle size={16} /> {error}
           </div>
         )}
+
+        {notice && <div role="status" className="rounded-xl border border-green-100 bg-green-50 p-3.5 text-xs font-semibold text-green-700">{notice}</div>}
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div className="space-y-1">

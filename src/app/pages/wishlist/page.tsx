@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { useStore } from '@/context/store-context'
 import ProductCard from '@/components/ui/product-card'
 import { Heart, ChevronRight } from 'lucide-react'
-import { createClientComponentClient } from '@/lib/supabase-client'
 import type { ProductVariant } from '@/lib/catalog-types'
 
 interface WishlistProduct {
@@ -22,27 +21,38 @@ interface WishlistProduct {
 export default function WishlistPage() {
   const { wishlist } = useStore()
   const [wishlistProducts, setWishlistProducts] = useState<WishlistProduct[]>([])
-  const supabase = createClientComponentClient()
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    let cancelled = false
     const fetchWishlistProducts = async () => {
       if (wishlist.length === 0) {
         setWishlistProducts([])
+        setLoading(false)
         return
       }
-
-      const { data, error } = await supabase
-        .from('products')
-        .select('id, name, slug, price, compare_at_price, images, brand, product_variants(*)')
-        .in('id', wishlist)
-
-      if (!error && data) {
-        setWishlistProducts(data.map((product) => ({ ...product, price: Number(product.price), compare_at_price: product.compare_at_price == null ? null : Number(product.compare_at_price), variants: (product.product_variants || []).map((variant) => ({ ...variant, price: Number(variant.price) })) })))
+      setLoading(true)
+      try {
+        const response = await fetch(`/api/wishlist?ids=${wishlist.join(',')}`, { cache: 'no-store' })
+        const result = await response.json()
+        if (!response.ok) throw new Error(result.error || 'Could not load saved products.')
+        if (!cancelled) setWishlistProducts((result.products || []).map((product: Record<string, unknown>) => ({
+          ...product,
+          price: Number(product.price),
+          compare_at_price: product.compare_at_price == null ? null : Number(product.compare_at_price),
+          variants: (product.product_variants as ProductVariant[] | undefined) || [],
+        })) as WishlistProduct[])
+      } catch (error) {
+        console.warn('Failed to fetch saved products', error)
+        if (!cancelled) setWishlistProducts([])
+      } finally {
+        if (!cancelled) setLoading(false)
       }
     }
 
     void fetchWishlistProducts()
-  }, [supabase, wishlist])
+    return () => { cancelled = true }
+  }, [wishlist])
 
   return (
     <div className="w-full bg-white px-4 md:px-8 py-10">
@@ -60,7 +70,9 @@ export default function WishlistPage() {
           <p className="text-xs text-content-muted mt-1">Keep track of your favourite deli products.</p>
         </div>
 
-        {wishlistProducts.length === 0 ? (
+        {loading ? (
+          <div className="rounded-2xl border border-border-theme bg-gray-50 py-16 text-center text-sm font-semibold text-content-muted">Loading saved products…</div>
+        ) : wishlistProducts.length === 0 ? (
           <div className="h-64 flex flex-col items-center justify-center text-center gap-4 text-body border border-dashed border-border-theme rounded-2xl bg-gray-50 p-6">
             <Heart size={48} className="text-gray-300 stroke-[1.5]" />
             <div>

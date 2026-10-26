@@ -29,7 +29,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     )
   }
 
-  // Fetch comments from Supabase if configured
+  // Fetch comments stored with the Neon catalog backend.
   const dbComments = await getBlogComments(post.id)
 
   return (

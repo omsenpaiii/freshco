@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { CheckCircle, Clock3, XCircle } from 'lucide-react'
 import { ClearPaidCart } from './clear-cart'
-import { createAdminClient } from '@/lib/supabase-admin'
+import { query } from '@/lib/neon'
 import { formatAUD } from '@/lib/store'
 import { getStripe } from '@/lib/stripe'
 
@@ -15,11 +15,9 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
   let order: { id: string; total_amount: number | string; shipping_email: string; payment_status: string } | null = null
   try {
     session = await getStripe().checkout.sessions.retrieve(sessionId)
-    const { data } = await createAdminClient().from('orders')
-      .select('id, total_amount, shipping_email, payment_status')
-      .eq('stripe_checkout_session_id', session.id)
-      .single()
-    order = data
+    const { rows } = await query<{ id: string; total_amount: number | string; shipping_email: string; payment_status: string }>(
+      'SELECT id,total_amount,shipping_email,payment_status FROM orders WHERE stripe_checkout_session_id=$1 LIMIT 1',[session.id])
+    order = rows[0] || null
   } catch (error) {
     console.error('Checkout confirmation failed:', error)
     return <PaymentState />

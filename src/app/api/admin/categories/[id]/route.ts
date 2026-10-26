@@ -1,89 +1,48 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getAdminSessionUser } from '@/lib/admin'
+import { query } from '@/lib/neon'
 import { slugify } from '@/lib/catalog'
-import { createAdminClient } from '@/lib/supabase-admin'
 
-async function recalculateProductCount(categoryId: number) {
-  const supabase = createAdminClient()
-  const { count } = await supabase
-    .from('products')
-    .select('*', { head: true, count: 'exact' })
-    .eq('category_id', categoryId)
+type RouteContext = { params: Promise<{ id: string }> }
 
-  await supabase
-    .from('categories')
-    .update({ products_count: count ?? 0 })
-    .eq('id', categoryId)
-}
-
-export async function PATCH(
-  request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  const user = await getAdminSessionUser()
-
-  if (!user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
-
-  const { id } = await params
-  const categoryId = Number(id)
-  const payload = await request.json()
+export async function PATCH(request: NextRequest, { params }: RouteContext) {
+  if (!await getAdminSessionUser()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  const categoryId = Number((await params).id)
+  const payload = await request.json() as Record<string, unknown>
   const name = String(payload.name || '').trim()
-  const description = String(payload.description || '').trim()
-  const imageUrl = String(payload.image_url || '').trim()
-  const slug = slugify(payload.slug || name)
-
-  if (!categoryId || !name || !slug) {
+  const slug = slugify(String(payload.slug || name))
+  if (!Number.isSafeInteger(categoryId) || categoryId <= 0 || !name || !slug) {
     return NextResponse.json({ error: 'Valid category values are required.' }, { status: 400 })
   }
 
-  const supabase = createAdminClient()
-  const { data, error } = await supabase
-    .from('categories')
-    .update({
-      name,
-      slug,
-      description,
-      image_url: imageUrl,
-    })
-    .eq('id', categoryId)
-    .select()
-    .single()
-
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 })
+  try {
+    const { rows } = await query(`UPDATE categories SET name=$2,slug=$3,description=$4,image_url=$5,image_source_url=$6,image_license=$7
+      WHERE id=$1 RETURNING *`, [categoryId, name, slug, String(payload.description || '').trim() || null,
+      String(payload.image_url || '').trim() || null, String(payload.image_source_url || '').trim() || null,
+      String(payload.image_license || '').trim() || null])
+    if (!rows[0]) return NextResponse.json({ error: 'Category not found.' }, { status: 404 })
+    return NextResponse.json({ category: rows[0] })
+  } catch (error) {
+    console.error('Neon admin category update failed:', error)
+    return NextResponse.json({ error: 'Could not update category. Check that its name and URL are unique.' }, { status: 409 })
   }
-
-  await recalculateProductCount(categoryId)
-
-  return NextResponse.json({ category: data })
 }
 
-export async function DELETE(
-  _request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  const user = await getAdminSessionUser()
+export async function DELETE(_request: NextRequest, { params }: RouteContext) {
+  if (!await getAdminSessionUser()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  const categoryId = Number((await params).id)
+  if (!Number.isSafeInteger(categoryId) || categoryId <= 0) return NextResponse.json({ error: 'Invalid category id.' }, { status: 400 })
 
-  if (!user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  try {
+    const result = await query('SELECT count(*)::integer AS count FROM products WHERE category_id=$1', [categoryId])
+    if (Number(result.rows[0]?.count) > 0) {
+      return NextResponse.json({ error: 'This category is still used by products. Reassign them before deleting it.' }, { status: 409 })
+    }
+    const deleted = await query('DELETE FROM categories WHERE id=$1 RETURNING id', [categoryId])
+    if (!deleted.rows[0]) return NextResponse.json({ error: 'Category not found.' }, { status: 404 })
+    return NextResponse.json({ success: true })
+  } catch (error) {
+    console.error('Neon admin category delete failed:', error)
+    return NextResponse.json({ error: 'Could not delete category.' }, { status: 500 })
   }
-
-  const { id } = await params
-  const categoryId = Number(id)
-
-  if (!categoryId) {
-    return NextResponse.json({ error: 'Invalid category id.' }, { status: 400 })
-  }
-
-  const supabase = createAdminClient()
-  const { error } = await supabase.from('categories').delete().eq('id', categoryId)
-
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 })
-  }
-
-  return NextResponse.json({ success: true })
 }
-

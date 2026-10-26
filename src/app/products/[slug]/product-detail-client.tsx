@@ -31,6 +31,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
   )
   const [quantity, setQuantity] = useState(1)
   const hasOptions = product.variants.length > 1
+  const hasWeightOptions = product.variants.some((variant) => variant.weight_grams != null)
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
     hasOptions ? null : (product.variants.find((variant) => variant.is_default) || product.variants[0] || null)
   )
@@ -150,7 +151,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
         {product.variants.length > 0 && (
           <fieldset className="space-y-3">
-            <legend className="text-xs font-extrabold uppercase tracking-wider text-brand-ink">Weight{hasOptions ? ' — choose one' : ''}</legend>
+            <legend className="text-xs font-extrabold uppercase tracking-wider text-brand-ink">{hasWeightOptions ? 'Weight' : 'Choose an option'}{hasOptions ? ' — choose one' : ''}</legend>
             <div className="flex flex-wrap gap-2">
               {product.variants.map((variant) => (
                 <button

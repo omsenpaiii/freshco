@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Check, Heart, ShoppingBag } from 'lucide-react'
+import { ArrowRight, Check, Heart, ImageOff, ShoppingBag } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
 import { useStore } from '@/context/store-context'
 import { Badge } from '@/components/ui/badge'
@@ -17,9 +17,11 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
   const reduceMotion = useReducedMotion()
   const [added, setAdded] = useState(false)
   const wished = isInWishlist(id)
-  const image = images?.[0] || 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=500'
+  const image = images?.find((candidate) => candidate?.trim()) || ''
   const hoverImage = images?.[1] || image
-  const hasHoverImage = hoverImage !== image
+  const [imageFailed, setImageFailed] = useState(false)
+  const hasImage = Boolean(image && !imageFailed)
+  const hasHoverImage = hasImage && hoverImage !== image
   const discount = compare_at_price && compare_at_price > price ? Math.round(((compare_at_price - price) / compare_at_price) * 100) : 0
   const hasOptions = variants.length > 1
   const defaultVariant = variants.find((variant) => variant.is_default) || variants[0]
@@ -38,8 +40,24 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
     >
       <div className="relative">
         <Link href={`/products/${slug}`} aria-label={`View ${name}`} className="relative block aspect-[1/1.02] overflow-hidden bg-[radial-gradient(circle_at_50%_38%,#ffffff_0%,#f6f8ff_62%,#edf2ff_100%)]">
-          <Image src={image} alt={name} fill className={`object-contain p-5 transition duration-700 ease-out sm:p-6 ${hasHoverImage ? 'group-hover:scale-[1.04] group-hover:opacity-0' : 'group-hover:scale-[1.055]'}`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
-          {hasHoverImage && <Image src={hoverImage} alt="" fill className="absolute inset-0 object-contain p-5 opacity-0 transition duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100 sm:p-6" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />}
+          {hasImage && image ? (
+            <>
+              <Image
+                src={image}
+                alt={name}
+                fill
+                onError={() => setImageFailed(true)}
+                className={`object-contain p-5 transition duration-700 ease-out sm:p-6 ${hasHoverImage ? 'group-hover:scale-[1.04] group-hover:opacity-0' : 'group-hover:scale-[1.055]'}`}
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              />
+              {hasHoverImage && hoverImage && <Image src={hoverImage} alt="" fill onError={() => setImageFailed(true)} className="absolute inset-0 object-contain p-5 opacity-0 transition duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100 sm:p-6" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />}
+            </>
+          ) : (
+            <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-content-muted">
+              <span className="flex size-14 items-center justify-center rounded-2xl border border-white/80 bg-white/75 text-primary shadow-sm"><ImageOff size={23} strokeWidth={1.7} /></span>
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.14em]">Product photo coming soon</span>
+            </span>
+          )}
         </Link>
         <div className="absolute left-3.5 top-3.5 z-10 flex flex-col items-start gap-1.5 sm:left-4 sm:top-4">
           {discount > 0 && <Badge variant="destructive" className="rounded-full border border-white/25 bg-brand-red px-3 py-1.5 text-[10px] font-extrabold tracking-wide shadow-lg">SAVE {discount}%</Badge>}
@@ -68,7 +86,7 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
           </div>
           {hasOptions ? (
             <Link href={`/products/${slug}`} className="group/action inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-brand-ink px-4 text-xs font-extrabold text-white shadow-sm transition duration-300 hover:bg-primary hover:shadow-[0_12px_28px_-14px_rgba(41,101,241,.8)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/25 sm:text-sm">
-              Choose a size <ArrowRight size={16} className="transition-transform duration-300 group-hover/action:translate-x-1" />
+              Choose options <ArrowRight size={16} className="transition-transform duration-300 group-hover/action:translate-x-1" />
             </Link>
           ) : (
             <button

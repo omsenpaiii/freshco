@@ -1,8 +1,7 @@
-import { createServerComponentClient } from './supabase-server'
 import categoriesData from '@/data/categories.json'
 import productsData from '@/data/products.json'
 import type { CatalogProduct } from '@/lib/catalog-types'
-import { isCatalogBackendEnabled } from '@/lib/supabase-config'
+import { isNeonConfigured, query } from '@/lib/neon'
 
 // FreshCo Deli editorial fallback (used until the dedicated catalog backend is enabled).
 const fallbackBlogs = [
@@ -38,35 +37,29 @@ const fallbackBlogs = [
   }
 ]
 
-// Check if supabase environment variables are valid
-const isSupabaseConfigured = () => {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  return isCatalogBackendEnabled() && url && key && !url.includes('your-project') && !key.includes('...')
-}
-
 // Categories Fetching
-export async function getCategories() {
-  if (isSupabaseConfigured()) {
+// Database rows and the static fallback intentionally share a loose shape for resilience.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function getCategories(): Promise<any[]> {
+  if (isNeonConfigured()) {
     try {
-      const supabase = await createServerComponentClient()
-      const { data, error } = await supabase.from('categories').select('*').order('name')
-      if (!error && data && data.length > 0) return data
+      const { rows } = await query('SELECT * FROM categories ORDER BY name')
+      if (rows.length > 0) return rows
     } catch (e) {
-      console.warn("Supabase category fetch failed, falling back to JSON", e)
+      console.warn("Neon category fetch failed, falling back to JSON", e)
     }
   }
   return categoriesData
 }
 
-export async function getCategoryBySlug(slug: string) {
-  if (isSupabaseConfigured()) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function getCategoryBySlug(slug: string): Promise<any | null> {
+  if (isNeonConfigured()) {
     try {
-      const supabase = await createServerComponentClient()
-      const { data, error } = await supabase.from('categories').select('*').eq('slug', slug).single()
-      if (!error && data) return data
+      const { rows } = await query('SELECT * FROM categories WHERE slug=$1 LIMIT 1', [slug])
+      if (rows[0]) return rows[0]
     } catch (e) {
-      console.warn("Supabase single category fetch failed, falling back to JSON", e)
+      console.warn("Neon single category fetch failed, falling back to JSON", e)
     }
   }
   return categoriesData.find(c => c.slug === slug) || null
@@ -86,7 +79,7 @@ export interface GetProductsOptions {
 const normalizeProduct = (input: unknown): CatalogProduct => {
   const product = input as Record<string, unknown>
   const rawVariants = (product.product_variants || product.variants || []) as Array<Record<string, unknown>>
-  const variants: Array<Record<string, unknown>> = rawVariants.map((variant) => ({
+  const variants: Array<Record<string, unknown>> = rawVariants.filter((variant) => Number(variant.inventory_quantity ?? 0) > 0).map((variant) => ({
     ...variant,
     price: Number(variant.price),
   })).sort((a: Record<string, unknown>, b: Record<string, unknown>) => (Number(a.weight_grams) || 0) - (Number(b.weight_grams) || 0))
@@ -101,40 +94,25 @@ const normalizeProduct = (input: unknown): CatalogProduct => {
 export async function getProducts(options: GetProductsOptions = {}): Promise<CatalogProduct[]> {
   const { categorySlug, isFeatured, isTrending, search, sortBy, brand, subcategory } = options
 
-  if (isSupabaseConfigured()) {
+  if (isNeonConfigured()) {
     try {
-      const supabase = await createServerComponentClient()
-      let query = supabase.from('products').select('*, categories(name, slug), product_variants(*)').eq('status', 'published')
-
-      if (isFeatured) query = query.eq('is_featured', true)
-      if (isTrending) query = query.eq('is_trending', true)
-      if (search) query = query.ilike('name', `%${search}%`)
-      if (brand) query = query.eq('brand', brand)
-      if (subcategory) query = query.or(`subcategory_1.eq.${subcategory},subcategory_2.eq.${subcategory}`)
-
-      if (categorySlug) {
-        // First find the category
-        const { data: catData } = await supabase.from('categories').select('id').eq('slug', categorySlug).single()
-        if (catData) {
-          query = query.eq('category_id', catData.id)
-        }
-      }
-
-      // Apply sorting
-      if (sortBy) {
-        if (sortBy === 'price-asc') query = query.order('price', { ascending: true })
-        else if (sortBy === 'price-desc') query = query.order('price', { ascending: false })
-        else if (sortBy === 'title-asc') query = query.order('name', { ascending: true })
-        else if (sortBy === 'title-desc') query = query.order('name', { ascending: false })
-        else query = query.order('created_at', { ascending: false })
-      } else {
-        query = query.order('created_at', { ascending: false })
-      }
-
-      const { data, error } = await query
-      if (!error && data) return data.map(normalizeProduct)
+      const clauses = ["p.status='published'"]
+      const values: unknown[] = []
+      const add = (sql: string, value: unknown) => { values.push(value); clauses.push(sql.replace('?', `$${values.length}`)) }
+      if (isFeatured) clauses.push('p.is_featured=true')
+      if (isTrending) clauses.push('p.is_trending=true')
+      if (search) add('p.name ILIKE ?', `%${search}%`)
+      if (brand) { values.push(brand.trim()); clauses.push(`LOWER(BTRIM(p.brand))=LOWER($${values.length})`) }
+      if (subcategory) { values.push(subcategory.trim()); clauses.push(`LOWER(BTRIM(p.subcategory_1))=LOWER($${values.length})`) }
+      if (categorySlug) add('c.slug=?', categorySlug)
+      const order = sortBy === 'price-asc' ? 'p.price ASC' : sortBy === 'price-desc' ? 'p.price DESC' : sortBy === 'title-asc' ? 'p.name ASC' : sortBy === 'title-desc' ? 'p.name DESC' : 'p.created_at DESC'
+      const { rows } = await query(`SELECT p.*, jsonb_build_object('name',c.name,'slug',c.slug) categories,
+        COALESCE(jsonb_agg(to_jsonb(v) ORDER BY v.weight_grams) FILTER (WHERE v.id IS NOT NULL),'[]') product_variants
+        FROM products p LEFT JOIN categories c ON c.id=p.category_id LEFT JOIN product_variants v ON v.product_id=p.id
+        WHERE ${clauses.join(' AND ')} GROUP BY p.id,c.name,c.slug ORDER BY ${order}`, values)
+      return rows.map(normalizeProduct)
     } catch (e) {
-      console.warn("Supabase products fetch failed, falling back to JSON", e)
+      console.warn("Neon products fetch failed, falling back to JSON", e)
     }
   }
 
@@ -161,8 +139,8 @@ export async function getProducts(options: GetProductsOptions = {}): Promise<Cat
     filtered = filtered.filter(p => p.name.toLowerCase().includes(cleanSearch))
   }
 
-  if (brand) filtered = filtered.filter(p => p.brand === brand)
-  if (subcategory) filtered = filtered.filter(p => p.subcategory_1 === subcategory || p.subcategory_2 === subcategory)
+  if (brand) filtered = filtered.filter(p => p.brand?.trim().toLocaleLowerCase() === brand.trim().toLocaleLowerCase())
+  if (subcategory) filtered = filtered.filter(p => p.subcategory_1?.trim().toLocaleLowerCase() === subcategory.trim().toLocaleLowerCase())
 
   // Sorting
   if (sortBy) {
@@ -176,13 +154,15 @@ export async function getProducts(options: GetProductsOptions = {}): Promise<Cat
 }
 
 export async function getProductBySlug(slug: string): Promise<CatalogProduct | null> {
-  if (isSupabaseConfigured()) {
+  if (isNeonConfigured()) {
     try {
-      const supabase = await createServerComponentClient()
-      const { data, error } = await supabase.from('products').select('*, categories(name, slug), product_variants(*)').eq('slug', slug).eq('status', 'published').single()
-      if (!error && data) return normalizeProduct(data)
+      const { rows } = await query(`SELECT p.*,jsonb_build_object('name',c.name,'slug',c.slug) categories,
+        COALESCE(jsonb_agg(to_jsonb(v) ORDER BY v.weight_grams) FILTER (WHERE v.id IS NOT NULL),'[]') product_variants
+        FROM products p LEFT JOIN categories c ON c.id=p.category_id LEFT JOIN product_variants v ON v.product_id=p.id
+        WHERE p.slug=$1 AND p.status='published' GROUP BY p.id,c.name,c.slug LIMIT 1`, [slug])
+      if (rows[0]) return normalizeProduct(rows[0])
     } catch (e) {
-      console.warn("Supabase single product fetch failed, falling back to JSON", e)
+      console.warn("Neon single product fetch failed, falling back to JSON", e)
     }
   }
   
@@ -199,26 +179,24 @@ export async function getProductBySlug(slug: string): Promise<CatalogProduct | n
 
 // Blog Fetching
 export async function getBlogPosts() {
-  if (isSupabaseConfigured()) {
+  if (isNeonConfigured()) {
     try {
-      const supabase = await createServerComponentClient()
-      const { data, error } = await supabase.from('blog_posts').select('*').order('published_at', { ascending: false })
-      if (!error && data && data.length > 0) return data
+      const { rows } = await query<(typeof fallbackBlogs)[number]>('SELECT * FROM blog_posts ORDER BY published_at DESC')
+      if (rows.length > 0) return rows
     } catch (e) {
-      console.warn("Supabase blog posts fetch failed, falling back to JSON", e)
+      console.warn("Neon blog posts fetch failed, falling back to JSON", e)
     }
   }
   return fallbackBlogs
 }
 
 export async function getBlogPostBySlug(slug: string) {
-  if (isSupabaseConfigured()) {
+  if (isNeonConfigured()) {
     try {
-      const supabase = await createServerComponentClient()
-      const { data, error } = await supabase.from('blog_posts').select('*').eq('slug', slug).single()
-      if (!error && data) return data
+      const { rows } = await query<(typeof fallbackBlogs)[number]>('SELECT * FROM blog_posts WHERE slug=$1 LIMIT 1', [slug])
+      if (rows[0]) return rows[0]
     } catch (e) {
-      console.warn("Supabase blog post fetch failed, falling back to JSON", e)
+      console.warn("Neon blog post fetch failed, falling back to JSON", e)
     }
   }
   return fallbackBlogs.find(b => b.slug === slug) || null
@@ -226,13 +204,12 @@ export async function getBlogPostBySlug(slug: string) {
 
 // Comments Fetching & Inserting
 export async function getBlogComments(postId: string) {
-  if (isSupabaseConfigured()) {
+  if (isNeonConfigured()) {
     try {
-      const supabase = await createServerComponentClient()
-      const { data, error } = await supabase.from('blog_comments').select('*').eq('post_id', postId).order('created_at', { ascending: true })
-      if (!error && data) return data
+      const { rows } = await query<{ id: string; post_id: string; author_name: string; author_email: string; content: string; created_at: string }>('SELECT * FROM blog_comments WHERE post_id=$1 ORDER BY created_at', [postId])
+      return rows
     } catch (e) {
-      console.warn("Supabase blog comments fetch failed", e)
+      console.warn("Neon blog comments fetch failed", e)
     }
   }
   return []

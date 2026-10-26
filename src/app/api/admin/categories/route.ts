@@ -1,65 +1,36 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getAdminSessionUser } from '@/lib/admin'
+import { query } from '@/lib/neon'
 import { slugify } from '@/lib/catalog'
-import { createAdminClient } from '@/lib/supabase-admin'
 
 export async function GET() {
-  const user = await getAdminSessionUser()
-
-  if (!user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!await getAdminSessionUser()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  try {
+    const { rows } = await query('SELECT * FROM categories ORDER BY name')
+    return NextResponse.json({ categories: rows })
+  } catch (error) {
+    console.error('Neon admin category list failed:', error)
+    return NextResponse.json({ error: 'Could not load categories.' }, { status: 500 })
   }
-
-  const supabase = createAdminClient()
-  const { data, error } = await supabase
-    .from('categories')
-    .select('*')
-    .order('name')
-
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 })
-  }
-
-  return NextResponse.json({ categories: data ?? [] })
 }
 
 export async function POST(request: NextRequest) {
-  const user = await getAdminSessionUser()
-
-  if (!user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
-
-  const payload = await request.json()
+  if (!await getAdminSessionUser()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  const payload = await request.json() as Record<string, unknown>
   const name = String(payload.name || '').trim()
-  const description = String(payload.description || '').trim()
-  const imageUrl = String(payload.image_url || '').trim()
-  const slug = slugify(payload.slug || name)
+  const slug = slugify(String(payload.slug || name))
+  if (!name || !slug) return NextResponse.json({ error: 'Name and slug are required.' }, { status: 400 })
 
-  if (!name || !slug) {
-    return NextResponse.json({ error: 'Name and slug are required.' }, { status: 400 })
+  try {
+    const { rows } = await query(`INSERT INTO categories (id,name,slug,description,image_url,image_source_url,image_license)
+      VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *`, [
+      Date.now(), name, slug, String(payload.description || '').trim() || null,
+      String(payload.image_url || '').trim() || null, String(payload.image_source_url || '').trim() || null,
+      String(payload.image_license || '').trim() || null,
+    ])
+    return NextResponse.json({ category: rows[0] })
+  } catch (error) {
+    console.error('Neon admin category create failed:', error)
+    return NextResponse.json({ error: 'Could not create category. Check that its name and URL are unique.' }, { status: 409 })
   }
-
-  const supabase = createAdminClient()
-  const category = {
-    id: Date.now(),
-    name,
-    slug,
-    description,
-    image_url: imageUrl,
-    products_count: 0,
-  }
-
-  const { data, error } = await supabase
-    .from('categories')
-    .insert(category)
-    .select()
-    .single()
-
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 })
-  }
-
-  return NextResponse.json({ category: data })
 }
-

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getCategories, getCategoryBySlug, getProducts } from '@/lib/db'
+import { getCategories, getProducts } from '@/lib/db'
 import ProductCard from '@/components/ui/product-card'
 import { ChevronRight, Filter } from 'lucide-react'
 import CollectionSort from '@/components/collections/collection-sort'
@@ -9,6 +9,21 @@ import SectionReveal from '@/components/ui/section-reveal'
 
 // Force Next.js to render page dynamically so it grabs latest products/DB state
 export const revalidate = 0
+
+function uniqueLabels(values: Array<string | null | undefined>) {
+  const labels = new Map<string, { label: string; count: number }>()
+  for (const value of values) {
+    const label = value?.trim().replace(/\s+/g, ' ')
+    if (!label) continue
+    const key = label.toLocaleLowerCase()
+    const current = labels.get(key)
+    if (current) current.count += 1
+    else labels.set(key, { label, count: 1 })
+  }
+  return [...labels.values()]
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
+    .map(({ label }) => label)
+}
 
 interface CollectionPageProps {
   params: Promise<{ slug: string }>
@@ -25,21 +40,34 @@ export default async function CollectionPage({ params, searchParams }: Collectio
   const brand = resolvedSearchParams.brand || ''
   const subcategory = resolvedSearchParams.subcategory || ''
 
-  // Fetch data
-  const categories = await getCategories()
-  const currentCategory = await getCategoryBySlug(currentSlug)
-  
-  const unfilteredProducts = await getProducts({ categorySlug: currentSlug })
-  const brands = [...new Set(unfilteredProducts.map((product) => product.brand))].sort()
-  const subcategories = [...new Set(unfilteredProducts.flatMap((product) => [product.subcategory_1, product.subcategory_2]).filter(Boolean))].sort()
+  // Fetch the category and its products in parallel. Reuse this one product
+  // result for the filter options and the visible list to avoid duplicate
+  // database round-trips on every collection visit.
+  const [categories, unfilteredProducts] = await Promise.all([
+    getCategories(),
+    getProducts({ categorySlug: currentSlug }),
+  ])
+  const currentCategory = categories.find((category) => category.slug === currentSlug) || null
+  const brands = uniqueLabels(unfilteredProducts.map((product) => product.brand))
+  // The workbook's first subcategory is the collection's product type. The
+  // second level is a refinement, not another peer option (e.g. legacy
+  // “Cow & Sheep Feta” must not appear beside “Feta”).
+  const subcategories = uniqueLabels(unfilteredProducts.map((product) => product.subcategory_1))
 
-  const products = await getProducts({
-    categorySlug: currentSlug,
-    sortBy: sortBy,
-    search: search,
-    brand,
-    subcategory,
-  })
+  const searchTerm = search.trim().toLocaleLowerCase()
+  const selectedBrand = brand.trim().toLocaleLowerCase()
+  const selectedSubcategory = subcategory.trim().toLocaleLowerCase()
+  const products = unfilteredProducts
+    .filter((product) => !searchTerm || product.name.toLocaleLowerCase().includes(searchTerm))
+    .filter((product) => !selectedBrand || product.brand?.trim().toLocaleLowerCase() === selectedBrand)
+    .filter((product) => !selectedSubcategory || product.subcategory_1?.trim().toLocaleLowerCase() === selectedSubcategory)
+    .sort((left, right) => {
+      if (sortBy === 'price-asc') return left.price - right.price
+      if (sortBy === 'price-desc') return right.price - left.price
+      if (sortBy === 'title-asc') return left.name.localeCompare(right.name)
+      if (sortBy === 'title-desc') return right.name.localeCompare(left.name)
+      return Date.parse(right.created_at || '') - Date.parse(left.created_at || '')
+    })
 
   return (
     <div className="min-h-screen bg-brand-cloud py-10 md:py-14">

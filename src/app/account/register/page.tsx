@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { createClientComponentClient } from '@/lib/supabase-client'
+import { authClient } from '@/lib/auth/client'
 import { Mail, Lock, User, AlertCircle } from 'lucide-react'
 
 export default function RegisterPage() {
@@ -14,8 +14,6 @@ export default function RegisterPage() {
   const [success, setSuccess] = useState('')
   const [loading, setLoading] = useState(false)
   
-  const supabase = createClientComponentClient()
-
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
@@ -28,27 +26,28 @@ export default function RegisterPage() {
       return
     }
 
-    const { error: authErr } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: 'https://freshcodeli.com.au/auth/callback',
-        data: {
-          full_name: fullName
-        }
-      }
-    })
+    try {
+      const { error: authErr } = await authClient.signUp.email({
+        email,
+        password,
+        name: fullName,
+        callbackURL: new URL('/account/login?created=1', window.location.origin).toString(),
+      })
 
-    if (authErr) {
-      setError(authErr.message)
-      setLoading(false)
-    } else {
-      setSuccess("Check your email to confirm your account. The confirmation link will bring you back to FreshCo Deli.")
-      setLoading(false)
+      if (authErr) {
+        setError(authErr.message || 'Unable to create your account.')
+        return
+      }
+
+      setSuccess('Your account is ready. You can now log in to FreshCo Deli.')
       setFullName('')
       setEmail('')
       setPassword('')
       setConfirmPassword('')
+    } catch {
+      setError('We could not reach the account service. Please try again in a moment.')
+    } finally {
+      setLoading(false)
     }
   }
 

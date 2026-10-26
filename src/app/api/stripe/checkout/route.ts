@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
-import { createAdminClient } from '@/lib/supabase-admin'
-import { createServerComponentClient } from '@/lib/supabase-server'
+import { getNeonPool } from '@/lib/neon'
 import { getDeliveryFee } from '@/lib/store'
 import { getStripe } from '@/lib/stripe'
+import { auth } from '@/lib/auth/server'
 
 export const runtime = 'nodejs'
 
@@ -66,14 +66,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'A cart line exceeds the 20-item limit.' }, { status: 400 })
     }
 
-    const admin = createAdminClient()
-    const { data, error: catalogError } = await admin
-      .from('product_variants')
-      .select('id, product_id, title, sku, price, inventory_quantity, products!inner(id, name, slug, images, status)')
-      .in('id', [...requested.keys()])
-    if (catalogError) throw catalogError
-
-    const variants = (data || []) as unknown as CatalogVariantRow[]
+    const pool = getNeonPool()
+    const { rows } = await pool.query(`SELECT v.id,v.product_id,v.title,v.sku,v.price,v.inventory_quantity,
+      jsonb_build_object('id',p.id,'name',p.name,'slug',p.slug,'images',p.images,'status',p.status) products
+      FROM product_variants v JOIN products p ON p.id=v.product_id WHERE v.id=ANY($1::bigint[])`, [[...requested.keys()]])
+    const variants = rows as unknown as CatalogVariantRow[]
     if (variants.length !== requested.size) {
       return NextResponse.json({ error: 'One or more cart items are no longer available.' }, { status: 409 })
     }
@@ -93,24 +90,22 @@ export async function POST(request: Request) {
     subtotal = Math.round(subtotal * 100) / 100
     const deliveryFee = getDeliveryFee(subtotal)
     const total = Math.round((subtotal + deliveryFee) * 100) / 100
-    const publicClient = await createServerComponentClient()
-    const { data: { user } } = await publicClient.auth.getUser()
-
-    const { data: order, error: orderError } = await admin.from('orders').insert({
-      profile_id: user?.id || null,
-      total_amount: total,
-      status: 'pending',
-      payment_status: 'unpaid',
-      currency: 'aud',
-      shipping_name: shipping.name,
-      shipping_email: shipping.email,
-      shipping_address: shipping.address,
-      shipping_city: shipping.city,
-      shipping_state: shipping.state,
-      shipping_postal_code: shipping.postcode,
-      shipping_country: 'Australia',
-    }).select('id').single()
-    if (orderError || !order) throw orderError || new Error('Order could not be created.')
+    let profileId: string | null = null
+    try {
+      const { data: session } = await auth.getSession()
+      profileId = session?.user?.id || null
+      if (profileId) await pool.query(`INSERT INTO profiles (id,email,full_name) VALUES ($1,$2,$3)
+        ON CONFLICT (id) DO UPDATE SET email=EXCLUDED.email,full_name=COALESCE(profiles.full_name,EXCLUDED.full_name)`,
+        [profileId, session!.user.email, session!.user.name || null])
+    } catch (authError) {
+      console.warn('Checkout could not attach a signed-in profile to the order:', authError)
+    }
+    const { rows: orderRows } = await pool.query(`INSERT INTO orders
+      (profile_id,total_amount,status,payment_status,currency,shipping_name,shipping_email,shipping_address,shipping_city,shipping_state,shipping_postal_code,shipping_country)
+      VALUES($1,$2,'pending','unpaid','aud',$3,$4,$5,$6,$7,$8,'Australia') RETURNING id`,
+      [profileId,total,shipping.name,shipping.email,shipping.address,shipping.city,shipping.state,shipping.postcode])
+    const order = orderRows[0]
+    if (!order) throw new Error('Order could not be created.')
     orderId = order.id
 
     const orderItems = variants.map((variant) => {
@@ -125,8 +120,8 @@ export async function POST(request: Request) {
         price: Number(variant.price),
       }
     })
-    const { error: itemError } = await admin.from('order_items').insert(orderItems)
-    if (itemError) throw itemError
+    for (const item of orderItems) await pool.query(`INSERT INTO order_items(order_id,product_id,variant_id,variant_title,sku,quantity,price)
+      VALUES($1,$2,$3,$4,$5,$6,$7)`, [item.order_id,item.product_id,item.variant_id,item.variant_title,item.sku,item.quantity,item.price])
 
     const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || new URL(request.url).origin).replace(/\/$/, '')
     const stripe = getStripe()
@@ -168,18 +163,14 @@ export async function POST(request: Request) {
     stripeSessionId = session.id
     if (!session.url) throw new Error('Stripe did not return a Checkout URL.')
 
-    const { error: sessionError } = await admin.from('orders').update({
-      stripe_checkout_session_id: session.id,
-      updated_at: new Date().toISOString(),
-    }).eq('id', order.id)
-    if (sessionError) throw sessionError
+    await pool.query('UPDATE orders SET stripe_checkout_session_id=$1,updated_at=now() WHERE id=$2',[session.id,order.id])
 
     return NextResponse.json({ url: session.url })
   } catch (error) {
     console.error('Stripe Checkout creation failed:', error)
     try {
       if (stripeSessionId) await getStripe().checkout.sessions.expire(stripeSessionId)
-      if (orderId) await createAdminClient().from('orders').delete().eq('id', orderId)
+      if (orderId) await getNeonPool().query('DELETE FROM orders WHERE id=$1', [orderId])
     } catch (cleanupError) {
       console.error('Checkout cleanup failed:', cleanupError)
     }

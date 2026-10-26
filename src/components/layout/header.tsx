@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { Heart, ShoppingBag, Menu, ChevronDown, Phone, MapPin, Search, ArrowRight } from 'lucide-react'
 import { useStore } from '@/context/store-context'
-import { createClientComponentClient } from '@/lib/supabase-client'
+import { authClient } from '@/lib/auth/client'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
@@ -31,7 +31,6 @@ export default function Header({ initialCategories, initialProducts }: HeaderPro
   const [searchQuery, setSearchQuery] = useState('')
   const [searchFocused, setSearchFocused] = useState(false)
   const searchRef = useRef<HTMLDivElement>(null)
-  const supabase = useMemo(() => createClientComponentClient(), [])
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0)
   const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0)
   const searchResults = useMemo(() => searchQuery.trim().length < 2 ? [] : initialProducts.filter((product) => product.name.toLowerCase().includes(searchQuery.toLowerCase())).slice(0, 5), [initialProducts, searchQuery])
@@ -57,7 +56,7 @@ export default function Header({ initialCategories, initialProducts }: HeaderPro
         <div className="site-container flex min-h-9 items-center justify-center text-[0.68rem] font-bold sm:justify-between">
           <div className="hidden items-center gap-5 sm:flex"><a href={STORE.phoneHref} className="flex items-center gap-1.5 hover:text-brand-amber"><Phone className="size-3.5 text-brand-amber" />{STORE.phone}</a><a href={STORE.mapsUrl} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:text-brand-amber"><MapPin className="size-3.5 text-brand-amber" />Northcote Plaza</a></div>
           <p className="tracking-wide"><span className="text-brand-amber">Melbourne fresh:</span> free local delivery over A$50</p>
-          <div className="hidden items-center gap-3 sm:flex">{user ? <><Link href={adminUser ? "/admin" : "/account"}>{adminUser ? 'Admin panel' : 'My account'}</Link><button onClick={async () => { await supabase.auth.signOut(); router.refresh() }} className="text-white/65 hover:text-white">Log out</button></> : <><Link href="/account/login">Log in</Link><Link href="/account/register" className="text-white/65 hover:text-white">Register</Link></>}</div>
+          <div className="hidden items-center gap-3 sm:flex">{user ? <><Link href={adminUser ? "/admin" : "/account"}>{adminUser ? 'Admin panel' : 'My account'}</Link><button onClick={async () => { await authClient.signOut(); router.refresh() }} className="text-white/65 hover:text-white">Log out</button></> : <><Link href="/account/login">Log in</Link><Link href="/account/register" className="text-white/65 hover:text-white">Register</Link></>}</div>
         </div>
       </div>
 

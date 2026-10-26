@@ -3,50 +3,90 @@
     "id": 1,
     "name": "Cheese",
     "slug": "cheese",
-    "description": "Greek feta and speciality cheeses.",
+    "description": "Cheese and feta from the FreshCo catalogue.",
     "image_url": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=85&w=1600&auto=format&fit=crop",
     "image_source_url": "https://unsplash.com/photos/8manzosDSGM",
     "image_license": "Unsplash License",
-    "product_count": 5
+    "products_count": 4
   },
   {
     "id": 2,
     "name": "Frozen",
     "slug": "frozen",
-    "description": "Filosophy Greek filo pies and pastries.",
+    "description": "Frozen pies and prepared favourites.",
     "image_url": "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=85&w=1600&auto=format&fit=crop",
     "image_source_url": "https://unsplash.com/photos/52jRtc2S_VE",
     "image_license": "Unsplash License",
-    "product_count": 14
+    "products_count": 10
   },
   {
     "id": 3,
     "name": "Grocery",
     "slug": "grocery",
-    "description": "Misko pasta shapes for the pantry.",
+    "description": "Pantry staples and everyday grocery items.",
     "image_url": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=85&w=1600&auto=format&fit=crop",
     "image_source_url": "https://unsplash.com/photos/xfngap_DToE",
     "image_license": "Unsplash License",
-    "product_count": 11
+    "products_count": 21
   },
   {
     "id": 4,
     "name": "Deli",
     "slug": "deli",
-    "description": "Olives, dips and deli-counter favourites.",
+    "description": "Deli-counter favourites and prepared foods.",
     "image_url": "https://images.unsplash.com/photo-1547592180-85f173990554?q=85&w=1600&auto=format&fit=crop",
     "image_source_url": "https://unsplash.com/photos/IGfIGP5ONV0",
     "image_license": "Unsplash License",
-    "product_count": 0
+    "products_count": 0
   },
   {
     "id": 5,
     "name": "Small Goods",
     "slug": "small-goods",
-    "description": "Ham, salami and traditional small goods.",
+    "description": "Small goods and deli meats.",
     "image_url": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?q=85&w=1600&auto=format&fit=crop",
     "image_source_url": "https://unsplash.com/photos/auIbTAcSH6E",
     "image_license": "Unsplash License",
-    "product_count": 0
+    "products_count": 0
+  },
+  {
+    "id": 6,
+    "name": "Religious",
+    "slug": "religious",
+    "description": "Religious and ceremonial goods.",
+    "image_url": null,
+    "image_source_url": null,
+    "image_license": null,
+    "products_count": 0
+  },
+  {
+    "id": 7,
+    "name": "Feta",
+    "slug": "feta",
+    "description": "Feta products listed in the FreshCo catalogue.",
+    "image_url": null,
+    "image_source_url": null,
+    "image_license": null,
+    "products_count": 0
+  },
+  {
+    "id": 8,
+    "name": "Festive",
+    "slug": "festive",
+    "description": "Festive and seasonal products.",
+    "image_url": null,
+    "image_source_url": null,
+    "image_license": null,
+    "products_count": 0
+  },
+  {
+    "id": 9,
+    "name": "Olives",
+    "slug": "olives",
+    "description": "Olives and olive varieties.",
+    "image_url": null,
+    "image_source_url": null,
+    "image_license": null,
+    "products_count": 0
   }
 ]

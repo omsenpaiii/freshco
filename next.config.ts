@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.squarespace-cdn.com" },
       { protocol: "https", hostname: "dtgxwmigmg3gc.cloudfront.net" },
       { protocol: "https", hostname: "www.bananablue.com.au" },
-      { protocol: "https", hostname: "*.supabase.co" },
+      { protocol: "https", hostname: "br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech" },
     ],
   },
 };

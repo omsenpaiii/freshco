@@ -2,13 +2,13 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { createClientComponentClient } from '@/lib/supabase-client'
 import { User, Calendar, MessageSquare, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
 interface BlogDetailClientProps {
   post: {
     id: string
+    slug: string
     title: string
     content: string
     author: string
@@ -32,8 +32,7 @@ export default function BlogDetailClient({ post, initialComments }: BlogDetailCl
   const [form, setForm] = useState({ name: '', email: '', comment: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
-  
-  const supabase = createClientComponentClient()
+  const [error, setError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -42,38 +41,24 @@ export default function BlogDetailClient({ post, initialComments }: BlogDetailCl
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    const commentObj = {
-      id: Math.random().toString(),
-      post_id: post.id,
-      author_name: form.name,
-      author_email: form.email,
-      content: form.comment,
-      created_at: new Date().toISOString()
-    }
-
-    // Attempt to write to Supabase if configured
     try {
-      const url = process.env.NEXT_PUBLIC_SUPABASE_URL
-      const isConfigured = url && !url.includes('your-project')
-      if (isConfigured) {
-        await supabase.from('blog_comments').insert({
-          post_id: post.id,
-          author_name: form.name,
-          author_email: form.email,
-          content: form.comment
-        })
-      }
+      const response = await fetch('/api/blog/comments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ post_slug: post.slug, author_name: form.name, author_email: form.email, content: form.comment }),
+      })
+      const result = await response.json()
+      if (!response.ok) throw new Error(result.error || 'Could not submit your comment.')
+      setComments((prev) => [result.comment, ...prev])
+      setForm({ name: '', email: '', comment: '' })
+      setIsSuccess(true)
+      setError('')
+      setTimeout(() => setIsSuccess(false), 3000)
     } catch (err) {
-      console.warn("Failed to write comment to database, using local memory state", err)
+      setError(err instanceof Error ? err.message : 'Could not submit your comment.')
+    } finally {
+      setIsSubmitting(false)
     }
-
-    setComments(prev => [commentObj, ...prev])
-    setForm({ name: '', email: '', comment: '' })
-    setIsSuccess(true)
-    setIsSubmitting(false)
-    
-    setTimeout(() => setIsSuccess(false), 3000)
   }
 
   return (
@@ -156,6 +141,7 @@ export default function BlogDetailClient({ post, initialComments }: BlogDetailCl
               ✓ Comment submitted successfully!
             </div>
           )}
+          {error && <div role="alert" className="rounded-lg border border-red-100 bg-red-50 p-3 text-xs font-semibold text-red-600">{error}</div>}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1">

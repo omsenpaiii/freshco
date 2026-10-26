@@ -1,68 +1,53 @@
 [
   {
-    "id": 1,
-    "name": "Dodoni Kefalograviera",
-    "slug": "dodoni-kefalograviera-250g-500g-700g-1kg",
-    "description": "A firm Greek table cheese with a full, savoury character.",
-    "price": 11.5,
+    "id": 3,
+    "name": "Dodoni Feta tubs 400 g",
+    "slug": "dodoni-feta-tubs-400-g-400-g",
+    "description": "Dodoni Dodoni Feta tubs 400 g. Sold as listed in the client catalogue (EA; pack 400 g).",
+    "price": 17.99,
     "compare_at_price": null,
-    "sku": "DOD-KEFA-250G",
+    "sku": "FC-DODONI-DODONI-FETA-TUBS-400-G-400-G-R4",
     "inventory_quantity": 100,
     "images": [
-      "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1510575863321-VOXTC4OH3QCP460RJDDD/kefalograviera-dodoni-250g.jpg?format=1000w"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/dodoni-feta-tubs-400-g-400-g/primary.jpg"
     ],
+    "storage_object_key": "products/dodoni-feta-tubs-400-g-400-g/primary.jpg",
     "category_id": 1,
     "brand": "Dodoni",
-    "unit": "KG",
-    "subcategory_1": "Hard Cheese",
-    "subcategory_2": "Kefalograviera",
+    "unit": "EA",
+    "subcategory_1": "Feta",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.alfega.co.za/dairy",
-    "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1510575863321-VOXTC4OH3QCP460RJDDD/kefalograviera-dodoni-250g.jpg?format=1000w",
+    "product_source_url": "https://www.harrisfarm.com.au/products/dodoni-feta",
+    "image_source_url": "https://www.harrisfarm.com.au/cdn/shop/products/82649_HFARM_5201168215649-2.jpeg?v=1441101943&width=1445",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 4,
+    "source_rows": [
+      4
+    ],
+    "source_item_name": "Dodoni fetta tubs 400 g",
+    "workbook_unit": "EA",
+    "workbook_price": 17.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 11,
-        "product_id": 1,
-        "title": "250g",
-        "sku": "DOD-KEFA-250G",
-        "weight_grams": 250,
-        "price": 11.5,
+        "id": 301,
+        "product_id": 3,
+        "title": "400 g",
+        "sku": "FC-DODONI-DODONI-FETA-TUBS-400-G-400-G-R4",
+        "weight_grams": 400,
+        "price": 17.99,
         "inventory_quantity": 100,
-        "is_default": false
-      },
-      {
-        "id": 12,
-        "product_id": 1,
-        "title": "500g",
-        "sku": "DOD-KEFA-500G",
-        "weight_grams": 500,
-        "price": 23,
-        "inventory_quantity": 100,
-        "is_default": false
-      },
-      {
-        "id": 13,
-        "product_id": 1,
-        "title": "700g",
-        "sku": "DOD-KEFA-700G",
-        "weight_grams": 700,
-        "price": 32.19,
-        "inventory_quantity": 100,
-        "is_default": false
-      },
-      {
-        "id": 14,
-        "product_id": 1,
-        "title": "1kg",
-        "sku": "DOD-KEFA-1KG",
-        "weight_grams": 1000,
-        "price": 45.99,
-        "inventory_quantity": 100,
-        "is_default": false
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/dodoni-feta-tubs-400-g-400-g/primary.jpg",
+        "image_source_url": "https://www.harrisfarm.com.au/cdn/shop/products/82649_HFARM_5201168215649-2.jpeg?v=1441101943&width=1445",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -71,39 +56,54 @@
     }
   },
   {
-    "id": 2,
-    "name": "Dodoni Feta Tub 1kg",
-    "slug": "dodoni-feta-tub-1kg-1kg",
-    "description": "Dodoni feta in a resealable 1 kg tub.",
-    "price": 34.99,
+    "id": 4,
+    "name": "Dodoni goats Feta tubs 400 g",
+    "slug": "dodoni-goats-feta-tubs-400-g-400-g",
+    "description": "Dodoni Dodoni goats Feta tubs 400 g. Sold as listed in the client catalogue (EA; pack 400 g).",
+    "price": 17.99,
     "compare_at_price": null,
-    "sku": "DOD-FETA-TUB-1KG-1KG",
+    "sku": "FC-DODONI-DODONI-GOATS-FETA-TUBS-400-G-400-G-R5",
     "inventory_quantity": 100,
     "images": [
-      "https://cdn.shopify.com/s/files/1/0619/8876/5854/products/DodoniFeta1kg2.webp?v=1658211619"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/dodoni-goats-feta-tubs-400-g-400-g/primary.jpg"
     ],
+    "storage_object_key": "products/dodoni-goats-feta-tubs-400-g-400-g/primary.jpg",
     "category_id": 1,
     "brand": "Dodoni",
     "unit": "EA",
     "subcategory_1": "Feta",
-    "subcategory_2": "Cow & Sheep Feta",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://authenticflavourco.com.au/products/dodoni-feta-1kg",
-    "image_source_url": "https://cdn.shopify.com/s/files/1/0619/8876/5854/products/DodoniFeta1kg2.webp?v=1658211619",
+    "product_source_url": "https://www.basher.co.il/product/%D7%A4%D7%98%D7%94-%D7%A2%D7%99%D7%96%D7%99%D7%9D-400-%D7%92%D7%A8%D7%9D/",
+    "image_source_url": "https://www.basher.co.il/wp-content/uploads/%D7%A4%D7%98%D7%94-%D7%A2%D7%99%D7%96%D7%99%D7%9D-%D7%93%D7%95%D7%93%D7%95%D7%A0%D7%99-400-%D7%92%D7%A8%D7%9D-%D7%93%D7%92%D7%95%D7%9C-2-990x743.jpg",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 5,
+    "source_rows": [
+      5
+    ],
+    "source_item_name": "Dodoni goats Fetta tubs 400 g",
+    "workbook_unit": "EA",
+    "workbook_price": 17.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 21,
-        "product_id": 2,
-        "title": "1kg",
-        "sku": "DOD-FETA-TUB-1KG-1KG",
-        "weight_grams": 1000,
-        "price": 34.99,
+        "id": 401,
+        "product_id": 4,
+        "title": "400 g",
+        "sku": "FC-DODONI-DODONI-GOATS-FETA-TUBS-400-G-400-G-R5",
+        "weight_grams": 400,
+        "price": 17.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/dodoni-goats-feta-tubs-400-g-400-g/primary.jpg",
+        "image_source_url": "https://www.basher.co.il/wp-content/uploads/%D7%A4%D7%98%D7%94-%D7%A2%D7%99%D7%96%D7%99%D7%9D-%D7%93%D7%95%D7%93%D7%95%D7%A0%D7%99-400-%D7%92%D7%A8%D7%9D-%D7%93%D7%92%D7%95%D7%9C-2-990x743.jpg",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -113,38 +113,53 @@
   },
   {
     "id": 5,
-    "name": "Dodoni Saganaki",
-    "slug": "dodoni-saganaki-200g",
-    "description": "A 200 g portion of Dodoni cheese made for pan-frying as saganaki.",
+    "name": "Saganaki 200 g",
+    "slug": "saganaki-200-g-200-g",
+    "description": "Dodoni Saganaki 200 g. Sold as listed in the client catalogue (EA; pack 200 g).",
     "price": 12.99,
     "compare_at_price": null,
-    "sku": "DOD-SAGA-200G",
+    "sku": "FC-DODONI-SAGANAKI-200-G-200-G-R6",
     "inventory_quantity": 100,
     "images": [
-      "https://cdn.shopify.com/s/files/1/0619/8876/5854/products/DodoniSaganakiCheese_720x_5a3ff681-74d9-4d67-b5ac-8ee933ab526d.webp?v=1658732203"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/saganaki-200-g-200-g/primary.jpg"
     ],
+    "storage_object_key": "products/saganaki-200-g-200-g/primary.jpg",
     "category_id": 1,
     "brand": "Dodoni",
     "unit": "EA",
-    "subcategory_1": "Hard Cheese",
-    "subcategory_2": "Saganaki",
+    "subcategory_1": "Saganaki",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://authenticflavourco.com.au/products/dodoni-greek-saganaki-cheese-200g",
     "image_source_url": "https://cdn.shopify.com/s/files/1/0619/8876/5854/products/DodoniSaganakiCheese_720x_5a3ff681-74d9-4d67-b5ac-8ee933ab526d.webp?v=1658732203",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 6,
+    "source_rows": [
+      6
+    ],
+    "source_item_name": "Saganaki 200 g",
+    "workbook_unit": "EA",
+    "workbook_price": 12.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 51,
+        "id": 501,
         "product_id": 5,
-        "title": "200g",
-        "sku": "DOD-SAGA-200G",
+        "title": "200 g",
+        "sku": "FC-DODONI-SAGANAKI-200-G-200-G-R6",
         "weight_grams": 200,
         "price": 12.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/saganaki-200-g-200-g/primary.jpg",
+        "image_source_url": "https://cdn.shopify.com/s/files/1/0619/8876/5854/products/DodoniSaganakiCheese_720x_5a3ff681-74d9-4d67-b5ac-8ee933ab526d.webp?v=1658732203",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -154,284 +169,109 @@
   },
   {
     "id": 7,
-    "name": "Dodoni Manouri",
-    "slug": "dodoni-manouri-200g",
-    "description": "A soft, creamy 200 g portion of Dodoni Manouri.",
+    "name": "Manouri 200 g",
+    "slug": "manouri-200-g-200-g",
+    "description": "Dodoni Manouri 200 g. Sold as listed in the client catalogue (EA; pack 200 g).",
     "price": 7.99,
     "compare_at_price": null,
-    "sku": "DOD-MANO-200G",
+    "sku": "FC-DODONI-MANOURI-200-G-200-G-R8",
     "inventory_quantity": 100,
     "images": [
-      "https://cdn.shopify.com/s/files/1/0595/2490/7170/files/dodoni-manouri-200g-pickup-only-35672320934050.png?v=1709363718"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manouri-200-g-200-g/primary.png"
     ],
+    "storage_object_key": "products/manouri-200-g-200-g/primary.png",
     "category_id": 1,
     "brand": "Dodoni",
     "unit": "EA",
-    "subcategory_1": "Hard Cheese",
-    "subcategory_2": "Manouri",
+    "subcategory_1": "Manouri",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.basfoods.com.au/products/dodoni-manouri-200g",
     "image_source_url": "https://cdn.shopify.com/s/files/1/0595/2490/7170/files/dodoni-manouri-200g-pickup-only-35672320934050.png?v=1709363718",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 8,
+    "source_rows": [
+      8
+    ],
+    "source_item_name": "Manouri 200 g",
+    "workbook_unit": "EA",
+    "workbook_price": 7.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 71,
+        "id": 701,
         "product_id": 7,
-        "title": "200g",
-        "sku": "DOD-MANO-200G",
+        "title": "200 g",
+        "sku": "FC-DODONI-MANOURI-200-G-200-G-R8",
         "weight_grams": 200,
         "price": 7.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manouri-200-g-200-g/primary.png",
+        "image_source_url": "https://cdn.shopify.com/s/files/1/0595/2490/7170/files/dodoni-manouri-200g-pickup-only-35672320934050.png?v=1709363718",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
       "name": "Cheese",
       "slug": "cheese"
-    }
-  },
-  {
-    "id": 10,
-    "name": "Dodoni Barrel-Aged Feta",
-    "slug": "dodoni-barrel-aged-feta-150g",
-    "description": "Barrel-aged Dodoni feta in a 150 g pack.",
-    "price": 5.99,
-    "compare_at_price": null,
-    "sku": "DOD-BARR-AGED-FETA-150G",
-    "inventory_quantity": 100,
-    "images": [
-      "https://www.bananablue.com.au/images/product/5201168815238_1.jpg"
-    ],
-    "category_id": 1,
-    "brand": "Dodoni",
-    "unit": "EA",
-    "subcategory_1": "Feta",
-    "subcategory_2": "Barrel-Aged Feta",
-    "status": "published",
-    "image_match_status": "verified",
-    "product_source_url": "https://adelaidesfinest.com.au/product/444818/dodoni-barrel-aged-feta-150g",
-    "image_source_url": "https://www.bananablue.com.au/images/product/5201168815238_1.jpg",
-    "draft_reason": null,
-    "is_featured": false,
-    "is_trending": false,
-    "variants": [
-      {
-        "id": 101,
-        "product_id": 10,
-        "title": "150g",
-        "sku": "DOD-BARR-AGED-FETA-150G",
-        "weight_grams": 150,
-        "price": 5.99,
-        "inventory_quantity": 100,
-        "is_default": true
-      }
-    ],
-    "categories": {
-      "name": "Cheese",
-      "slug": "cheese"
-    }
-  },
-  {
-    "id": 11,
-    "name": "Filosophy Feta Spiral Pie",
-    "slug": "filosophy-feta-spiral-pie-850g",
-    "description": "A large spiral of crisp filo pastry filled with feta.",
-    "price": 11.99,
-    "compare_at_price": null,
-    "sku": "FIL-FETA-SPIR-PIE-850G",
-    "inventory_quantity": 100,
-    "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2022-08/00-22-01.jpg?itok=RzNFax79"
-    ],
-    "category_id": 2,
-    "brand": "Filosophy",
-    "unit": "EA",
-    "subcategory_1": "Pies",
-    "subcategory_2": "Spiral Pies",
-    "status": "published",
-    "image_match_status": "verified",
-    "product_source_url": "https://www.ioniki.com/en/filosophy/Greek-spiral-pie",
-    "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2022-08/00-22-01.jpg?itok=RzNFax79",
-    "draft_reason": null,
-    "is_featured": false,
-    "is_trending": false,
-    "variants": [
-      {
-        "id": 111,
-        "product_id": 11,
-        "title": "850g",
-        "sku": "FIL-FETA-SPIR-PIE-850G",
-        "weight_grams": 850,
-        "price": 11.99,
-        "inventory_quantity": 100,
-        "is_default": true
-      }
-    ],
-    "categories": {
-      "name": "Frozen",
-      "slug": "frozen"
-    }
-  },
-  {
-    "id": 12,
-    "name": "Filosophy Spinach & Feta Spiral Pie",
-    "slug": "filosophy-spinach-feta-spiral-pie-850g",
-    "description": "A large filo spiral filled with spinach and feta.",
-    "price": 11.99,
-    "compare_at_price": null,
-    "sku": "FIL-SPIN-FETA-SPIR-PIE-850G",
-    "inventory_quantity": 100,
-    "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-08.jpg?itok=_OC3LQ3Q"
-    ],
-    "category_id": 2,
-    "brand": "Filosophy",
-    "unit": "EA",
-    "subcategory_1": "Pies",
-    "subcategory_2": "Spiral Pies",
-    "status": "published",
-    "image_match_status": "verified",
-    "product_source_url": "https://www.ioniki.com/en/filosophy/Greek-spirals-pie",
-    "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-08.jpg?itok=_OC3LQ3Q",
-    "draft_reason": null,
-    "is_featured": false,
-    "is_trending": false,
-    "variants": [
-      {
-        "id": 121,
-        "product_id": 12,
-        "title": "850g",
-        "sku": "FIL-SPIN-FETA-SPIR-PIE-850G",
-        "weight_grams": 850,
-        "price": 11.99,
-        "inventory_quantity": 100,
-        "is_default": true
-      }
-    ],
-    "categories": {
-      "name": "Frozen",
-      "slug": "frozen"
-    }
-  },
-  {
-    "id": 13,
-    "name": "Filosophy Spinach Spiral Pie",
-    "slug": "filosophy-spinach-spiral-pie-850g",
-    "description": "A large filo spiral with a spinach filling.",
-    "price": 11.99,
-    "compare_at_price": null,
-    "sku": "FIL-SPIN-SPIR-PIE-850G",
-    "inventory_quantity": 100,
-    "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2022-08/00-22-02.jpg?itok=QbLMO-v1"
-    ],
-    "category_id": 2,
-    "brand": "Filosophy",
-    "unit": "EA",
-    "subcategory_1": "Pies",
-    "subcategory_2": "Spiral Pies",
-    "status": "published",
-    "image_match_status": "verified",
-    "product_source_url": "https://www.ioniki.com/en/filosophy",
-    "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2022-08/00-22-02.jpg?itok=QbLMO-v1",
-    "draft_reason": null,
-    "is_featured": false,
-    "is_trending": false,
-    "variants": [
-      {
-        "id": 131,
-        "product_id": 13,
-        "title": "850g",
-        "sku": "FIL-SPIN-SPIR-PIE-850G",
-        "weight_grams": 850,
-        "price": 11.99,
-        "inventory_quantity": 100,
-        "is_default": true
-      }
-    ],
-    "categories": {
-      "name": "Frozen",
-      "slug": "frozen"
-    }
-  },
-  {
-    "id": 14,
-    "name": "Filosophy Wild Greens Family Pie",
-    "slug": "filosophy-wild-greens-family-pie-850g",
-    "description": "A family-size filo pie filled with wild greens.",
-    "price": 12.99,
-    "compare_at_price": null,
-    "sku": "FIL-WILD-GREE-FAMI-PIE-850G",
-    "inventory_quantity": 100,
-    "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-18.jpg?itok=oqKbFk5d"
-    ],
-    "category_id": 2,
-    "brand": "Filosophy",
-    "unit": "EA",
-    "subcategory_1": "Pies",
-    "subcategory_2": "Family Pies",
-    "status": "published",
-    "image_match_status": "verified",
-    "product_source_url": "https://www.ioniki.com/en/filosophy",
-    "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-18.jpg?itok=oqKbFk5d",
-    "draft_reason": null,
-    "is_featured": false,
-    "is_trending": false,
-    "variants": [
-      {
-        "id": 141,
-        "product_id": 14,
-        "title": "850g",
-        "sku": "FIL-WILD-GREE-FAMI-PIE-850G",
-        "weight_grams": 850,
-        "price": 12.99,
-        "inventory_quantity": 100,
-        "is_default": true
-      }
-    ],
-    "categories": {
-      "name": "Frozen",
-      "slug": "frozen"
     }
   },
   {
     "id": 15,
-    "name": "Filosophy Mini Spinach & Feta Spirals",
-    "slug": "filosophy-mini-spinach-feta-spirals-450g",
-    "description": "Mini filo spirals with spinach and feta.",
+    "name": "Mini Spirals Feta & Spinach 450g",
+    "slug": "mini-spirals-feta-and-spinach-450g-450-g",
+    "description": "Filosophy Mini Spirals Feta & Spinach 450g. Sold as listed in the client catalogue (EA; pack 450 g).",
     "price": 7.99,
     "compare_at_price": null,
-    "sku": "FIL-MINI-SPIN-FETA-SPIR-450G",
+    "sku": "FC-FILOSOPH-MINI-SPIRALS-FETA-AND-SPINAC-450-G-R16",
     "inventory_quantity": 100,
     "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2021-01/00-22-38.png?itok=RzNqHnLj"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mini-spirals-feta-and-spinach-450g-450-g/primary.png"
     ],
+    "storage_object_key": "products/mini-spirals-feta-and-spinach-450g-450-g/primary.png",
     "category_id": 2,
     "brand": "Filosophy",
     "unit": "EA",
     "subcategory_1": "Pies",
-    "subcategory_2": "Mini Pies",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.ioniki.com/en/filosophy",
     "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2021-01/00-22-38.png?itok=RzNqHnLj",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 16,
+    "source_rows": [
+      16
+    ],
+    "source_item_name": "Mini Spirals Feta & Spinach 450g",
+    "workbook_unit": "EA",
+    "workbook_price": 7.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 151,
+        "id": 1501,
         "product_id": 15,
-        "title": "450g",
-        "sku": "FIL-MINI-SPIN-FETA-SPIR-450G",
+        "title": "450 g",
+        "sku": "FC-FILOSOPH-MINI-SPIRALS-FETA-AND-SPINAC-450-G-R16",
         "weight_grams": 450,
         "price": 7.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mini-spirals-feta-and-spinach-450g-450-g/primary.png",
+        "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2021-01/00-22-38.png?itok=RzNqHnLj",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -441,38 +281,53 @@
   },
   {
     "id": 16,
-    "name": "Filosophy Mini Feta Rolls",
-    "slug": "filosophy-mini-feta-rolls-450g",
-    "description": "Mini filo rolls filled with feta.",
+    "name": "Mini Rolls Feta 450g",
+    "slug": "mini-rolls-feta-450g-450-g",
+    "description": "Filosophy Mini Rolls Feta 450g. Sold as listed in the client catalogue (EA; pack 450 g).",
     "price": 8.99,
     "compare_at_price": null,
-    "sku": "FIL-MINI-FETA-ROLL-450G",
+    "sku": "FC-FILOSOPH-MINI-ROLLS-FETA-450G-450-G-R17",
     "inventory_quantity": 100,
     "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-36.jpg?itok=6til1wEG"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mini-rolls-feta-450g-450-g/primary.jpg"
     ],
+    "storage_object_key": "products/mini-rolls-feta-450g-450-g/primary.jpg",
     "category_id": 2,
     "brand": "Filosophy",
     "unit": "EA",
     "subcategory_1": "Pies",
-    "subcategory_2": "Mini Pies",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.ioniki.com/en/filosophy",
     "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-36.jpg?itok=6til1wEG",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 17,
+    "source_rows": [
+      17
+    ],
+    "source_item_name": "Mini Rolls Feta 450g",
+    "workbook_unit": "EA",
+    "workbook_price": 8.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 161,
+        "id": 1601,
         "product_id": 16,
-        "title": "450g",
-        "sku": "FIL-MINI-FETA-ROLL-450G",
+        "title": "450 g",
+        "sku": "FC-FILOSOPH-MINI-ROLLS-FETA-450G-450-G-R17",
         "weight_grams": 450,
         "price": 8.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mini-rolls-feta-450g-450-g/primary.jpg",
+        "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-36.jpg?itok=6til1wEG",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -482,38 +337,53 @@
   },
   {
     "id": 17,
-    "name": "Filosophy Mini Cypriot Halloumi Spirals",
-    "slug": "filosophy-mini-cypriot-halloumi-spirals-450g",
-    "description": "Mini filo spirals with Cypriot halloumi.",
+    "name": "Mini Spirals Cypriot Halloumi 450g",
+    "slug": "mini-spirals-cypriot-halloumi-450g-450-g",
+    "description": "Filosophy Mini Spirals Cypriot Halloumi 450g. Sold as listed in the client catalogue (EA; pack 450 g).",
     "price": 9.99,
     "compare_at_price": null,
-    "sku": "FIL-MINI-CYPR-HALL-SPIR-450G",
+    "sku": "FC-FILOSOPH-MINI-SPIRALS-CYPRIOT-HALLOUM-450-G-R18",
     "inventory_quantity": 100,
     "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-46.jpg?itok=qYvmuaUf"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mini-spirals-cypriot-halloumi-450g-450-g/primary.jpg"
     ],
+    "storage_object_key": "products/mini-spirals-cypriot-halloumi-450g-450-g/primary.jpg",
     "category_id": 2,
     "brand": "Filosophy",
     "unit": "EA",
     "subcategory_1": "Pies",
-    "subcategory_2": "Mini Pies",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.ioniki.com/en/filosophy",
     "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-46.jpg?itok=qYvmuaUf",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 18,
+    "source_rows": [
+      18
+    ],
+    "source_item_name": "Mini Spirals Cypriot Halloumi 450g",
+    "workbook_unit": "EA",
+    "workbook_price": 9.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 171,
+        "id": 1701,
         "product_id": 17,
-        "title": "450g",
-        "sku": "FIL-MINI-CYPR-HALL-SPIR-450G",
+        "title": "450 g",
+        "sku": "FC-FILOSOPH-MINI-SPIRALS-CYPRIOT-HALLOUM-450-G-R18",
         "weight_grams": 450,
         "price": 9.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mini-spirals-cypriot-halloumi-450g-450-g/primary.jpg",
+        "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-46.jpg?itok=qYvmuaUf",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -523,38 +393,53 @@
   },
   {
     "id": 18,
-    "name": "Filosophy Mini Spinach & Feta Triangles",
-    "slug": "filosophy-mini-spinach-feta-triangles-500g",
-    "description": "Mini filo triangles filled with spinach and feta.",
+    "name": "Mini Triangles Feta & Spinach 500g",
+    "slug": "mini-triangles-feta-and-spinach-500g-500-g",
+    "description": "Filosophy Mini Triangles Feta & Spinach 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 8.99,
     "compare_at_price": null,
-    "sku": "FIL-MINI-SPIN-FETA-TRIA-500G",
+    "sku": "FC-FILOSOPH-MINI-TRIANGLES-FETA-AND-SPIN-500-G-R19",
     "inventory_quantity": 100,
     "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-13.jpg?itok=LYhClghc"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mini-triangles-feta-and-spinach-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/mini-triangles-feta-and-spinach-500g-500-g/primary.jpg",
     "category_id": 2,
     "brand": "Filosophy",
     "unit": "EA",
     "subcategory_1": "Pies",
-    "subcategory_2": "Mini Pies",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.ioniki.com/en/filosophy",
     "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-13.jpg?itok=LYhClghc",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 19,
+    "source_rows": [
+      19
+    ],
+    "source_item_name": "Mini Triangles Feta & Spinach 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 8.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 181,
+        "id": 1801,
         "product_id": 18,
-        "title": "500g",
-        "sku": "FIL-MINI-SPIN-FETA-TRIA-500G",
+        "title": "500 g",
+        "sku": "FC-FILOSOPH-MINI-TRIANGLES-FETA-AND-SPIN-500-G-R19",
         "weight_grams": 500,
         "price": 8.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mini-triangles-feta-and-spinach-500g-500-g/primary.jpg",
+        "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-13.jpg?itok=LYhClghc",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -564,38 +449,53 @@
   },
   {
     "id": 19,
-    "name": "Filosophy Mini Spinach & Feta Spirals",
-    "slug": "filosophy-mini-spinach-feta-spirals-1kg",
-    "description": "A 1 kg pack of mini spinach and feta filo spirals.",
+    "name": "Mini Spirals Feta & Spinach 1kg",
+    "slug": "mini-spirals-feta-and-spinach-1kg-1-kg",
+    "description": "Filosophy Mini Spirals Feta & Spinach 1kg. Sold as listed in the client catalogue (EA; pack 1 kg).",
     "price": 14.99,
     "compare_at_price": null,
-    "sku": "FIL-MINI-SPIN-FETA-SPIR-1KG",
+    "sku": "FC-FILOSOPH-MINI-SPIRALS-FETA-AND-SPINAC-1-KG-R20",
     "inventory_quantity": 100,
     "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-63.jpg?itok=JT-VxvdY"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mini-spirals-feta-and-spinach-1kg-1-kg/primary.jpg"
     ],
+    "storage_object_key": "products/mini-spirals-feta-and-spinach-1kg-1-kg/primary.jpg",
     "category_id": 2,
     "brand": "Filosophy",
     "unit": "EA",
     "subcategory_1": "Pies",
-    "subcategory_2": "Mini Pies",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.ioniki.com/en/filosophy",
     "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-63.jpg?itok=JT-VxvdY",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 20,
+    "source_rows": [
+      20
+    ],
+    "source_item_name": "Mini Spirals Feta & Spinach 1kg",
+    "workbook_unit": "EA",
+    "workbook_price": 14.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 191,
+        "id": 1901,
         "product_id": 19,
-        "title": "1kg",
-        "sku": "FIL-MINI-SPIN-FETA-SPIR-1KG",
+        "title": "1 kg",
+        "sku": "FC-FILOSOPH-MINI-SPIRALS-FETA-AND-SPINAC-1-KG-R20",
         "weight_grams": 1000,
         "price": 14.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mini-spirals-feta-and-spinach-1kg-1-kg/primary.jpg",
+        "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-63.jpg?itok=JT-VxvdY",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -605,38 +505,53 @@
   },
   {
     "id": 20,
-    "name": "Filosophy Mini Feta Spirals",
-    "slug": "filosophy-mini-feta-spirals-1kg",
-    "description": "A 1 kg pack of mini feta filo spirals.",
+    "name": "Mini Spirals Feta 1kg",
+    "slug": "mini-spirals-feta-1kg-1-kg",
+    "description": "Filosophy Mini Spirals Feta 1kg. Sold as listed in the client catalogue (EA; pack 1 kg).",
     "price": 15.99,
     "compare_at_price": null,
-    "sku": "FIL-MINI-FETA-SPIR-1KG",
+    "sku": "FC-FILOSOPH-MINI-SPIRALS-FETA-1KG-1-KG-R21",
     "inventory_quantity": 100,
     "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-64.jpg?itok=APjhQw42"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mini-spirals-feta-1kg-1-kg/primary.jpg"
     ],
+    "storage_object_key": "products/mini-spirals-feta-1kg-1-kg/primary.jpg",
     "category_id": 2,
     "brand": "Filosophy",
     "unit": "EA",
     "subcategory_1": "Pies",
-    "subcategory_2": "Mini Pies",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.ioniki.com/en/filosophy",
     "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-64.jpg?itok=APjhQw42",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 21,
+    "source_rows": [
+      21
+    ],
+    "source_item_name": "Mini Spirals Feta 1kg",
+    "workbook_unit": "EA",
+    "workbook_price": 15.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 201,
+        "id": 2001,
         "product_id": 20,
-        "title": "1kg",
-        "sku": "FIL-MINI-FETA-SPIR-1KG",
+        "title": "1 kg",
+        "sku": "FC-FILOSOPH-MINI-SPIRALS-FETA-1KG-1-KG-R21",
         "weight_grams": 1000,
         "price": 15.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mini-spirals-feta-1kg-1-kg/primary.jpg",
+        "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-64.jpg?itok=APjhQw42",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -646,38 +561,53 @@
   },
   {
     "id": 21,
-    "name": "Filosophy Leek & Feta Filo Pie",
-    "slug": "filosophy-leek-feta-filo-pie-550g",
-    "description": "A filo pie filled with leek and feta.",
+    "name": "Leek & Feta Filo Pie 550g",
+    "slug": "leek-and-feta-filo-pie-550g-550-g",
+    "description": "Filosophy Leek & Feta Filo Pie 550g. Sold as listed in the client catalogue (EA; pack 550 g).",
     "price": 8.99,
     "compare_at_price": null,
-    "sku": "FIL-LEEK-FETA-FILO-PIE-550G",
+    "sku": "FC-FILOSOPH-LEEK-AND-FETA-FILO-PIE-550G-550-G-R22",
     "inventory_quantity": 100,
     "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-35.jpg?itok=xoIhlr8k"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/leek-and-feta-filo-pie-550g-550-g/primary.jpg"
     ],
+    "storage_object_key": "products/leek-and-feta-filo-pie-550g-550-g/primary.jpg",
     "category_id": 2,
     "brand": "Filosophy",
     "unit": "EA",
     "subcategory_1": "Pies",
-    "subcategory_2": "Family Pies",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.ioniki.com/en/filosophy",
     "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-35.jpg?itok=xoIhlr8k",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 22,
+    "source_rows": [
+      22
+    ],
+    "source_item_name": "Leek & Feta Filo Pie 550g",
+    "workbook_unit": "EA",
+    "workbook_price": 8.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 211,
+        "id": 2101,
         "product_id": 21,
-        "title": "550g",
-        "sku": "FIL-LEEK-FETA-FILO-PIE-550G",
+        "title": "550 g",
+        "sku": "FC-FILOSOPH-LEEK-AND-FETA-FILO-PIE-550G-550-G-R22",
         "weight_grams": 550,
         "price": 8.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/leek-and-feta-filo-pie-550g-550-g/primary.jpg",
+        "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-35.jpg?itok=xoIhlr8k",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -687,38 +617,53 @@
   },
   {
     "id": 22,
-    "name": "Filosophy Feta Filo Pie",
-    "slug": "filosophy-feta-filo-pie-550g",
-    "description": "A classic feta-filled filo pie.",
+    "name": "Filo Feta Pie 550g",
+    "slug": "filo-feta-pie-550g-550-g",
+    "description": "Filosophy Filo Feta Pie 550g. Sold as listed in the client catalogue (EA; pack 550 g).",
     "price": 9.99,
     "compare_at_price": null,
-    "sku": "FIL-FETA-FILO-PIE-550G",
+    "sku": "FC-FILOSOPH-FILO-FETA-PIE-550G-550-G-R23",
     "inventory_quantity": 100,
     "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-43.jpg?itok=DfYNx7hJ"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/filo-feta-pie-550g-550-g/primary.jpg"
     ],
+    "storage_object_key": "products/filo-feta-pie-550g-550-g/primary.jpg",
     "category_id": 2,
     "brand": "Filosophy",
     "unit": "EA",
     "subcategory_1": "Pies",
-    "subcategory_2": "Family Pies",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.ioniki.com/en/filosophy",
     "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-43.jpg?itok=DfYNx7hJ",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 23,
+    "source_rows": [
+      23
+    ],
+    "source_item_name": "Filo Feta Pie 550g",
+    "workbook_unit": "EA",
+    "workbook_price": 9.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 221,
+        "id": 2201,
         "product_id": 22,
-        "title": "550g",
-        "sku": "FIL-FETA-FILO-PIE-550G",
+        "title": "550 g",
+        "sku": "FC-FILOSOPH-FILO-FETA-PIE-550G-550-G-R23",
         "weight_grams": 550,
         "price": 9.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/filo-feta-pie-550g-550-g/primary.jpg",
+        "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-43.jpg?itok=DfYNx7hJ",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -728,38 +673,53 @@
   },
   {
     "id": 23,
-    "name": "Filosophy Spinach & Feta Filo Pie",
-    "slug": "filosophy-spinach-feta-filo-pie-550g",
-    "description": "A filo pie with spinach and feta.",
+    "name": "Filo Spinach & Feta Pie 550g",
+    "slug": "filo-spinach-and-feta-pie-550g-550-g",
+    "description": "Filosophy Filo Spinach & Feta Pie 550g. Sold as listed in the client catalogue (EA; pack 550 g).",
     "price": 9.99,
     "compare_at_price": null,
-    "sku": "FIL-SPIN-FETA-FILO-PIE-550G",
+    "sku": "FC-FILOSOPH-FILO-SPINACH-AND-FETA-PIE-55-550-G-R24",
     "inventory_quantity": 100,
     "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-44.jpg?itok=s9e6gCJY"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/filo-spinach-and-feta-pie-550g-550-g/primary.jpg"
     ],
+    "storage_object_key": "products/filo-spinach-and-feta-pie-550g-550-g/primary.jpg",
     "category_id": 2,
     "brand": "Filosophy",
     "unit": "EA",
     "subcategory_1": "Pies",
-    "subcategory_2": "Family Pies",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.ioniki.com/en/filosophy",
     "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-44.jpg?itok=s9e6gCJY",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 24,
+    "source_rows": [
+      24
+    ],
+    "source_item_name": "Filo Spinach & Feta Pie 550g",
+    "workbook_unit": "EA",
+    "workbook_price": 9.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 231,
+        "id": 2301,
         "product_id": 23,
-        "title": "550g",
-        "sku": "FIL-SPIN-FETA-FILO-PIE-550G",
+        "title": "550 g",
+        "sku": "FC-FILOSOPH-FILO-SPINACH-AND-FETA-PIE-55-550-G-R24",
         "weight_grams": 550,
         "price": 9.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/filo-spinach-and-feta-pie-550g-550-g/primary.jpg",
+        "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-44.jpg?itok=s9e6gCJY",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -769,38 +729,53 @@
   },
   {
     "id": 24,
-    "name": "Filosophy Bougatsa Custard Pie",
-    "slug": "filosophy-bougatsa-custard-pie-500g",
-    "description": "A Greek-style filo pie with a custard filling.",
+    "name": "Bougatsa Custard Pie 500g",
+    "slug": "bougatsa-custard-pie-500g-500-g",
+    "description": "Filosophy Bougatsa Custard Pie 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 9.99,
     "compare_at_price": null,
-    "sku": "FIL-BOUG-CUST-PIE-500G",
+    "sku": "FC-FILOSOPH-BOUGATSA-CUSTARD-PIE-500G-500-G-R25",
     "inventory_quantity": 100,
     "images": [
-      "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-03.jpg?itok=62ukCwNB"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/bougatsa-custard-pie-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/bougatsa-custard-pie-500g-500-g/primary.jpg",
     "category_id": 2,
     "brand": "Filosophy",
     "unit": "EA",
     "subcategory_1": "Pies",
-    "subcategory_2": "Sweet Pies",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.ioniki.com/en/filosophy",
     "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-03.jpg?itok=62ukCwNB",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 25,
+    "source_rows": [
+      25
+    ],
+    "source_item_name": "Bougatsa Custard Pie 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 9.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 241,
+        "id": 2401,
         "product_id": 24,
-        "title": "500g",
-        "sku": "FIL-BOUG-CUST-PIE-500G",
+        "title": "500 g",
+        "sku": "FC-FILOSOPH-BOUGATSA-CUSTARD-PIE-500G-500-G-R25",
         "weight_grams": 500,
         "price": 9.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/bougatsa-custard-pie-500g-500-g/primary.jpg",
+        "image_source_url": "https://www.ioniki.com/sites/default/files/styles/600px/public/2024-12/00-22-03.jpg?itok=62ukCwNB",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -810,38 +785,53 @@
   },
   {
     "id": 26,
-    "name": "Misko Macaroni No. 2",
-    "slug": "misko-macaroni-no-2-500g",
-    "description": "Thick tubular pasta traditionally used for pastitsio.",
+    "name": "Macaroni #2 500g",
+    "slug": "macaroni-2-500g-500-g",
+    "description": "Misko Macaroni #2 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 3.99,
     "compare_at_price": null,
-    "sku": "MIS-MACA-NO-2-500G",
+    "sku": "FC-MISKO-MACARONI-2-500G-500-G-R27",
     "inventory_quantity": 100,
     "images": [
-      "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392323929171-84C6OA873BJGB2J2CM52/misko+pastitsio-no.2.jpg?format=1000w"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/macaroni-2-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/macaroni-2-500g-500-g/primary.jpg",
     "category_id": 3,
     "brand": "Misko",
     "unit": "EA",
     "subcategory_1": "Pasta",
-    "subcategory_2": "Macaroni",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.alfega.co.za/misko-pasta",
     "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392323929171-84C6OA873BJGB2J2CM52/misko+pastitsio-no.2.jpg?format=1000w",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 27,
+    "source_rows": [
+      27
+    ],
+    "source_item_name": "Macaroni #2 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 261,
+        "id": 2601,
         "product_id": 26,
-        "title": "500g",
-        "sku": "MIS-MACA-NO-2-500G",
+        "title": "500 g",
+        "sku": "FC-MISKO-MACARONI-2-500G-500-G-R27",
         "weight_grams": 500,
         "price": 3.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/macaroni-2-500g-500-g/primary.jpg",
+        "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392323929171-84C6OA873BJGB2J2CM52/misko+pastitsio-no.2.jpg?format=1000w",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -851,38 +841,53 @@
   },
   {
     "id": 27,
-    "name": "Misko Macaroni No. 5",
-    "slug": "misko-macaroni-no-5-500g",
-    "description": "Long hollow macaroni in a 500 g pack.",
+    "name": "Macaroni #5 500g",
+    "slug": "macaroni-5-500g-500-g",
+    "description": "Misko Macaroni #5 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 3.99,
     "compare_at_price": null,
-    "sku": "MIS-MACA-NO-5-500G",
+    "sku": "FC-MISKO-MACARONI-5-500G-500-G-R28",
     "inventory_quantity": 100,
     "images": [
-      "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392324210844-B6A2RMWU1WDCL6VRLIT0/misko+macaroni-no5.jpg?format=1000w"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/macaroni-5-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/macaroni-5-500g-500-g/primary.jpg",
     "category_id": 3,
     "brand": "Misko",
     "unit": "EA",
     "subcategory_1": "Pasta",
-    "subcategory_2": "Macaroni",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.alfega.co.za/misko-pasta",
     "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392324210844-B6A2RMWU1WDCL6VRLIT0/misko+macaroni-no5.jpg?format=1000w",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 28,
+    "source_rows": [
+      28
+    ],
+    "source_item_name": "Macaroni #5 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 271,
+        "id": 2701,
         "product_id": 27,
-        "title": "500g",
-        "sku": "MIS-MACA-NO-5-500G",
+        "title": "500 g",
+        "sku": "FC-MISKO-MACARONI-5-500G-500-G-R28",
         "weight_grams": 500,
         "price": 3.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/macaroni-5-500g-500-g/primary.jpg",
+        "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392324210844-B6A2RMWU1WDCL6VRLIT0/misko+macaroni-no5.jpg?format=1000w",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -892,38 +897,53 @@
   },
   {
     "id": 28,
-    "name": "Misko Spaghetti No. 6",
-    "slug": "misko-spaghetti-no-6-500g",
-    "description": "Classic Misko spaghetti in a 500 g pack.",
+    "name": "Spaghetti #6 500g",
+    "slug": "spaghetti-6-500g-500-g",
+    "description": "Misko Spaghetti #6 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 3.99,
     "compare_at_price": null,
-    "sku": "MIS-SPAG-NO-6-500G",
+    "sku": "FC-MISKO-SPAGHETTI-6-500G-500-G-R29",
     "inventory_quantity": 100,
     "images": [
-      "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392322372040-YNCLGVVSF633QRKSPZA1/misko+spaghetti+no.6?format=1000w"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spaghetti-6-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/spaghetti-6-500g-500-g/primary.jpg",
     "category_id": 3,
     "brand": "Misko",
     "unit": "EA",
     "subcategory_1": "Pasta",
-    "subcategory_2": "Spaghetti",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.alfega.co.za/misko-pasta",
     "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392322372040-YNCLGVVSF633QRKSPZA1/misko+spaghetti+no.6?format=1000w",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 29,
+    "source_rows": [
+      29
+    ],
+    "source_item_name": "Spaghetti #6 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 281,
+        "id": 2801,
         "product_id": 28,
-        "title": "500g",
-        "sku": "MIS-SPAG-NO-6-500G",
+        "title": "500 g",
+        "sku": "FC-MISKO-SPAGHETTI-6-500G-500-G-R29",
         "weight_grams": 500,
         "price": 3.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spaghetti-6-500g-500-g/primary.jpg",
+        "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392322372040-YNCLGVVSF633QRKSPZA1/misko+spaghetti+no.6?format=1000w",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -933,38 +953,53 @@
   },
   {
     "id": 29,
-    "name": "Misko Spaghetti No. 10",
-    "slug": "misko-spaghetti-no-10-500g",
-    "description": "Fine Misko spaghetti in a 500 g pack.",
+    "name": "Spaghetti #10 500g",
+    "slug": "spaghetti-10-500g-500-g",
+    "description": "Misko Spaghetti #10 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 3.99,
     "compare_at_price": null,
-    "sku": "MIS-SPAG-NO-10-500G",
+    "sku": "FC-MISKO-SPAGHETTI-10-500G-500-G-R30",
     "inventory_quantity": 100,
     "images": [
-      "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392322854402-4WGJ5YEHXPJP1AMEHL4W/misko+spaghetti-no10?format=1000w"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spaghetti-10-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/spaghetti-10-500g-500-g/primary.jpg",
     "category_id": 3,
     "brand": "Misko",
     "unit": "EA",
     "subcategory_1": "Pasta",
-    "subcategory_2": "Spaghetti",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.alfega.co.za/misko-pasta",
     "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392322854402-4WGJ5YEHXPJP1AMEHL4W/misko+spaghetti-no10?format=1000w",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 30,
+    "source_rows": [
+      30
+    ],
+    "source_item_name": "Spaghetti #10 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 291,
+        "id": 2901,
         "product_id": 29,
-        "title": "500g",
-        "sku": "MIS-SPAG-NO-10-500G",
+        "title": "500 g",
+        "sku": "FC-MISKO-SPAGHETTI-10-500G-500-G-R30",
         "weight_grams": 500,
         "price": 3.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spaghetti-10-500g-500-g/primary.jpg",
+        "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392322854402-4WGJ5YEHXPJP1AMEHL4W/misko+spaghetti-no10?format=1000w",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -974,38 +1009,53 @@
   },
   {
     "id": 31,
-    "name": "Misko Couscous No. 22",
-    "slug": "misko-couscous-no-22-500g",
-    "description": "Small round pasta traditionally used in Greek cooking.",
+    "name": "Couscous #22 500g",
+    "slug": "couscous-22-500g-500-g",
+    "description": "Misko Couscous #22 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 3.99,
     "compare_at_price": null,
-    "sku": "MIS-COUS-NO-22-500G",
+    "sku": "FC-MISKO-COUSCOUS-22-500G-500-G-R32",
     "inventory_quantity": 100,
     "images": [
-      "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392581261604-M0R9J6FE73VDWPMGUBRA/misko+couscousaki.jpg?format=1000w"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/couscous-22-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/couscous-22-500g-500-g/primary.jpg",
     "category_id": 3,
     "brand": "Misko",
     "unit": "EA",
     "subcategory_1": "Pasta",
-    "subcategory_2": "Soup Pasta",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.alfega.co.za/misko-pasta",
     "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392581261604-M0R9J6FE73VDWPMGUBRA/misko+couscousaki.jpg?format=1000w",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 32,
+    "source_rows": [
+      32
+    ],
+    "source_item_name": "Couscous #22 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 311,
+        "id": 3101,
         "product_id": 31,
-        "title": "500g",
-        "sku": "MIS-COUS-NO-22-500G",
+        "title": "500 g",
+        "sku": "FC-MISKO-COUSCOUS-22-500G-500-G-R32",
         "weight_grams": 500,
         "price": 3.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/couscous-22-500g-500-g/primary.jpg",
+        "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392581261604-M0R9J6FE73VDWPMGUBRA/misko+couscousaki.jpg?format=1000w",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -1015,38 +1065,53 @@
   },
   {
     "id": 33,
-    "name": "Misko Kritharaki Hondro No. 51",
-    "slug": "misko-kritharaki-hondro-no-51-500g",
-    "description": "Large rice-shaped pasta suited to oven dishes.",
+    "name": "Kritharaki hondro #51 500g",
+    "slug": "kritharaki-hondro-51-500g-500-g",
+    "description": "Misko Kritharaki hondro #51 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 3.99,
     "compare_at_price": null,
-    "sku": "MIS-KRIT-HOND-NO-51-500G",
+    "sku": "FC-MISKO-KRITHARAKI-HONDRO-51-500G-500-G-R34",
     "inventory_quantity": 100,
     "images": [
-      "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392581286525-J28RVV1C89SPCXSI3FVV/misko+risoni-large.jpg?format=1000w"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/kritharaki-hondro-51-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/kritharaki-hondro-51-500g-500-g/primary.jpg",
     "category_id": 3,
     "brand": "Misko",
     "unit": "EA",
     "subcategory_1": "Pasta",
-    "subcategory_2": "Kritharaki",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.alfega.co.za/misko-pasta",
     "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392581286525-J28RVV1C89SPCXSI3FVV/misko+risoni-large.jpg?format=1000w",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 34,
+    "source_rows": [
+      34
+    ],
+    "source_item_name": "Kritharaki hondro #51 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 331,
+        "id": 3301,
         "product_id": 33,
-        "title": "500g",
-        "sku": "MIS-KRIT-HOND-NO-51-500G",
+        "title": "500 g",
+        "sku": "FC-MISKO-KRITHARAKI-HONDRO-51-500G-500-G-R34",
         "weight_grams": 500,
         "price": 3.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/kritharaki-hondro-51-500g-500-g/primary.jpg",
+        "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392581286525-J28RVV1C89SPCXSI3FVV/misko+risoni-large.jpg?format=1000w",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -1056,38 +1121,53 @@
   },
   {
     "id": 34,
-    "name": "Misko Kritharaki Metrio No. 52",
-    "slug": "misko-kritharaki-metrio-no-52-500g",
-    "description": "Medium rice-shaped pasta for traditional Greek recipes.",
+    "name": "Kritharaki metrio #52 500g",
+    "slug": "kritharaki-metrio-52-500g-500-g",
+    "description": "Misko Kritharaki metrio #52 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 3.99,
     "compare_at_price": null,
-    "sku": "MIS-KRIT-METR-NO-52-500G",
+    "sku": "FC-MISKO-KRITHARAKI-METRIO-52-500G-500-G-R35",
     "inventory_quantity": 100,
     "images": [
-      "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392581289846-CRY8HFBR7PB2XRSKO51M/misko+risoni-medium.jpg?format=1000w"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/kritharaki-metrio-52-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/kritharaki-metrio-52-500g-500-g/primary.jpg",
     "category_id": 3,
     "brand": "Misko",
     "unit": "EA",
     "subcategory_1": "Pasta",
-    "subcategory_2": "Kritharaki",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.alfega.co.za/misko-pasta",
     "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392581289846-CRY8HFBR7PB2XRSKO51M/misko+risoni-medium.jpg?format=1000w",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 35,
+    "source_rows": [
+      35
+    ],
+    "source_item_name": "Kritharaki metrio #52 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 341,
+        "id": 3401,
         "product_id": 34,
-        "title": "500g",
-        "sku": "MIS-KRIT-METR-NO-52-500G",
+        "title": "500 g",
+        "sku": "FC-MISKO-KRITHARAKI-METRIO-52-500G-500-G-R35",
         "weight_grams": 500,
         "price": 3.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/kritharaki-metrio-52-500g-500-g/primary.jpg",
+        "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392581289846-CRY8HFBR7PB2XRSKO51M/misko+risoni-medium.jpg?format=1000w",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -1097,38 +1177,53 @@
   },
   {
     "id": 35,
-    "name": "Misko Tubetti (Kofto) No. 55",
-    "slug": "misko-tubetti-kofto-no-55-500g",
-    "description": "Short-cut tubular pasta in a 500 g pack.",
+    "name": "Tubetti (Kofto) #55 500g",
+    "slug": "tubetti-kofto-55-500g-500-g",
+    "description": "Misko Tubetti (Kofto) #55 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 3.99,
     "compare_at_price": null,
-    "sku": "MIS-TUBE-KOFT-NO-55-500G",
+    "sku": "FC-MISKO-TUBETTI-KOFTO-55-500G-500-G-R36",
     "inventory_quantity": 100,
     "images": [
-      "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392334353572-OBBRIZT3ULEWTOGOBQDC/misko+tubetti.jpg?format=1000w"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tubetti-kofto-55-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/tubetti-kofto-55-500g-500-g/primary.jpg",
     "category_id": 3,
     "brand": "Misko",
     "unit": "EA",
     "subcategory_1": "Pasta",
-    "subcategory_2": "Short Pasta",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.alfega.co.za/misko-pasta",
     "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392334353572-OBBRIZT3ULEWTOGOBQDC/misko+tubetti.jpg?format=1000w",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 36,
+    "source_rows": [
+      36
+    ],
+    "source_item_name": "Tubetti (Kofto) #55 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 351,
+        "id": 3501,
         "product_id": 35,
-        "title": "500g",
-        "sku": "MIS-TUBE-KOFT-NO-55-500G",
+        "title": "500 g",
+        "sku": "FC-MISKO-TUBETTI-KOFTO-55-500G-500-G-R36",
         "weight_grams": 500,
         "price": 3.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tubetti-kofto-55-500g-500-g/primary.jpg",
+        "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392334353572-OBBRIZT3ULEWTOGOBQDC/misko+tubetti.jpg?format=1000w",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -1138,38 +1233,53 @@
   },
   {
     "id": 36,
-    "name": "Misko Shells (Saligari) No. 66",
-    "slug": "misko-shells-saligari-no-66-500g",
-    "description": "Shell-shaped pasta designed to hold sauce.",
+    "name": "Shells (Saligari) #66 500g",
+    "slug": "shells-saligari-66-500g-500-g",
+    "description": "Misko Shells (Saligari) #66 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 3.99,
     "compare_at_price": null,
-    "sku": "MIS-SHEL-SALI-NO-66-500G",
+    "sku": "FC-MISKO-SHELLS-SALIGARI-66-500G-500-G-R37",
     "inventory_quantity": 100,
     "images": [
-      "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392333766173-FS2SLFLQZ1HY1EUW1P8T/misko+shells.jpg?format=1000w"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/shells-saligari-66-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/shells-saligari-66-500g-500-g/primary.jpg",
     "category_id": 3,
     "brand": "Misko",
     "unit": "EA",
     "subcategory_1": "Pasta",
-    "subcategory_2": "Short Pasta",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.alfega.co.za/misko-pasta",
     "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392333766173-FS2SLFLQZ1HY1EUW1P8T/misko+shells.jpg?format=1000w",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 37,
+    "source_rows": [
+      37
+    ],
+    "source_item_name": "Shells (Saligari) #66 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 361,
+        "id": 3601,
         "product_id": 36,
-        "title": "500g",
-        "sku": "MIS-SHEL-SALI-NO-66-500G",
+        "title": "500 g",
+        "sku": "FC-MISKO-SHELLS-SALIGARI-66-500G-500-G-R37",
         "weight_grams": 500,
         "price": 3.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/shells-saligari-66-500g-500-g/primary.jpg",
+        "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392333766173-FS2SLFLQZ1HY1EUW1P8T/misko+shells.jpg?format=1000w",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -1179,38 +1289,53 @@
   },
   {
     "id": 37,
-    "name": "Misko Twirls (Trivelle) No. 77",
-    "slug": "misko-twirls-trivelle-no-77-500g",
-    "description": "Spring-shaped short pasta in a 500 g pack.",
+    "name": "Twirls (Trivelle) #77 500g",
+    "slug": "twirls-trivelle-77-500g-500-g",
+    "description": "Misko Twirls (Trivelle) #77 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 3.99,
     "compare_at_price": null,
-    "sku": "MIS-TWIR-TRIV-NO-77-500G",
+    "sku": "FC-MISKO-TWIRLS-TRIVELLE-77-500G-500-G-R38",
     "inventory_quantity": 100,
     "images": [
-      "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392334395306-BWOJF4FZPFUOHWWVVPXS/misko+twirls.jpg?format=1000w"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/twirls-trivelle-77-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/twirls-trivelle-77-500g-500-g/primary.jpg",
     "category_id": 3,
     "brand": "Misko",
     "unit": "EA",
     "subcategory_1": "Pasta",
-    "subcategory_2": "Short Pasta",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.alfega.co.za/misko-pasta",
     "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392334395306-BWOJF4FZPFUOHWWVVPXS/misko+twirls.jpg?format=1000w",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 38,
+    "source_rows": [
+      38
+    ],
+    "source_item_name": "Twirls (Trivelle) #77 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 371,
+        "id": 3701,
         "product_id": 37,
-        "title": "500g",
-        "sku": "MIS-TWIR-TRIV-NO-77-500G",
+        "title": "500 g",
+        "sku": "FC-MISKO-TWIRLS-TRIVELLE-77-500G-500-G-R38",
         "weight_grams": 500,
         "price": 3.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/twirls-trivelle-77-500g-500-g/primary.jpg",
+        "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392334395306-BWOJF4FZPFUOHWWVVPXS/misko+twirls.jpg?format=1000w",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
       }
     ],
     "categories": {
@@ -1220,38 +1345,613 @@
   },
   {
     "id": 38,
-    "name": "Misko Pennaki No. 81",
-    "slug": "misko-pennaki-no-81-500g",
-    "description": "Short penne pasta in a 500 g pack.",
+    "name": "Pennaki #81 500g",
+    "slug": "pennaki-81-500g-500-g",
+    "description": "Misko Pennaki #81 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
     "price": 3.99,
     "compare_at_price": null,
-    "sku": "MIS-PENN-NO-81-500G",
+    "sku": "FC-MISKO-PENNAKI-81-500G-500-G-R39",
     "inventory_quantity": 100,
     "images": [
-      "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392334360887-L7CXPYAZO880A9TT1L3T/misko+penne.jpg?format=1000w"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/pennaki-81-500g-500-g/primary.jpg"
     ],
+    "storage_object_key": "products/pennaki-81-500g-500-g/primary.jpg",
     "category_id": 3,
     "brand": "Misko",
     "unit": "EA",
     "subcategory_1": "Pasta",
-    "subcategory_2": "Short Pasta",
+    "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.alfega.co.za/misko-pasta",
     "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392334360887-L7CXPYAZO880A9TT1L3T/misko+penne.jpg?format=1000w",
+    "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 39,
+    "source_rows": [
+      39
+    ],
+    "source_item_name": "Pennaki #81 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
     "variants": [
       {
-        "id": 381,
+        "id": 3801,
         "product_id": 38,
-        "title": "500g",
-        "sku": "MIS-PENN-NO-81-500G",
+        "title": "500 g",
+        "sku": "FC-MISKO-PENNAKI-81-500G-500-G-R39",
         "weight_grams": 500,
         "price": 3.99,
         "inventory_quantity": 100,
-        "is_default": true
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/pennaki-81-500g-500-g/primary.jpg",
+        "image_source_url": "https://images.squarespace-cdn.com/content/v1/52b1e5c6e4b022eff54193e6/1392334360887-L7CXPYAZO880A9TT1L3T/misko+penne.jpg?format=1000w",
+        "image_license": "Manufacturer/distributor/retailer product image; source retained in the legacy audit; confirm commercial rights before use."
+      }
+    ],
+    "categories": {
+      "name": "Grocery",
+      "slug": "grocery"
+    }
+  },
+  {
+    "id": 10040,
+    "name": "AITTIKI Honey 500g",
+    "slug": "aittiki-honey-500g-500-g",
+    "description": "AITTIKI AITTIKI Honey 500g. Sold as listed in the client catalogue (EA; pack 500 g).",
+    "price": 21.99,
+    "compare_at_price": null,
+    "sku": "FC-AITTIKI-AITTIKI-HONEY-500G-500-G-R40",
+    "inventory_quantity": 100,
+    "images": [
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/aittiki-honey-500g-500-g/primary.jpg"
+    ],
+    "storage_object_key": "products/aittiki-honey-500g-500-g/primary.jpg",
+    "category_id": 3,
+    "brand": "AITTIKI",
+    "unit": "EA",
+    "subcategory_1": "Honey",
+    "subcategory_2": "",
+    "status": "published",
+    "image_match_status": "verified",
+    "product_source_url": "https://www.tw.coupang.com/products/21007563236135",
+    "image_source_url": "https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/86492059809431-53af6ef0-b9d5-4a0f-b7a8-a77c25f9ba8b.jpg",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "draft_reason": null,
+    "is_featured": false,
+    "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 40,
+    "source_rows": [
+      40
+    ],
+    "source_item_name": "AITTIKI Honey 500g",
+    "workbook_unit": "EA",
+    "workbook_price": 21.99,
+    "workbook_variant": "",
+    "variants": [
+      {
+        "id": 1004001,
+        "product_id": 10040,
+        "title": "500 g",
+        "sku": "FC-AITTIKI-AITTIKI-HONEY-500G-500-G-R40",
+        "weight_grams": 500,
+        "price": 21.99,
+        "inventory_quantity": 100,
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/aittiki-honey-500g-500-g/primary.jpg",
+        "image_source_url": "https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/86492059809431-53af6ef0-b9d5-4a0f-b7a8-a77c25f9ba8b.jpg",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
+      }
+    ],
+    "categories": {
+      "name": "Grocery",
+      "slug": "grocery"
+    }
+  },
+  {
+    "id": 10041,
+    "name": "AITTIKI Honey 250g",
+    "slug": "aittiki-honey-250g-250-g",
+    "description": "AITTIKI AITTIKI Honey 250g. Sold as listed in the client catalogue (EA; pack 250 g).",
+    "price": 11.99,
+    "compare_at_price": null,
+    "sku": "FC-AITTIKI-AITTIKI-HONEY-250G-250-G-R41",
+    "inventory_quantity": 100,
+    "images": [
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/aittiki-honey-250g-250-g/primary.jpg"
+    ],
+    "storage_object_key": "products/aittiki-honey-250g-250-g/primary.jpg",
+    "category_id": 3,
+    "brand": "AITTIKI",
+    "unit": "EA",
+    "subcategory_1": "Honey",
+    "subcategory_2": "",
+    "status": "published",
+    "image_match_status": "verified",
+    "product_source_url": "https://www.aegeanexports.gr/products/attiki-100-greek-honey-from-thyme-in-jar/",
+    "image_source_url": "https://www.aegeanexports.gr/wp-content/uploads/16391.jpg",
+    "image_license": "Distributor product image; source recorded; commercial reuse permission not independently confirmed.",
+    "draft_reason": null,
+    "is_featured": false,
+    "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 41,
+    "source_rows": [
+      41
+    ],
+    "source_item_name": "AITTIKI Honey 250g",
+    "workbook_unit": "EA",
+    "workbook_price": 11.99,
+    "workbook_variant": "",
+    "variants": [
+      {
+        "id": 1004101,
+        "product_id": 10041,
+        "title": "250 g",
+        "sku": "FC-AITTIKI-AITTIKI-HONEY-250G-250-G-R41",
+        "weight_grams": 250,
+        "price": 11.99,
+        "inventory_quantity": 100,
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/aittiki-honey-250g-250-g/primary.jpg",
+        "image_source_url": "https://www.aegeanexports.gr/wp-content/uploads/16391.jpg",
+        "image_license": "Distributor product image; source recorded; commercial reuse permission not independently confirmed."
+      }
+    ],
+    "categories": {
+      "name": "Grocery",
+      "slug": "grocery"
+    }
+  },
+  {
+    "id": 10054,
+    "name": "Manna Crispy Bites Tom, Pepper, Onion 110g",
+    "slug": "manna-crispy-bites-tom-pepper-onion-110g-110-g",
+    "description": "Manna Manna Crispy Bites Tom, Pepper, Onion 110g. Sold as listed in the client catalogue (EA; pack 110 g).",
+    "price": 3.99,
+    "compare_at_price": null,
+    "sku": "FC-MANNA-MANNA-CRISPY-BITES-TOM-PEPPE-110-G-R54",
+    "inventory_quantity": 100,
+    "images": [
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-crispy-bites-tom-pepper-onion-110g-110-g/primary.jpg"
+    ],
+    "storage_object_key": "products/manna-crispy-bites-tom-pepper-onion-110g-110-g/primary.jpg",
+    "category_id": 3,
+    "brand": "Manna",
+    "unit": "EA",
+    "subcategory_1": "Rusk/Grissini/Crackers",
+    "subcategory_2": "",
+    "status": "published",
+    "image_match_status": "verified",
+    "product_source_url": "https://www.sklavenitis.gr/eidi-artozacharoplasteioy/kritsinia-paximadia-fryganies/paximadia/tsatsaronakis-to-manna-dagoto-paximadi-me-domata-piperia-kremmudi-110gr/",
+    "image_source_url": "https://s1.sklavenitis.gr/images/1600x1600/files/ProductMedia/Products/1583667/1.jpg",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "draft_reason": null,
+    "is_featured": false,
+    "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 54,
+    "source_rows": [
+      54
+    ],
+    "source_item_name": "Manna Crispy Bites Tom, Pepper, Onion 110g",
+    "workbook_unit": "ea",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
+    "variants": [
+      {
+        "id": 1005401,
+        "product_id": 10054,
+        "title": "110 g",
+        "sku": "FC-MANNA-MANNA-CRISPY-BITES-TOM-PEPPE-110-G-R54",
+        "weight_grams": 110,
+        "price": 3.99,
+        "inventory_quantity": 100,
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-crispy-bites-tom-pepper-onion-110g-110-g/primary.jpg",
+        "image_source_url": "https://s1.sklavenitis.gr/images/1600x1600/files/ProductMedia/Products/1583667/1.jpg",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
+      }
+    ],
+    "categories": {
+      "name": "Grocery",
+      "slug": "grocery"
+    }
+  },
+  {
+    "id": 10055,
+    "name": "Manna Crispy Bites Black Truffle 110g",
+    "slug": "manna-crispy-bites-black-truffle-110g-110-g",
+    "description": "Manna Manna Crispy Bites Black Truffle 110g. Sold as listed in the client catalogue (EA; pack 110 g).",
+    "price": 3.99,
+    "compare_at_price": null,
+    "sku": "FC-MANNA-MANNA-CRISPY-BITES-BLACK-TRU-110-G-R55",
+    "inventory_quantity": 100,
+    "images": [
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-crispy-bites-black-truffle-110g-110-g/primary.jpg"
+    ],
+    "storage_object_key": "products/manna-crispy-bites-black-truffle-110g-110-g/primary.jpg",
+    "category_id": 3,
+    "brand": "Manna",
+    "unit": "EA",
+    "subcategory_1": "Rusk/Grissini/Crackers",
+    "subcategory_2": "",
+    "status": "published",
+    "image_match_status": "verified",
+    "product_source_url": "https://www.sklavenitis.gr/eidi-artozacharoplasteioy/kritsinia-paximadia-fryganies/paximadia/tsatsaronakis-to-manna-dagkoto-paximadi-me-mauri-troufa-110gr-1583666/",
+    "image_source_url": "https://s1.sklavenitis.gr/images/1600x1600/files/ProductMedia/Products/1583666/1.jpg",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "draft_reason": null,
+    "is_featured": false,
+    "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 55,
+    "source_rows": [
+      55
+    ],
+    "source_item_name": "Manna Crispy Bites Black Truffle 110g",
+    "workbook_unit": "ea",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
+    "variants": [
+      {
+        "id": 1005501,
+        "product_id": 10055,
+        "title": "110 g",
+        "sku": "FC-MANNA-MANNA-CRISPY-BITES-BLACK-TRU-110-G-R55",
+        "weight_grams": 110,
+        "price": 3.99,
+        "inventory_quantity": 100,
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-crispy-bites-black-truffle-110g-110-g/primary.jpg",
+        "image_source_url": "https://s1.sklavenitis.gr/images/1600x1600/files/ProductMedia/Products/1583666/1.jpg",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
+      }
+    ],
+    "categories": {
+      "name": "Grocery",
+      "slug": "grocery"
+    }
+  },
+  {
+    "id": 10056,
+    "name": "Manna Crispy Bites Graviera & Paprika 110g",
+    "slug": "manna-crispy-bites-graviera-and-paprika-110g-110-g",
+    "description": "Manna Manna Crispy Bites Graviera & Paprika 110g. Sold as listed in the client catalogue (EA; pack 110 g).",
+    "price": 3.99,
+    "compare_at_price": null,
+    "sku": "FC-MANNA-MANNA-CRISPY-BITES-GRAVIERA--110-G-R56",
+    "inventory_quantity": 100,
+    "images": [
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-crispy-bites-graviera-and-paprika-110g-110-g/primary.jpg"
+    ],
+    "storage_object_key": "products/manna-crispy-bites-graviera-and-paprika-110g-110-g/primary.jpg",
+    "category_id": 3,
+    "brand": "Manna",
+    "unit": "EA",
+    "subcategory_1": "Rusk/Grissini/Crackers",
+    "subcategory_2": "",
+    "status": "published",
+    "image_match_status": "verified",
+    "product_source_url": "https://www.sklavenitis.gr/eidi-artozacharoplasteioy/kritsinia-paximadia-fryganies/paximadia/tsatsaronakis-to-manna-dagkoto-paximadi-me-graviera-glukia-paprika-110gr/",
+    "image_source_url": "https://s1.sklavenitis.gr/images/1600x1600/files/ProductMedia/Products/1583658/1.jpg",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "draft_reason": null,
+    "is_featured": false,
+    "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 56,
+    "source_rows": [
+      56
+    ],
+    "source_item_name": "Manna Crispy Bites Graviera & Paprika 110g",
+    "workbook_unit": "ea",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
+    "variants": [
+      {
+        "id": 1005601,
+        "product_id": 10056,
+        "title": "110 g",
+        "sku": "FC-MANNA-MANNA-CRISPY-BITES-GRAVIERA--110-G-R56",
+        "weight_grams": 110,
+        "price": 3.99,
+        "inventory_quantity": 100,
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-crispy-bites-graviera-and-paprika-110g-110-g/primary.jpg",
+        "image_source_url": "https://s1.sklavenitis.gr/images/1600x1600/files/ProductMedia/Products/1583658/1.jpg",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
+      }
+    ],
+    "categories": {
+      "name": "Grocery",
+      "slug": "grocery"
+    }
+  },
+  {
+    "id": 10057,
+    "name": "Manna Crispy Bites Olive & Sundried Toma 110g",
+    "slug": "manna-crispy-bites-olive-and-sundried-toma-110g-110-g",
+    "description": "Manna Manna Crispy Bites Olive & Sundried Toma 110g. Sold as listed in the client catalogue (EA; pack 110 g).",
+    "price": 3.99,
+    "compare_at_price": null,
+    "sku": "FC-MANNA-MANNA-CRISPY-BITES-OLIVE-AND-110-G-R57",
+    "inventory_quantity": 100,
+    "images": [
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-crispy-bites-olive-and-sundried-toma-110g-110-g/primary.jpg"
+    ],
+    "storage_object_key": "products/manna-crispy-bites-olive-and-sundried-toma-110g-110-g/primary.jpg",
+    "category_id": 3,
+    "brand": "Manna",
+    "unit": "EA",
+    "subcategory_1": "Rusk/Grissini/Crackers",
+    "subcategory_2": "",
+    "status": "published",
+    "image_match_status": "verified",
+    "product_source_url": "https://www.sklavenitis.gr/eidi-artozacharoplasteioy/kritsinia-paximadia-fryganies/paximadia/tsatsaronakis-to-manna-dagkoto-paximadi-me-elia-liasti-ntomata-110gr-1583664/",
+    "image_source_url": "https://s1.sklavenitis.gr/images/1600x1600/files/ProductMedia/Products/1583664/1.jpg",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "draft_reason": null,
+    "is_featured": false,
+    "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 57,
+    "source_rows": [
+      57
+    ],
+    "source_item_name": "Manna Crispy Bites Olive & Sundried Toma 110g",
+    "workbook_unit": "ea",
+    "workbook_price": 3.99,
+    "workbook_variant": "",
+    "variants": [
+      {
+        "id": 1005701,
+        "product_id": 10057,
+        "title": "110 g",
+        "sku": "FC-MANNA-MANNA-CRISPY-BITES-OLIVE-AND-110-G-R57",
+        "weight_grams": 110,
+        "price": 3.99,
+        "inventory_quantity": 100,
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-crispy-bites-olive-and-sundried-toma-110g-110-g/primary.jpg",
+        "image_source_url": "https://s1.sklavenitis.gr/images/1600x1600/files/ProductMedia/Products/1583664/1.jpg",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
+      }
+    ],
+    "categories": {
+      "name": "Grocery",
+      "slug": "grocery"
+    }
+  },
+  {
+    "id": 10058,
+    "name": "Manna Rusks Barley 300g",
+    "slug": "manna-rusks-barley-300g-300-g",
+    "description": "Manna Manna Rusks Barley 300g. Sold as listed in the client catalogue (EA; pack 300 g).",
+    "price": 5.99,
+    "compare_at_price": null,
+    "sku": "FC-MANNA-MANNA-RUSKS-BARLEY-300G-300-G-R58",
+    "inventory_quantity": 100,
+    "images": [
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-rusks-barley-300g-300-g/primary.jpg"
+    ],
+    "storage_object_key": "products/manna-rusks-barley-300g-300-g/primary.jpg",
+    "category_id": 3,
+    "brand": "Manna",
+    "unit": "EA",
+    "subcategory_1": "Rusk/Grissini/Crackers",
+    "subcategory_2": "",
+    "status": "published",
+    "image_match_status": "verified",
+    "product_source_url": "https://www.thanopoulos.gr/en/products/artoskeuasmata-almura-gluka/kritsinia-paximadia/artopoieia-tsatsarwnakh-to-manna-paximadia-kritharenia-300g-669798476b86ff00024cacca/",
+    "image_source_url": "https://wave-grocery.s3.eu-central-1.amazonaws.com/thanopoulos/products/5201882006721_4_1_1EB109DABB130B5DB879F84EC4806D22.jpg",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "draft_reason": null,
+    "is_featured": false,
+    "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 58,
+    "source_rows": [
+      58
+    ],
+    "source_item_name": "Manna Rusks Barley 300g",
+    "workbook_unit": "ea",
+    "workbook_price": 5.99,
+    "workbook_variant": "",
+    "variants": [
+      {
+        "id": 1005801,
+        "product_id": 10058,
+        "title": "300 g",
+        "sku": "FC-MANNA-MANNA-RUSKS-BARLEY-300G-300-G-R58",
+        "weight_grams": 300,
+        "price": 5.99,
+        "inventory_quantity": 100,
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-rusks-barley-300g-300-g/primary.jpg",
+        "image_source_url": "https://wave-grocery.s3.eu-central-1.amazonaws.com/thanopoulos/products/5201882006721_4_1_1EB109DABB130B5DB879F84EC4806D22.jpg",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
+      }
+    ],
+    "categories": {
+      "name": "Grocery",
+      "slug": "grocery"
+    }
+  },
+  {
+    "id": 10059,
+    "name": "Manna Rusks Barley No Salt 300g",
+    "slug": "manna-rusks-barley-no-salt-300g-300-g",
+    "description": "Manna Manna Rusks Barley No Salt 300g. Sold as listed in the client catalogue (EA; pack 300 g).",
+    "price": 5.99,
+    "compare_at_price": null,
+    "sku": "FC-MANNA-MANNA-RUSKS-BARLEY-NO-SALT-3-300-G-R59",
+    "inventory_quantity": 100,
+    "images": [
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-rusks-barley-no-salt-300g-300-g/primary.jpg"
+    ],
+    "storage_object_key": "products/manna-rusks-barley-no-salt-300g-300-g/primary.jpg",
+    "category_id": 3,
+    "brand": "Manna",
+    "unit": "EA",
+    "subcategory_1": "Rusk/Grissini/Crackers",
+    "subcategory_2": "",
+    "status": "published",
+    "image_match_status": "verified",
+    "product_source_url": "https://www.e-fresh.gr/en/paximadi-kritharenio-xwris-alati-to-manna-300g",
+    "image_source_url": "https://dj0m4io8o9yuz.cloudfront.net/storage/media/catalog/products/410/1/4100148011/kritharenio-xwris-alati-300gr-002.jpg?id=1716470709",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "draft_reason": null,
+    "is_featured": false,
+    "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 59,
+    "source_rows": [
+      59
+    ],
+    "source_item_name": "Manna Rusks Barley No Salt 300g",
+    "workbook_unit": "ea",
+    "workbook_price": 5.99,
+    "workbook_variant": "",
+    "variants": [
+      {
+        "id": 1005901,
+        "product_id": 10059,
+        "title": "300 g",
+        "sku": "FC-MANNA-MANNA-RUSKS-BARLEY-NO-SALT-3-300-G-R59",
+        "weight_grams": 300,
+        "price": 5.99,
+        "inventory_quantity": 100,
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-rusks-barley-no-salt-300g-300-g/primary.jpg",
+        "image_source_url": "https://dj0m4io8o9yuz.cloudfront.net/storage/media/catalog/products/410/1/4100148011/kritharenio-xwris-alati-300gr-002.jpg?id=1716470709",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
+      }
+    ],
+    "categories": {
+      "name": "Grocery",
+      "slug": "grocery"
+    }
+  },
+  {
+    "id": 10060,
+    "name": "Manna Rusks Rye 280g",
+    "slug": "manna-rusks-rye-280g-280-g",
+    "description": "Manna Manna Rusks Rye 280g. Sold as listed in the client catalogue (EA; pack 280 g).",
+    "price": 5.99,
+    "compare_at_price": null,
+    "sku": "FC-MANNA-MANNA-RUSKS-RYE-280G-280-G-R60",
+    "inventory_quantity": 100,
+    "images": [
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-rusks-rye-280g-280-g/primary.jpg"
+    ],
+    "storage_object_key": "products/manna-rusks-rye-280g-280-g/primary.jpg",
+    "category_id": 3,
+    "brand": "Manna",
+    "unit": "EA",
+    "subcategory_1": "Rusk/Grissini/Crackers",
+    "subcategory_2": "",
+    "status": "published",
+    "image_match_status": "verified",
+    "product_source_url": "https://www.thanopoulos.gr/products/artoskeuasmata-almura-gluka/kritsinia-paximadia/artopoieia-tsatsarwnakh-manna-paximadia-sikalews-olikhs-alesews-280g-674d7a0706fde10002372bbf/",
+    "image_source_url": "https://wave-grocery.s3.eu-central-1.amazonaws.com/thanopoulos/products/5201882006899_2_1_0C0F0B286DB7DE534445A0688A9AB970.jpg",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "draft_reason": null,
+    "is_featured": false,
+    "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 60,
+    "source_rows": [
+      60
+    ],
+    "source_item_name": "Manna Rusks Rye 280g",
+    "workbook_unit": "ea",
+    "workbook_price": 5.99,
+    "workbook_variant": "",
+    "variants": [
+      {
+        "id": 1006001,
+        "product_id": 10060,
+        "title": "280 g",
+        "sku": "FC-MANNA-MANNA-RUSKS-RYE-280G-280-G-R60",
+        "weight_grams": 280,
+        "price": 5.99,
+        "inventory_quantity": 100,
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/manna-rusks-rye-280g-280-g/primary.jpg",
+        "image_source_url": "https://wave-grocery.s3.eu-central-1.amazonaws.com/thanopoulos/products/5201882006899_2_1_0C0F0B286DB7DE534445A0688A9AB970.jpg",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
+      }
+    ],
+    "categories": {
+      "name": "Grocery",
+      "slug": "grocery"
+    }
+  },
+  {
+    "id": 10061,
+    "name": "Papadopoulos Kritsinia Sesame 130g",
+    "slug": "papadopoulos-kritsinia-sesame-130g-130-g",
+    "description": "Papadopoulus Papadopoulos Kritsinia Sesame 130g. Sold as listed in the client catalogue (EA; pack 130 g).",
+    "price": 3.5,
+    "compare_at_price": null,
+    "sku": "FC-PAPADOPO-PAPADOPOULOS-KRITSINIA-SESAM-130-G-R61",
+    "inventory_quantity": 100,
+    "images": [
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/papadopoulos-kritsinia-sesame-130g-130-g/primary.png"
+    ],
+    "storage_object_key": "products/papadopoulos-kritsinia-sesame-130g-130-g/primary.png",
+    "category_id": 3,
+    "brand": "Papadopoulus",
+    "unit": "EA",
+    "subcategory_1": "Rusk/Grissini/Crackers",
+    "subcategory_2": "",
+    "status": "published",
+    "image_match_status": "verified",
+    "product_source_url": "https://www.cretanoil.de/Traditionelle-Brotstangen-mit-Sesam-130g-Papadopoulos",
+    "image_source_url": "https://www.cretanoil.de/media/image/product/89133/lg/traditionelle-brotstangen-mit-sesam-130g-papadopoulos.png",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "draft_reason": null,
+    "is_featured": false,
+    "is_trending": false,
+    "source_active": true,
+    "source_workbook": "ITEMS (3).xlsx",
+    "source_row": 61,
+    "source_rows": [
+      61
+    ],
+    "source_item_name": "Papadopoulos Kritsinia Sesame 130g",
+    "workbook_unit": "ea",
+    "workbook_price": 3.5,
+    "workbook_variant": "",
+    "variants": [
+      {
+        "id": 1006101,
+        "product_id": 10061,
+        "title": "130 g",
+        "sku": "FC-PAPADOPO-PAPADOPOULOS-KRITSINIA-SESAM-130-G-R61",
+        "weight_grams": 130,
+        "price": 3.5,
+        "inventory_quantity": 100,
+        "is_default": true,
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/papadopoulos-kritsinia-sesame-130g-130-g/primary.png",
+        "image_source_url": "https://www.cretanoil.de/media/image/product/89133/lg/traditionelle-brotstangen-mit-sesam-130g-papadopoulos.png",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {

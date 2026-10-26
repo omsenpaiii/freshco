@@ -1,6 +1,6 @@
 import Stripe from 'stripe'
 import { NextResponse } from 'next/server'
-import { createAdminClient } from '@/lib/supabase-admin'
+import { query } from '@/lib/neon'
 import { getStripe } from '@/lib/stripe'
 
 export const runtime = 'nodejs'
@@ -12,12 +12,7 @@ async function completeOrder(session: Stripe.Checkout.Session) {
   const paymentIntentId = typeof session.payment_intent === 'string'
     ? session.payment_intent
     : session.payment_intent?.id || null
-  const { error } = await createAdminClient().rpc('complete_stripe_order', {
-    p_order_id: orderId,
-    p_session_id: session.id,
-    p_payment_intent_id: paymentIntentId,
-  })
-  if (error) throw error
+  await query('SELECT complete_stripe_order($1,$2,$3)', [orderId, session.id, paymentIntentId])
 }
 
 export async function POST(request: Request) {
@@ -40,11 +35,7 @@ export async function POST(request: Request) {
       await completeOrder(event.data.object)
     } else if (event.type === 'checkout.session.expired') {
       const session = event.data.object
-      await createAdminClient().from('orders').update({
-        status: 'cancelled',
-        payment_status: 'expired',
-        updated_at: new Date().toISOString(),
-      }).eq('stripe_checkout_session_id', session.id).eq('payment_status', 'unpaid')
+      await query("UPDATE orders SET status='cancelled',payment_status='expired',updated_at=now() WHERE stripe_checkout_session_id=$1 AND payment_status='unpaid'", [session.id])
     }
     return NextResponse.json({ received: true })
   } catch (error) {
