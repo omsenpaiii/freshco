@@ -46,22 +46,66 @@ assert(JSON.stringify(kefalo.variants.map((variant) => variant.weight_grams)) ==
 console.log(`Validated ${productCount} products, ${variants.length} variants, ${manifest.summary.green_unique_products} green products (${sellableActive.length} priced and ${unsellableActive} price pending), and ${published.length} published products.`)
 if (process.argv.includes('--validate')) process.exit(0)
 
-async function fetchImage(sourceUrl) {
-  const response = await fetch(sourceUrl, { headers: { 'User-Agent': 'FreshCo-Catalog-Importer/1.0' } })
+async function fetchImage(sourceUrl, referer) {
+  const response = await fetch(sourceUrl, {
+    headers: {
+      'User-Agent': 'FreshCo-Catalog-Importer/1.0',
+      ...(referer ? { Referer: referer } : {}),
+    },
+    signal: AbortSignal.timeout(25000),
+  })
   if (!response.ok) throw new Error(`Image fetch failed (${response.status}): ${sourceUrl}`)
-  const contentType = (response.headers.get('content-type') || '').split(';')[0]
-  if (!['image/jpeg', 'image/png', 'image/webp'].includes(contentType)) throw new Error(`Unsupported image type ${contentType}: ${sourceUrl}`)
   const body = Buffer.from(await response.arrayBuffer())
-  if (body.length < 5000) throw new Error(`Image file is unexpectedly small: ${sourceUrl}`)
+  if (body.length < 1024) throw new Error(`Image file is unexpectedly small: ${sourceUrl}`)
+  // Some legitimate image CDNs return application/octet-stream or the non-standard
+  // image/jpg alias. Validate the file signature and use its actual media type instead.
+  const isJpeg = body[0] === 0xff && body[1] === 0xd8 && body[2] === 0xff
+  const isPng = body.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))
+  const isWebp = body.toString('ascii', 0, 4) === 'RIFF' && body.toString('ascii', 8, 12) === 'WEBP'
+  const majorBrand = body.toString('ascii', 8, 12)
+  const isAvif = body.toString('ascii', 4, 8) === 'ftyp' && ['avif', 'avis'].includes(majorBrand)
+  const contentType = isJpeg ? 'image/jpeg' : isPng ? 'image/png' : isWebp ? 'image/webp' : isAvif ? 'image/avif' : null
+  if (!contentType) throw new Error(`Unsupported image content (${response.headers.get('content-type') || 'unknown type'}): ${sourceUrl}`)
   return { body, contentType }
 }
 
 if (process.argv.includes('--verify-images')) {
-  // Fetch the image asset itself; image_source_url is the attribution/product page and
-  // may be HTML rather than a raw image.
-  for (const category of manifest.categories) if (category.image_url) await fetchImage(category.image_url)
-  for (const product of published) await fetchImage(product.image_source_url)
-  console.log(`Verified ${published.length} product images and ${manifest.categories.length} collection images over HTTP.`)
+  // Validate the URLs the storefront actually serves. image_source_url is provenance
+  // and can later become inaccessible or return anti-bot HTML while the verified,
+  // uploaded Neon copy remains healthy.
+  const sources = new Map()
+  for (const category of manifest.categories) {
+    if (category.image_url && !sources.has(category.image_url)) sources.set(category.image_url, null)
+  }
+  for (const product of published) {
+    for (const imageUrl of product.images || []) {
+      if (imageUrl && !sources.has(imageUrl)) sources.set(imageUrl, null)
+    }
+  }
+  const images = [...sources].map(([url, referer]) => ({ url, referer }))
+  const concurrency = 6
+  const failures = []
+  let completed = 0
+  let nextIndex = 0
+  async function worker() {
+    while (true) {
+      const index = nextIndex++
+      if (index >= images.length) return
+      const { url, referer } = images[index]
+      try {
+        await fetchImage(url, referer)
+      } catch (error) {
+        failures.push(`${url}: ${error instanceof Error ? error.message : 'unknown error'}`)
+      }
+      completed++
+      if (completed % 50 === 0 || completed === images.length) {
+        console.log(`Image verification progress: ${completed}/${images.length}; failed: ${failures.length}.`)
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: concurrency }, worker))
+  if (failures.length) throw new Error(`Image verification failed for ${failures.length} of ${images.length} unique sources:\n${failures.join('\n')}`)
+  console.log(`Verified storefront image delivery for ${published.length} published products across ${images.length} unique product and collection assets over HTTP.`)
   process.exit(0)
 }
 

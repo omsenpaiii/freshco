@@ -990,9 +990,10 @@
     "image_license": "Manufacturer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
   },
   "348": {
-    "product_source_url": "https://grekolis.pl/kefalotiri-epiros-230g/",
-    "image_source_url": "https://grekolis.pl/wp-content/uploads/2026/02/993.jpg",
-    "verification_note": "Reviewed in Chrome image search: Epiros Kefalotyri 230 g; brand, cheese, and pack size match.",
+    "product_source_url": "https://goodiessupermarket.co.uk/products/epiros-kefalotyri-cheese-230g-greek-hard-cheese",
+    "image_source_url": "https://goodiessupermarket.co.uk/cdn/shop/files/E19k1R8nGt84DKL2Zgv65wdlJiuqqdEurLTRecssLU_1024x.jpg?v=1779023408",
+    "storage_object_key": "products/epiros-kefalotyri-230g-230-g/primary-2.jpg",
+    "verification_note": "Reviewed in Chrome Google Images and the retailer page: the Epiros Kefalotyri retail pack is labeled 230 g and matches the workbook item.",
     "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
   },
   "359": {
@@ -1068,9 +1069,10 @@
     "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
   },
   "391": {
-    "product_source_url": "https://www.hyperpanda.com.au/product/organic-honey-golden-nectar-500g-عسل-طبيعي/",
-    "image_source_url": "https://www.hyperpanda.com.au/wp-content/uploads/img_1881-scaled.jpeg",
-    "verification_note": "Reviewed in Chrome image search: Golden Nectar organic Tasmanian honey 500 g; brand, origin description, and size match.",
+    "product_source_url": "https://www.amazon.com/Leatherwood-Honey-17-5-Ounce-Glass/dp/B001B53ZHS",
+    "image_source_url": "https://m.media-amazon.com/images/I/61LjH-IaduL._SX679_.jpg",
+    "storage_object_key": "products/golden-nectar-organic-tasmanian-honey-500g-500-g/primary-2.jpg",
+    "verification_note": "Reviewed in Chrome Google Images and the retailer page: Golden Nectar branded 500 g honey jar. The retailer identifies the variety as Leatherwood; the workbook does not specify a honey variety.",
     "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
   },
   "392": {

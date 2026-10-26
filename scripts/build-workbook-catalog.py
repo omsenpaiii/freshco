@@ -865,7 +865,9 @@ def main() -> None:
         publishable = source_active and image_match_status == "verified" and bool(image_source_url) and bool(product_source_url) and (missing_price or bool(unit))
 
         image_extension = ".png" if row_number in {8, 16, 61} else ".jpg"
-        storage_object_key = f"products/{slug}/primary{image_extension}" if image_source_url and image_match_status == "verified" else None
+        storage_object_key = None
+        if image_source_url and image_match_status == "verified":
+            storage_object_key = MANUAL_IMAGE_MATCHES.get(row_number, {}).get("storage_object_key") or f"products/{slug}/primary{image_extension}"
         public_image_url = f"{NEON_STORAGE_PUBLIC_BASE}/store-images/{storage_object_key}" if NEON_STORAGE_PUBLIC_BASE and storage_object_key else image_source_url
 
         variants = []
