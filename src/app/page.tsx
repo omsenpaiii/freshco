@@ -18,7 +18,7 @@ export default async function Home() {
   const blogPosts = await getBlogPosts()
 
   // Get subset of featured categories for homepage circles (limit to 8)
-  const featuredCategories = categories.slice(0, 8)
+  const featuredCategories = categories
 
   // Get general featured products
   const featuredProducts = allProducts.slice(0, 8)
@@ -64,7 +64,7 @@ export default async function Home() {
             </div>
             <div>
               <h4 className="text-sm font-bold text-content-strong">Verified packs</h4>
-              <p className="text-xs text-content-muted mt-0.5">Only exact-image matches are published</p>
+              <p className="text-xs text-content-muted mt-0.5">Images reviewed for product relevance</p>
             </div>
           </div>
         </SectionReveal>
