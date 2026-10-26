@@ -73,7 +73,7 @@ export async function saveAdminProduct(payload: Record<string, unknown>, product
   const status = payload.status === 'published' ? 'published' : 'draft'
   const imageMatchStatus = payload.image_match_status === 'verified' ? 'verified' : 'unverified'
   if (status === 'published' && (imageMatchStatus !== 'verified' || images.length === 0)) {
-    throw new AdminCatalogError('Published products require a verified exact-match image.', 400)
+    throw new AdminCatalogError('Published products require a visually reviewed, relevant image.', 400)
   }
   const defaultVariant = variants.find((variant) => variant.is_default)!
   const compareAtPrice = payload.compare_at_price === '' || payload.compare_at_price == null ? null : Number(payload.compare_at_price)

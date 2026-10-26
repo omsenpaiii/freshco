@@ -543,7 +543,7 @@ export default function AdminPanel({
 
                   <div className="grid gap-4 md:grid-cols-2">
                     <label className="text-xs font-bold text-brand-ink">Publication status<select value={productForm.status} onChange={(event) => setProductForm((current) => ({ ...current, status: event.target.value as ProductFormState['status'] }))} className="mt-2 h-11 w-full rounded-xl border border-input bg-white px-4 text-sm"><option value="draft">Draft</option><option value="published">Published</option></select></label>
-                    <label className="text-xs font-bold text-brand-ink">Image validation<select value={productForm.image_match_status} onChange={(event) => setProductForm((current) => ({ ...current, image_match_status: event.target.value as ProductFormState['image_match_status'] }))} className="mt-2 h-11 w-full rounded-xl border border-input bg-white px-4 text-sm"><option value="unverified">Unverified</option><option value="verified">Verified exact match</option></select></label>
+                    <label className="text-xs font-bold text-brand-ink">Image review<select value={productForm.image_match_status} onChange={(event) => setProductForm((current) => ({ ...current, image_match_status: event.target.value as ProductFormState['image_match_status'] }))} className="mt-2 h-11 w-full rounded-xl border border-input bg-white px-4 text-sm"><option value="unverified">Not reviewed</option><option value="verified">Visually reviewed · relevant</option></select></label>
                   </div>
 
                   <div className="grid gap-4 md:grid-cols-2">

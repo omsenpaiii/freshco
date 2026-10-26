@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "catalog:build": "node scripts/build-catalog.mjs",
+    "catalog:build": "python3 scripts/build-workbook-catalog.py",
     "catalog:validate": "node scripts/import-catalog.mjs --validate",
     "catalog:verify-images": "node scripts/import-catalog.mjs --verify-images",
+    "catalog:upload-images": "node scripts/upload-catalog-images.mjs",
     "catalog:import": "node scripts/import-catalog.mjs"
   },
   "dependencies": {

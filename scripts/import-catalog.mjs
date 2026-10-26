@@ -11,7 +11,7 @@ const categories = manifest.categories.map((category) => category.name).sort()
 const activeProducts = manifest.products.filter((product) => product.source_active)
 const missingActivePrice = activeProducts.filter((product) => product.workbook_price == null).length
 const missingActiveUnit = activeProducts.filter((product) => !product.workbook_unit?.trim()).length
-const unsellableActive = activeProducts.filter((product) => product.workbook_price == null || !product.workbook_unit?.trim()).length
+const unsellableActive = activeProducts.filter((product) => product.workbook_price == null || !product.unit?.trim()).length
 
 const assert = (condition, message) => { if (!condition) throw new Error(message) }
 assert(productCount === 572, `Expected 572 products from ITEMS (3).xlsx, received ${productCount}`)
@@ -20,18 +20,18 @@ assert(manifest.summary?.green_unique_products === 479, 'Expected 479 unique gre
 assert(activeProducts.length === manifest.summary.green_unique_products, 'Green product count does not match the workbook audit')
 assert(missingActivePrice === 20 && missingActivePrice === manifest.summary.green_missing_price, 'Green rows with missing prices do not match the workbook audit')
 assert(missingActiveUnit === 38 && missingActiveUnit === manifest.summary.green_missing_unit, 'Green rows with missing units do not match the workbook audit')
-assert(unsellableActive === 38, 'Green rows missing a price and/or unit must remain unsellable')
+assert(unsellableActive === 20, 'Only green rows with missing prices or unresolved units should remain unsellable')
 assert(manifest.summary.source_rows === 574 && manifest.summary.unique_products === 572 && manifest.summary.duplicate_rows_removed.length === 2, 'Workbook duplicate-collapse totals do not match the audit')
 assert(JSON.stringify(categories) === JSON.stringify(['Cheese', 'Deli', 'Festive', 'Feta', 'Frozen', 'Grocery', 'Olives', 'Religious', 'Small Goods']), 'Category mappings do not match the latest workbook')
 assert(new Set(manifest.products.map((product) => product.slug)).size === productCount, 'Product slugs must be unique')
 assert(new Set(allSkus).size === allSkus.length, 'SKUs must be unique')
 assert(variants.every((variant) => {
   const product = manifest.products.find((candidate) => candidate.id === variant.product_id)
-  const sellable = product?.source_active && product.workbook_price != null && Boolean(product.workbook_unit?.trim())
+  const sellable = product?.source_active && product.workbook_price != null && Boolean(product.unit?.trim())
   return variant.inventory_quantity === (sellable ? 100 : 0)
 }), 'Only active products with a workbook price and unit may start with 100 units')
 assert(manifest.products.every((product) => categories.includes(product.categories.name)), 'Unexpected category mapping')
-assert(published.every((product) => product.source_active && product.workbook_price != null && product.workbook_unit?.trim() && product.image_match_status === 'verified' && product.image_source_url && product.product_source_url), 'Published products require an active workbook row, price, unit and verified image/product sources')
+assert(published.every((product) => product.source_active && product.workbook_price != null && product.unit?.trim() && product.image_match_status === 'verified' && product.image_source_url && product.product_source_url), 'Published products require an active workbook row, price, unit and visually reviewed image/product sources')
 assert(manifest.products.filter((product) => !product.source_active).every((product) => product.status === 'draft' && product.inventory_quantity === 0), 'Non-green workbook rows must remain dormant and out of stock')
 assert(manifest.categories.every((category) => category.products_count === published.filter((product) => product.category_id === category.id).length), 'Collection counts must equal published products only')
 
@@ -39,7 +39,7 @@ const kefalo = manifest.products.find((product) => product.name === 'Dodoni Kefa
 assert(JSON.stringify(kefalo.variants.map((variant) => variant.price)) === JSON.stringify([11, 22, 30.79, 43.99]), 'Kefalograviera prices are incorrect')
 assert(JSON.stringify(kefalo.variants.map((variant) => variant.weight_grams)) === JSON.stringify([250, 500, 700, 1000]), 'Kefalograviera pack sizes are incorrect')
 
-console.log(`Validated ${productCount} products, ${variants.length} variants, ${manifest.summary.green_unique_products} green products, and ${published.length} exact-image published products.`)
+console.log(`Validated ${productCount} products, ${variants.length} variants, ${manifest.summary.green_unique_products} green products, and ${published.length} visually reviewed-image published products.`)
 if (process.argv.includes('--validate')) process.exit(0)
 
 async function fetchImage(sourceUrl) {
