@@ -44,12 +44,12 @@ export async function getCategories(): Promise<any[]> {
   if (isNeonConfigured()) {
     try {
       const { rows } = await query('SELECT * FROM categories ORDER BY name')
-      if (rows.length > 0) return rows
+      if (rows.length > 0) return rows.filter((category) => Number(category.products_count) > 0)
     } catch (e) {
       console.warn("Neon category fetch failed, falling back to JSON", e)
     }
   }
-  return categoriesData
+  return categoriesData.filter((category) => Number(category.products_count) > 0)
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

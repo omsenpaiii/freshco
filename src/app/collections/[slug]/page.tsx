@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 import { getCategories, getProducts } from '@/lib/db'
 import ProductCard from '@/components/ui/product-card'
 import { ChevronRight, Filter } from 'lucide-react'
@@ -48,6 +49,7 @@ export default async function CollectionPage({ params, searchParams }: Collectio
     getProducts({ categorySlug: currentSlug }),
   ])
   const currentCategory = categories.find((category) => category.slug === currentSlug) || null
+  if (!currentCategory) notFound()
   const brands = uniqueLabels(unfilteredProducts.map((product) => product.brand))
   // The workbook's first subcategory is the collection's product type. The
   // second level is a refinement, not another peer option (e.g. legacy
