@@ -25,6 +25,7 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
   const discount = compare_at_price && compare_at_price > price ? Math.round(((compare_at_price - price) / compare_at_price) * 100) : 0
   const hasOptions = variants.length > 1
   const defaultVariant = variants.find((variant) => variant.is_default) || variants[0]
+  const pricePending = !Number.isFinite(price) || price <= 0
 
   useEffect(() => {
     if (!added) return
@@ -81,10 +82,14 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
 
         <div className="mt-auto pt-4">
           <div className="mb-3 flex min-h-7 items-baseline gap-2 border-t border-border/70 pt-3.5">
-            <strong className="font-heading text-lg font-bold tracking-tight text-brand-ink sm:text-xl">{hasOptions ? 'From ' : ''}{formatAUD(price)}</strong>
-            {compare_at_price && compare_at_price > price && <span className="text-xs font-semibold text-muted-foreground line-through">{formatAUD(compare_at_price)}</span>}
+            <strong className="font-heading text-lg font-bold tracking-tight text-brand-ink sm:text-xl">{pricePending ? 'Price pending' : `${hasOptions ? 'From ' : ''}${formatAUD(price)}`}</strong>
+            {!pricePending && compare_at_price && compare_at_price > price && <span className="text-xs font-semibold text-muted-foreground line-through">{formatAUD(compare_at_price)}</span>}
           </div>
-          {hasOptions ? (
+          {pricePending ? (
+            <button type="button" disabled className="inline-flex min-h-12 w-full cursor-not-allowed items-center justify-center rounded-full bg-muted px-4 text-xs font-extrabold text-muted-foreground sm:text-sm">
+              Price pending
+            </button>
+          ) : hasOptions ? (
             <Link href={`/products/${slug}`} className="group/action inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-brand-ink px-4 text-xs font-extrabold text-white shadow-sm transition duration-300 hover:bg-primary hover:shadow-[0_12px_28px_-14px_rgba(41,101,241,.8)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/25 sm:text-sm">
               Choose options <ArrowRight size={16} className="transition-transform duration-300 group-hover/action:translate-x-1" />
             </Link>

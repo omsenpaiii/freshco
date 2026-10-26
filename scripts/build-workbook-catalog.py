@@ -859,7 +859,10 @@ def main() -> None:
             reasons.append("Workbook unit is missing; do not sell until confirmed.")
         if image_match_status != "verified":
             reasons.append(verification_note or "No product-relevant image has been visually reviewed yet.")
-        publishable = source_active and price is not None and bool(unit) and image_match_status == "verified" and bool(image_source_url)
+        # Green workbook rows belong in the public catalogue even when a price
+        # is still missing. Their inventory stays at zero below, so they can be
+        # discovered but cannot be purchased until the client supplies pricing.
+        publishable = source_active and image_match_status == "verified" and bool(image_source_url) and bool(product_source_url) and (missing_price or bool(unit))
 
         image_extension = ".png" if row_number in {8, 16, 61} else ".jpg"
         storage_object_key = f"products/{slug}/primary{image_extension}" if image_source_url and image_match_status == "verified" else None

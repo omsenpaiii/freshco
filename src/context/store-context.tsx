@@ -73,6 +73,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
   const addToCart = (product: AddableProduct, quantity = 1) => {
     const { variant } = product
+    if (!Number.isFinite(variant.price) || variant.price <= 0 || variant.inventory_quantity <= 0) return
     setCart((current) => {
       const existing = current.find((item) => sameLine(item, product.id, variant.id))
       const newQuantity = (existing?.quantity || 0) + quantity

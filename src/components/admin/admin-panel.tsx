@@ -427,7 +427,7 @@ export default function AdminPanel({
                           {(product.description || '').replace(/<[^>]+>/g, ' ')}
                         </p>
                         <div className="mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold text-content-muted">
-                          <span>{formatAUD(product.price)}</span>
+                          <span>{product.price > 0 ? formatAUD(product.price) : 'Price pending'}</span>
                           <span>Inventory {product.inventory_quantity}</span>
                           <span>SKU {product.sku || 'Not set'}</span>
                         </div>

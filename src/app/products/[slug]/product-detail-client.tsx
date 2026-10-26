@@ -32,6 +32,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
   const [quantity, setQuantity] = useState(1)
   const hasOptions = product.variants.length > 1
   const hasWeightOptions = product.variants.some((variant) => variant.weight_grams != null)
+  const pricePending = !Number.isFinite(product.price) || product.price <= 0
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
     hasOptions ? null : (product.variants.find((variant) => variant.is_default) || product.variants[0] || null)
   )
@@ -48,7 +49,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
   }
 
   const handleAddToCart = () => {
-    if (!selectedVariant) return
+    if (pricePending || !selectedVariant || selectedVariant.price <= 0) return
     addToCart({
       id: product.id,
       name: product.name,
@@ -134,17 +135,24 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
         {/* Price Tag */}
         <div className="flex items-baseline gap-3 pb-4 border-b border-border-theme">
           <span className="text-2xl font-bold text-primary">
-            {selectedVariant ? formatAUD(selectedVariant.price) : `From ${formatAUD(product.price)}`}
+            {pricePending ? 'Price pending' : selectedVariant ? formatAUD(selectedVariant.price) : `From ${formatAUD(product.price)}`}
           </span>
-          {product.compare_at_price && (
+          {!pricePending && product.compare_at_price && (
             <span className="text-sm text-content-muted line-through">
               {formatAUD(product.compare_at_price)}
             </span>
           )}
-          <span className="text-xs bg-green-50 text-green-600 font-bold px-2.5 py-1 rounded-full ml-2 flex items-center gap-1 border border-green-100">
-            <Check size={12} /> In Stock
+          <span className={`ml-2 flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-bold ${pricePending ? 'border-amber-100 bg-amber-50 text-amber-800' : 'border-green-100 bg-green-50 text-green-600'}`}>
+            {pricePending ? 'Not yet available to purchase' : <><Check size={12} /> In Stock</>}
           </span>
         </div>
+
+        {pricePending && (
+          <p className="text-sm text-muted-foreground">
+            We’re confirming the price for this item.{' '}
+            <a className="font-bold text-primary underline underline-offset-4" href="tel:+61385890447">Call FreshCo</a> if you need it sooner.
+          </p>
+        )}
 
         {/* Short description */}
         <p className="text-sm leading-7 text-muted-foreground">{shortDescription}{shortDescription.length >= 220 ? '…' : ''}</p>
@@ -161,7 +169,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                   aria-pressed={selectedVariant?.id === variant.id}
                   className={`min-h-11 rounded-full border px-4 py-2.5 text-sm font-bold transition duration-300 ${selectedVariant?.id === variant.id ? 'border-primary bg-primary text-white shadow-[0_8px_22px_-12px_rgba(41,101,241,.9)]' : 'border-border bg-white text-brand-ink hover:border-primary hover:bg-brand-cloud'}`}
                 >
-                  {variant.title} · {formatAUD(variant.price)}
+                  {pricePending ? `${variant.title} · Price pending` : `${variant.title} · ${formatAUD(variant.price)}`}
                 </button>
               ))}
             </div>
@@ -172,7 +180,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
         {/* Quantity and Actions Row */}
         <div className="space-y-4">
           <div className="flex items-center gap-4 flex-wrap">
-            <div className="flex items-center border border-border-theme rounded-full bg-gray-50 p-1">
+            {!pricePending && <div className="flex items-center border border-border-theme rounded-full bg-gray-50 p-1">
               <button 
                 onClick={() => handleQuantityChange(quantity - 1)}
                 aria-label="Decrease quantity"
@@ -193,17 +201,17 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               >
                 <Plus size={13} />
               </button>
-            </div>
+            </div>}
 
-            <button 
+            <button
               onClick={handleAddToCart}
-              disabled={!selectedVariant}
+              disabled={pricePending || !selectedVariant || selectedVariant.price <= 0}
               className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-extrabold text-white shadow-[0_14px_30px_-16px_rgba(41,101,241,.9)] transition duration-300 hover:-translate-y-0.5 hover:bg-brand-ink disabled:cursor-not-allowed disabled:opacity-45"
             >
-              {selectedVariant ? 'Add to bag' : 'Choose a weight'} <ShoppingBag size={17} />
+              {pricePending ? 'Price pending' : selectedVariant ? 'Add to bag' : 'Choose a weight'} <ShoppingBag size={17} />
             </button>
 
-            <button 
+            <button
               onClick={() => toggleWishlist(product.id)}
               aria-label={isWishlisted ? `Remove ${product.name} from wishlist` : `Add ${product.name} to wishlist`}
               aria-pressed={isWishlisted}

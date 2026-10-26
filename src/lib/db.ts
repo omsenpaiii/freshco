@@ -105,7 +105,7 @@ export async function getProducts(options: GetProductsOptions = {}): Promise<Cat
       if (brand) { values.push(brand.trim()); clauses.push(`LOWER(BTRIM(p.brand))=LOWER($${values.length})`) }
       if (subcategory) { values.push(subcategory.trim()); clauses.push(`LOWER(BTRIM(p.subcategory_1))=LOWER($${values.length})`) }
       if (categorySlug) add('c.slug=?', categorySlug)
-      const order = sortBy === 'price-asc' ? 'p.price ASC' : sortBy === 'price-desc' ? 'p.price DESC' : sortBy === 'title-asc' ? 'p.name ASC' : sortBy === 'title-desc' ? 'p.name DESC' : 'p.created_at DESC'
+      const order = sortBy === 'price-asc' ? 'CASE WHEN p.price <= 0 THEN 1 ELSE 0 END ASC, p.price ASC' : sortBy === 'price-desc' ? 'CASE WHEN p.price <= 0 THEN 1 ELSE 0 END ASC, p.price DESC' : sortBy === 'title-asc' ? 'p.name ASC' : sortBy === 'title-desc' ? 'p.name DESC' : 'p.created_at DESC'
       const { rows } = await query(`SELECT p.*, jsonb_build_object('name',c.name,'slug',c.slug) categories,
         COALESCE(jsonb_agg(to_jsonb(v) ORDER BY v.weight_grams) FILTER (WHERE v.id IS NOT NULL),'[]') product_variants
         FROM products p LEFT JOIN categories c ON c.id=p.category_id LEFT JOIN product_variants v ON v.product_id=p.id
@@ -144,8 +144,8 @@ export async function getProducts(options: GetProductsOptions = {}): Promise<Cat
 
   // Sorting
   if (sortBy) {
-    if (sortBy === 'price-asc') filtered.sort((a, b) => a.price - b.price)
-    else if (sortBy === 'price-desc') filtered.sort((a, b) => b.price - a.price)
+    if (sortBy === 'price-asc') filtered.sort((a, b) => (a.price <= 0 ? 1 : 0) - (b.price <= 0 ? 1 : 0) || a.price - b.price)
+    else if (sortBy === 'price-desc') filtered.sort((a, b) => (a.price <= 0 ? 1 : 0) - (b.price <= 0 ? 1 : 0) || b.price - a.price)
     else if (sortBy === 'title-asc') filtered.sort((a, b) => a.name.localeCompare(b.name))
     else if (sortBy === 'title-desc') filtered.sort((a, b) => b.name.localeCompare(a.name))
   }

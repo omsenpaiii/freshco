@@ -64,8 +64,8 @@ export default async function CollectionPage({ params, searchParams }: Collectio
     .filter((product) => !selectedBrand || product.brand?.trim().toLocaleLowerCase() === selectedBrand)
     .filter((product) => !selectedSubcategory || product.subcategory_1?.trim().toLocaleLowerCase() === selectedSubcategory)
     .sort((left, right) => {
-      if (sortBy === 'price-asc') return left.price - right.price
-      if (sortBy === 'price-desc') return right.price - left.price
+      if (sortBy === 'price-asc') return (left.price <= 0 ? 1 : 0) - (right.price <= 0 ? 1 : 0) || left.price - right.price
+      if (sortBy === 'price-desc') return (left.price <= 0 ? 1 : 0) - (right.price <= 0 ? 1 : 0) || right.price - left.price
       if (sortBy === 'title-asc') return left.name.localeCompare(right.name)
       if (sortBy === 'title-desc') return right.name.localeCompare(left.name)
       return Date.parse(right.created_at || '') - Date.parse(left.created_at || '')

@@ -81,6 +81,9 @@ export async function POST(request: Request) {
       if (!variant.products || variant.products.status !== 'published' || Number(variant.product_id) !== line.productId) {
         return NextResponse.json({ error: 'One or more cart items are no longer available.' }, { status: 409 })
       }
+      if (!Number.isFinite(Number(variant.price)) || Number(variant.price) <= 0) {
+        return NextResponse.json({ error: `${variant.products.name} is not available to purchase yet.` }, { status: 409 })
+      }
       if (variant.inventory_quantity < line.quantity) {
         return NextResponse.json({ error: `${variant.products.name} does not have enough stock.` }, { status: 409 })
       }

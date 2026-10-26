@@ -12,6 +12,7 @@ const activeProducts = manifest.products.filter((product) => product.source_acti
 const missingActivePrice = activeProducts.filter((product) => product.workbook_price == null).length
 const missingActiveUnit = activeProducts.filter((product) => !product.workbook_unit?.trim()).length
 const unsellableActive = activeProducts.filter((product) => product.workbook_price == null || !product.unit?.trim()).length
+const sellableActive = activeProducts.filter((product) => product.workbook_price != null && Boolean(product.unit?.trim()))
 
 const assert = (condition, message) => { if (!condition) throw new Error(message) }
 assert(productCount === 572, `Expected 572 products from ITEMS (3).xlsx, received ${productCount}`)
@@ -31,7 +32,10 @@ assert(variants.every((variant) => {
   return variant.inventory_quantity === (sellable ? 100 : 0)
 }), 'Only active products with a workbook price and unit may start with 100 units')
 assert(manifest.products.every((product) => categories.includes(product.categories.name)), 'Unexpected category mapping')
-assert(published.every((product) => product.source_active && product.workbook_price != null && product.unit?.trim() && product.image_match_status === 'verified' && product.image_source_url && product.product_source_url), 'Published products require an active workbook row, price, unit and visually reviewed image/product sources')
+assert(published.length === activeProducts.length, 'Every green workbook product with a reviewed image must appear in the public catalogue')
+assert(published.every((product) => product.source_active && product.image_match_status === 'verified' && product.image_source_url && product.product_source_url), 'Published products require an active workbook row and visually reviewed image/product sources')
+assert(published.filter((product) => product.workbook_price != null && product.unit?.trim()).length === sellableActive.length, 'Every priced green product with a resolved unit must appear in the public catalogue')
+assert(published.filter((product) => product.workbook_price == null).every((product) => product.price === 0 && product.inventory_quantity === 0 && product.variants.every((variant) => variant.price === 0 && variant.inventory_quantity === 0)), 'Green products without workbook prices must be visible as price pending and have no sellable inventory')
 assert(manifest.products.filter((product) => !product.source_active).every((product) => product.status === 'draft' && product.inventory_quantity === 0), 'Non-green workbook rows must remain dormant and out of stock')
 assert(manifest.categories.every((category) => category.products_count === published.filter((product) => product.category_id === category.id).length), 'Collection counts must equal published products only')
 
@@ -39,7 +43,7 @@ const kefalo = manifest.products.find((product) => product.name === 'Dodoni Kefa
 assert(JSON.stringify(kefalo.variants.map((variant) => variant.price)) === JSON.stringify([11, 22, 30.79, 43.99]), 'Kefalograviera prices are incorrect')
 assert(JSON.stringify(kefalo.variants.map((variant) => variant.weight_grams)) === JSON.stringify([250, 500, 700, 1000]), 'Kefalograviera pack sizes are incorrect')
 
-console.log(`Validated ${productCount} products, ${variants.length} variants, ${manifest.summary.green_unique_products} green products, and ${published.length} visually reviewed-image published products.`)
+console.log(`Validated ${productCount} products, ${variants.length} variants, ${manifest.summary.green_unique_products} green products (${sellableActive.length} priced and ${unsellableActive} price pending), and ${published.length} published products.`)
 if (process.argv.includes('--validate')) process.exit(0)
 
 async function fetchImage(sourceUrl) {
