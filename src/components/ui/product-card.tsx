@@ -31,6 +31,7 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
   const hasOptions = variants.length > 1
   const defaultVariant = variants.find((variant) => variant.is_default) || variants[0]
   const pricePending = !Number.isFinite(price) || price <= 0
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   useEffect(() => {
     if (!added) return
@@ -58,12 +59,16 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 />
               )}
+              {!imageLoaded && (
+                <span aria-hidden="true" className="absolute inset-0 z-[5] bg-[linear-gradient(110deg,#f3f5fa_8%,#ffffff_18%,#f3f5fa_33%)] bg-[length:200%_100%] motion-safe:animate-pulse" />
+              )}
               <Image
                 src={image}
                 alt={name}
                 fill
+                onLoad={() => setImageLoaded(true)}
                 onError={() => setImageFailed(true)}
-                className={`z-10 ${imageFitClass} transition duration-700 ease-out ${hasHoverImage ? 'group-hover:scale-[1.04] group-hover:opacity-0' : 'group-hover:scale-[1.055]'}`}
+                className={`z-10 ${imageFitClass} transition duration-700 ease-out ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${hasHoverImage ? 'group-hover:scale-[1.04] group-hover:opacity-0' : 'group-hover:scale-[1.055]'}`}
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
               {hasHoverImage && hoverImage && <Image src={hoverImage} alt="" fill onError={() => setImageFailed(true)} className={`absolute inset-0 z-20 ${imageFitClass} opacity-0 transition duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />}

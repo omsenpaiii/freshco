@@ -98,15 +98,18 @@ export default async function CollectionPage({ params, searchParams }: Collectio
 
         {/* Collection banner spotlight */}
         {currentCategory && (
-          <div className="relative mb-10 h-[220px] w-full overflow-hidden rounded-3xl border-8 border-white shadow-2xl md:h-[300px]">
-            <Image 
-              src={currentCategory.image_url || 'https://images.unsplash.com/photo-1610348725531-843dff163e2c?q=80&w=1200'} 
-              alt={currentCategory.name}
-              fill
-              loading="eager"
-              sizes="100vw"
-              className="object-cover"
-            />
+          <div className={`relative mb-10 h-[220px] w-full overflow-hidden rounded-3xl border-8 border-white shadow-2xl md:h-[300px] ${currentCategory.image_url ? '' : 'bg-[radial-gradient(circle_at_78%_22%,rgba(255,255,255,.2),transparent_34%),linear-gradient(125deg,#16213b,#35508b)]'}`}>
+            {currentCategory.image_url && (
+              <Image
+                src={currentCategory.image_url}
+                alt=""
+                aria-hidden="true"
+                fill
+                loading="eager"
+                sizes="100vw"
+                className="object-cover"
+              />
+            )}
             <div className="absolute inset-0 bg-black/35 flex flex-col justify-center p-8 md:p-12 text-white text-left">
               <h1 className="text-2xl md:text-4xl font-extrabold">{currentCategory.name}</h1>
               <p className="text-xs md:text-sm text-gray-200 mt-2 max-w-xl line-clamp-2">
