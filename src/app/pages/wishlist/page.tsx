@@ -15,6 +15,7 @@ interface WishlistProduct {
   compare_at_price: number | null
   images: string[]
   brand: string
+  image_license?: string | null
   variants: ProductVariant[]
 }
 
