@@ -185,6 +185,7 @@ export default async function Home() {
               images={prod.images}
               category_name={prod.categories?.name}
               brand={prod.brand}
+              image_license={prod.image_license}
               variants={prod.variants}
             />
           ))}
@@ -216,6 +217,7 @@ export default async function Home() {
               images={prod.images}
               category_name={prod.categories?.name}
               brand={prod.brand}
+              image_license={prod.image_license}
               variants={prod.variants}
             />
           ))}

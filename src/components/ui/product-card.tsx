@@ -10,19 +10,20 @@ import { Badge } from '@/components/ui/badge'
 import { formatAUD } from '@/lib/store'
 import type { ProductVariant } from '@/lib/catalog-types'
 
-export interface ProductCardProps { id: number; name: string; slug: string; price: number; compare_at_price: number | null; images: string[]; is_featured?: boolean; is_trending?: boolean; category_name?: string; brand?: string; variants?: ProductVariant[] }
+export interface ProductCardProps { id: number; name: string; slug: string; price: number; compare_at_price: number | null; images: string[]; is_featured?: boolean; is_trending?: boolean; category_name?: string; brand?: string; image_license?: string | null; variants?: ProductVariant[] }
 
-export default function ProductCard({ id, name, slug, price, compare_at_price, images, category_name = 'FreshCo pick', brand, variants = [] }: ProductCardProps) {
+export default function ProductCard({ id, name, slug, price, compare_at_price, images, category_name = 'FreshCo pick', brand, image_license, variants = [] }: ProductCardProps) {
   const { addToCart, toggleWishlist, isInWishlist } = useStore()
   const reduceMotion = useReducedMotion()
   const [added, setAdded] = useState(false)
   const wished = isInWishlist(id)
   const image = images?.find((candidate) => candidate?.trim()) || ''
   const hoverImage = images?.[1] || image
-  // Catalog pack shots should remain fully visible, while unbranded food
-  // photography should use the whole image panel instead of floating small.
-  const isGenericImage = /\/generic-\d{8}\.jpg(?:[?#]|$)/i.test(image)
-  const imageFitClass = isGenericImage ? 'object-cover' : 'object-contain p-1 sm:p-2'
+  // Keep source-backed packaging fully visible. Editorial/generic food photos
+  // use the panel edge-to-edge; the source license is the reliable signal
+  // because both kinds of image may be stored under a product-specific key.
+  const isIllustrativeImage = /pexels license|generic illustrative/i.test(image_license || '') || /\/generic-\d{8}\.jpg(?:[?#]|$)/i.test(image)
+  const imageFitClass = isIllustrativeImage ? 'object-cover' : 'object-contain'
   const [imageFailed, setImageFailed] = useState(false)
   const hasImage = Boolean(image && !imageFailed)
   const hasHoverImage = hasImage && hoverImage !== image
@@ -47,15 +48,25 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
         <Link href={`/products/${slug}`} aria-label={`View ${name}`} className="relative block aspect-[1/1.02] overflow-hidden bg-[radial-gradient(circle_at_50%_38%,#ffffff_0%,#f6f8ff_62%,#edf2ff_100%)]">
           {hasImage && image ? (
             <>
+              {!isIllustrativeImage && (
+                <Image
+                  src={image}
+                  alt=""
+                  fill
+                  aria-hidden="true"
+                  className="pointer-events-none z-0 scale-110 object-cover opacity-20 blur-2xl"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                />
+              )}
               <Image
                 src={image}
                 alt={name}
                 fill
                 onError={() => setImageFailed(true)}
-                className={`${imageFitClass} transition duration-700 ease-out ${hasHoverImage ? 'group-hover:scale-[1.04] group-hover:opacity-0' : 'group-hover:scale-[1.055]'}`}
+                className={`z-10 ${imageFitClass} transition duration-700 ease-out ${hasHoverImage ? 'group-hover:scale-[1.04] group-hover:opacity-0' : 'group-hover:scale-[1.055]'}`}
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
-              {hasHoverImage && hoverImage && <Image src={hoverImage} alt="" fill onError={() => setImageFailed(true)} className={`absolute inset-0 ${imageFitClass} opacity-0 transition duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />}
+              {hasHoverImage && hoverImage && <Image src={hoverImage} alt="" fill onError={() => setImageFailed(true)} className={`absolute inset-0 z-20 ${imageFitClass} opacity-0 transition duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />}
             </>
           ) : (
             <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-content-muted">

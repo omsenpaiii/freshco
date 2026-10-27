@@ -79,6 +79,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   images={prod.images}
                   category_name={prod.categories?.name}
                   brand={prod.brand}
+                  image_license={prod.image_license}
                   variants={prod.variants}
                 />
               ))}

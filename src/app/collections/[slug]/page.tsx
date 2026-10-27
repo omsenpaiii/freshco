@@ -198,10 +198,11 @@ export default async function CollectionPage({ params, searchParams }: Collectio
                     price={prod.price}
                     compare_at_price={prod.compare_at_price}
                     images={prod.images}
-                  category_name={prod.categories?.name}
-                  brand={prod.brand}
-                  variants={prod.variants}
-                />
+                    category_name={prod.categories?.name}
+                    brand={prod.brand}
+                    image_license={prod.image_license}
+                    variants={prod.variants}
+                  />
                 ))}
               </SectionReveal>
             )}

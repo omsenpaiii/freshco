@@ -98,6 +98,7 @@ export default function WishlistPage() {
                 compare_at_price={prod.compare_at_price}
                 images={prod.images}
                 brand={prod.brand}
+                image_license={prod.image_license}
                 variants={prod.variants}
               />
             ))}
