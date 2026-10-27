@@ -3990,9 +3990,9 @@
     "sku": "FC-NO-BRAND-HALVA-ROUND-PISTACHIO-CREAM--EACH-R87",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/halva-round-pistachio-cream-filling-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/halva-round-pistachio-cream-filling-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/halva-round-pistachio-cream-filling-each/primary.jpg",
+    "storage_object_key": "products/halva-round-pistachio-cream-filling-each/generic-20261027.jpg",
     "category_id": 3,
     "brand": "",
     "unit": "KG",
@@ -4000,9 +4000,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://thehalvalab.com/en",
-    "image_source_url": "https://thehalvalab.com/cdn/shop/products/Halva-Pistacchio-Singol-PK_243ab218-5781-4a21-9492-194376fa6e98_1024x1024.jpg?v=1676889087",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/delicious-turkish-semolina-halva-with-pistachios-37336729/",
+    "image_source_url": "https://images.pexels.com/photos/37336729/pexels-photo-37336729.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -4026,9 +4026,9 @@
         "price": 20.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/halva-round-pistachio-cream-filling-each/primary.jpg",
-        "image_source_url": "https://thehalvalab.com/cdn/shop/products/Halva-Pistacchio-Singol-PK_243ab218-5781-4a21-9492-194376fa6e98_1024x1024.jpg?v=1676889087",
-        "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/halva-round-pistachio-cream-filling-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/37336729/pexels-photo-37336729.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -4046,9 +4046,9 @@
     "sku": "FC-NO-BRAND-HALVA-ROUND-APPLE-AND-CINNAM-EACH-R88",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/halva-round-apple-and-cinnamon-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/halva-round-apple-and-cinnamon-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/halva-round-apple-and-cinnamon-each/primary.jpg",
+    "storage_object_key": "products/halva-round-apple-and-cinnamon-each/generic-20261027.jpg",
     "category_id": 3,
     "brand": "",
     "unit": "KG",
@@ -4056,9 +4056,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://groceryeshop.us/products/halva-kingdom-sugar-free-halva-vegan-dessert-cinnamon-flavor-gluten-free-kosher-certified-12-oz-jar",
-    "image_source_url": "https://groceryeshop.us/cdn/shop/files/81IoZZiwHyL.jpg?v=1763857572&width=1445",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/halva-with-nuts-27950069/",
+    "image_source_url": "https://images.pexels.com/photos/27950069/pexels-photo-27950069.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -4082,9 +4082,9 @@
         "price": 20.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/halva-round-apple-and-cinnamon-each/primary.jpg",
-        "image_source_url": "https://groceryeshop.us/cdn/shop/files/81IoZZiwHyL.jpg?v=1763857572&width=1445",
-        "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/halva-round-apple-and-cinnamon-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/27950069/pexels-photo-27950069.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -5332,9 +5332,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.ebay.co.uk/itm/254195213054",
-    "image_source_url": "https://i.ebayimg.com/images/g/gZQAAOSwCuBgIB4f/s-l400.jpg",
-    "image_license": "Marketplace image found via Google Images; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://cyprustime.com.au/collections/new-shop/products/grrek-time-spice-range-hellenic-fish-spice-mix-150g-copy",
+    "image_source_url": "https://cyprustime.com.au/cdn/shop/files/Greek_Chips_and_Potato_Seasoning_1024x1024.jpg?v=1787021919",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -5359,8 +5359,8 @@
         "inventory_quantity": 100,
         "is_default": true,
         "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/greek-time-spice-chips-150g-x-8-150-g/primary.jpg",
-        "image_source_url": "https://i.ebayimg.com/images/g/gZQAAOSwCuBgIB4f/s-l400.jpg",
-        "image_license": "Marketplace image found via Google Images; source recorded; commercial reuse permission not independently confirmed."
+        "image_source_url": "https://cyprustime.com.au/cdn/shop/files/Greek_Chips_and_Potato_Seasoning_1024x1024.jpg?v=1787021919",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -11914,9 +11914,9 @@
     "sku": "FC-IBIS-IBIS-BAG-HARD-SHELL-MASTIHA--3-KG-R252",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-hard-shell-mastiha-3kg-3-kg/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-hard-shell-mastiha-3kg-3-kg/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/ibis-bag-hard-shell-mastiha-3kg-3-kg/primary.jpg",
+    "storage_object_key": "products/ibis-bag-hard-shell-mastiha-3kg-3-kg/generic-20261027.jpg",
     "category_id": 3,
     "brand": "Ibis",
     "unit": "EA",
@@ -11924,9 +11924,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://mastihashop.com/en/products/hard-candies-mastiha",
-    "image_source_url": "http://mastihashop.com/cdn/shop/files/Zoumis_Studio_Mastihashop_Hard_candies.jpg?v=1781009492&width=1024",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/bowl-of-candies-1375807/",
+    "image_source_url": "https://images.pexels.com/photos/1375807/pexels-photo-1375807.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -11950,9 +11950,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-hard-shell-mastiha-3kg-3-kg/primary.jpg",
-        "image_source_url": "http://mastihashop.com/cdn/shop/files/Zoumis_Studio_Mastihashop_Hard_candies.jpg?v=1781009492&width=1024",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-hard-shell-mastiha-3kg-3-kg/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/1375807/pexels-photo-1375807.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -12418,9 +12418,9 @@
     "sku": "FC-IBIS-IBIS-BAG-TOFFEE-MILK-MASTIHA-3-KG-R261",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-toffee-milk-mastiha-3kg-3-kg/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-toffee-milk-mastiha-3kg-3-kg/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/ibis-bag-toffee-milk-mastiha-3kg-3-kg/primary.jpg",
+    "storage_object_key": "products/ibis-bag-toffee-milk-mastiha-3kg-3-kg/generic-20261027.jpg",
     "category_id": 3,
     "brand": "Ibis",
     "unit": "EA",
@@ -12428,9 +12428,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://kolonakifinefoods.ca/products/mastiha-toffee-candies",
-    "image_source_url": "https://kolonakifinefoods.ca/cdn/shop/products/25_2c59905c-e474-4d07-994d-512948588fee.png?v=1626113190&width=1500",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/yellow-taffy-candies-in-bowl-with-soft-focus-39889182/",
+    "image_source_url": "https://images.pexels.com/photos/39889182/pexels-photo-39889182.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -12454,9 +12454,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-toffee-milk-mastiha-3kg-3-kg/primary.jpg",
-        "image_source_url": "https://kolonakifinefoods.ca/cdn/shop/products/25_2c59905c-e474-4d07-994d-512948588fee.png?v=1626113190&width=1500",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-toffee-milk-mastiha-3kg-3-kg/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/39889182/pexels-photo-39889182.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -12530,9 +12530,9 @@
     "sku": "FC-IBIS-IBIS-BAG-HARD-SHELL-ORANGE-3-3-KG-R263",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-hard-shell-orange-3kg-3-kg/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-hard-shell-orange-3kg-3-kg/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/ibis-bag-hard-shell-orange-3kg-3-kg/primary.jpg",
+    "storage_object_key": "products/ibis-bag-hard-shell-orange-3kg-3-kg/generic-20261027.jpg",
     "category_id": 3,
     "brand": "Ibis",
     "unit": "EA",
@@ -12540,9 +12540,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://kandyking.co.uk/hard-candy-orange-drops-1kg-56512-p.asp",
-    "image_source_url": "https://files.ekmcdn.com/flibackward/images/hard-candy-orange-drops-1kg-56512-p.png?w=1000&h=1000&v=4E4127C8-DEC7-4239-B150-A8D0B049BA66",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/close-up-photography-of-orange-candies-1236662/",
+    "image_source_url": "https://images.pexels.com/photos/1236662/pexels-photo-1236662.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -12566,9 +12566,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-hard-shell-orange-3kg-3-kg/primary.jpg",
-        "image_source_url": "https://files.ekmcdn.com/flibackward/images/hard-candy-orange-drops-1kg-56512-p.png?w=1000&h=1000&v=4E4127C8-DEC7-4239-B150-A8D0B049BA66",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-hard-shell-orange-3kg-3-kg/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/1236662/pexels-photo-1236662.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -14996,9 +14996,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://greekshop.com.au/product/vine-leaves-500g-packed-by-miloway/",
-    "image_source_url": "https://greekshop.com.au/wp-content/uploads/2025/09/Vine-Leaves-Packed-by-Miloway-500g-1030x1030.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://exhibitor-manual-004.s3.ap-south-1.amazonaws.com/Production/exb_doc/2018/26614/Lindo_Katalog_2024.pdf",
+    "image_source_url": "https://hemsi.com.tr/admin/images/salamura2.jpg",
+    "image_license": "Manufacturer/distributor product image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -15023,8 +15023,8 @@
         "inventory_quantity": 100,
         "is_default": true,
         "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/vine-leaves-vaccum-packed-500g-500-g/primary.jpg",
-        "image_source_url": "https://greekshop.com.au/wp-content/uploads/2025/09/Vine-Leaves-Packed-by-Miloway-500g-1030x1030.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_source_url": "https://hemsi.com.tr/admin/images/salamura2.jpg",
+        "image_license": "Manufacturer/distributor product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -15042,9 +15042,9 @@
     "sku": "FC-NO-BRAND-DANISH-FETA-1KG-R314",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/danish-feta-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/danish-feta-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/danish-feta-each/primary.jpg",
+    "storage_object_key": "products/danish-feta-each/generic-20261027.jpg",
     "category_id": 1,
     "brand": "",
     "unit": "KG",
@@ -15052,9 +15052,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.mymbl.com.au/product/9509252",
-    "image_source_url": "https://www.mymbl.com.au/img/products/9509252_800x800.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/dairy-food-cubes-on-plate-19460144/",
+    "image_source_url": "https://images.pexels.com/photos/19460144/pexels-photo-19460144.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -15344,9 +15344,9 @@
     "sku": "FC-NO-BRAND-BULGARIAN-FETA-EACH-R319",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/bulgarian-feta-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/bulgarian-feta-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/bulgarian-feta-each/primary.jpg",
+    "storage_object_key": "products/bulgarian-feta-each/generic-20261027.jpg",
     "category_id": 1,
     "brand": "",
     "unit": "KG",
@@ -15354,9 +15354,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://falconessentials.ca/product/krinos-bulgarian-feta-cheese-200g",
-    "image_source_url": "https://vckqijalcmsyoezndxpd.supabase.co/storage/v1/object/public/product-images/f16d4158-4ea1-45f7-8c9f-67d71fc4a7ec.png",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/feta-cheese-on-plate-6128854/",
+    "image_source_url": "https://images.pexels.com/photos/6128854/pexels-photo-6128854.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -15380,9 +15380,9 @@
         "price": 17.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/bulgarian-feta-each/primary.jpg",
-        "image_source_url": "https://vckqijalcmsyoezndxpd.supabase.co/storage/v1/object/public/product-images/f16d4158-4ea1-45f7-8c9f-67d71fc4a7ec.png",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/bulgarian-feta-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/6128854/pexels-photo-6128854.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -15400,9 +15400,9 @@
     "sku": "FC-NO-BRAND-BULGARIAN-FETA-900G-900-G-R320",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/bulgarian-feta-900g-900-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/bulgarian-feta-900g-900-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/bulgarian-feta-900g-900-g/primary.jpg",
+    "storage_object_key": "products/bulgarian-feta-900g-900-g/generic-20261027.jpg",
     "category_id": 1,
     "brand": "",
     "unit": "EA",
@@ -15410,9 +15410,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.pveuromarket.com/balkanica-bulgarian-white-sheeps-feta-cheese-900g-r-8436541068742-15387/",
-    "image_source_url": "https://ts4.mm.bing.net/th?id=OIP.bYGOVTBFrb6g7gy7peHsowAAAA&pid=15.1",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/cubes-of-feta-cheese-with-fresh-basil-and-tomatoes-32356157/",
+    "image_source_url": "https://images.pexels.com/photos/32356157/pexels-photo-32356157.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -15436,9 +15436,9 @@
         "price": 20.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/bulgarian-feta-900g-900-g/primary.jpg",
-        "image_source_url": "https://ts4.mm.bing.net/th?id=OIP.bYGOVTBFrb6g7gy7peHsowAAAA&pid=15.1",
-        "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/bulgarian-feta-900g-900-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/32356157/pexels-photo-32356157.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -16077,9 +16077,9 @@
     "sku": "FC-MANDRI-MANDRI-SAGANAKI-EACH-R331",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mandri-saganaki-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mandri-saganaki-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/mandri-saganaki-each/primary.jpg",
+    "storage_object_key": "products/mandri-saganaki-each/generic-20261027.jpg",
     "category_id": 1,
     "brand": "MANDRI",
     "unit": "EA",
@@ -16087,9 +16087,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://u-foodsal.com/products/saganaki",
-    "image_source_url": "https://api.u-foodsal.com/uploads/saganaki_d3.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/delicious-fried-cheese-with-honey-drizzle-29177201/",
+    "image_source_url": "https://images.pexels.com/photos/29177201/pexels-photo-29177201.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -16113,9 +16113,9 @@
         "price": 12.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mandri-saganaki-each/primary.jpg",
-        "image_source_url": "https://api.u-foodsal.com/uploads/saganaki_d3.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mandri-saganaki-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/29177201/pexels-photo-29177201.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {

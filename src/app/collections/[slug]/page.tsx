@@ -11,12 +11,20 @@ import SectionReveal from '@/components/ui/section-reveal'
 // Force Next.js to render page dynamically so it grabs latest products/DB state
 export const revalidate = 0
 
+function normalizeLabel(value: string) {
+  return value
+    .normalize('NFKD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLocaleLowerCase()
+    .replace(/[^\p{Letter}\p{Number}]/gu, '')
+}
+
 function uniqueLabels(values: Array<string | null | undefined>) {
   const labels = new Map<string, { label: string; count: number }>()
   for (const value of values) {
     const label = value?.trim().replace(/\s+/g, ' ')
     if (!label) continue
-    const key = label.toLocaleLowerCase()
+    const key = normalizeLabel(label)
     const current = labels.get(key)
     if (current) current.count += 1
     else labels.set(key, { label, count: 1 })
@@ -57,12 +65,12 @@ export default async function CollectionPage({ params, searchParams }: Collectio
   const subcategories = uniqueLabels(unfilteredProducts.map((product) => product.subcategory_1))
 
   const searchTerm = search.trim().toLocaleLowerCase()
-  const selectedBrand = brand.trim().toLocaleLowerCase()
-  const selectedSubcategory = subcategory.trim().toLocaleLowerCase()
+  const selectedBrand = normalizeLabel(brand.trim())
+  const selectedSubcategory = normalizeLabel(subcategory.trim())
   const products = unfilteredProducts
     .filter((product) => !searchTerm || product.name.toLocaleLowerCase().includes(searchTerm))
-    .filter((product) => !selectedBrand || product.brand?.trim().toLocaleLowerCase() === selectedBrand)
-    .filter((product) => !selectedSubcategory || product.subcategory_1?.trim().toLocaleLowerCase() === selectedSubcategory)
+    .filter((product) => !selectedBrand || normalizeLabel(product.brand?.trim() || '') === selectedBrand)
+    .filter((product) => !selectedSubcategory || normalizeLabel(product.subcategory_1?.trim() || '') === selectedSubcategory)
     .sort((left, right) => {
       if (sortBy === 'price-asc') return (left.price <= 0 ? 1 : 0) - (right.price <= 0 ? 1 : 0) || left.price - right.price
       if (sortBy === 'price-desc') return (left.price <= 0 ? 1 : 0) - (right.price <= 0 ? 1 : 0) || right.price - left.price

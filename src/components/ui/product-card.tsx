@@ -19,6 +19,10 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
   const wished = isInWishlist(id)
   const image = images?.find((candidate) => candidate?.trim()) || ''
   const hoverImage = images?.[1] || image
+  // Catalog pack shots should remain fully visible, while unbranded food
+  // photography should use the whole image panel instead of floating small.
+  const isGenericImage = /\/generic-\d{8}\.jpg(?:[?#]|$)/i.test(image)
+  const imageFitClass = isGenericImage ? 'object-cover' : 'object-contain p-1 sm:p-2'
   const [imageFailed, setImageFailed] = useState(false)
   const hasImage = Boolean(image && !imageFailed)
   const hasHoverImage = hasImage && hoverImage !== image
@@ -48,10 +52,10 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
                 alt={name}
                 fill
                 onError={() => setImageFailed(true)}
-                className={`object-contain p-5 transition duration-700 ease-out sm:p-6 ${hasHoverImage ? 'group-hover:scale-[1.04] group-hover:opacity-0' : 'group-hover:scale-[1.055]'}`}
+                className={`${imageFitClass} transition duration-700 ease-out ${hasHoverImage ? 'group-hover:scale-[1.04] group-hover:opacity-0' : 'group-hover:scale-[1.055]'}`}
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
-              {hasHoverImage && hoverImage && <Image src={hoverImage} alt="" fill onError={() => setImageFailed(true)} className="absolute inset-0 object-contain p-5 opacity-0 transition duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100 sm:p-6" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />}
+              {hasHoverImage && hoverImage && <Image src={hoverImage} alt="" fill onError={() => setImageFailed(true)} className={`absolute inset-0 ${imageFitClass} opacity-0 transition duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />}
             </>
           ) : (
             <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-content-muted">

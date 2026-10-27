@@ -998,6 +998,20 @@
     "storage_object_key": "products/minichol-vegan-cheese-200g-200-g/verified-brand-20261027.jpg",
     "verified": true
   },
+  "111": {
+    "product_source_url": "https://cyprustime.com.au/collections/new-shop/products/grrek-time-spice-range-hellenic-fish-spice-mix-150g-copy",
+    "image_source_url": "https://cyprustime.com.au/cdn/shop/files/Greek_Chips_and_Potato_Seasoning_1024x1024.jpg?v=1787021919",
+    "verification_note": "Verified against the Australian retailer listing: GreekTime Greek Chips and Potato Seasoning, 150 g. Product name, brand, and pack size match.",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "verified": true
+  },
+  "313": {
+    "product_source_url": "https://exhibitor-manual-004.s3.ap-south-1.amazonaws.com/Production/exb_doc/2018/26614/Lindo_Katalog_2024.pdf",
+    "image_source_url": "https://hemsi.com.tr/admin/images/salamura2.jpg",
+    "verification_note": "Visually verified against LINDO product references: the image shows Lindo vine leaves, including a vacuum pouch labeled 500 g. It also shows other Lindo jar/tin formats in the same product-family photograph.",
+    "image_license": "Manufacturer/distributor product image; source recorded; commercial reuse permission not independently confirmed.",
+    "verified": true
+  },
   "549": {
     "product_source_url": "https://adelaidesfinest.com.au/product/370727/mammen-danablu-cheese-100g",
     "image_source_url": "https://www.bananablue.com.au/images/product_sizes/large/2x/jpg/5703985070383_1.jpg?cb=1710682710",
