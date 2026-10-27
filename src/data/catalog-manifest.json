@@ -12594,9 +12594,9 @@
       "sku": "FC-TRATA-TRATA-MACKEREL-FILLETS-IN-OL-150-G-R220",
       "inventory_quantity": 100,
       "images": [
-        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/trata-mackerel-fillets-in-olive-oil-150g-x-30-150-g/primary.jpg"
+        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/trata-mackerel-fillets-in-olive-oil-150g-x-30-150-g/generic-20261027.jpg"
       ],
-      "storage_object_key": "products/trata-mackerel-fillets-in-olive-oil-150g-x-30-150-g/primary.jpg",
+      "storage_object_key": "products/trata-mackerel-fillets-in-olive-oil-150g-x-30-150-g/generic-20261027.jpg",
       "category_id": 3,
       "brand": "Trata",
       "unit": "EA",
@@ -12604,9 +12604,9 @@
       "subcategory_2": "Mackerel",
       "status": "published",
       "image_match_status": "verified",
-      "product_source_url": "https://www.johnpasc.co.uk/product/10x160g-mackerel-fillets-in-olive-oil/",
-      "image_source_url": "https://www.johnpasc.co.uk/wp-content/uploads/2025/08/MACKOLO_G16010.jpg",
-      "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+      "product_source_url": "https://www.pexels.com/photo/canned-fish-in-yellow-container-7488449/",
+      "image_source_url": "https://images.pexels.com/photos/7488449/pexels-photo-7488449.jpeg?cs=tinysrgb&w=1400",
+      "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
       "draft_reason": null,
       "is_featured": false,
       "is_trending": false,
@@ -12630,9 +12630,9 @@
           "price": 4.5,
           "inventory_quantity": 100,
           "is_default": true,
-          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/trata-mackerel-fillets-in-olive-oil-150g-x-30-150-g/primary.jpg",
-          "image_source_url": "https://www.johnpasc.co.uk/wp-content/uploads/2025/08/MACKOLO_G16010.jpg",
-          "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/trata-mackerel-fillets-in-olive-oil-150g-x-30-150-g/generic-20261027.jpg",
+          "image_source_url": "https://images.pexels.com/photos/7488449/pexels-photo-7488449.jpeg?cs=tinysrgb&w=1400",
+          "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
         }
       ],
       "categories": {
@@ -13658,9 +13658,9 @@
       "sku": "FC-TRATA-TRATA-MACKEREL-FILLETS-SMOKE-150-G-R239",
       "inventory_quantity": 100,
       "images": [
-        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/trata-mackerel-fillets-smoked-in-veg-oil-150g-x-30-150-g/primary.jpg"
+        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/trata-mackerel-fillets-smoked-in-veg-oil-150g-x-30-150-g/generic-20261027.jpg"
       ],
-      "storage_object_key": "products/trata-mackerel-fillets-smoked-in-veg-oil-150g-x-30-150-g/primary.jpg",
+      "storage_object_key": "products/trata-mackerel-fillets-smoked-in-veg-oil-150g-x-30-150-g/generic-20261027.jpg",
       "category_id": 3,
       "brand": "Trata",
       "unit": "EA",
@@ -13668,9 +13668,9 @@
       "subcategory_2": "Mackerel",
       "status": "published",
       "image_match_status": "verified",
-      "product_source_url": "https://www.johnpasc.co.uk/product/10x160g-smoked-mackerel-fillets-in-vegetable-oil/",
-      "image_source_url": "https://www.johnpasc.co.uk/wp-content/uploads/2025/08/MACKVGOT_G16010.jpg",
-      "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+      "product_source_url": "https://www.pexels.com/photo/fresh-mackerel-fish-on-display-at-market-33035432/",
+      "image_source_url": "https://images.pexels.com/photos/33035432/pexels-photo-33035432.jpeg?cs=tinysrgb&w=1400",
+      "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
       "draft_reason": null,
       "is_featured": false,
       "is_trending": false,
@@ -13694,9 +13694,9 @@
           "price": 4.5,
           "inventory_quantity": 100,
           "is_default": true,
-          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/trata-mackerel-fillets-smoked-in-veg-oil-150g-x-30-150-g/primary.jpg",
-          "image_source_url": "https://www.johnpasc.co.uk/wp-content/uploads/2025/08/MACKVGOT_G16010.jpg",
-          "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/trata-mackerel-fillets-smoked-in-veg-oil-150g-x-30-150-g/generic-20261027.jpg",
+          "image_source_url": "https://images.pexels.com/photos/33035432/pexels-photo-33035432.jpeg?cs=tinysrgb&w=1400",
+          "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
         }
       ],
       "categories": {
@@ -14274,9 +14274,9 @@
       "sku": "FC-IBIS-IBIS-BAG-VIENNA-ASSORTED-3KG-3-KG-R250",
       "inventory_quantity": 100,
       "images": [
-        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-vienna-assorted-3kg-3-kg/primary.jpg"
+        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-vienna-assorted-3kg-3-kg/generic-20261027.jpg"
       ],
-      "storage_object_key": "products/ibis-bag-vienna-assorted-3kg-3-kg/primary.jpg",
+      "storage_object_key": "products/ibis-bag-vienna-assorted-3kg-3-kg/generic-20261027.jpg",
       "category_id": 3,
       "brand": "Ibis",
       "unit": "EA",
@@ -14284,9 +14284,9 @@
       "subcategory_2": "",
       "status": "published",
       "image_match_status": "verified",
-      "product_source_url": "https://www.candywarehouse.com/products/trefin-vienna-fruit-hard-candy-assortment-3kg-bag/",
-      "image_source_url": "https://www.candywarehouse.com/cdn/shop/files/trefin-vienna-fruit-hard-candy-assorted-3kg-bag-candy-warehouse-4_817860d8-531f-4424-9ea7-93d719dbce67.jpg?v=1736551896&width=600",
-      "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+      "product_source_url": "https://www.pexels.com/photo/fruit-candies-1906435/",
+      "image_source_url": "https://images.pexels.com/photos/1906435/pexels-photo-1906435.jpeg?cs=tinysrgb&w=1400",
+      "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
       "draft_reason": null,
       "is_featured": false,
       "is_trending": false,
@@ -14310,9 +14310,9 @@
           "price": 3.99,
           "inventory_quantity": 100,
           "is_default": true,
-          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-vienna-assorted-3kg-3-kg/primary.jpg",
-          "image_source_url": "https://www.candywarehouse.com/cdn/shop/files/trefin-vienna-fruit-hard-candy-assorted-3kg-bag-candy-warehouse-4_817860d8-531f-4424-9ea7-93d719dbce67.jpg?v=1736551896&width=600",
-          "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-vienna-assorted-3kg-3-kg/generic-20261027.jpg",
+          "image_source_url": "https://images.pexels.com/photos/1906435/pexels-photo-1906435.jpeg?cs=tinysrgb&w=1400",
+          "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
         }
       ],
       "categories": {
@@ -32958,9 +32958,9 @@
       "sku": "FC-EAT-MORE-SPINACH-AND-FETA-PASTIZZI-EACH-R570",
       "inventory_quantity": 100,
       "images": [
-        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spinach-and-feta-pastizzi-each/primary.jpg"
+        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spinach-and-feta-pastizzi-each/generic-20261027.jpg"
       ],
-      "storage_object_key": "products/spinach-and-feta-pastizzi-each/primary.jpg",
+      "storage_object_key": "products/spinach-and-feta-pastizzi-each/generic-20261027.jpg",
       "category_id": 2,
       "brand": "EAT MORE",
       "unit": "EA",
@@ -32968,9 +32968,9 @@
       "subcategory_2": "",
       "status": "published",
       "image_match_status": "verified",
-      "product_source_url": "https://www.bivianoandsons.com.au/product/spinach-and-feta-pastizzis-850g/",
-      "image_source_url": "https://www.bivianoandsons.com.au/content/uploads/2024/07/Spin-and-Feta-pastizzi-.jpg",
-      "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+      "product_source_url": "https://www.pexels.com/photo/sandwich-with-spinach-20182326/",
+      "image_source_url": "https://images.pexels.com/photos/20182326/pexels-photo-20182326.jpeg?cs=tinysrgb&w=1400",
+      "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
       "draft_reason": null,
       "is_featured": false,
       "is_trending": false,
@@ -32994,9 +32994,9 @@
           "price": 9.99,
           "inventory_quantity": 100,
           "is_default": true,
-          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spinach-and-feta-pastizzi-each/primary.jpg",
-          "image_source_url": "https://www.bivianoandsons.com.au/content/uploads/2024/07/Spin-and-Feta-pastizzi-.jpg",
-          "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spinach-and-feta-pastizzi-each/generic-20261027.jpg",
+          "image_source_url": "https://images.pexels.com/photos/20182326/pexels-photo-20182326.jpeg?cs=tinysrgb&w=1400",
+          "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
         }
       ],
       "categories": {
@@ -33014,9 +33014,9 @@
       "sku": "FC-EAT-MORE-FETA-AND-RICOTTA-PASTIZZI-EACH-R571",
       "inventory_quantity": 100,
       "images": [
-        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/feta-and-ricotta-pastizzi-each/primary.jpg"
+        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/feta-and-ricotta-pastizzi-each/generic-20261027.jpg"
       ],
-      "storage_object_key": "products/feta-and-ricotta-pastizzi-each/primary.jpg",
+      "storage_object_key": "products/feta-and-ricotta-pastizzi-each/generic-20261027.jpg",
       "category_id": 2,
       "brand": "EAT MORE",
       "unit": "EA",
@@ -33024,9 +33024,9 @@
       "subcategory_2": "",
       "status": "published",
       "image_match_status": "verified",
-      "product_source_url": "https://bartucciosfresh.com.au/products/gatos-pastizzi-feta-ricotta-600g-12-pack",
-      "image_source_url": "https://bartucciosfresh.com.au/cdn/shop/files/Fetta_and_RicottaPastizzi_1500x.webp?v=1689657701",
-      "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+      "product_source_url": "https://www.pexels.com/photo/baked-pastries-with-cheese-and-seeds-close-up-32592736/",
+      "image_source_url": "https://images.pexels.com/photos/32592736/pexels-photo-32592736.jpeg?cs=tinysrgb&w=1400",
+      "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
       "draft_reason": null,
       "is_featured": false,
       "is_trending": false,
@@ -33050,9 +33050,9 @@
           "price": 9.99,
           "inventory_quantity": 100,
           "is_default": true,
-          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/feta-and-ricotta-pastizzi-each/primary.jpg",
-          "image_source_url": "https://bartucciosfresh.com.au/cdn/shop/files/Fetta_and_RicottaPastizzi_1500x.webp?v=1689657701",
-          "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/feta-and-ricotta-pastizzi-each/generic-20261027.jpg",
+          "image_source_url": "https://images.pexels.com/photos/32592736/pexels-photo-32592736.jpeg?cs=tinysrgb&w=1400",
+          "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
         }
       ],
       "categories": {
@@ -33070,9 +33070,9 @@
       "sku": "FC-EAT-MORE-PEAS-PASTIZZI-EACH-R572",
       "inventory_quantity": 100,
       "images": [
-        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/peas-pastizzi-each/primary.jpg"
+        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/peas-pastizzi-each/generic-20261027.jpg"
       ],
-      "storage_object_key": "products/peas-pastizzi-each/primary.jpg",
+      "storage_object_key": "products/peas-pastizzi-each/generic-20261027.jpg",
       "category_id": 2,
       "brand": "EAT MORE",
       "unit": "EA",
@@ -33080,9 +33080,9 @@
       "subcategory_2": "",
       "status": "published",
       "image_match_status": "verified",
-      "product_source_url": "https://www.wfbonline.com.au/main-shop/MARIOS-FRESHY-FROZEN-PEAS-PASTIZZI-600G-p835609552",
-      "image_source_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/76643759/products/835609552/5764308418.jpg",
-      "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+      "product_source_url": "https://www.pexels.com/photo/gourmet-green-pea-tartlets-on-rustic-wood-table-37678409/",
+      "image_source_url": "https://images.pexels.com/photos/37678409/pexels-photo-37678409.jpeg?cs=tinysrgb&w=1400",
+      "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
       "draft_reason": null,
       "is_featured": false,
       "is_trending": false,
@@ -33106,9 +33106,9 @@
           "price": 9.99,
           "inventory_quantity": 100,
           "is_default": true,
-          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/peas-pastizzi-each/primary.jpg",
-          "image_source_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/76643759/products/835609552/5764308418.jpg",
-          "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/peas-pastizzi-each/generic-20261027.jpg",
+          "image_source_url": "https://images.pexels.com/photos/37678409/pexels-photo-37678409.jpeg?cs=tinysrgb&w=1400",
+          "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
         }
       ],
       "categories": {
@@ -33126,9 +33126,9 @@
       "sku": "FC-EAT-MORE-PIZZA-PASTIZZI-EACH-R573",
       "inventory_quantity": 100,
       "images": [
-        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/pizza-pastizzi-each/primary.jpg"
+        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/pizza-pastizzi-each/generic-20261027.jpg"
       ],
-      "storage_object_key": "products/pizza-pastizzi-each/primary.jpg",
+      "storage_object_key": "products/pizza-pastizzi-each/generic-20261027.jpg",
       "category_id": 2,
       "brand": "EAT MORE",
       "unit": "EA",
@@ -33136,9 +33136,9 @@
       "subcategory_2": "",
       "status": "published",
       "image_match_status": "verified",
-      "product_source_url": "https://www.thegrocerygeek.com.au/portfolio-item/borgs-pastizzi-pizza-style/",
-      "image_source_url": "https://www.thegrocerygeek.com.au/wp-content/uploads/2021/07/Borgs-Pizza-Style-Pastizzi-10-pack.jpg",
-      "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+      "product_source_url": "https://www.pexels.com/photo/pizza-toast-on-a-parchment-paper-6823310/",
+      "image_source_url": "https://images.pexels.com/photos/6823310/pexels-photo-6823310.jpeg?cs=tinysrgb&w=1400",
+      "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
       "draft_reason": null,
       "is_featured": false,
       "is_trending": false,
@@ -33162,9 +33162,9 @@
           "price": 9.99,
           "inventory_quantity": 100,
           "is_default": true,
-          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/pizza-pastizzi-each/primary.jpg",
-          "image_source_url": "https://www.thegrocerygeek.com.au/wp-content/uploads/2021/07/Borgs-Pizza-Style-Pastizzi-10-pack.jpg",
-          "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/pizza-pastizzi-each/generic-20261027.jpg",
+          "image_source_url": "https://images.pexels.com/photos/6823310/pexels-photo-6823310.jpeg?cs=tinysrgb&w=1400",
+          "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
         }
       ],
       "categories": {
