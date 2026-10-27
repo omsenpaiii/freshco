@@ -3223,9 +3223,9 @@
     "sku": "FC-FRESHCO-KALAMATA-COLOSSAL-PITTED-1KG-R70",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/kalamata-colossal-pitted-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/kalamata-colossal-pitted-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/kalamata-colossal-pitted-each/primary.jpg",
+    "storage_object_key": "products/kalamata-colossal-pitted-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -3233,9 +3233,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://agoragreekdelicacies.co.uk/product/kalamata-colossal-pitted-olives-210ml-sigma-gourmet/",
-    "image_source_url": "https://ts3.mm.bing.net/th?id=OIP.d3H6WpTz-rdZ0hoyDqXzpQHaGN&pid=15.1",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/bowl-of-green-olives-16732695/",
+    "image_source_url": "https://images.pexels.com/photos/16732695/pexels-photo-16732695.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -4494,9 +4494,9 @@
     "sku": "FC-FRESHCO-KALAMATA-COLOSSAL-WHOLE-1KG-R97",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/kalamata-colossal-whole-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/kalamata-colossal-whole-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/kalamata-colossal-whole-each/primary.jpg",
+    "storage_object_key": "products/kalamata-colossal-whole-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -4504,9 +4504,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.foodomarket.com/en-gb/products/beans/kalamata-whole-olives",
-    "image_source_url": "https://cdn.foodomarket.com/media/cache/front_card_2x/bd/f9/c80f6acbf282c1dd2147655ab83a.jpg",
-    "image_license": "Retailer/wholesale image found via Google Images; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/black-olives-on-white-ceramic-bowl-4096837/",
+    "image_source_url": "https://images.pexels.com/photos/4096837/pexels-photo-4096837.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -4589,9 +4589,9 @@
     "sku": "FC-FRESHCO-VOLVOS-MAMMOTH-1KG-R98",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/volvos-mammoth-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/volvos-mammoth-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/volvos-mammoth-each/primary.jpg",
+    "storage_object_key": "products/volvos-mammoth-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -4599,9 +4599,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://loumidisfoods.com/product/super-mammoth-green-pitted-olives-10-kg/",
-    "image_source_url": "https://loumidisfoods.com/wp-content/uploads/2020/07/KLGP91.jpg",
-    "image_license": "Retailer image found via Google Images; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/green-olives-in-a-bowl-14941248/",
+    "image_source_url": "https://images.pexels.com/photos/14941248/pexels-photo-14941248.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -4684,9 +4684,9 @@
     "sku": "FC-FRESHCO-DRY-HALKIDIKIS-1KG-R99",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/dry-halkidikis-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/dry-halkidikis-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/dry-halkidikis-each/primary.jpg",
+    "storage_object_key": "products/dry-halkidikis-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -4694,9 +4694,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://harkola.online/shop/canned-products/olives/olives-black-dry-halkidikis-12kg/",
-    "image_source_url": "https://harkola.online/wp-content/uploads/2017/01/OLIVES-BLACK-DRY-HALKIDIKIS.jpg",
-    "image_license": "Retailer image found via Google Images; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/photo-of-olives-on-plate-4109909/",
+    "image_source_url": "https://images.pexels.com/photos/4109909/pexels-photo-4109909.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -4779,9 +4779,9 @@
     "sku": "FC-FRESHCO-DRY-THASSOS-1KG-R100",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/dry-thassos-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/dry-thassos-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/dry-thassos-each/primary.jpg",
+    "storage_object_key": "products/dry-thassos-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -4789,9 +4789,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "http://www.kebia.com.au/product/thassos-dry-olives-5kg/",
-    "image_source_url": "https://i0.wp.com/www.kebia.com.au/wp-content/uploads/2020/03/439a.jpg?fit=600%2C600",
-    "image_license": "Australian retailer image found via Google Images; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/a-bowl-of-olives-and-a-cup-of-coffee-17714357/",
+    "image_source_url": "https://images.pexels.com/photos/17714357/pexels-photo-17714357.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -20244,9 +20244,9 @@
     "sku": "FC-FRESHCO-MEDITERRANEAN-MIXED-MARINATE-1KG-R446",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mediterranean-mixed-marinated-pitted-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mediterranean-mixed-marinated-pitted-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/mediterranean-mixed-marinated-pitted-each/primary.jpg",
+    "storage_object_key": "products/mediterranean-mixed-marinated-pitted-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -20254,9 +20254,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://goodfooddelivered.co.uk/products/marinated-mixed-olives-basil-garlic-pitted",
-    "image_source_url": "https://cdn.shopify.com/s/files/1/0463/6134/6215/files/Marinated_Mixed_Olives_Basil_Garlic_Pitted.png?v=1769439482",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/assorted-olives-in-wooden-bowls-at-market-37931499/",
+    "image_source_url": "https://images.pexels.com/photos/37931499/pexels-photo-37931499.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -20339,9 +20339,9 @@
     "sku": "FC-FRESHCO-ITALIAN-MIXED-MARINATED-WHOL-1KG-R447",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/italian-mixed-marinated-whole-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/italian-mixed-marinated-whole-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/italian-mixed-marinated-whole-each/primary.jpg",
+    "storage_object_key": "products/italian-mixed-marinated-whole-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -20349,9 +20349,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://panettamercato.com.au/product/olives-mixed-marinated-whole-250g/",
-    "image_source_url": "https://ts2.mm.bing.net/th?id=OIP.oUL6Gn5DyHMLw7AEL-P_zgHaHa&pid=15.1",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/wooden-bowls-filled-with-assorted-olives-outdoors-34711355/",
+    "image_source_url": "https://images.pexels.com/photos/34711355/pexels-photo-34711355.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -20434,9 +20434,9 @@
     "sku": "FC-FRESHCO-SPLIT-GREEN-MARINATED-PITTED-1KG-R448",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/split-green-marinated-pitted-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/split-green-marinated-pitted-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/split-green-marinated-pitted-each/primary.jpg",
+    "storage_object_key": "products/split-green-marinated-pitted-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -20444,9 +20444,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.aldi.com.au/product/deli-originals-fresh-marinated-split-green-olives-130g-000000000582658001",
-    "image_source_url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1296/f8191883-c6b7-422f-ade5-1507065107d8/Marinated%20Split%20Green%20Olives%20130g",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/spanish-green-olives-with-garlic-in-bowls-29204446/",
+    "image_source_url": "https://images.pexels.com/photos/29204446/pexels-photo-29204446.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -20529,9 +20529,9 @@
     "sku": "FC-FRESHCO-QUEEN-GREEN-MARINATED-PITTED-1KG-R449",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/queen-green-marinated-pitted-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/queen-green-marinated-pitted-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/queen-green-marinated-pitted-each/primary.jpg",
+    "storage_object_key": "products/queen-green-marinated-pitted-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -20539,9 +20539,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://goodfoodgroup.co.nz/product/pitted-queen-green-olives/",
-    "image_source_url": "https://goodfoodgroup.co.nz/wp-content/uploads/2023/05/Sandhurst-PittedQueenGreenOlives-1024px.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/green-olives-in-brown-wooden-bowl-5755518/",
+    "image_source_url": "https://images.pexels.com/photos/5755518/pexels-photo-5755518.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -20624,9 +20624,9 @@
     "sku": "FC-FRESHCO-CHILLI-LIME-TEQUILA-MARINATE-1KG-R450",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/chilli-lime-tequila-marinated-pitted-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/chilli-lime-tequila-marinated-pitted-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/chilli-lime-tequila-marinated-pitted-each/primary.jpg",
+    "storage_object_key": "products/chilli-lime-tequila-marinated-pitted-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -20634,9 +20634,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://angelesfinefoods.com/product/gs-lge-green-olives-tequila-lime-chilli-8x220g/",
-    "image_source_url": "https://angelesfinefoods.com/wp-content/uploads/2025/11/b7c7af08-2f98-4481-abef-e093af589ea9-RK5Ocx-800x800-1-600x600.webp",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/green-olives-in-spices-24916758/",
+    "image_source_url": "https://images.pexels.com/photos/24916758/pexels-photo-24916758.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -20719,9 +20719,9 @@
     "sku": "FC-FRESHCO-GRILLED-PITTED-1KG-R451",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-pitted-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-pitted-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/grilled-pitted-each/primary.jpg",
+    "storage_object_key": "products/grilled-pitted-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -20729,9 +20729,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://cappadociaturkish.com/products/royal-valley-grilled-pitted-green-olives",
-    "image_source_url": "https://cappadociaturkish.com/cdn/shop/files/dfa092b5-royal-valley-grilled-pitted-1-scaled.jpg?v=1771609099&width=1214",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/market-stall-display-of-herb-mixed-olives-39396371/",
+    "image_source_url": "https://images.pexels.com/photos/39396371/pexels-photo-39396371.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -20814,9 +20814,9 @@
     "sku": "FC-FRESHCO-SICILIAN-COLOSSAL-WHOLE-1KG-R452",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/sicilian-colossal-whole-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/sicilian-colossal-whole-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/sicilian-colossal-whole-each/primary.jpg",
+    "storage_object_key": "products/sicilian-colossal-whole-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -20824,9 +20824,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.mezzetta.com/products/colossal-castelvetrano-style-whole-olives",
-    "image_source_url": "https://www.mezzetta.com/cdn/shop/products/ColossalCastelvetranoStyleWholeOlives_16oz.png?v=1625882911",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/close-up-of-olives-in-bowl-12474258/",
+    "image_source_url": "https://images.pexels.com/photos/12474258/pexels-photo-12474258.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -20909,9 +20909,9 @@
     "sku": "FC-FRESHCO-CERIGNOLA-1KG-R453",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/cerignola-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/cerignola-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/cerignola-each/primary.jpg",
+    "storage_object_key": "products/cerignola-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -20919,9 +20919,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://catalog.alimentosaustrales.com/producto/whole-green-olives-bella-di-cerignola-6-x-19-75-oz/",
-    "image_source_url": "https://catalog.alimentosaustrales.com/wp-content/uploads/2026/02/uc-472.jpeg",
-    "image_license": "Distributor image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/a-close-up-shot-of-green-olives-4109905/",
+    "image_source_url": "https://images.pexels.com/photos/4109905/pexels-photo-4109905.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21004,9 +21004,9 @@
     "sku": "FC-FRESHCO-SPANISH-BLACK-PITTED-1KG-R454",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spanish-black-pitted-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spanish-black-pitted-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/spanish-black-pitted-each/primary.jpg",
+    "storage_object_key": "products/spanish-black-pitted-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -21014,9 +21014,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://gcc.luluhypermarket.com/en-sa/hutesa-spanish-pitted-black-olives-400-g/p/911989",
-    "image_source_url": "https://bf1af2.akinoncloudcdn.com/products/2024/09/12/86380/9c349e44-9d9c-429d-98b6-a50b94e437e8.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/photo-of-olives-on-a-bowl-4109912/",
+    "image_source_url": "https://images.pexels.com/photos/4109912/pexels-photo-4109912.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21099,9 +21099,9 @@
     "sku": "FC-FRESHCO-LIGUARIAN-WHOLE-1KG-R455",
     "inventory_quantity": 400,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/liguarian-whole-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/liguarian-whole-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/liguarian-whole-each/primary.jpg",
+    "storage_object_key": "products/liguarian-whole-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -21109,9 +21109,9 @@
     "subcategory_2": "Olives (Loose)",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.shopbestfoods.com/product/vittoria-ligurian-whole-olives-11-08-oz-310g/",
-    "image_source_url": "https://ts4.mm.bing.net/th?id=OIP.pybX1oNdp76nHBD3-fxctQAAAA&pid=15.1",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/assorted-olives-in-wooden-bowls-with-spoons-34711354/",
+    "image_source_url": "https://images.pexels.com/photos/34711354/pexels-photo-34711354.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21194,9 +21194,9 @@
     "sku": "FC-FRESHCO-TARAMOSALATA-130GM-130-G-R456",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/taramosalata-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/taramosalata-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/taramosalata-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/taramosalata-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21204,9 +21204,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://mjmezza.com.au/gourmet-dips/taramasalata-dip/",
-    "image_source_url": "https://mjmezza.com.au/wp-content/uploads/2015/03/DIPS_PACK_Taramasalata.png",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/close-up-shot-of-a-jewish-cuisine-in-a-bowl-6419574/",
+    "image_source_url": "https://images.pexels.com/photos/6419574/pexels-photo-6419574.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21230,9 +21230,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/taramosalata-130gm-130-g/primary.jpg",
-        "image_source_url": "https://mjmezza.com.au/wp-content/uploads/2015/03/DIPS_PACK_Taramasalata.png",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/taramosalata-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/6419574/pexels-photo-6419574.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21250,9 +21250,9 @@
     "sku": "FC-FRESHCO-TZATZIKI-130GM-130-G-R457",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tzatziki-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tzatziki-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/tzatziki-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/tzatziki-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21260,9 +21260,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://ever.ph/products/200000088364-commonwealth",
-    "image_source_url": "https://ever.ph/cdn/shop/files/200000088364-Tzatziki-Geek-Yogurt-Dip-130g-260327.jpg?v=1774600023",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/minimalist-overhead-shot-of-tzatziki-sauce-32986486/",
+    "image_source_url": "https://images.pexels.com/photos/32986486/pexels-photo-32986486.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21286,9 +21286,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tzatziki-130gm-130-g/primary.jpg",
-        "image_source_url": "https://ever.ph/cdn/shop/files/200000088364-Tzatziki-Geek-Yogurt-Dip-130g-260327.jpg?v=1774600023",
-        "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tzatziki-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/32986486/pexels-photo-32986486.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21306,9 +21306,9 @@
     "sku": "FC-FRESHCO-TIROKAFTERI-130GM-130-G-R458",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tirokafteri-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tirokafteri-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/tirokafteri-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/tirokafteri-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21316,9 +21316,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://lfbr.ca/product/tirokafteri-spicy-feta-better-than-yia-yias/",
-    "image_source_url": "https://lfbr.ca/wp-content/uploads/Tirokafteri-scaled.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/close-up-of-cottage-cheese-with-chili-peppers-27058040/",
+    "image_source_url": "https://images.pexels.com/photos/27058040/pexels-photo-27058040.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21342,9 +21342,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tirokafteri-130gm-130-g/primary.jpg",
-        "image_source_url": "https://lfbr.ca/wp-content/uploads/Tirokafteri-scaled.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tirokafteri-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/27058040/pexels-photo-27058040.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21362,9 +21362,9 @@
     "sku": "FC-FRESHCO-SKORDALIA-130GM-130-G-R459",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/skordalia-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/skordalia-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/skordalia-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/skordalia-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21372,9 +21372,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://coltempo.co.za/products/meditterranean-kitchen-skordalia-garlic-dip-180g",
-    "image_source_url": "http://coltempo.co.za/cdn/shop/products/skordalia_grande.png?v=1665475472",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/delicious-creamy-mashed-potatoes-in-white-bowl-30635680/",
+    "image_source_url": "https://images.pexels.com/photos/30635680/pexels-photo-30635680.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21398,9 +21398,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/skordalia-130gm-130-g/primary.jpg",
-        "image_source_url": "http://coltempo.co.za/cdn/shop/products/skordalia_grande.png?v=1665475472",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/skordalia-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/30635680/pexels-photo-30635680.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21418,9 +21418,9 @@
     "sku": "FC-FRESHCO-BEETROOT-DIP-130GM-130-G-R460",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/beetroot-dip-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/beetroot-dip-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/beetroot-dip-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/beetroot-dip-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21428,9 +21428,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://food-brands.com.au/product/beetroot-fetta-dip/",
-    "image_source_url": "https://food-brands.com.au/wp-content/uploads/2024/05/Beetroot-Fetta-Dip-180g.png",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/delicious-beetroot-and-hummus-dips-on-rustic-setting-30935566/",
+    "image_source_url": "https://images.pexels.com/photos/30935566/pexels-photo-30935566.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21454,9 +21454,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/beetroot-dip-130gm-130-g/primary.jpg",
-        "image_source_url": "https://food-brands.com.au/wp-content/uploads/2024/05/Beetroot-Fetta-Dip-180g.png",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/beetroot-dip-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/30935566/pexels-photo-30935566.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21474,9 +21474,9 @@
     "sku": "FC-FRESHCO-HUMMUS-130GM-130-G-R461",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/hummus-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/hummus-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/hummus-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/hummus-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21484,9 +21484,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.pnp.co.za/pnp-mediterranean-topped-hummus-130g/p/000000000000910133_EA",
-    "image_source_url": "https://cdn-prd-02.pnp.co.za/sys-master/images/h46/h3e/11526386614302/silo-product-image-v2-22Nov2024-180102-6009218003814-Straight_on-270499-132_400Wx400H",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/hummus-in-bowl-19552439/",
+    "image_source_url": "https://images.pexels.com/photos/19552439/pexels-photo-19552439.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21510,9 +21510,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/hummus-130gm-130-g/primary.jpg",
-        "image_source_url": "https://cdn-prd-02.pnp.co.za/sys-master/images/h46/h3e/11526386614302/silo-product-image-v2-22Nov2024-180102-6009218003814-Straight_on-270499-132_400Wx400H",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/hummus-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/19552439/pexels-photo-19552439.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21530,9 +21530,9 @@
     "sku": "FC-FRESHCO-SPICY-CAPSICUM-130GM-130-G-R462",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spicy-capsicum-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spicy-capsicum-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/spicy-capsicum-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/spicy-capsicum-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21540,9 +21540,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.aldi.com.au/product/deli-originals-fresh-spicy-capsicum-dip-150g-000000000517781004",
-    "image_source_url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1296/30d36f67-fb6d-44e6-bf4d-b3f63c158441/Spicy%20Capsicum%20Dip%20150g",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/savory-red-pepper-walnut-dip-with-toast-38725072/",
+    "image_source_url": "https://images.pexels.com/photos/38725072/pexels-photo-38725072.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21566,9 +21566,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spicy-capsicum-130gm-130-g/primary.jpg",
-        "image_source_url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1296/30d36f67-fb6d-44e6-bf4d-b3f63c158441/Spicy%20Capsicum%20Dip%20150g",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spicy-capsicum-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/38725072/pexels-photo-38725072.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21586,9 +21586,9 @@
     "sku": "FC-FRESHCO-CHILLI-BASIL-AND-FETA-130GM-130-G-R463",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/chilli-basil-and-feta-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/chilli-basil-and-feta-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/chilli-basil-and-feta-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/chilli-basil-and-feta-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21596,9 +21596,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://yayfoods.com.au/product/vegan-chilli-feta-dip/",
-    "image_source_url": "https://yayfoods.com.au/wp-content/uploads/2024/04/IMG_5140-scaled-1.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/delicious-muhammara-dip-with-toasted-bread-38725066/",
+    "image_source_url": "https://images.pexels.com/photos/38725066/pexels-photo-38725066.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21622,9 +21622,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/chilli-basil-and-feta-130gm-130-g/primary.jpg",
-        "image_source_url": "https://yayfoods.com.au/wp-content/uploads/2024/04/IMG_5140-scaled-1.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/chilli-basil-and-feta-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/38725066/pexels-photo-38725066.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21642,9 +21642,9 @@
     "sku": "FC-FRESHCO-SMOKED-SALMON-DIP-130GM-130-G-R464",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/smoked-salmon-dip-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/smoked-salmon-dip-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/smoked-salmon-dip-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/smoked-salmon-dip-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21652,9 +21652,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://sandridge.com/products/dips-spreads/smoked-salmon-dip/",
-    "image_source_url": "https://sandridge.com/wp-content/uploads/2026/03/shoot-1518-1.jpg.webp",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/delicious-smoked-salmon-dip-with-toasted-bread-29692605/",
+    "image_source_url": "https://images.pexels.com/photos/29692605/pexels-photo-29692605.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21678,9 +21678,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/smoked-salmon-dip-130gm-130-g/primary.jpg",
-        "image_source_url": "https://sandridge.com/wp-content/uploads/2026/03/shoot-1518-1.jpg.webp",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/smoked-salmon-dip-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/29692605/pexels-photo-29692605.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21698,9 +21698,9 @@
     "sku": "FC-FRESHCO-SMOKED-TROUT-DIP-130GM-130-G-R465",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/smoked-trout-dip-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/smoked-trout-dip-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/smoked-trout-dip-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/smoked-trout-dip-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21708,9 +21708,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://adelaidesfinest.com.au/product/239099/olive-branch-dip-smoked-trout-200g",
-    "image_source_url": "https://www.bananablue.com.au/images/product/9322515006256_1.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/tasty-vorschmack-served-on-plate-in-cafe-5491010/",
+    "image_source_url": "https://images.pexels.com/photos/5491010/pexels-photo-5491010.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21734,9 +21734,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/smoked-trout-dip-130gm-130-g/primary.jpg",
-        "image_source_url": "https://www.bananablue.com.au/images/product/9322515006256_1.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/smoked-trout-dip-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/5491010/pexels-photo-5491010.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21754,9 +21754,9 @@
     "sku": "FC-FRESHCO-BASIL-PESTO-130GM-130-G-R466",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/basil-pesto-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/basil-pesto-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/basil-pesto-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/basil-pesto-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21764,9 +21764,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://shop.gullifood.com.au/shop/sanpesbas130-b-sandhurst-basil-pesto-12-x-130g-pesto130-18582",
-    "image_source_url": "https://shop.gullifood.com.au/web/image/product.product/18238/image_1024/%5BSANPESBAS130-B%5D%20Sandhurst-%20Basil%20Pesto%2012%20x%20130g%20%28PESTO130%29?unique=eaabbbf",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/pesto-sauce-in-glass-jar-with-basil-leaves-5604824/",
+    "image_source_url": "https://images.pexels.com/photos/5604824/pexels-photo-5604824.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21790,9 +21790,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/basil-pesto-130gm-130-g/primary.jpg",
-        "image_source_url": "https://shop.gullifood.com.au/web/image/product.product/18238/image_1024/%5BSANPESBAS130-B%5D%20Sandhurst-%20Basil%20Pesto%2012%20x%20130g%20%28PESTO130%29?unique=eaabbbf",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/basil-pesto-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/5604824/pexels-photo-5604824.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21810,9 +21810,9 @@
     "sku": "FC-FRESHCO-CORIANDER-PESTO-130GM-130-G-R467",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/coriander-pesto-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/coriander-pesto-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/coriander-pesto-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/coriander-pesto-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21820,9 +21820,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://foodhq.co.nz/product/coriander-pesto/",
-    "image_source_url": "https://foodhq.co.nz/wp-content/uploads/2021/08/cc-CorianderPesto.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/close-up-of-pesto-sauce-in-white-bowl-38108915/",
+    "image_source_url": "https://images.pexels.com/photos/38108915/pexels-photo-38108915.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21846,9 +21846,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/coriander-pesto-130gm-130-g/primary.jpg",
-        "image_source_url": "https://foodhq.co.nz/wp-content/uploads/2021/08/cc-CorianderPesto.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/coriander-pesto-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/38108915/pexels-photo-38108915.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21866,9 +21866,9 @@
     "sku": "FC-FRESHCO-SPICY-TOMATO-PESTO-130GM-130-G-R468",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spicy-tomato-pesto-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spicy-tomato-pesto-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/spicy-tomato-pesto-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/spicy-tomato-pesto-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21876,9 +21876,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.eataly.com/us_en/cipressino-spicy-tomatoes-pesto-4-6-oz",
-    "image_source_url": "https://www.eataly.com/media/catalog/product/1/1/1130843-spicy-pesto-tomato-4_6oz-cipressino_1.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/spoon-and-bowls-18354019/",
+    "image_source_url": "https://images.pexels.com/photos/18354019/pexels-photo-18354019.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21902,9 +21902,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spicy-tomato-pesto-130gm-130-g/primary.jpg",
-        "image_source_url": "https://www.eataly.com/media/catalog/product/1/1/1130843-spicy-pesto-tomato-4_6oz-cipressino_1.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/spicy-tomato-pesto-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/18354019/pexels-photo-18354019.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21922,9 +21922,9 @@
     "sku": "FC-FRESHCO-OLIVE-TAPENADE-130GM-130-G-R469",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/olive-tapenade-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/olive-tapenade-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/olive-tapenade-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/olive-tapenade-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21932,9 +21932,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.lovethatolive.com/product/green-olive-tapenade-and-dip/",
-    "image_source_url": "https://www.lovethatolive.com/wp-content/uploads/2023/12/Green-olive-tapenade.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/fresh-bread-with-black-olive-tapenade-spread-34178394/",
+    "image_source_url": "https://images.pexels.com/photos/34178394/pexels-photo-34178394.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -21958,9 +21958,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/olive-tapenade-130gm-130-g/primary.jpg",
-        "image_source_url": "https://www.lovethatolive.com/wp-content/uploads/2023/12/Green-olive-tapenade.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/olive-tapenade-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/34178394/pexels-photo-34178394.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -21978,9 +21978,9 @@
     "sku": "FC-FRESHCO-AVOCADO-DIP-130GM-130-G-R470",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/avocado-dip-130gm-130-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/avocado-dip-130gm-130-g/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/avocado-dip-130gm-130-g/primary.jpg",
+    "storage_object_key": "products/avocado-dip-130gm-130-g/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "EA",
@@ -21988,9 +21988,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://eossfoods.com.au/avacadodip/",
-    "image_source_url": "https://eossfoods.com.au/wp-content/uploads/elementor/thumbs/Avacado-r8imjzwchj3y7rgmi3yvr0me5pdm9alwoga5tb1aog.webp",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/green-guacamole-in-clear-glass-bowl-5737565/",
+    "image_source_url": "https://images.pexels.com/photos/5737565/pexels-photo-5737565.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -22014,9 +22014,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/avocado-dip-130gm-130-g/primary.jpg",
-        "image_source_url": "https://eossfoods.com.au/wp-content/uploads/elementor/thumbs/Avacado-r8imjzwchj3y7rgmi3yvr0me5pdm9alwoga5tb1aog.webp",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/avocado-dip-130gm-130-g/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/5737565/pexels-photo-5737565.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -26734,9 +26734,9 @@
     "sku": "FC-FRESHCO-CHARGRILLED-BABY-PEPPERS-EACH-R554",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/chargrilled-baby-peppers-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/chargrilled-baby-peppers-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/chargrilled-baby-peppers-each/primary.jpg",
+    "storage_object_key": "products/chargrilled-baby-peppers-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -26744,9 +26744,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.aldi.com.au/product/deli-originals-fresh-antipasto-baby-peppers-130g-000000000582657002",
-    "image_source_url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1296/8ea14142-fb12-4a52-b2a6-7c1eaf977c6e/Antipasto%20Baby%20Peppers%20130g",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/vibrant-roasted-bell-peppers-and-onions-28472577/",
+    "image_source_url": "https://images.pexels.com/photos/28472577/pexels-photo-28472577.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -26770,9 +26770,9 @@
         "price": 29.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/chargrilled-baby-peppers-each/primary.jpg",
-        "image_source_url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1296/8ea14142-fb12-4a52-b2a6-7c1eaf977c6e/Antipasto%20Baby%20Peppers%20130g",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/chargrilled-baby-peppers-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/28472577/pexels-photo-28472577.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -26790,9 +26790,9 @@
     "sku": "FC-FRESHCO-SUNDRIED-TOMATOES-EACH-R555",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/sundried-tomatoes-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/sundried-tomatoes-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/sundried-tomatoes-each/primary.jpg",
+    "storage_object_key": "products/sundried-tomatoes-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -26800,9 +26800,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://bunch.countdown.co.nz/s/product/a0N2y000008U7TqEAK/520728-woolworths-sundried-tomatoes-strips-270g",
-    "image_source_url": "https://assets.woolworths.com.au/images/2010/520728.jpg?impolicy=wowbumxfyzp",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/dried-tomatoes-on-wooden-surface-13246482/",
+    "image_source_url": "https://images.pexels.com/photos/13246482/pexels-photo-13246482.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -26826,9 +26826,9 @@
         "price": 24.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/sundried-tomatoes-each/primary.jpg",
-        "image_source_url": "https://assets.woolworths.com.au/images/2010/520728.jpg?impolicy=wowbumxfyzp",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/sundried-tomatoes-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/13246482/pexels-photo-13246482.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -26846,9 +26846,9 @@
     "sku": "FC-FRESHCO-SEMI-SUNDRIED-TOMATOES-EACH-R556",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/semi-sundried-tomatoes-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/semi-sundried-tomatoes-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/semi-sundried-tomatoes-each/primary.jpg",
+    "storage_object_key": "products/semi-sundried-tomatoes-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -26856,9 +26856,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://sandhurstfinefoods.com.au/product/semi-dried-tomatoes-270g/",
-    "image_source_url": "https://sandhurstfinefoods.com.au/wp-content/uploads/2015/10/1.png",
-    "image_license": "Manufacturer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/jar-of-homemade-sun-dried-tomatoes-in-olive-oil-33984941/",
+    "image_source_url": "https://images.pexels.com/photos/33984941/pexels-photo-33984941.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -26882,9 +26882,9 @@
         "price": 24.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/semi-sundried-tomatoes-each/primary.jpg",
-        "image_source_url": "https://sandhurstfinefoods.com.au/wp-content/uploads/2015/10/1.png",
-        "image_license": "Manufacturer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/semi-sundried-tomatoes-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/33984941/pexels-photo-33984941.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -26902,9 +26902,9 @@
     "sku": "FC-FRESHCO-CHEESE-FILLED-PEPPER-DEWS-EACH-R557",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/cheese-filled-pepper-dews-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/cheese-filled-pepper-dews-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/cheese-filled-pepper-dews-each/primary.jpg",
+    "storage_object_key": "products/cheese-filled-pepper-dews-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -26912,9 +26912,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.thedistributorsbathurst.com.au/product/280G_6_SANDH_PEPPERS_W_CHEESE",
-    "image_source_url": "https://www.thedistributorsbathurst.com.au/productimage/_1000x1000/Sandhurst/9313839004677.png?ver=0",
-    "image_license": "Distributor image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/stuffed-peppers-and-dip-served-on-ceramic-plates-5250392/",
+    "image_source_url": "https://images.pexels.com/photos/5250392/pexels-photo-5250392.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -26938,9 +26938,9 @@
         "price": 21.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/cheese-filled-pepper-dews-each/primary.jpg",
-        "image_source_url": "https://www.thedistributorsbathurst.com.au/productimage/_1000x1000/Sandhurst/9313839004677.png?ver=0",
-        "image_license": "Distributor image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/cheese-filled-pepper-dews-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/5250392/pexels-photo-5250392.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -26958,9 +26958,9 @@
     "sku": "FC-FRESHCO-GRILLED-EGGPLANTS-EACH-R558",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-eggplants-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-eggplants-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/grilled-eggplants-each/primary.jpg",
+    "storage_object_key": "products/grilled-eggplants-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -26968,9 +26968,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.wombatfoodgroup.com.au/product-category/antipasto/",
-    "image_source_url": "https://www.wombatfoodgroup.com.au/wp-content/uploads/2024/06/2kg20Eggplant-300x300.png",
-    "image_license": "Distributor image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/close-up-shot-of-grilled-eggplants-11601078/",
+    "image_source_url": "https://images.pexels.com/photos/11601078/pexels-photo-11601078.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -26994,9 +26994,9 @@
         "price": 25.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-eggplants-each/primary.jpg",
-        "image_source_url": "https://www.wombatfoodgroup.com.au/wp-content/uploads/2024/06/2kg20Eggplant-300x300.png",
-        "image_license": "Distributor image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-eggplants-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/11601078/pexels-photo-11601078.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -27014,9 +27014,9 @@
     "sku": "FC-FRESHCO-GRILLED-PUMPKIN-EACH-R559",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-pumpkin-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-pumpkin-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/grilled-pumpkin-each/primary.jpg",
+    "storage_object_key": "products/grilled-pumpkin-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -27024,9 +27024,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://ruffledfeathersco.com.au/product/char-grilled-pumpkin/",
-    "image_source_url": "https://ruffledfeathersco.com.au/wp-content/uploads/2024/04/Char-Grilled-Pumpkin-200g.png",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/baked-food-on-black-tray-6065696/",
+    "image_source_url": "https://images.pexels.com/photos/6065696/pexels-photo-6065696.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -27050,9 +27050,9 @@
         "price": 25.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-pumpkin-each/primary.jpg",
-        "image_source_url": "https://ruffledfeathersco.com.au/wp-content/uploads/2024/04/Char-Grilled-Pumpkin-200g.png",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-pumpkin-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/6065696/pexels-photo-6065696.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -27070,9 +27070,9 @@
     "sku": "FC-FRESHCO-GRILLED-ZUCCHINI-EACH-R560",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-zucchini-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-zucchini-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/grilled-zucchini-each/primary.jpg",
+    "storage_object_key": "products/grilled-zucchini-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -27080,9 +27080,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.wombatfoodgroup.com.au/product-category/antipasto/page/2/",
-    "image_source_url": "https://www.wombatfoodgroup.com.au/wp-content/uploads/2024/06/2kg20Zucchini-300x300.png",
-    "image_license": "Distributor image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/man-holding-a-piece-of-zucchini-on-a-fork-6950740/",
+    "image_source_url": "https://images.pexels.com/photos/6950740/pexels-photo-6950740.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -27106,9 +27106,9 @@
         "price": 25.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-zucchini-each/primary.jpg",
-        "image_source_url": "https://www.wombatfoodgroup.com.au/wp-content/uploads/2024/06/2kg20Zucchini-300x300.png",
-        "image_license": "Distributor image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-zucchini-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/6950740/pexels-photo-6950740.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -27126,9 +27126,9 @@
     "sku": "FC-FRESHCO-GRILLED-CAPSICUM-EACH-R561",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-capsicum-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-capsicum-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/grilled-capsicum-each/primary.jpg",
+    "storage_object_key": "products/grilled-capsicum-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -27136,9 +27136,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://sandhurstfinefoods.com.au/product-category/retail/antipasto-retail/",
-    "image_source_url": "https://sandhurstfinefoods.com.au/wp-content/uploads/2015/10/Char-Grilled-Capsicum-260g.jpg",
-    "image_license": "Manufacturer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/grilled-bell-peppers-on-barbecue-grill-36962608/",
+    "image_source_url": "https://images.pexels.com/photos/36962608/pexels-photo-36962608.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -27162,9 +27162,9 @@
         "price": 25.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-capsicum-each/primary.jpg",
-        "image_source_url": "https://sandhurstfinefoods.com.au/wp-content/uploads/2015/10/Char-Grilled-Capsicum-260g.jpg",
-        "image_license": "Manufacturer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-capsicum-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/36962608/pexels-photo-36962608.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -27182,9 +27182,9 @@
     "sku": "FC-FRESHCO-MARINATED-GREEN-TOMATOES-EACH-R562",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/marinated-green-tomatoes-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/marinated-green-tomatoes-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/marinated-green-tomatoes-each/primary.jpg",
+    "storage_object_key": "products/marinated-green-tomatoes-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -27192,9 +27192,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.rusticaantipasto.com/products/green-marinated-tomatoes",
-    "image_source_url": "https://www.rusticaantipasto.com/cdn/shop/files/ernie-food-15_1200x1200.jpg?v=1754999383",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/sliced-green-vegetable-in-clear-glass-jar-9025060/",
+    "image_source_url": "https://images.pexels.com/photos/9025060/pexels-photo-9025060.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -27218,9 +27218,9 @@
         "price": 27.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/marinated-green-tomatoes-each/primary.jpg",
-        "image_source_url": "https://www.rusticaantipasto.com/cdn/shop/files/ernie-food-15_1200x1200.jpg?v=1754999383",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/marinated-green-tomatoes-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/9025060/pexels-photo-9025060.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -27238,9 +27238,9 @@
     "sku": "FC-FRESHCO-GRILLED-ARTICHOKE-HEARTS-EACH-R563",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-artichoke-hearts-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-artichoke-hearts-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/grilled-artichoke-hearts-each/primary.jpg",
+    "storage_object_key": "products/grilled-artichoke-hearts-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -27248,9 +27248,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.walmart.com/ip/DeLallo-Grilled-Artichoke-Hearts-12-oz/949936344",
-    "image_source_url": "https://i5.walmartimages.com/seo/DeLallo-Grilled-Artichoke-Hearts-12-oz_e19d043f-51ad-4af5-91ea-0a0e5d9d1768.fa6d543906ff5b50bc55907a1b22ebe3.jpeg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/gourmet-grilled-artichoke-dish-with-creamy-base-28446154/",
+    "image_source_url": "https://images.pexels.com/photos/28446154/pexels-photo-28446154.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -27274,9 +27274,9 @@
         "price": 32.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-artichoke-hearts-each/primary.jpg",
-        "image_source_url": "https://i5.walmartimages.com/seo/DeLallo-Grilled-Artichoke-Hearts-12-oz_e19d043f-51ad-4af5-91ea-0a0e5d9d1768.fa6d543906ff5b50bc55907a1b22ebe3.jpeg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-artichoke-hearts-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/28446154/pexels-photo-28446154.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -27294,9 +27294,9 @@
     "sku": "FC-FRESHCO-GRILLED-ARTICHOKES-WITH-STEM-EACH-R564",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-artichokes-with-stem-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-artichokes-with-stem-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/grilled-artichokes-with-stem-each/primary.jpg",
+    "storage_object_key": "products/grilled-artichokes-with-stem-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -27304,9 +27304,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://romanzaus.com/products/2-pack-grilled-artichokes-alla-romana-with-stem",
-    "image_source_url": "https://romanzaus.com/cdn/shop/files/GrilledArtichokeswithStem.jpg?v=1703100698&width=1445",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/vegetables-on-plate-20226315/",
+    "image_source_url": "https://images.pexels.com/photos/20226315/pexels-photo-20226315.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -27330,9 +27330,9 @@
         "price": 32.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-artichokes-with-stem-each/primary.jpg",
-        "image_source_url": "https://romanzaus.com/cdn/shop/files/GrilledArtichokeswithStem.jpg?v=1703100698&width=1445",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/grilled-artichokes-with-stem-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/20226315/pexels-photo-20226315.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -27350,9 +27350,9 @@
     "sku": "FC-FRESHCO-MARINATED-MUSHROOMS-EACH-R565",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/marinated-mushrooms-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/marinated-mushrooms-each/generic-20261027.jpg"
     ],
-    "storage_object_key": "products/marinated-mushrooms-each/primary.jpg",
+    "storage_object_key": "products/marinated-mushrooms-each/generic-20261027.jpg",
     "category_id": 4,
     "brand": "FRESHCO",
     "unit": "KG",
@@ -27360,9 +27360,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://jetitaliandeli.com/products/marinated-mushrooms-italian-style-hermetic-jar-reusable-500g",
-    "image_source_url": "https://jetitaliandeli.com/cdn/shop/products/DSCF5865_2_600x.png?v=1632890705",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.pexels.com/photo/close-up-of-champignons-in-marinade-8250415/",
+    "image_source_url": "https://images.pexels.com/photos/8250415/pexels-photo-8250415.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -27386,9 +27386,9 @@
         "price": 34.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/marinated-mushrooms-each/primary.jpg",
-        "image_source_url": "https://jetitaliandeli.com/cdn/shop/products/DSCF5865_2_600x.png?v=1632890705",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/marinated-mushrooms-each/generic-20261027.jpg",
+        "image_source_url": "https://images.pexels.com/photos/8250415/pexels-photo-8250415.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/"
       }
     ],
     "categories": {
@@ -27462,9 +27462,9 @@
     "sku": "FC-IRENES-TIROPITA-1-2KG-1-2-KG-R567",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tiropita-1-2kg-1-2-kg/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tiropita-1-2kg-1-2-kg/verified-pack-20261027.jpg"
     ],
-    "storage_object_key": "products/tiropita-1-2kg-1-2-kg/primary.jpg",
+    "storage_object_key": "products/tiropita-1-2kg-1-2-kg/verified-pack-20261027.jpg",
     "category_id": 2,
     "brand": "IRENES",
     "unit": "EA",
@@ -27472,9 +27472,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.mediterraneanpita.com/frozen-swirls-pies/",
-    "image_source_url": "https://mediterraneanpita.com/wp-content/uploads/2023/07/Akropolis-TIROPITA-PIE_.png",
-    "image_license": "Manufacturer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://delahey.shop.morgansiga.com.au/lines/irenes-tiropita-cheese-pie-1kg",
+    "image_source_url": "https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon_webp/512/512/true/eyJpZCI6IjJmZTZkNTQxNDJlODZkNTcyOTAxMGJkNjliZjU4M2JkLmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=9e727107750db66b4106eeaf4f9fd19cf2cf43b85ccbfeac62c7b5196fe2cca4",
+    "image_license": "Retailer image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -27498,9 +27498,9 @@
         "price": 18.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tiropita-1-2kg-1-2-kg/primary.jpg",
-        "image_source_url": "https://mediterraneanpita.com/wp-content/uploads/2023/07/Akropolis-TIROPITA-PIE_.png",
-        "image_license": "Manufacturer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/tiropita-1-2kg-1-2-kg/verified-pack-20261027.jpg",
+        "image_source_url": "https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon_webp/512/512/true/eyJpZCI6IjJmZTZkNTQxNDJlODZkNTcyOTAxMGJkNjliZjU4M2JkLmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=9e727107750db66b4106eeaf4f9fd19cf2cf43b85ccbfeac62c7b5196fe2cca4",
+        "image_license": "Retailer image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -27518,9 +27518,9 @@
     "sku": "FC-IRENES-PUMPKIN-1-2KG-1-2-KG-R568",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/pumpkin-1-2kg-1-2-kg/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/pumpkin-1-2kg-1-2-kg/verified-pack-20261027.jpg"
     ],
-    "storage_object_key": "products/pumpkin-1-2kg-1-2-kg/primary.jpg",
+    "storage_object_key": "products/pumpkin-1-2kg-1-2-kg/verified-pack-20261027.jpg",
     "category_id": 2,
     "brand": "IRENES",
     "unit": "EA",
@@ -27528,9 +27528,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.elzymi.gr/chrysi-zymi-en",
-    "image_source_url": "https://www.elzymi.gr/portal-img/no_version/1/makedonitiko-striftari-kolokytha-600g-2000x2000-packshot-lgT8s.png",
-    "image_license": "Manufacturer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://shop.piedimonte.com.au/lines/irenes-pumpkin-cheese-1-2kg",
+    "image_source_url": "https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon_webp/512/512/true/eyJpZCI6ImJkOWMxMzY5OWM3ZDRlNDg3MDlhZmFhYTA1MmQyNmI3LmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=37edf445c2c0dbf9941c7972eb3125c2bc7e7e8606f7220cf7cb7041ecfa79a7",
+    "image_license": "Retailer image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -27554,9 +27554,9 @@
         "price": 18.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/pumpkin-1-2kg-1-2-kg/primary.jpg",
-        "image_source_url": "https://www.elzymi.gr/portal-img/no_version/1/makedonitiko-striftari-kolokytha-600g-2000x2000-packshot-lgT8s.png",
-        "image_license": "Manufacturer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/pumpkin-1-2kg-1-2-kg/verified-pack-20261027.jpg",
+        "image_source_url": "https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon_webp/512/512/true/eyJpZCI6ImJkOWMxMzY5OWM3ZDRlNDg3MDlhZmFhYTA1MmQyNmI3LmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=37edf445c2c0dbf9941c7972eb3125c2bc7e7e8606f7220cf7cb7041ecfa79a7",
+        "image_license": "Retailer image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -27574,9 +27574,9 @@
     "sku": "FC-IRENES-BEEF-EACH-R569",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/beef-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/beef-each/verified-pack-20261027.jpg"
     ],
-    "storage_object_key": "products/beef-each/primary.jpg",
+    "storage_object_key": "products/beef-each/verified-pack-20261027.jpg",
     "category_id": 2,
     "brand": "IRENES",
     "unit": "EA",
@@ -27584,9 +27584,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://tasaminubakery.com/product/frozen-beef-pie-small/",
-    "image_source_url": "https://tasaminubakery.com/wp-content/uploads/2020/05/beef-pie-web.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://delahey.shop.morgansiga.com.au/lines/irenes-kreatopita-savoury-beef-pie-1-2kg",
+    "image_source_url": "https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon_webp/512/512/true/eyJpZCI6ImQ0YzY1NTU5ODJmYjg0YjcxMjg5MDFjMmU3Njc2ZTY2LmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=fa46b090c375bcc54447cded8de2ba2daab3d903498e6e335827eb6ecb2d6261",
+    "image_license": "Retailer image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -27610,9 +27610,9 @@
         "price": 18.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/beef-each/primary.jpg",
-        "image_source_url": "https://tasaminubakery.com/wp-content/uploads/2020/05/beef-pie-web.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/beef-each/verified-pack-20261027.jpg",
+        "image_source_url": "https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon_webp/512/512/true/eyJpZCI6ImQ0YzY1NTU5ODJmYjg0YjcxMjg5MDFjMmU3Njc2ZTY2LmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=fa46b090c375bcc54447cded8de2ba2daab3d903498e6e335827eb6ecb2d6261",
+        "image_license": "Retailer image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {

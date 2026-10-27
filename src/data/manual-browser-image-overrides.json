@@ -934,5 +934,26 @@
     "image_source_url": "https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/512/512/true/eyJpZCI6IjljNTZjMzE5OTVlMDEyNjhmNDQ2YTAyYzczNDJmZTE5LmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=9baadb6311e723d0d2caa1903d25ba3367b24b056d0dee1ce6c7cff46321d8d7",
     "verification_note": "Searched the product by name in Chrome Bing Images; exact Irenes Spanakopita spinach pie 1.2kg product image.",
     "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+  },
+  "567": {
+    "product_source_url": "https://delahey.shop.morgansiga.com.au/lines/irenes-tiropita-cheese-pie-1kg",
+    "image_source_url": "https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon_webp/512/512/true/eyJpZCI6IjJmZTZkNTQxNDJlODZkNTcyOTAxMGJkNjliZjU4M2JkLmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=9e727107750db66b4106eeaf4f9fd19cf2cf43b85ccbfeac62c7b5196fe2cca4",
+    "verification_note": "Google Images result opened at Morgan's IGA Delahey and visually checked: Irene's branded Tiropita/cheese pie package. Retailer listing labels it 1kg while workbook says 1.2kg; no exact 1.2kg Tiropita package was found in the reviewed results.",
+    "image_license": "Retailer image; source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/tiropita-1-2kg-1-2-kg/verified-pack-20261027.jpg"
+  },
+  "568": {
+    "product_source_url": "https://shop.piedimonte.com.au/lines/irenes-pumpkin-cheese-1-2kg",
+    "image_source_url": "https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon_webp/512/512/true/eyJpZCI6ImJkOWMxMzY5OWM3ZDRlNDg3MDlhZmFhYTA1MmQyNmI3LmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=37edf445c2c0dbf9941c7972eb3125c2bc7e7e8606f7220cf7cb7041ecfa79a7",
+    "verification_note": "Google Images result opened at Piedimonte's and visually checked: Irene's Pumpkin & Cheese Pie package marked 1.2kg; product family, brand, and workbook size match.",
+    "image_license": "Retailer image; source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/pumpkin-1-2kg-1-2-kg/verified-pack-20261027.jpg"
+  },
+  "569": {
+    "product_source_url": "https://delahey.shop.morgansiga.com.au/lines/irenes-kreatopita-savoury-beef-pie-1-2kg",
+    "image_source_url": "https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon_webp/512/512/true/eyJpZCI6ImQ0YzY1NTU5ODJmYjg0YjcxMjg5MDFjMmU3Njc2ZTY2LmpwZyIsInN0b3JhZ2UiOiJwdWJsaWNfc3RvcmUifQ?signature=fa46b090c375bcc54447cded8de2ba2daab3d903498e6e335827eb6ecb2d6261",
+    "verification_note": "Google Images result opened at Morgan's IGA Delahey and visually checked: Irene's Kreatopita savoury beef pie package marked 1.2kg; brand and product family match the workbook item.",
+    "image_license": "Retailer image; source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/beef-each/verified-pack-20261027.jpg"
   }
 }
