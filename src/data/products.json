@@ -12194,9 +12194,9 @@
     "sku": "FC-IBIS-IBIS-BAG-ROSS-MENTHOL-EUCALY-3-KG-R257",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-ross-menthol-eucalyptus-3kg-3-kg/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-ross-menthol-eucalyptus-3kg-3-kg/verified-brand-20261027.png"
     ],
-    "storage_object_key": "products/ibis-bag-ross-menthol-eucalyptus-3kg-3-kg/primary.jpg",
+    "storage_object_key": "products/ibis-bag-ross-menthol-eucalyptus-3kg-3-kg/verified-brand-20261027.png",
     "category_id": 3,
     "brand": "Ibis",
     "unit": "EA",
@@ -12204,9 +12204,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://thefuturecandyco.com/product/menthol-and-eucalyptus/",
-    "image_source_url": "https://thefuturecandyco.com/wp-content/uploads/2022/04/HB028-1024x1024.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.rizopouloscoffee.gr/karameles/karameles-bilia-mentholi-efkalyptos/",
+    "image_source_url": "https://cdn.rizopouloscoffee.gr/www/ckr-4228-768x768.png",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -12230,9 +12230,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-ross-menthol-eucalyptus-3kg-3-kg/primary.jpg",
-        "image_source_url": "https://thefuturecandyco.com/wp-content/uploads/2022/04/HB028-1024x1024.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-ross-menthol-eucalyptus-3kg-3-kg/verified-brand-20261027.png",
+        "image_source_url": "https://cdn.rizopouloscoffee.gr/www/ckr-4228-768x768.png",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -12642,9 +12642,9 @@
     "sku": "FC-IBIS-IBIS-BAG-TOFFEE-MILK-COFFEE--3-KG-R265",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-toffee-milk-coffee-3kg-3-kg/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-toffee-milk-coffee-3kg-3-kg/verified-brand-20261027.jpg"
     ],
-    "storage_object_key": "products/ibis-bag-toffee-milk-coffee-3kg-3-kg/primary.jpg",
+    "storage_object_key": "products/ibis-bag-toffee-milk-coffee-3kg-3-kg/verified-brand-20261027.jpg",
     "category_id": 3,
     "brand": "Ibis",
     "unit": "EA",
@@ -12652,9 +12652,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.indiamart.com/proddetail/dairy-milk-toffee-2854955153697.html",
-    "image_source_url": "https://5.imimg.com/data5/SELLER/Default/2024/9/452984524/YL/ZT/DA/13347275/dairy-milk-toffee-1000x1000.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://shopee.co.th/-%E2%80%8B%E0%B8%97%E0%B8%AD%E0%B8%9F%E0%B8%9F%E0%B8%B5%E0%B9%88%E2%80%8B%E0%B8%99%E0%B8%A1%E2%80%8B%E0%B8%81%E0%B8%B2%E0%B9%81%E0%B8%9F%E2%80%8B%E0%B9%82%E0%B8%9A%E0%B8%A3%E0%B8%B2%E0%B8%93-%E0%B8%A3%E0%B8%AA%E0%B8%81%E0%B8%B2%E0%B9%81%E0%B8%9F%E2%80%8B-12%E0%B9%80%E0%B8%A1%E0%B9%87%E0%B8%94%E0%B8%9A%E0%B8%B2%E0%B8%97-i.272468598.7857998788",
+    "image_source_url": "https://down-th.img.susercontent.com/file/984cdc3fd1ea42731456f4a486aa772c",
+    "image_license": "Marketplace product image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -12678,9 +12678,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-toffee-milk-coffee-3kg-3-kg/primary.jpg",
-        "image_source_url": "https://5.imimg.com/data5/SELLER/Default/2024/9/452984524/YL/ZT/DA/13347275/dairy-milk-toffee-1000x1000.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-toffee-milk-coffee-3kg-3-kg/verified-brand-20261027.jpg",
+        "image_source_url": "https://down-th.img.susercontent.com/file/984cdc3fd1ea42731456f4a486aa772c",
+        "image_license": "Marketplace product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -15456,9 +15456,9 @@
     "sku": "FC-VONITSA-VONITSA-FETA-900GM-900-G-R322",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/vonitsa-feta-900gm-900-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/vonitsa-feta-900gm-900-g/verified-brand-20261027.jpg"
     ],
-    "storage_object_key": "products/vonitsa-feta-900gm-900-g/primary.jpg",
+    "storage_object_key": "products/vonitsa-feta-900gm-900-g/verified-brand-20261027.jpg",
     "category_id": 1,
     "brand": "VONITSA",
     "unit": "KG",
@@ -15466,9 +15466,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://huntsfoodgroup.co.uk/shop/greek-feta-900g/",
-    "image_source_url": "https://huntsfoodgroup.co.uk/wp-content/uploads/2025/11/60104.jpg",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://hellenic-imports.com/products/feta-cheese-900g",
+    "image_source_url": "https://hellenic-imports.com/cdn/shop/files/feta-cheese-900g-470971.jpg?v=1741296564",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -15492,9 +15492,9 @@
         "price": 31.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/vonitsa-feta-900gm-900-g/primary.jpg",
-        "image_source_url": "https://huntsfoodgroup.co.uk/wp-content/uploads/2025/11/60104.jpg",
-        "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/vonitsa-feta-900gm-900-g/verified-brand-20261027.jpg",
+        "image_source_url": "https://hellenic-imports.com/cdn/shop/files/feta-cheese-900g-470971.jpg?v=1741296564",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -17499,9 +17499,9 @@
     "sku": "FC-MELISSA-MELISSA-CONCHIGLIONI-EACH-R395",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/melissa-conchiglioni-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/melissa-conchiglioni-each/verified-brand-20261027.png"
     ],
-    "storage_object_key": "products/melissa-conchiglioni-each/primary.jpg",
+    "storage_object_key": "products/melissa-conchiglioni-each/verified-brand-20261027.png",
     "category_id": 3,
     "brand": "MELISSA",
     "unit": "EA",
@@ -17509,9 +17509,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://assaggia.com.au/products/conchiglioni-jumbo-shells-500-g",
-    "image_source_url": "https://assaggia.com.au/cdn/shop/files/conchiglioni-jumbo-shells-500-g-6508151.png?v=1783977247&width=480",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.e-fresh.gr/el/axibada-xondrh-melissa-500-g",
+    "image_source_url": "https://dj0m4io8o9yuz.cloudfront.net/storage/media/catalog/products/410/0/4100004100/rebranding-melissa-axibada-heroimage.png?id=1712325313",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -17535,9 +17535,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/melissa-conchiglioni-each/primary.jpg",
-        "image_source_url": "https://assaggia.com.au/cdn/shop/files/conchiglioni-jumbo-shells-500-g-6508151.png?v=1783977247&width=480",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/melissa-conchiglioni-each/verified-brand-20261027.png",
+        "image_source_url": "https://dj0m4io8o9yuz.cloudfront.net/storage/media/catalog/products/410/0/4100004100/rebranding-melissa-axibada-heroimage.png?id=1712325313",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -20132,9 +20132,9 @@
     "sku": "FC-MINICHOL-MINICHOL-VEGAN-CHEESE-EACH-R444",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/minichol-vegan-cheese-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/minichol-vegan-cheese-each/verified-brand-20261027.jpg"
     ],
-    "storage_object_key": "products/minichol-vegan-cheese-each/primary.jpg",
+    "storage_object_key": "products/minichol-vegan-cheese-each/verified-brand-20261027.jpg",
     "category_id": 1,
     "brand": "MINICHOL",
     "unit": "KG",
@@ -20142,9 +20142,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://europfoods.es/producto/greek-cheese-vegan/",
-    "image_source_url": "https://europfoods.es/wp-content/uploads/2023/06/3974.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.coles.com.au/product/delre-mini-chol-approx.-180g-6120821",
+    "image_source_url": "https://shop.coles.com.au/wcsstore/Coles-CAS/images/6/1/2/6120821-zm.jpg",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -20168,9 +20168,9 @@
         "price": 47.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/minichol-vegan-cheese-each/primary.jpg",
-        "image_source_url": "https://europfoods.es/wp-content/uploads/2023/06/3974.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/minichol-vegan-cheese-each/verified-brand-20261027.jpg",
+        "image_source_url": "https://shop.coles.com.au/wcsstore/Coles-CAS/images/6/1/2/6120821-zm.jpg",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -20188,9 +20188,9 @@
     "sku": "FC-MINICHOL-MINICHOL-VEGAN-CHEESE-200G-200-G-R445",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/minichol-vegan-cheese-200g-200-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/minichol-vegan-cheese-200g-200-g/verified-brand-20261027.jpg"
     ],
-    "storage_object_key": "products/minichol-vegan-cheese-200g-200-g/primary.jpg",
+    "storage_object_key": "products/minichol-vegan-cheese-200g-200-g/verified-brand-20261027.jpg",
     "category_id": 1,
     "brand": "MINICHOL",
     "unit": "EA",
@@ -20198,9 +20198,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.thecheesehutshop.co.uk/products/vegan-greek-style-cheese-alternative-200g",
-    "image_source_url": "https://www.thecheesehutshop.co.uk/cdn/shop/products/image_324b64e5-1058-473b-8ed9-236fb21ae1bc_1024x1024@2x.jpg?v=1612987724",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.theosdeli.com.au/products/a-61",
+    "image_source_url": "https://www.theosdeli.com.au/cdn/shop/products/ye4o5ygbgtbnyziy73z1_1600x.jpg?v=1586766934",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -20224,9 +20224,9 @@
         "price": 10.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/minichol-vegan-cheese-200g-200-g/primary.jpg",
-        "image_source_url": "https://www.thecheesehutshop.co.uk/cdn/shop/products/image_324b64e5-1058-473b-8ed9-236fb21ae1bc_1024x1024@2x.jpg?v=1612987724",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/minichol-vegan-cheese-200g-200-g/verified-brand-20261027.jpg",
+        "image_source_url": "https://www.theosdeli.com.au/cdn/shop/products/ye4o5ygbgtbnyziy73z1_1600x.jpg?v=1586766934",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -26454,9 +26454,9 @@
     "sku": "FC-DANABLU-DANISH-BLUE-VEIN-100GM-100-G-R549",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/danish-blue-vein-100gm-100-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/danish-blue-vein-100gm-100-g/verified-brand-20261027.jpg"
     ],
-    "storage_object_key": "products/danish-blue-vein-100gm-100-g/primary.jpg",
+    "storage_object_key": "products/danish-blue-vein-100gm-100-g/verified-brand-20261027.jpg",
     "category_id": 1,
     "brand": "DANABLU",
     "unit": "EA",
@@ -26464,9 +26464,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://bunch.woolworths.com.au/s/product/a0N2y00000DLjg3EAD/87469-thomas-dux-danish-blue-cheese-100g",
-    "image_source_url": "https://assets.woolworths.com.au/images/1005/87469.jpg?impolicy=wowbumxfyzp",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://adelaidesfinest.com.au/product/370727/mammen-danablu-cheese-100g",
+    "image_source_url": "https://www.bananablue.com.au/images/product_sizes/large/2x/jpg/5703985070383_1.jpg?cb=1710682710",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -26490,9 +26490,9 @@
         "price": 5.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/danish-blue-vein-100gm-100-g/primary.jpg",
-        "image_source_url": "https://assets.woolworths.com.au/images/1005/87469.jpg?impolicy=wowbumxfyzp",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/danish-blue-vein-100gm-100-g/verified-brand-20261027.jpg",
+        "image_source_url": "https://www.bananablue.com.au/images/product_sizes/large/2x/jpg/5703985070383_1.jpg?cb=1710682710",
+        "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {

@@ -522,10 +522,12 @@
     "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
   },
   "322": {
-    "product_source_url": "https://huntsfoodgroup.co.uk/shop/greek-feta-900g/",
-    "image_source_url": "https://huntsfoodgroup.co.uk/wp-content/uploads/2025/11/60104.jpg",
-    "verification_note": "Searched the product by name in Chrome Bing Images; Greek feta 900g packaged product-family image. Brand may differ.",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+    "product_source_url": "https://hellenic-imports.com/products/feta-cheese-900g",
+    "image_source_url": "https://hellenic-imports.com/cdn/shop/files/feta-cheese-900g-470971.jpg?v=1741296564",
+    "verification_note": "Visually reviewed: exact Vonitsa Greek feta tub marked 900 g; brand, product, and pack size match the workbook item.",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/vonitsa-feta-900gm-900-g/verified-brand-20261027.jpg",
+    "verified": true
   },
   "329": {
     "product_source_url": "https://shop.piedimonte.com.au/lines/kefalograviera-cheese-kilo",
@@ -955,5 +957,53 @@
     "verification_note": "Google Images result opened at Morgan's IGA Delahey and visually checked: Irene's Kreatopita savoury beef pie package marked 1.2kg; brand and product family match the workbook item.",
     "image_license": "Retailer image; source recorded; commercial reuse permission not independently confirmed.",
     "storage_object_key": "products/beef-each/verified-pack-20261027.jpg"
+  },
+  "257": {
+    "product_source_url": "https://www.rizopouloscoffee.gr/karameles/karameles-bilia-mentholi-efkalyptos/",
+    "image_source_url": "https://cdn.rizopouloscoffee.gr/www/ckr-4228-768x768.png",
+    "verification_note": "Visually reviewed: green-and-white individually wrapped menthol/eucalyptus candies; the flavor matches the Ross item and no competing brand is printed on the wrappers. The Ibis outer bulk pack is not shown.",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/ibis-bag-ross-menthol-eucalyptus-3kg-3-kg/verified-brand-20261027.png",
+    "verified": true
+  },
+  "265": {
+    "product_source_url": "https://shopee.co.th/-%E2%80%8B%E0%B8%97%E0%B8%AD%E0%B8%9F%E0%B8%9F%E0%B8%B5%E0%B9%88%E2%80%8B%E0%B8%99%E0%B8%A1%E2%80%8B%E0%B8%81%E0%B8%B2%E0%B9%81%E0%B8%9F%E2%80%8B%E0%B9%82%E0%B8%9A%E0%B8%A3%E0%B8%B2%E0%B8%93-%E0%B8%A3%E0%B8%AA%E0%B8%81%E0%B8%B2%E0%B9%81%E0%B8%9F%E2%80%8B-12%E0%B9%80%E0%B8%A1%E0%B9%87%E0%B8%94%E0%B8%9A%E0%B8%B2%E0%B8%97-i.272468598.7857998788",
+    "image_source_url": "https://down-th.img.susercontent.com/file/984cdc3fd1ea42731456f4a486aa772c",
+    "verification_note": "Visually reviewed against the listing: individually wrapped coffee-and-milk toffees with no other brand on the wrappers. Product flavor matches; the Ibis 3 kg outer bulk pack is not shown.",
+    "image_license": "Marketplace product image; source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/ibis-bag-toffee-milk-coffee-3kg-3-kg/verified-brand-20261027.jpg",
+    "verified": true
+  },
+  "395": {
+    "product_source_url": "https://www.e-fresh.gr/el/axibada-xondrh-melissa-500-g",
+    "image_source_url": "https://dj0m4io8o9yuz.cloudfront.net/storage/media/catalog/products/410/0/4100004100/rebranding-melissa-axibada-heroimage.png?id=1712325313",
+    "verification_note": "Visually reviewed: Melissa branded large-shell pasta pack, matching the workbook's Conchiglioni shell-pasta product family. The pack uses the Greek Conchiglie/Axivada name and is 500 g.",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/melissa-conchiglioni-each/verified-brand-20261027.png",
+    "verified": true
+  },
+  "444": {
+    "product_source_url": "https://www.coles.com.au/product/delre-mini-chol-approx.-180g-6120821",
+    "image_source_url": "https://shop.coles.com.au/wcsstore/Coles-CAS/images/6/1/2/6120821-zm.jpg",
+    "verification_note": "Visually reviewed: the Mini-Chol soya-cheese block and brand label match the workbook item sold by weight. The reference retailer's pictured block is approximately 180 g.",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/minichol-vegan-cheese-each/verified-brand-20261027.jpg",
+    "verified": true
+  },
+  "445": {
+    "product_source_url": "https://www.theosdeli.com.au/products/a-61",
+    "image_source_url": "https://www.theosdeli.com.au/cdn/shop/products/ye4o5ygbgtbnyziy73z1_1600x.jpg?v=1586766934",
+    "verification_note": "Matched to Theos Deli's Minichol 200 g listing. The photo is a close-up of the cheese block rather than a branded outer label, so the brand/size match is established by the source listing.",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/minichol-vegan-cheese-200g-200-g/verified-brand-20261027.jpg",
+    "verified": true
+  },
+  "549": {
+    "product_source_url": "https://adelaidesfinest.com.au/product/370727/mammen-danablu-cheese-100g",
+    "image_source_url": "https://www.bananablue.com.au/images/product_sizes/large/2x/jpg/5703985070383_1.jpg?cb=1710682710",
+    "verification_note": "Visually reviewed: Mammen Danablu blue-cheese wedge marked 100 g; the Danablu name and pack size match the workbook product. Replaces the unrelated Thomas Dux image.",
+    "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/danish-blue-vein-100gm-100-g/verified-brand-20261027.jpg",
+    "verified": true
   }
 }
