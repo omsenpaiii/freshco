@@ -1042,5 +1042,37 @@
     "image_license": "Retailer product image; source recorded; commercial reuse permission not independently confirmed.",
     "storage_object_key": "products/danish-blue-vein-100gm-100-g/verified-brand-20261027.jpg",
     "verified": true
+  },
+  "150": {
+    "product_source_url": "https://greekshop.com.au/product/manna-olive-oil-w-orange-cinnamon-145g/",
+    "image_source_url": "https://greekshop.com.au/wp-content/uploads/2024/10/MANNA-Olive-Oil-w-Orange-Cinnamon-145gr-1030x1030.jpg",
+    "verification_note": "Visually reviewed: Manna olive-oil biscuits, branded pack marked 145 g. The workbook does not specify a flavour; the source listing is orange and cinnamon and matches the brand, biscuit type, and pack size.",
+    "image_license": "Retailer image source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/manna-sweet-biscuits-w-olive-oil-mini-145g-x-12-145-g/photo-20261029.jpg",
+    "verified": true
+  },
+  "160": {
+    "product_source_url": "https://greekshop.com.au/product/mezap-halva-vanilla-400gr/",
+    "image_source_url": "https://greekshop.com.au/wp-content/uploads/2021/08/Mezap-Halva-Vanilla.jpg",
+    "verification_note": "Visually reviewed: Mezap vanilla halva pack, 400 g. The workbook also says 'with Stevia', but searches found vanilla and Stevia as separate Mezap variants; this image confirms vanilla/brand/size only, so the combined variant wording still needs client confirmation.",
+    "image_license": "Retailer image source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/halva-vanilla-w-stevia-400g-400-g/photo-20261029.jpg",
+    "verified": true
+  },
+  "317": {
+    "product_source_url": "https://loumidisfoods.com/product/olympus-feta-cheese-1-kg/",
+    "image_source_url": "https://loumidisfoods.com/wp-content/uploads/2020/05/OLFT1000.jpg",
+    "verification_note": "Visually reviewed: Olympus Feta Original 1 kg branded pack from the distributor. The workbook says 'Romanina Feta 900g'; no exact Romanina/900 g package was found, so the image is a relevant Olympus feta pack reference but the listed sub-line and size are not verified.",
+    "image_license": "Distributor image source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/olympus-romanina-feta-900g-900-g/photo-20261029.jpg",
+    "verified": true
+  },
+  "493": {
+    "product_source_url": "https://pantalicacheese.com.au/products/bacio-cheese-500g",
+    "image_source_url": "https://pantalicacheese.com.au/cdn/shop/files/Fresh_Bacio_Cheese_New_Label.jpg?v=1730675881&width=1200",
+    "verification_note": "Visually reviewed against the Pantalica manufacturer listing: regular Fresh Bacio Cheese, 500 g. This replaces a low-fat product-page reference; the image shows the regular labelled 500 g tub.",
+    "image_license": "Manufacturer image source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/pantalica-baccio-cheese-500gm-500-g/photo-20261029.jpg",
+    "verified": true
   }
 }
