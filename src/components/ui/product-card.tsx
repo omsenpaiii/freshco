@@ -25,9 +25,13 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
   const isIllustrativeImage = /pexels license|generic illustrative/i.test(image_license || '') || /\/generic-\d{8}\.jpg(?:[?#]|$)/i.test(image)
   const imageFitClass = isIllustrativeImage ? 'object-cover' : 'object-contain'
   const imageFrameClass = isIllustrativeImage ? 'bg-brand-cloud' : 'bg-white'
+  // Pack shots usually benefit from a gentle enlargement; the Artichoke source
+  // has unusually wide built-in margins, so give that package a little more room.
   const imageScaleClass = isIllustrativeImage
     ? 'group-hover:scale-[1.04]'
-    : 'scale-[1.04] group-hover:scale-[1.1]'
+    : slug === 'artichoke-each'
+      ? 'scale-[1.22] group-hover:scale-[1.26]'
+      : 'scale-[1.1] group-hover:scale-[1.14]'
   const [imageFailed, setImageFailed] = useState(false)
   const hasImage = Boolean(image && !imageFailed)
   const hasHoverImage = hasImage && hoverImage !== image
