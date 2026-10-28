@@ -8217,9 +8217,9 @@
     "sku": "FC-LIRA-LIRA-JAR-CLOVES-WHOLE-35G-35-G-R166",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/lira-jar-cloves-whole-35g-35-g/generic-20261028.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/lira-jar-cloves-whole-35g-35-g/primary-20261029.jpg"
     ],
-    "storage_object_key": "products/lira-jar-cloves-whole-35g-35-g/generic-20261028.jpg",
+    "storage_object_key": "products/lira-jar-cloves-whole-35g-35-g/primary-20261029.jpg",
     "category_id": 3,
     "brand": "Lira",
     "unit": "EA",
@@ -8228,8 +8228,8 @@
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://greekshop.com.au/product/lira-clove-corns-35g/",
-    "image_source_url": "https://images.pexels.com/photos/11000777/pexels-photo-11000777.jpeg?cs=tinysrgb&w=1400",
-    "image_license": "Pexels License: free to use, including on e-commerce websites; image source https://www.pexels.com/photo/close-up-of-dry-herbs-11000777/ and license https://www.pexels.com/license/; source retained.",
+    "image_source_url": "https://greekshop.com.au/wp-content/uploads/2022/05/Lira-Cloves-Corns-40g.jpg",
+    "image_license": "Retailer product image; source retained. Commercial image-reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -8253,9 +8253,9 @@
         "price": 4.5,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/lira-jar-cloves-whole-35g-35-g/generic-20261028.jpg",
-        "image_source_url": "https://images.pexels.com/photos/11000777/pexels-photo-11000777.jpeg?cs=tinysrgb&w=1400",
-        "image_license": "Pexels License: free to use, including on e-commerce websites; image source https://www.pexels.com/photo/close-up-of-dry-herbs-11000777/ and license https://www.pexels.com/license/; source retained."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/lira-jar-cloves-whole-35g-35-g/primary-20261029.jpg",
+        "image_source_url": "https://greekshop.com.au/wp-content/uploads/2022/05/Lira-Cloves-Corns-40g.jpg",
+        "image_license": "Retailer product image; source retained. Commercial image-reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -13258,9 +13258,9 @@
     "sku": "FC-EVRIPOS-EVRIPOS-CRUSHED-OREGANO-100G-100-G-R283",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/evripos-crushed-oregano-100gm-100-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/evripos-crushed-oregano-100gm-100-g/primary-20261029.jpg"
     ],
-    "storage_object_key": "products/evripos-crushed-oregano-100gm-100-g/primary.jpg",
+    "storage_object_key": "products/evripos-crushed-oregano-100gm-100-g/primary-20261029.jpg",
     "category_id": 3,
     "brand": "Evripos",
     "unit": "EA",
@@ -13268,9 +13268,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://aroonkumar.com/product/crushed-oregano/",
-    "image_source_url": "https://aroonkumar.com/wp-content/uploads/2025/01/Crushed-Oregano.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.themelbournedeli.com.au/product-page/oregano-evripos-100g",
+    "image_source_url": "https://static.wixstatic.com/media/307ec1_8b045a837d684ea58cf61b193b48e18b~mv2.jpg/v1/fill/w_3120,h_4160,al_c,q_85/307ec1_8b045a837d684ea58cf61b193b48e18b~mv2.jpg",
+    "image_license": "Retailer product image; source retained. Commercial image-reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -13294,9 +13294,9 @@
         "price": 5.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/evripos-crushed-oregano-100gm-100-g/primary.jpg",
-        "image_source_url": "https://aroonkumar.com/wp-content/uploads/2025/01/Crushed-Oregano.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/evripos-crushed-oregano-100gm-100-g/primary-20261029.jpg",
+        "image_source_url": "https://static.wixstatic.com/media/307ec1_8b045a837d684ea58cf61b193b48e18b~mv2.jpg/v1/fill/w_3120,h_4160,al_c,q_85/307ec1_8b045a837d684ea58cf61b193b48e18b~mv2.jpg",
+        "image_license": "Retailer product image; source retained. Commercial image-reuse permission not independently confirmed."
       }
     ],
     "categories": {

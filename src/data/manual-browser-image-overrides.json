@@ -939,10 +939,19 @@
   },
   "166": {
     "product_source_url": "https://greekshop.com.au/product/lira-clove-corns-35g/",
-    "image_source_url": "https://images.pexels.com/photos/11000777/pexels-photo-11000777.jpeg?cs=tinysrgb&w=1400",
-    "verification_note": "Google Images and product-page review found no trustworthy Lira pack shot: the result titled Lira showed a different brand, while the previous G-Fresh jar was also a brand mismatch. Replaced it with a relevant, unbranded close-up of dried cloves; it depicts the ingredient rather than claiming to be Lira packaging.",
-    "image_license": "Pexels License: free to use, including on e-commerce websites; image source https://www.pexels.com/photo/close-up-of-dry-herbs-11000777/ and license https://www.pexels.com/license/; source retained.",
-    "storage_object_key": "products/lira-jar-cloves-whole-35g-35-g/generic-20261028.jpg"
+    "image_source_url": "https://greekshop.com.au/wp-content/uploads/2022/05/Lira-Cloves-Corns-40g.jpg",
+    "verification_note": "Visually reviewed the Greek Shop product listing titled Lira Clove Corns 35g and its matching blue Lira whole-cloves jar. The product page lists 35g, while the image filename says 40g; the jar itself does not visibly show the net weight, so brand/product match is strong but pack-weight match remains uncertain.",
+    "image_license": "Retailer product image; source retained. Commercial image-reuse permission not independently confirmed.",
+    "storage_object_key": "products/lira-jar-cloves-whole-35g-35-g/primary-20261029.jpg",
+    "verified": true
+  },
+  "283": {
+    "product_source_url": "https://www.themelbournedeli.com.au/product-page/oregano-evripos-100g",
+    "image_source_url": "https://static.wixstatic.com/media/307ec1_8b045a837d684ea58cf61b193b48e18b~mv2.jpg/v1/fill/w_3120,h_4160,al_c,q_85/307ec1_8b045a837d684ea58cf61b193b48e18b~mv2.jpg",
+    "verification_note": "Visually reviewed the Melbourne Deli product image: the front label explicitly reads OREGANO (EVRIPOS) and 100g, matching the workbook product name, brand, herb, and pack size.",
+    "image_license": "Retailer product image; source retained. Commercial image-reuse permission not independently confirmed.",
+    "storage_object_key": "products/evripos-crushed-oregano-100gm-100-g/primary-20261029.jpg",
+    "verified": true
   },
   "530": {
     "product_source_url": "https://food-brands.com.au/product-category/mortadella/",

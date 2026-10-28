@@ -24,10 +24,11 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
   // because both kinds of image may be stored under a product-specific key.
   const isIllustrativeImage = /pexels license|generic illustrative/i.test(image_license || '') || /\/generic-\d{8}\.jpg(?:[?#]|$)/i.test(image)
   const imageFitClass = isIllustrativeImage ? 'object-cover' : 'object-contain'
-  const imageFrameClass = isIllustrativeImage ? 'bg-brand-cloud' : 'bg-white'
-  // Keep packaging fully inside its frame so every label and edge stays visible.
-  // The soft blurred layer behind it adds visual fill without cropping the pack.
-  const imageScaleClass = isIllustrativeImage ? 'group-hover:scale-[1.04]' : 'scale-100'
+  const imageFrameClass = 'bg-brand-cloud'
+  // Keep packaging fully inside the frame so labels and edges stay visible.
+  // A subtle scale plus multiply blending lets light source backgrounds merge
+  // into the card's soft tint instead of appearing as a smaller white tile.
+  const imageScaleClass = isIllustrativeImage ? 'group-hover:scale-[1.04]' : 'scale-[1.04]'
   const [imageFailed, setImageFailed] = useState(false)
   const hasImage = Boolean(image && !imageFailed)
   const hasHoverImage = hasImage && hoverImage !== image
@@ -72,10 +73,10 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
                 fill
                 onLoad={() => setImageLoaded(true)}
                 onError={() => setImageFailed(true)}
-                className={`z-10 ${imageFitClass} object-center transition duration-700 ease-out ${imageScaleClass} ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${hasHoverImage ? 'group-hover:opacity-0' : ''}`}
+                className={`z-10 ${imageFitClass} object-center transition duration-700 ease-out ${imageScaleClass} ${!isIllustrativeImage ? 'mix-blend-multiply' : ''} ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${hasHoverImage ? 'group-hover:opacity-0' : ''}`}
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
-              {hasHoverImage && hoverImage && <Image src={hoverImage} alt="" fill onError={() => setImageFailed(true)} className={`absolute inset-0 z-20 ${imageFitClass} object-center opacity-0 transition duration-700 ease-out ${imageScaleClass} group-hover:opacity-100`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />}
+              {hasHoverImage && hoverImage && <Image src={hoverImage} alt="" fill onError={() => setImageFailed(true)} className={`absolute inset-0 z-20 ${imageFitClass} object-center opacity-0 transition duration-700 ease-out ${imageScaleClass} ${!isIllustrativeImage ? 'mix-blend-multiply' : ''} group-hover:opacity-100`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />}
             </>
           ) : (
             <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-content-muted">
