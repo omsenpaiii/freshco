@@ -31278,9 +31278,9 @@
       "sku": "FC-ZAMMIT-ZAMMIT-CHICKEN-ROLL-EACH-R540",
       "inventory_quantity": 100,
       "images": [
-        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/zammit-chicken-roll-each/primary-20261028.jpg"
+        "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/zammit-chicken-roll-each/generic-chicken-roll-20261029.jpg"
       ],
-      "storage_object_key": "products/zammit-chicken-roll-each/primary-20261028.jpg",
+      "storage_object_key": "products/zammit-chicken-roll-each/generic-chicken-roll-20261029.jpg",
       "category_id": 5,
       "brand": "ZAMMIT",
       "unit": "KG",
@@ -31289,8 +31289,8 @@
       "status": "published",
       "image_match_status": "verified",
       "product_source_url": "https://zammitham.com.au/shop/item/smoked-chicken-breast-skin-off",
-      "image_source_url": "https://zammitham.com.au/persistent/catalogue_images/products/_DSC3972.jpg",
-      "image_license": "Official Zammit Ham manufacturer product image; source retained. Commercial image-reuse permission not independently confirmed.",
+      "image_source_url": "https://kjpoultry.com/wp-content/uploads/2022/04/KJ-Poultry-Kosher-Bulk-Chicken-Roll-10422-scaled.jpg",
+      "image_license": "Third-party product image source recorded; commercial reuse permission not independently confirmed.",
       "draft_reason": null,
       "is_featured": false,
       "is_trending": false,
@@ -31314,9 +31314,9 @@
           "price": 15.99,
           "inventory_quantity": 100,
           "is_default": true,
-          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/zammit-chicken-roll-each/primary-20261028.jpg",
-          "image_source_url": "https://zammitham.com.au/persistent/catalogue_images/products/_DSC3972.jpg",
-          "image_license": "Official Zammit Ham manufacturer product image; source retained. Commercial image-reuse permission not independently confirmed."
+          "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/zammit-chicken-roll-each/generic-chicken-roll-20261029.jpg",
+          "image_source_url": "https://kjpoultry.com/wp-content/uploads/2022/04/KJ-Poultry-Kosher-Bulk-Chicken-Roll-10422-scaled.jpg",
+          "image_license": "Third-party product image source recorded; commercial reuse permission not independently confirmed."
         }
       ],
       "categories": {

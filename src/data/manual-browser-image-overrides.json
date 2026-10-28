@@ -938,10 +938,10 @@
   },
   "540": {
     "product_source_url": "https://zammitham.com.au/shop/item/smoked-chicken-breast-skin-off",
-    "image_source_url": "https://zammitham.com.au/persistent/catalogue_images/products/_DSC3972.jpg",
-    "verification_note": "Manually checked Zammit's official Turkey & Chicken product list; it lists Smoked Chicken Breast Skin Off but no Chicken Roll. Replaced the unrelated Essmor-branded pack with the closest brand-matched Zammit chicken deli product image; this is a product-family image, not verified as the exact Chicken Roll.",
-    "image_license": "Official Zammit Ham manufacturer product image; source retained. Commercial image-reuse permission not independently confirmed.",
-    "storage_object_key": "products/zammit-chicken-roll-each/primary-20261028.jpg"
+    "image_source_url": "https://kjpoultry.com/wp-content/uploads/2022/04/KJ-Poultry-Kosher-Bulk-Chicken-Roll-10422-scaled.jpg",
+    "verification_note": "Searched Google Images and checked the product image: it clearly shows an unbranded chicken-roll log with slices. Zammit's official Turkey & Chicken list has no Chicken Roll entry, so no exact Zammit pack image was found. Use this non-branded product-type reference rather than a smoked chicken-breast pack; workbook name and Zammit brand remain unchanged.",
+    "image_license": "Third-party product image source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/zammit-chicken-roll-each/generic-chicken-roll-20261029.jpg"
   },
   "544": {
     "product_source_url": "https://www.provisionandpan.com/product/loumidis-greek-coffee-194g/",
