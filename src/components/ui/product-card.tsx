@@ -25,10 +25,14 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
   const isIllustrativeImage = /pexels license|generic illustrative/i.test(image_license || '') || /\/generic-\d{8}\.jpg(?:[?#]|$)/i.test(image)
   const imageFitClass = isIllustrativeImage ? 'object-cover' : 'object-contain'
   const imageFrameClass = 'bg-brand-cloud'
-  // Keep packaging fully inside the frame so labels and edges stay visible.
-  // A subtle scale plus multiply blending lets light source backgrounds merge
-  // into the card's soft tint instead of appearing as a smaller white tile.
-  const imageScaleClass = isIllustrativeImage ? 'group-hover:scale-[1.04]' : 'scale-[1.04]'
+  // Keep packaging fully visible at rest, then gently enlarge it on hover so
+  // the product feels more present without switching pack shots to a crop.
+  // Illustrative food photos use the frame edge-to-edge and only get a small
+  // hover zoom; multiply blending helps white pack-shot backgrounds sit cleanly
+  // against the card's soft tint.
+  const imageScaleClass = isIllustrativeImage
+    ? 'group-hover:scale-[1.04]'
+    : 'scale-[1.04] group-hover:scale-[1.08]'
   const [imageFailed, setImageFailed] = useState(false)
   const hasImage = Boolean(image && !imageFailed)
   const hasHoverImage = hasImage && hoverImage !== image
