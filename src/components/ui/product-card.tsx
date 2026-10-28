@@ -24,6 +24,10 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
   // because both kinds of image may be stored under a product-specific key.
   const isIllustrativeImage = /pexels license|generic illustrative/i.test(image_license || '') || /\/generic-\d{8}\.jpg(?:[?#]|$)/i.test(image)
   const imageFitClass = isIllustrativeImage ? 'object-cover' : 'object-contain'
+  const imageFrameClass = isIllustrativeImage ? 'bg-brand-cloud' : 'bg-white'
+  const imageScaleClass = isIllustrativeImage
+    ? 'group-hover:scale-[1.04]'
+    : 'scale-[1.04] group-hover:scale-[1.1]'
   const [imageFailed, setImageFailed] = useState(false)
   const hasImage = Boolean(image && !imageFailed)
   const hasHoverImage = hasImage && hoverImage !== image
@@ -46,7 +50,7 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
       className="group relative flex h-full flex-col overflow-hidden rounded-[1.65rem] border border-border/80 bg-white shadow-[0_16px_44px_-34px_rgba(23,33,58,.48)] transition-[border-color,box-shadow] duration-300 hover:border-primary/25 hover:shadow-[0_24px_58px_-34px_rgba(41,101,241,.42)] sm:rounded-[1.9rem]"
     >
       <div className="relative">
-        <Link href={`/products/${slug}`} aria-label={`View ${name}`} className="relative block aspect-[1/1.02] overflow-hidden bg-[radial-gradient(circle_at_50%_38%,#ffffff_0%,#f6f8ff_62%,#edf2ff_100%)]">
+        <Link href={`/products/${slug}`} aria-label={`View ${name}`} className={`relative block aspect-square overflow-hidden ${imageFrameClass}`}>
           {hasImage && image ? (
             <>
               {!isIllustrativeImage && (
@@ -68,10 +72,10 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
                 fill
                 onLoad={() => setImageLoaded(true)}
                 onError={() => setImageFailed(true)}
-                className={`z-10 ${imageFitClass} transition duration-700 ease-out ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${hasHoverImage ? 'group-hover:scale-[1.04] group-hover:opacity-0' : 'group-hover:scale-[1.055]'}`}
+                className={`z-10 ${imageFitClass} object-center transition duration-700 ease-out ${imageScaleClass} ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${hasHoverImage ? 'group-hover:opacity-0' : ''}`}
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
-              {hasHoverImage && hoverImage && <Image src={hoverImage} alt="" fill onError={() => setImageFailed(true)} className={`absolute inset-0 z-20 ${imageFitClass} opacity-0 transition duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />}
+              {hasHoverImage && hoverImage && <Image src={hoverImage} alt="" fill onError={() => setImageFailed(true)} className={`absolute inset-0 z-20 ${imageFitClass} object-center opacity-0 transition duration-700 ease-out ${imageScaleClass} group-hover:opacity-100`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />}
             </>
           ) : (
             <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-content-muted">
