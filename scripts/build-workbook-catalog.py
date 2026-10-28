@@ -621,14 +621,16 @@ if IMAGE_OVERRIDES_PATH.exists():
 GENERIC_IMAGE_MATCHES_PATH = ROOT / "src/data/manual-generic-image-matches.json"
 if GENERIC_IMAGE_MATCHES_PATH.exists():
     GENERIC_IMAGE_MATCHES = json.loads(GENERIC_IMAGE_MATCHES_PATH.read_text())
-    for row_key, (product_slug, photo_slug, photo_id) in GENERIC_IMAGE_MATCHES.items():
+    for row_key, match in GENERIC_IMAGE_MATCHES.items():
+        product_slug, photo_slug, photo_id = match[:3]
+        storage_object_key = match[3] if len(match) > 3 else f"products/{product_slug}/generic-20261027.jpg"
         row_number = int(row_key)
         MANUAL_IMAGE_MATCHES[row_number] = {
             "product_source_url": f"https://www.pexels.com/photo/{photo_slug}/",
             "image_source_url": f"https://images.pexels.com/photos/{photo_id}/pexels-photo-{photo_id}.jpeg?cs=tinysrgb&w=1400",
             "verification_note": "Generic, unbranded illustrative food photography selected from a Pexels search for this workbook item; it depicts the food, not a FreshCo package.",
-            "image_license": "Pexels License: free to use, including on e-commerce websites; source retained. https://www.pexels.com/license/",
-            "storage_object_key": f"products/{product_slug}/generic-20261027.jpg",
+            "image_license": "Pexels License: free to use, including on e-commerce websites; generic unbranded illustrative image, not exact product packaging. Source retained. https://www.pexels.com/license/",
+            "storage_object_key": storage_object_key,
         }
 
 
