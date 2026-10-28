@@ -31,7 +31,7 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
     ? 'group-hover:scale-[1.04]'
     : slug === 'artichoke-each'
       ? 'scale-[1.1] group-hover:scale-[1.14]'
-      : 'scale-[1.04] group-hover:scale-[1.08]'
+      : 'scale-[1.08] group-hover:scale-[1.12]'
   const [imageFailed, setImageFailed] = useState(false)
   const hasImage = Boolean(image && !imageFailed)
   const hasHoverImage = hasImage && hoverImage !== image

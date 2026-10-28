@@ -669,6 +669,11 @@ def normalize_subcategory(category: str, value: str) -> str:
     result = clean(value)
     if category.casefold() == "cheese" and result.casefold().replace(" ", "") == "feta(loose)":
         return "Feta (Loose)"
+    # The workbook's mixed label is used only for coffee products. Give the
+    # storefront a single, clear Coffee filter while retaining the original
+    # workbook value in source_values for auditability.
+    if category.casefold() == "grocery" and result.casefold() == "coffee/tea":
+        return "Coffee"
     return result
 
 
