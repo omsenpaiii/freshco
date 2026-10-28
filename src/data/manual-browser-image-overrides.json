@@ -353,6 +353,13 @@
     "verification_note": "Searched the product by name in Chrome Bing Images; exact Kyknos chopped tomatoes 400g can.",
     "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
   },
+  "218": {
+    "product_source_url": "https://greekshop.com.au/product/makedoniki-yellow-roasted-peppers-in-brine-465g/",
+    "image_source_url": "https://images.pexels.com/photos/8250196/pexels-photo-8250196.jpeg?cs=tinysrgb&w=1400",
+    "verification_note": "Google Images search did not surface a verified Kyknos/Mak pack shot for the red-and-yellow roasted pepper item; replaced the unrelated Makedoniki yellow-pepper package with a visually checked generic photo of roasted red and yellow peppers.",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; image source https://www.pexels.com/photo/cooked-bell-peppers-photography-8250196/ and license https://www.pexels.com/license/; source retained.",
+    "storage_object_key": "products/mak-roast-red-yellow-peppers-465g-x-12-465-g/generic-20261028.jpg"
+  },
   "222": {
     "product_source_url": "https://goodfood.com.sg/products/salted-anchovies-850g",
     "image_source_url": "https://goodfood.com.sg/cdn/shop/products/salted-anchovies-850g-706433_1600x.jpg?v=1627029820",
@@ -385,9 +392,10 @@
   },
   "248": {
     "product_source_url": "https://www.walmart.com/ip/SweetGourmet-Red-and-White-Striped-Cinnamon-Discs-Wrapped-Bulk-Hard-Candy-3-Pounds/408881385",
-    "image_source_url": "https://i5.walmartimages.com/seo/SweetGourmet-Red-and-White-Striped-Cinnamon-Discs-Wrapped-Bulk-Hard-Candy-3-Pounds_afc2974f-ce1a-4517-b52b-1c8a1b6fb348.65e0deb8fd46b44f4b2b6a1fb1437bab.jpeg",
-    "verification_note": "Searched the product by name in Chrome Bing Images; selected a cinnamon hard-candy bulk-pack image as the closest relevant match. Brand/weight differs.",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+    "image_source_url": "https://images.pexels.com/photos/34837803/pexels-photo-34837803.jpeg?cs=tinysrgb&w=1400",
+    "verification_note": "Google Images search did not surface a verified Ibis pack shot. Replaced the unrelated SweetGourmet-branded package with a visually checked, unbranded photo of red sugar-coated hard candies; this is illustrative and does not claim to show Ibis packaging or prove cinnamon flavor.",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; image source https://www.pexels.com/photo/rustic-cup-filled-with-sugary-red-candies-34837803/ and license https://www.pexels.com/license/; source retained.",
+    "storage_object_key": "products/ibis-bag-hard-shell-cinnamon-3kg-3-kg/generic-20261028.jpg"
   },
   "255": {
     "product_source_url": "https://www.hancocks.co.uk/kingsway-milk-chocolate-toffee-drops-3kg",
@@ -907,6 +915,20 @@
     "verification_note": "Searched the product by name in Chrome Bing Images; aged Swiss Gruyere cheese image.",
     "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
   },
+  "516": {
+    "product_source_url": "https://zammitham.com.au/shop/item/lite-leg-ham-round",
+    "image_source_url": "https://zammitham.com.au/persistent/catalogue_images/products/_dsc4380ret.jpg",
+    "verification_note": "Manually checked the official Zammit Ham product page and image: the manufacturer lists this as Lite Leg Ham Round. It is brand-matched and product-family relevant, but the photo alone does not independently verify the workbook's FAT FREE claim or exact pack size.",
+    "image_license": "Official Zammit Ham manufacturer product image; source retained. Commercial image-reuse permission not independently confirmed.",
+    "storage_object_key": "products/zammit-lite-ham-fat-free-each/primary-20261028.jpg"
+  },
+  "166": {
+    "product_source_url": "https://greekshop.com.au/product/lira-clove-corns-35g/",
+    "image_source_url": "https://images.pexels.com/photos/11000777/pexels-photo-11000777.jpeg?cs=tinysrgb&w=1400",
+    "verification_note": "Google Images and product-page review found no trustworthy Lira pack shot: the result titled Lira showed a different brand, while the previous G-Fresh jar was also a brand mismatch. Replaced it with a relevant, unbranded close-up of dried cloves; it depicts the ingredient rather than claiming to be Lira packaging.",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; image source https://www.pexels.com/photo/close-up-of-dry-herbs-11000777/ and license https://www.pexels.com/license/; source retained.",
+    "storage_object_key": "products/lira-jar-cloves-whole-35g-35-g/generic-20261028.jpg"
+  },
   "530": {
     "product_source_url": "https://food-brands.com.au/product-category/mortadella/",
     "image_source_url": "https://food-brands.com.au/wp-content/uploads/2024/01/Bertocchi-Mortadella-Green-Olive-1-2-RW-aprox.3.5kg-1024x1024.png",
@@ -914,10 +936,11 @@
     "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
   },
   "540": {
-    "product_source_url": "https://bellacheeza.co.za/product/chicken-loaf-sliced-essmor1kg/",
-    "image_source_url": "https://bellacheeza.co.za/wp-content/uploads/2026/02/Chicken_roll_Smoked1kg-957x1024.png",
-    "verification_note": "Searched the product by name in Chrome Bing Images; smoked chicken roll/loaf product image. Brand may differ.",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+    "product_source_url": "https://zammitham.com.au/shop/item/smoked-chicken-breast-skin-off",
+    "image_source_url": "https://zammitham.com.au/persistent/catalogue_images/products/_DSC3972.jpg",
+    "verification_note": "Manually checked Zammit's official Turkey & Chicken product list; it lists Smoked Chicken Breast Skin Off but no Chicken Roll. Replaced the unrelated Essmor-branded pack with the closest brand-matched Zammit chicken deli product image; this is a product-family image, not verified as the exact Chicken Roll.",
+    "image_license": "Official Zammit Ham manufacturer product image; source retained. Commercial image-reuse permission not independently confirmed.",
+    "storage_object_key": "products/zammit-chicken-roll-each/primary-20261028.jpg"
   },
   "544": {
     "product_source_url": "https://www.provisionandpan.com/product/loumidis-greek-coffee-194g/",

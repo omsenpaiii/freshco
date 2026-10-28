@@ -3134,7 +3134,7 @@
     "category_id": 1,
     "brand": "Hrysafi",
     "unit": "KG",
-    "subcategory_1": "Feta(Loose)",
+    "subcategory_1": "Feta (Loose)",
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
@@ -5440,7 +5440,7 @@
     "category_id": 1,
     "brand": "Hotos",
     "unit": "KG",
-    "subcategory_1": "Feta(Loose)",
+    "subcategory_1": "Feta (Loose)",
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
@@ -8217,9 +8217,9 @@
     "sku": "FC-LIRA-LIRA-JAR-CLOVES-WHOLE-35G-35-G-R166",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/lira-jar-cloves-whole-35g-35-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/lira-jar-cloves-whole-35g-35-g/generic-20261028.jpg"
     ],
-    "storage_object_key": "products/lira-jar-cloves-whole-35g-35-g/primary.jpg",
+    "storage_object_key": "products/lira-jar-cloves-whole-35g-35-g/generic-20261028.jpg",
     "category_id": 3,
     "brand": "Lira",
     "unit": "EA",
@@ -8227,9 +8227,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://gfresh.com.au/products/cloves-whole",
-    "image_source_url": "https://gfresh.com.au/cdn/shop/files/Cloves-Whole-3.png?v=1720071018",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://greekshop.com.au/product/lira-clove-corns-35g/",
+    "image_source_url": "https://images.pexels.com/photos/11000777/pexels-photo-11000777.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; image source https://www.pexels.com/photo/close-up-of-dry-herbs-11000777/ and license https://www.pexels.com/license/; source retained.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -8253,9 +8253,9 @@
         "price": 4.5,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/lira-jar-cloves-whole-35g-35-g/primary.jpg",
-        "image_source_url": "https://gfresh.com.au/cdn/shop/files/Cloves-Whole-3.png?v=1720071018",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/lira-jar-cloves-whole-35g-35-g/generic-20261028.jpg",
+        "image_source_url": "https://images.pexels.com/photos/11000777/pexels-photo-11000777.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; image source https://www.pexels.com/photo/close-up-of-dry-herbs-11000777/ and license https://www.pexels.com/license/; source retained."
       }
     ],
     "categories": {
@@ -9058,9 +9058,9 @@
     "sku": "FC-NO-BRAND-RELIGIOUS-OIL-LAMP-CHURCH-LA-EACH-R187",
     "inventory_quantity": 0,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/religious-oil-lamp-church-large-no-2-asstd-each/primary-20261028.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/religious-oil-lamp-church-large-no-2-asstd-each/primary.jpg"
     ],
-    "storage_object_key": "products/religious-oil-lamp-church-large-no-2-asstd-each/primary-20261028.jpg",
+    "storage_object_key": "products/religious-oil-lamp-church-large-no-2-asstd-each/primary.jpg",
     "category_id": 6,
     "brand": "",
     "unit": "",
@@ -9069,7 +9069,7 @@
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://holyspiritart.com/product/standing-church-oil-lamp/",
-    "image_source_url": "https://holyspiritart.com/wp-content/uploads/2024/12/il_fullxfull.5248647593_dxod.jpg",
+    "image_source_url": "https://holyspiritart.com/wp-content/uploads/2024/12/il_fullxfull.5197348500_9z9v-600x856.jpg",
     "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": "Workbook price is missing; do not sell until confirmed. Workbook unit is missing; do not sell until confirmed.",
     "is_featured": false,
@@ -9094,8 +9094,8 @@
         "price": 0.0,
         "inventory_quantity": 0,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/religious-oil-lamp-church-large-no-2-asstd-each/primary-20261028.jpg",
-        "image_source_url": "https://holyspiritart.com/wp-content/uploads/2024/12/il_fullxfull.5248647593_dxod.jpg",
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/religious-oil-lamp-church-large-no-2-asstd-each/primary.jpg",
+        "image_source_url": "https://holyspiritart.com/wp-content/uploads/2024/12/il_fullxfull.5197348500_9z9v-600x856.jpg",
         "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
@@ -9170,9 +9170,9 @@
     "sku": "FC-NO-BRAND-RELIGIOUS-OIL-LAMP-CHURCH-LA-EACH-R189",
     "inventory_quantity": 0,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/religious-oil-lamp-church-large-no-2-silver-each/primary-20261028.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/religious-oil-lamp-church-large-no-2-silver-each/primary.jpg"
     ],
-    "storage_object_key": "products/religious-oil-lamp-church-large-no-2-silver-each/primary-20261028.jpg",
+    "storage_object_key": "products/religious-oil-lamp-church-large-no-2-silver-each/primary.jpg",
     "category_id": 6,
     "brand": "",
     "unit": "",
@@ -9180,8 +9180,8 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.silverbrand.gr/en/products/ecclessiastical-sacred-items/hanging-vigil-lamps/vigil-lamp-e114211-detail",
-    "image_source_url": "https://www.silverbrand.gr/images/stories/virtuemart/product/SB_114211_A9.jpg",
+    "product_source_url": "https://www.silverbrand.gr/en/products/ecclessiastical-sacred-items/hanging-vigil-lamps/vigil-lamp-e112113-detail",
+    "image_source_url": "https://www.silverbrand.gr/images/stories/virtuemart/product/SB_112113_B.jpg",
     "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": "Workbook price is missing; do not sell until confirmed. Workbook unit is missing; do not sell until confirmed.",
     "is_featured": false,
@@ -9206,8 +9206,8 @@
         "price": 0.0,
         "inventory_quantity": 0,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/religious-oil-lamp-church-large-no-2-silver-each/primary-20261028.jpg",
-        "image_source_url": "https://www.silverbrand.gr/images/stories/virtuemart/product/SB_114211_A9.jpg",
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/religious-oil-lamp-church-large-no-2-silver-each/primary.jpg",
+        "image_source_url": "https://www.silverbrand.gr/images/stories/virtuemart/product/SB_112113_B.jpg",
         "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
@@ -9282,9 +9282,9 @@
     "sku": "FC-NO-BRAND-RELIGIOUS-OIL-LAMP-CHURCH-SM-EACH-R191",
     "inventory_quantity": 0,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/religious-oil-lamp-church-small-no-3-gold-each/primary-20261028.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/religious-oil-lamp-church-small-no-3-gold-each/primary.jpg"
     ],
-    "storage_object_key": "products/religious-oil-lamp-church-small-no-3-gold-each/primary-20261028.jpg",
+    "storage_object_key": "products/religious-oil-lamp-church-small-no-3-gold-each/primary.jpg",
     "category_id": 6,
     "brand": "",
     "unit": "",
@@ -9293,7 +9293,7 @@
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://holyspiritart.com/product/gold-standing-oil-lamp-2/",
-    "image_source_url": "https://holyspiritart.com/wp-content/uploads/2024/12/il_fullxfull.5218839886_duxo.jpg",
+    "image_source_url": "https://holyspiritart.com/wp-content/uploads/2024/12/il_fullxfull.5267051457_mwwq-600x800.jpg",
     "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": "Workbook price is missing; do not sell until confirmed. Workbook unit is missing; do not sell until confirmed.",
     "is_featured": false,
@@ -9318,8 +9318,8 @@
         "price": 0.0,
         "inventory_quantity": 0,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/religious-oil-lamp-church-small-no-3-gold-each/primary-20261028.jpg",
-        "image_source_url": "https://holyspiritart.com/wp-content/uploads/2024/12/il_fullxfull.5218839886_duxo.jpg",
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/religious-oil-lamp-church-small-no-3-gold-each/primary.jpg",
+        "image_source_url": "https://holyspiritart.com/wp-content/uploads/2024/12/il_fullxfull.5267051457_mwwq-600x800.jpg",
         "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
@@ -10234,9 +10234,9 @@
     "sku": "FC-KYKNOS-MAK-ROAST-RED-YELLOW-PEPPERS-465-G-R218",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mak-roast-red-yellow-peppers-465g-x-12-465-g/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mak-roast-red-yellow-peppers-465g-x-12-465-g/generic-20261028.jpg"
     ],
-    "storage_object_key": "products/mak-roast-red-yellow-peppers-465g-x-12-465-g/primary.jpg",
+    "storage_object_key": "products/mak-roast-red-yellow-peppers-465g-x-12-465-g/generic-20261028.jpg",
     "category_id": 3,
     "brand": "Kyknos",
     "unit": "EA",
@@ -10245,8 +10245,8 @@
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://greekshop.com.au/product/makedoniki-yellow-roasted-peppers-in-brine-465g/",
-    "image_source_url": "https://greekshop.com.au/wp-content/uploads/2022/05/Makedoniki-Yellow-Roasted-Peppers-in-Brine.jpg",
-    "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "image_source_url": "https://images.pexels.com/photos/8250196/pexels-photo-8250196.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; image source https://www.pexels.com/photo/cooked-bell-peppers-photography-8250196/ and license https://www.pexels.com/license/; source retained.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -10270,9 +10270,9 @@
         "price": 4.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mak-roast-red-yellow-peppers-465g-x-12-465-g/primary.jpg",
-        "image_source_url": "https://greekshop.com.au/wp-content/uploads/2022/05/Makedoniki-Yellow-Roasted-Peppers-in-Brine.jpg",
-        "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/mak-roast-red-yellow-peppers-465g-x-12-465-g/generic-20261028.jpg",
+        "image_source_url": "https://images.pexels.com/photos/8250196/pexels-photo-8250196.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; image source https://www.pexels.com/photo/cooked-bell-peppers-photography-8250196/ and license https://www.pexels.com/license/; source retained."
       }
     ],
     "categories": {
@@ -11690,9 +11690,9 @@
     "sku": "FC-IBIS-IBIS-BAG-HARD-SHELL-CINNAMON-3-KG-R248",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-hard-shell-cinnamon-3kg-3-kg/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-hard-shell-cinnamon-3kg-3-kg/generic-20261028.jpg"
     ],
-    "storage_object_key": "products/ibis-bag-hard-shell-cinnamon-3kg-3-kg/primary.jpg",
+    "storage_object_key": "products/ibis-bag-hard-shell-cinnamon-3kg-3-kg/generic-20261028.jpg",
     "category_id": 3,
     "brand": "Ibis",
     "unit": "EA",
@@ -11701,8 +11701,8 @@
     "status": "published",
     "image_match_status": "verified",
     "product_source_url": "https://www.walmart.com/ip/SweetGourmet-Red-and-White-Striped-Cinnamon-Discs-Wrapped-Bulk-Hard-Candy-3-Pounds/408881385",
-    "image_source_url": "https://i5.walmartimages.com/seo/SweetGourmet-Red-and-White-Striped-Cinnamon-Discs-Wrapped-Bulk-Hard-Candy-3-Pounds_afc2974f-ce1a-4517-b52b-1c8a1b6fb348.65e0deb8fd46b44f4b2b6a1fb1437bab.jpeg",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed.",
+    "image_source_url": "https://images.pexels.com/photos/34837803/pexels-photo-34837803.jpeg?cs=tinysrgb&w=1400",
+    "image_license": "Pexels License: free to use, including on e-commerce websites; image source https://www.pexels.com/photo/rustic-cup-filled-with-sugary-red-candies-34837803/ and license https://www.pexels.com/license/; source retained.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -11726,9 +11726,9 @@
         "price": 3.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-hard-shell-cinnamon-3kg-3-kg/primary.jpg",
-        "image_source_url": "https://i5.walmartimages.com/seo/SweetGourmet-Red-and-White-Striped-Cinnamon-Discs-Wrapped-Bulk-Hard-Candy-3-Pounds_afc2974f-ce1a-4517-b52b-1c8a1b6fb348.65e0deb8fd46b44f4b2b6a1fb1437bab.jpeg",
-        "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/ibis-bag-hard-shell-cinnamon-3kg-3-kg/generic-20261028.jpg",
+        "image_source_url": "https://images.pexels.com/photos/34837803/pexels-photo-34837803.jpeg?cs=tinysrgb&w=1400",
+        "image_license": "Pexels License: free to use, including on e-commerce websites; image source https://www.pexels.com/photo/rustic-cup-filled-with-sugary-red-candies-34837803/ and license https://www.pexels.com/license/; source retained."
       }
     ],
     "categories": {
@@ -15048,7 +15048,7 @@
     "category_id": 1,
     "brand": "",
     "unit": "KG",
-    "subcategory_1": "Feta(loose)",
+    "subcategory_1": "Feta (Loose)",
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
@@ -15143,7 +15143,7 @@
     "category_id": 1,
     "brand": "MANDRI",
     "unit": "KG",
-    "subcategory_1": "Feta(loose)",
+    "subcategory_1": "Feta (Loose)",
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
@@ -15350,7 +15350,7 @@
     "category_id": 1,
     "brand": "",
     "unit": "KG",
-    "subcategory_1": "Feta(loose)",
+    "subcategory_1": "Feta (Loose)",
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
@@ -15518,7 +15518,7 @@
     "category_id": 1,
     "brand": "RIVERINA",
     "unit": "KG",
-    "subcategory_1": "Feta(loose)",
+    "subcategory_1": "Feta (Loose)",
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
@@ -24554,9 +24554,9 @@
     "sku": "FC-ZAMMIT-ZAMMIT-LITE-HAM-FAT-FREE-EACH-R516",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/zammit-lite-ham-fat-free-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/zammit-lite-ham-fat-free-each/primary-20261028.jpg"
     ],
-    "storage_object_key": "products/zammit-lite-ham-fat-free-each/primary.jpg",
+    "storage_object_key": "products/zammit-lite-ham-fat-free-each/primary-20261028.jpg",
     "category_id": 5,
     "brand": "ZAMMIT",
     "unit": "KG",
@@ -24564,9 +24564,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://ifantis.gr/en/product/ham-thigh-light-2-fat-100g/",
-    "image_source_url": "https://ifantis.gr/wp-content/uploads/2024/06/04-zampon-bouti-light.png",
-    "image_license": "Manufacturer image found via browser image search; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://zammitham.com.au/shop/item/lite-leg-ham-round",
+    "image_source_url": "https://zammitham.com.au/persistent/catalogue_images/products/_dsc4380ret.jpg",
+    "image_license": "Official Zammit Ham manufacturer product image; source retained. Commercial image-reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -24590,9 +24590,9 @@
         "price": 17.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/zammit-lite-ham-fat-free-each/primary.jpg",
-        "image_source_url": "https://ifantis.gr/wp-content/uploads/2024/06/04-zampon-bouti-light.png",
-        "image_license": "Manufacturer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/zammit-lite-ham-fat-free-each/primary-20261028.jpg",
+        "image_source_url": "https://zammitham.com.au/persistent/catalogue_images/products/_dsc4380ret.jpg",
+        "image_license": "Official Zammit Ham manufacturer product image; source retained. Commercial image-reuse permission not independently confirmed."
       }
     ],
     "categories": {
@@ -25950,9 +25950,9 @@
     "sku": "FC-ZAMMIT-ZAMMIT-CHICKEN-ROLL-EACH-R540",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/zammit-chicken-roll-each/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/zammit-chicken-roll-each/primary-20261028.jpg"
     ],
-    "storage_object_key": "products/zammit-chicken-roll-each/primary.jpg",
+    "storage_object_key": "products/zammit-chicken-roll-each/primary-20261028.jpg",
     "category_id": 5,
     "brand": "ZAMMIT",
     "unit": "KG",
@@ -25960,9 +25960,9 @@
     "subcategory_2": "",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://bellacheeza.co.za/product/chicken-loaf-sliced-essmor1kg/",
-    "image_source_url": "https://bellacheeza.co.za/wp-content/uploads/2026/02/Chicken_roll_Smoked1kg-957x1024.png",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://zammitham.com.au/shop/item/smoked-chicken-breast-skin-off",
+    "image_source_url": "https://zammitham.com.au/persistent/catalogue_images/products/_DSC3972.jpg",
+    "image_license": "Official Zammit Ham manufacturer product image; source retained. Commercial image-reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -25986,9 +25986,9 @@
         "price": 15.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/zammit-chicken-roll-each/primary.jpg",
-        "image_source_url": "https://bellacheeza.co.za/wp-content/uploads/2026/02/Chicken_roll_Smoked1kg-957x1024.png",
-        "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/zammit-chicken-roll-each/primary-20261028.jpg",
+        "image_source_url": "https://zammitham.com.au/persistent/catalogue_images/products/_DSC3972.jpg",
+        "image_license": "Official Zammit Ham manufacturer product image; source retained. Commercial image-reuse permission not independently confirmed."
       }
     ],
     "categories": {

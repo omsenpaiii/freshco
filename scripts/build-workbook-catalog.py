@@ -662,6 +662,14 @@ def normalize_name(value: str) -> str:
     return result
 
 
+def normalize_subcategory(category: str, value: str) -> str:
+    """Tidy display-only spelling variations without changing taxonomy meaning."""
+    result = clean(value)
+    if category.casefold() == "cheese" and result.casefold().replace(" ", "") == "feta(loose)":
+        return "Feta (Loose)"
+    return result
+
+
 def active_fill(cell) -> bool:
     fill = cell.fill
     color = fill.fgColor
@@ -777,7 +785,8 @@ def main() -> None:
         key = (
             normalized.casefold(), clean(values[2]).casefold(), clean(values[3]).casefold(),
             clean(values[4]).casefold(), clean(values[5]).casefold(),
-            clean(values[6]).casefold(), clean(values[7]).casefold(), str(parse_price(values[1])),
+            normalize_subcategory(clean(values[5]), clean(values[6])).casefold(),
+            clean(values[7]).casefold(), str(parse_price(values[1])),
         )
         if key in deduped:
             existing = deduped[key]
@@ -803,7 +812,7 @@ def main() -> None:
         price = parse_price(raw_price)
         unit = clean(raw_unit).upper()
         brand = clean(raw_brand)
-        subcategory_1 = clean(raw_sub1)
+        subcategory_1 = normalize_subcategory(category, clean(raw_sub1))
         subcategory_2 = clean(raw_sub2)
         pack = pack_from_name(name)
         source_active = bool(source["source_active"])

@@ -32,6 +32,8 @@ assert(variants.every((variant) => {
   return variant.inventory_quantity === (sellable ? 100 : 0)
 }), 'Only active products with a workbook price and unit may start with 100 units')
 assert(manifest.products.every((product) => categories.includes(product.categories.name)), 'Unexpected category mapping')
+const looseFeta = manifest.products.filter((product) => product.categories.name === 'Cheese' && String(product.subcategory_1 || '').replace(/\s+/g, '').toLowerCase() === 'feta(loose)')
+assert(looseFeta.every((product) => product.subcategory_1 === 'Feta (Loose)'), 'Cheese/Feta (Loose) subcategory spelling must be canonical')
 assert(published.length === activeProducts.length, 'Every green workbook product with a reviewed image must appear in the public catalogue')
 assert(published.every((product) => product.source_active && product.image_match_status === 'verified' && product.image_source_url && product.product_source_url), 'Published products require an active workbook row and visually reviewed image/product sources')
 assert(published.filter((product) => product.workbook_price != null && product.unit?.trim()).length === sellableActive.length, 'Every priced green product with a resolved unit must appear in the public catalogue')
