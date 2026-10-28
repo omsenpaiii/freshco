@@ -111,7 +111,7 @@ export default async function CollectionPage({ params, searchParams }: Collectio
               />
             )}
             <div className="absolute inset-0 bg-black/35 flex flex-col justify-center p-8 md:p-12 text-white text-left">
-              <h1 className="text-2xl md:text-4xl font-extrabold">{currentCategory.name}</h1>
+              <h1 className="!text-white text-2xl md:text-4xl font-extrabold">{currentCategory.name}</h1>
               <p className="text-xs md:text-sm text-gray-200 mt-2 max-w-xl line-clamp-2">
                 {currentCategory.description || "Browse our fresh, hand-picked collection of natural goods curated just for you."}
               </p>
