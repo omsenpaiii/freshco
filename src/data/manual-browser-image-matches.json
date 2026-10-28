@@ -368,7 +368,7 @@
   "220": {
     "product_source_url": "https://www.johnpasc.co.uk/product/10x160g-mackerel-fillets-in-olive-oil/",
     "image_source_url": "https://www.johnpasc.co.uk/wp-content/uploads/2025/08/MACKOLO_G16010.jpg",
-    "verification_note": "Reviewed in Chrome image search: Trata mackerel fillets in olive oil. The source pack is 160 g; workbook says 150 g, so the image is a close brand/product reference rather than an exact-size match.",
+    "verification_note": "Rejected candidate after visual inspection: the source photo is a FLOKOS Mackerel Fillet in Olive Oil pack marked 160 g, not Trata. Although the fish/product style is close, both the brand and the workbook's 150 g pack differ; keep the unbranded mackerel illustration instead.",
     "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
   },
   "221": {
@@ -458,7 +458,7 @@
   "239": {
     "product_source_url": "https://www.johnpasc.co.uk/product/10x160g-smoked-mackerel-fillets-in-vegetable-oil/",
     "image_source_url": "https://www.johnpasc.co.uk/wp-content/uploads/2025/08/MACKVGOT_G16010.jpg",
-    "verification_note": "Reviewed in Chrome image search: Trata smoked mackerel fillets in vegetable oil. The source is 160 g; workbook says 150 g, so image is a close brand/product reference rather than exact size.",
+    "verification_note": "Rejected candidate after visual inspection: the source photo is a FLOKOS Smoked Mackerel Fillet in Vegetable Oil pack marked 160 g, not Trata. Although the fish/product style is close, both the brand and the workbook's 150 g pack differ; keep the unbranded smoked-mackerel illustration instead.",
     "image_license": "Retailer image found via browser image search; source recorded; commercial reuse permission not independently confirmed."
   },
   "240": {
