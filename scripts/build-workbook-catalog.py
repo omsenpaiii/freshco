@@ -820,6 +820,10 @@ def main() -> None:
         unit = clean(raw_unit).upper()
         brand = clean(raw_brand)
         subcategory_1 = normalize_subcategory(category, clean(raw_sub1))
+        # Keep the workbook row auditable, while allowing a reviewed semantic
+        # correction when the supplied product type plainly conflicts with
+        # the item itself (for example, crushed oregano categorized as Tea).
+        subcategory_1 = MANUAL_IMAGE_MATCHES.get(row_number, {}).get("subcategory_1", subcategory_1)
         subcategory_2 = clean(raw_sub2)
         pack = pack_from_name(name)
         source_active = bool(source["source_active"])
