@@ -10514,9 +10514,9 @@
     "sku": "FC-TRIFONID-TRIFONIDIS-SMOKED-MACKERELS--5-KG-R224",
     "inventory_quantity": 100,
     "images": [
-      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/trifonidis-smoked-mackerels-vac-5kg-5-kg/primary.jpg"
+      "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/trifonidis-smoked-mackerels-vac-5kg-5-kg/trifonidis-pack-20261029.png"
     ],
-    "storage_object_key": "products/trifonidis-smoked-mackerels-vac-5kg-5-kg/primary.jpg",
+    "storage_object_key": "products/trifonidis-smoked-mackerels-vac-5kg-5-kg/trifonidis-pack-20261029.png",
     "category_id": 3,
     "brand": "Trifonidis",
     "unit": "KG",
@@ -10524,9 +10524,9 @@
     "subcategory_2": "Mackerel",
     "status": "published",
     "image_match_status": "verified",
-    "product_source_url": "https://www.etsy.com/listing/4476923337/smoked-mackerel-rich-flavour-vacuum",
-    "image_source_url": "https://i.etsystatic.com/64602943/r/il/2e6de0/7837843788/il_1080xN.7837843788_rwyg.jpg",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed.",
+    "product_source_url": "https://www.trifonidis.com/EN/asterias_ladiou_EN/",
+    "image_source_url": "https://www.trifonidis.com/uploads/editorfiles/images/SKOUBRI%20OLOKLHRO%20KAPNISTO%20VACUUM%285%29.png",
+    "image_license": "Manufacturer product image; source recorded; commercial reuse permission not independently confirmed.",
     "draft_reason": null,
     "is_featured": false,
     "is_trending": false,
@@ -10550,9 +10550,9 @@
         "price": 37.99,
         "inventory_quantity": 100,
         "is_default": true,
-        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/trifonidis-smoked-mackerels-vac-5kg-5-kg/primary.jpg",
-        "image_source_url": "https://i.etsystatic.com/64602943/r/il/2e6de0/7837843788/il_1080xN.7837843788_rwyg.jpg",
-        "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+        "image_url": "https://br-dark-band-axyc57lv.storage.c-4.us-east-2.aws.neon.tech/store-images/products/trifonidis-smoked-mackerels-vac-5kg-5-kg/trifonidis-pack-20261029.png",
+        "image_source_url": "https://www.trifonidis.com/uploads/editorfiles/images/SKOUBRI%20OLOKLHRO%20KAPNISTO%20VACUUM%285%29.png",
+        "image_license": "Manufacturer product image; source recorded; commercial reuse permission not independently confirmed."
       }
     ],
     "categories": {

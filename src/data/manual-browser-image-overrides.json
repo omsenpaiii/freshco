@@ -367,10 +367,11 @@
     "image_license": "Image found through manually reviewed Chrome Bing Images results; source recorded; commercial reuse permission not independently confirmed."
   },
   "224": {
-    "product_source_url": "https://www.etsy.com/listing/4476923337/smoked-mackerel-rich-flavour-vacuum",
-    "image_source_url": "https://i.etsystatic.com/64602943/r/il/2e6de0/7837843788/il_1080xN.7837843788_rwyg.jpg",
-    "verification_note": "Searched the product by name in Chrome Bing Images; closest smoked mackerel vacuum-pack product image. Brand/pack quantity may differ.",
-    "image_license": "Image-search result; source recorded; commercial reuse permission not independently confirmed."
+    "product_source_url": "https://www.trifonidis.com/EN/asterias_ladiou_EN/",
+    "image_source_url": "https://www.trifonidis.com/uploads/editorfiles/images/SKOUBRI%20OLOKLHRO%20KAPNISTO%20VACUUM%285%29.png",
+    "verification_note": "Searched Google Images in Chrome and visually checked the manufacturer's Trifonidis-branded whole smoked mackerel vacuum pack. The workbook lists 5kg total; the exact pack/net quantity is not verifiable from this image, so the workbook listing remains unchanged. Brand and product type match.",
+    "image_license": "Manufacturer product image; source recorded; commercial reuse permission not independently confirmed.",
+    "storage_object_key": "products/trifonidis-smoked-mackerels-vac-5kg-5-kg/trifonidis-pack-20261029.png"
   },
   "227": {
     "product_source_url": "https://www.supermarketcy.com.cy/en/trata-smoked-herring-fillet-150g",
