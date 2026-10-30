@@ -1,6 +1,7 @@
 const ADMIN_EMAILS = [
   'agastyakapoorgk@gmail.com',
   'omtomar2004.ot@gmail.com',
+  'tinyatlas01@gmail.com',
 ] as const
 
 export const ADMIN_EMAIL_SET = new Set(
