@@ -7,11 +7,15 @@ import { ChevronRight, ChevronDown, HelpCircle } from 'lucide-react'
 const faqItems = [
   {
     q: "What products are available online?",
-    a: "The current FreshCo Deli catalog focuses on Dodoni cheese, Filosophy frozen filo pies and Misko pasta. Only products with a verified matching pack image are shown to shoppers."
+    a: "Browse our published cheese, deli, frozen, grocery and other collections. The online range follows the current catalog and availability set by the FreshCo Deli team."
   },
   {
-    q: "How are chilled and frozen items handled?",
-    a: "Cheese and frozen filo products are prepared according to their temperature needs. Contact FreshCo Deli if you need delivery timing or handling details for a particular order."
+    q: "Do you offer delivery?",
+    a: "No. FreshCo Deli currently offers Click & Collect only from Unit GX04, Northcote Plaza, 3 Separation St, Northcote VIC 3070. There is no collection fee. Please call +61 3 8589 0447 to confirm collection arrangements before travelling."
+  },
+  {
+    q: "How should I transport chilled and frozen items?",
+    a: "Collect chilled and frozen items promptly, transport them home without delay, and follow each product’s storage instructions. Contact the deli if you need handling information for a particular product."
   },
   {
     q: "How do I choose a Kefalograviera weight?",
@@ -19,10 +23,14 @@ const faqItems = [
   },
   {
     q: "Why can’t I see every item from the supplied list?",
-    a: "Items without a verified exact pack image remain hidden as drafts. This prevents a different product or pack size from being shown by mistake."
+    a: "Some catalog items are dormant and remain hidden until the deli makes them active. Availability can change, so contact the team if you cannot find a product."
   },
   {
-    q: "What should I do if an item arrives damaged?",
+    q: "What does Price pending mean?",
+    a: "The deli has not yet confirmed that item’s price. You can browse the listing, but it cannot be added to the cart or purchased until the team sets a valid price."
+  },
+  {
+    q: "What should I do if there is a problem with a collected item?",
     a: "Contact FreshCo Deli promptly with your order details and a clear photograph of the item so the team can review the appropriate replacement or refund."
   }
 ]
@@ -61,6 +69,8 @@ export default function FaqsPage() {
               >
                 <button 
                   onClick={() => toggleFaq(idx)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
                   className="w-full flex items-center justify-between p-5 text-left text-xs md:text-sm font-bold text-content-strong hover:text-primary bg-gray-50/50 hover:bg-gray-50 transition cursor-pointer"
                 >
                   <span className="flex items-center gap-2.5">
@@ -74,7 +84,7 @@ export default function FaqsPage() {
                 </button>
 
                 {isOpen && (
-                  <div className="p-5 border-t border-border-theme text-xs text-gray-500 leading-relaxed bg-white">
+                  <div id={`faq-answer-${idx}`} className="p-5 border-t border-border-theme text-sm text-gray-500 leading-relaxed bg-white">
                     {item.a}
                   </div>
                 )}
@@ -86,7 +96,7 @@ export default function FaqsPage() {
         <div className="mt-10 p-6 bg-primary/5 rounded-2xl border border-primary/10 text-center space-y-3 max-w-xl mx-auto">
           <h4 className="font-bold text-content-strong text-sm">Still have questions?</h4>
           <p className="text-xs text-gray-500 max-w-sm mx-auto leading-relaxed">
-            The FreshCo Deli team can help with product, wholesale and delivery questions.
+            The FreshCo Deli team can help with product, availability and collection questions.
           </p>
           <Link 
             href="/pages/contact-us"

@@ -8,6 +8,7 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { formatAUD } from '@/lib/store'
 import type { ProductVariant } from '@/lib/catalog-types'
+import { hasConfirmedPrice, isVariantPurchasable } from '@/lib/catalog-pricing'
 
 interface DealOfTheDayProps {
   product: {
@@ -26,6 +27,7 @@ export default function DealOfTheDayClient({ product }: DealOfTheDayProps) {
   const { addToCart } = useStore()
   const variant = product.variants.find((item) => item.is_default) || product.variants[0]
   const hasOptions = product.variants.length > 1
+  const pricePending = !hasConfirmedPrice(product.price)
 
   return (
     <section className="section-shell border-y border-border bg-brand-cream">
@@ -36,14 +38,16 @@ export default function DealOfTheDayClient({ product }: DealOfTheDayProps) {
         <div className="space-y-6 text-left">
           <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary"><Sparkles size={18} /> Featured from the deli</div>
           <h2 className="text-2xl font-extrabold leading-tight text-content-strong md:text-3xl">{product.name}</h2>
-          <p className="text-2xl font-bold text-primary">{hasOptions ? 'From ' : ''}{formatAUD(product.price)}</p>
+          <p className="text-2xl font-bold text-primary">{pricePending ? 'Price pending' : `${hasOptions ? 'From ' : ''}${formatAUD(product.price)}`}</p>
           <p className="max-w-lg text-sm leading-7 text-muted-foreground">{product.description}</p>
           {hasOptions && <p className="text-xs font-semibold text-brand-ink">Available in {product.variants.map((item) => item.title).join(', ')}.</p>}
           <div className="flex gap-4 pt-2">
-            {hasOptions ? (
+            {pricePending ? (
+              <Button disabled className="h-12 rounded-full px-7 text-sm font-extrabold">Price pending</Button>
+            ) : hasOptions ? (
               <Link href={`/products/${product.slug}`} className={cn(buttonVariants(), 'h-12 rounded-full px-7 text-xs font-extrabold uppercase tracking-wider')}>Choose options</Link>
             ) : (
-              <Button disabled={!variant} onClick={() => variant && addToCart({ id: product.id, name: product.name, slug: product.slug, image: product.images[0] || '', variant }, 1)} className="h-12 rounded-full px-7 text-xs font-extrabold uppercase tracking-wider">Add to cart <ShoppingBag data-icon="inline-end" /></Button>
+              <Button disabled={!isVariantPurchasable(variant)} onClick={() => variant && isVariantPurchasable(variant) && addToCart({ id: product.id, name: product.name, slug: product.slug, image: product.images[0] || '', variant }, 1)} className="h-12 rounded-full px-7 text-sm font-extrabold">{isVariantPurchasable(variant) ? 'Add to cart' : 'Out of stock'} <ShoppingBag data-icon="inline-end" /></Button>
             )}
             <Link href={`/products/${product.slug}`} className={cn(buttonVariants({ variant: 'outline' }), 'h-12 rounded-full px-7 text-xs font-extrabold uppercase tracking-wider')}>Details</Link>
           </div>

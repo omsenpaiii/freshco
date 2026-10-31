@@ -11,8 +11,8 @@ const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", displa
 const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bricolage", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "FreshCo Deli — Fresh Food, Delivered Bright",
-  description: "Shop Greek cheese, frozen filo pies and pantry staples from FreshCo Deli.",
+  title: "FreshCo Deli — Click & Collect in Northcote",
+  description: "Shop Greek cheese, frozen filo pies and pantry staples online. Click and collect from FreshCo Deli at Northcote Plaza. No delivery is currently available.",
 };
 
 export default async function RootLayout({

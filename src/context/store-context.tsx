@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { authClient } from '@/lib/auth/client'
 import type { ProductVariant } from '@/lib/catalog-types'
+import { isVariantPurchasable } from '@/lib/catalog-pricing'
 
 type StoreUser = { id: string; email: string; name?: string | null }
 
@@ -73,7 +74,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
   const addToCart = (product: AddableProduct, quantity = 1) => {
     const { variant } = product
-    if (!Number.isFinite(variant.price) || variant.price <= 0 || variant.inventory_quantity <= 0) return
+    if (!isVariantPurchasable(variant)) return
     setCart((current) => {
       const existing = current.find((item) => sameLine(item, product.id, variant.id))
       const newQuantity = (existing?.quantity || 0) + quantity

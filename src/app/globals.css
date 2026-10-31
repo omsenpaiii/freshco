@@ -45,6 +45,12 @@
 @theme inline {
   --font-sans: var(--font-manrope);
   --font-heading: var(--font-bricolage);
+  --text-xs: 0.875rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.6;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.65;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -85,7 +91,7 @@
 @layer base {
   * { @apply border-border outline-ring/50; }
   html { @apply font-sans; }
-  body { @apply bg-background text-foreground antialiased; overflow-x: hidden; }
+  body { @apply bg-background text-foreground antialiased; font-size: 1.0625rem; line-height: 1.65; overflow-x: hidden; }
   h1, h2, h3, h4, h5, h6 { font-family: var(--font-bricolage), sans-serif; color: var(--fresh-ink); text-wrap: balance; }
   button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
   :focus-visible { outline: 3px solid color-mix(in srgb, var(--fresh-blue) 45%, transparent); outline-offset: 3px; }
@@ -95,9 +101,9 @@
 @layer components {
   .site-container { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
   .section-shell { @apply py-16 md:py-24; }
-  .eyebrow { @apply text-[0.7rem] font-extrabold uppercase tracking-[0.2em] text-primary; }
+  .eyebrow { @apply text-sm font-extrabold uppercase tracking-[0.15em] text-primary; }
   .section-title { @apply mt-2 font-heading text-3xl font-bold tracking-[-0.035em] text-brand-ink md:text-5xl; }
-  .section-copy { @apply mt-3 max-w-2xl text-sm leading-7 text-muted-foreground md:text-base; }
+  .section-copy { @apply mt-4 max-w-2xl text-base leading-8 text-content-muted md:text-lg; }
   .brand-card { box-shadow: var(--shadow-card); @apply rounded-3xl border border-border/80 bg-white; }
   .red-stamp { @apply inline-flex items-center rounded-full bg-brand-red px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-[0.18em] text-white; }
 }

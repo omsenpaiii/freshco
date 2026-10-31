@@ -34,8 +34,14 @@ export const STORE: StoreDetails = {
   ],
 }
 
-export const FREE_DELIVERY_THRESHOLD = 50
-export const STANDARD_DELIVERY_FEE = 4.99
+export const COLLECTION = {
+  method: 'collection',
+  label: 'Click & Collect',
+  location: `${STORE.unit}, ${STORE.centre}`,
+  address: `${STORE.street}, ${STORE.suburb} ${STORE.state} ${STORE.postcode}`,
+  orderAddress: `Click & Collect — ${STORE.unit}, ${STORE.centre}, ${STORE.street}`,
+  fee: 0,
+} as const
 
 const audFormatter = new Intl.NumberFormat('en-AU', {
   style: 'currency',
@@ -48,6 +54,8 @@ export function formatAUD(value: number | string) {
   return audFormatter.format(Number(value))
 }
 
-export function getDeliveryFee(subtotal: number) {
-  return subtotal === 0 || subtotal >= FREE_DELIVERY_THRESHOLD ? 0 : STANDARD_DELIVERY_FEE
+/** @deprecated FreshCo is collection-only. Kept for older cart callers. */
+export function getDeliveryFee(_subtotal: number) {
+  void _subtotal
+  return COLLECTION.fee
 }

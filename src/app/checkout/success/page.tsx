@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { CheckCircle, Clock3, XCircle } from 'lucide-react'
 import { ClearPaidCart } from './clear-cart'
 import { query } from '@/lib/neon'
-import { formatAUD } from '@/lib/store'
+import { COLLECTION, formatAUD, STORE } from '@/lib/store'
 import { getStripe } from '@/lib/stripe'
 
 export const dynamic = 'force-dynamic'
@@ -33,7 +33,7 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
         </div>
         <div className="space-y-2">
           <h1 className="text-2xl font-extrabold text-content-strong">{paid ? 'Payment confirmed' : 'Payment processing'}</h1>
-          <p className="text-xs text-content-muted">{paid ? 'Thank you. FreshCo Deli is preparing your order.' : 'We will update your order as soon as Stripe confirms payment.'}</p>
+          <p className="text-sm leading-6 text-content-muted">{paid ? 'Thank you. Your Click & Collect payment is confirmed.' : 'We will update your order as soon as Stripe confirms payment.'}</p>
         </div>
         {order && (
           <div className="space-y-2 rounded-xl border border-border-theme bg-gray-50 p-4 text-left text-xs font-semibold">
@@ -42,6 +42,12 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
             <div className="flex justify-between gap-4"><span className="text-content-muted">Receipt email</span><span className="truncate">{order.shipping_email}</span></div>
           </div>
         )}
+        <div className="space-y-2 rounded-xl bg-brand-cloud p-4 text-left text-sm leading-6 text-content-strong">
+          <h2 className="font-bold">Collection from {COLLECTION.location}</h2>
+          <p>{COLLECTION.address}</p>
+          <p>Please contact the deli to confirm collection arrangements before travelling. Delivery is not available.</p>
+          <a href={STORE.phoneHref} className="inline-block font-bold text-primary underline underline-offset-4">{STORE.phone}</a>
+        </div>
         <Link href="/" className="block w-full rounded-full bg-primary py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-[#d89311]">Continue shopping</Link>
       </div>
     </div>

@@ -41,6 +41,7 @@ export type AdminCatalogProduct = {
   image_match_status: 'unverified' | 'verified'
   product_source_url: string | null
   image_source_url: string | null
+  image_license?: string | null
   draft_reason: string | null
   product_variants: AdminCatalogVariant[]
 }

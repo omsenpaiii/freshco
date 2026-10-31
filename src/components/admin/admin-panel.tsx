@@ -16,6 +16,8 @@ type CategoryFormState = {
   slug: string
   description: string
   image_url: string
+  image_source_url: string
+  image_license: string
 }
 
 type ProductFormState = {
@@ -38,6 +40,7 @@ type ProductFormState = {
   image_match_status: 'unverified' | 'verified'
   product_source_url: string
   image_source_url: string
+  image_license: string
   draft_reason: string
   variants: string
 }
@@ -47,6 +50,8 @@ const emptyCategoryForm: CategoryFormState = {
   slug: '',
   description: '',
   image_url: '',
+  image_source_url: '',
+  image_license: '',
 }
 
 const emptyProductForm: ProductFormState = {
@@ -69,6 +74,7 @@ const emptyProductForm: ProductFormState = {
   image_match_status: 'unverified',
   product_source_url: '',
   image_source_url: '',
+  image_license: '',
   draft_reason: '',
   variants: JSON.stringify([{ title: 'Default', sku: '', weight_grams: null, price: 0, inventory_quantity: 100, is_default: true }], null, 2),
 }
@@ -79,10 +85,13 @@ function categoryToForm(category: Category): CategoryFormState {
     slug: category.slug,
     description: category.description || '',
     image_url: category.image_url || '',
+    image_source_url: category.image_source_url || '',
+    image_license: category.image_license || '',
   }
 }
 
 function productToForm(product: Product): ProductFormState {
+  const defaultVariant = product.product_variants.find((variant) => variant.is_default) || product.product_variants[0]
   return {
     name: product.name,
     slug: product.slug,
@@ -91,7 +100,7 @@ function productToForm(product: Product): ProductFormState {
     compare_at_price:
       product.compare_at_price == null ? '' : String(product.compare_at_price),
     sku: product.sku || '',
-    inventory_quantity: String(product.inventory_quantity),
+    inventory_quantity: String(defaultVariant?.inventory_quantity ?? product.inventory_quantity),
     category_id: product.category_id == null ? '' : String(product.category_id),
     images: (product.images || []).join('\n'),
     is_featured: product.is_featured,
@@ -104,8 +113,27 @@ function productToForm(product: Product): ProductFormState {
     image_match_status: product.image_match_status || 'unverified',
     product_source_url: product.product_source_url || '',
     image_source_url: product.image_source_url || '',
+    image_license: product.image_license || '',
     draft_reason: product.draft_reason || '',
     variants: JSON.stringify(product.product_variants || [], null, 2),
+  }
+}
+
+// The database derives product pricing/SKU from the default variant. Keep the
+// convenient fields in sync so changing a visible price really changes checkout.
+function syncDefaultVariant(current: ProductFormState, field: 'price' | 'sku' | 'inventory_quantity', value: string): ProductFormState {
+  try {
+    const variants = JSON.parse(current.variants) as Array<Record<string, unknown>>
+    const defaultIndex = Math.max(0, variants.findIndex((variant) => variant.is_default))
+    return {
+      ...current,
+      [field]: value,
+      variants: JSON.stringify(variants.map((variant, index) => index === defaultIndex
+        ? { ...variant, [field]: field === 'sku' ? value : value === '' ? 0 : Number(value) }
+        : variant), null, 2),
+    }
+  } catch {
+    return { ...current, [field]: value }
   }
 }
 
@@ -361,6 +389,17 @@ export default function AdminPanel({
           </div>
         </section>
 
+        <section aria-labelledby="admin-guide-title" className="mt-6 rounded-3xl border border-primary/15 bg-white p-6 md:p-8">
+          <h2 id="admin-guide-title" className="font-heading text-2xl font-bold text-brand-ink">Your admin quick guide</h2>
+          <div className="mt-4 grid gap-5 text-sm leading-7 text-content-muted md:grid-cols-2">
+            <div><h3 className="font-bold text-brand-ink">Products, prices & availability</h3><p>Search a product and choose Edit. Update its name, description, category, brand, product types, default price, stock and photos, then Save. Leave price at 0 to display “Price pending”; it cannot be purchased until a price and stock are set.</p></div>
+            <div><h3 className="font-bold text-brand-ink">Activate or hide an item</h3><p>Draft items are dormant and hidden from shoppers. To make an item visible, choose Published and confirm its image is relevant. To hide it, choose Draft. Retire removes it from sale while keeping its record and existing orders.</p></div>
+            <div><h3 className="font-bold text-brand-ink">Variants & collections</h3><p>The default price, SKU and stock fields update the default variant automatically. For additional pack sizes or weights, edit their entries in Variants. Use Categories to update collection names, descriptions and artwork; only empty categories can be deleted.</p></div>
+            <div><h3 className="font-bold text-brand-ink">Image permissions</h3><p>Use your own, licensed or supplier-authorised images and record the source and permission notes below. A relevant image or a Google result is not copyright clearance. This panel manages the catalogue; it does not manage Stripe payments or refunds.</p></div>
+          </div>
+          <p className="mt-5 border-t border-border pt-4 text-sm font-semibold text-brand-ink">{products.filter((product) => product.status === 'draft').length} dormant items · {products.filter((product) => product.status === 'published' && product.price <= 0).length} published items awaiting a price</p>
+        </section>
+
         <div className="mt-6 flex min-h-8 items-center gap-3 text-sm">
           {feedback ? <p className="font-semibold text-brand-green">{feedback}</p> : null}
           {error ? <p className="font-semibold text-brand-red">{error}</p> : null}
@@ -417,6 +456,7 @@ export default function AdminPanel({
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
                           <h3 className="font-heading text-xl font-bold text-brand-ink">{product.name}</h3>
+                          <span className={`rounded-full px-2.5 py-1 text-xs font-bold ${product.status === 'published' ? 'bg-green-50 text-green-800' : 'bg-amber-50 text-amber-800'}`}>{product.status === 'published' ? 'Published' : 'Draft · dormant'}</span>
                           {product.is_featured ? <span className="rounded-full bg-brand-amber px-2 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-brand-ink">Featured</span> : null}
                           {product.is_trending ? <span className="rounded-full bg-brand-red/10 px-2 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-brand-red">Trending</span> : null}
                         </div>
@@ -451,7 +491,7 @@ export default function AdminPanel({
                           onClick={() => deleteProduct(product.id)}
                         >
                           <Trash2 className="size-4" />
-                          Delete
+                          Retire
                         </Button>
                       </div>
                     </motion.article>
@@ -503,8 +543,9 @@ export default function AdminPanel({
 
                   <div className="grid gap-4 md:grid-cols-2">
                     <label className="text-xs font-bold text-brand-ink">
-                      Price (AUD)
-                      <Input type="number" step="0.01" min="0" value={productForm.price} onChange={(event) => setProductForm((current) => ({ ...current, price: event.target.value }))} className="mt-2 h-11" required />
+                      Default variant price (AUD)
+                      <Input type="number" step="0.01" min="0" value={productForm.price} onChange={(event) => setProductForm((current) => syncDefaultVariant(current, 'price', event.target.value))} className="mt-2 h-11" required />
+                      <span className="mt-1 block text-xs font-normal text-content-muted">0 means Price pending, not a free product.</span>
                     </label>
                     <label className="text-xs font-bold text-brand-ink">
                       Compare-at price
@@ -514,12 +555,12 @@ export default function AdminPanel({
 
                   <div className="grid gap-4 md:grid-cols-3">
                     <label className="text-xs font-bold text-brand-ink">
-                      SKU
-                      <Input value={productForm.sku} onChange={(event) => setProductForm((current) => ({ ...current, sku: event.target.value }))} className="mt-2 h-11" />
+                      Default SKU
+                      <Input value={productForm.sku} onChange={(event) => setProductForm((current) => syncDefaultVariant(current, 'sku', event.target.value))} className="mt-2 h-11" />
                     </label>
                     <label className="text-xs font-bold text-brand-ink">
-                      Inventory
-                      <Input type="number" min="0" value={productForm.inventory_quantity} onChange={(event) => setProductForm((current) => ({ ...current, inventory_quantity: event.target.value }))} className="mt-2 h-11" required />
+                      Default variant stock
+                      <Input type="number" min="0" step="1" value={productForm.inventory_quantity} onChange={(event) => setProductForm((current) => syncDefaultVariant(current, 'inventory_quantity', event.target.value))} className="mt-2 h-11" required />
                     </label>
                     <label className="text-xs font-bold text-brand-ink">
                       Category
@@ -550,6 +591,11 @@ export default function AdminPanel({
                     <label className="text-xs font-bold text-brand-ink">Product information source<Input type="url" value={productForm.product_source_url} onChange={(event) => setProductForm((current) => ({ ...current, product_source_url: event.target.value }))} className="mt-2 h-11" /></label>
                     <label className="text-xs font-bold text-brand-ink">Image source<Input type="url" value={productForm.image_source_url} onChange={(event) => setProductForm((current) => ({ ...current, image_source_url: event.target.value }))} className="mt-2 h-11" /></label>
                   </div>
+
+                  <label className="block text-sm font-bold text-brand-ink">Image rights / licence notes
+                    <textarea value={productForm.image_license} onChange={(event) => setProductForm((current) => ({ ...current, image_license: event.target.value }))} rows={3} className="mt-2 w-full rounded-2xl border border-input bg-white px-4 py-3 text-sm font-normal outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="Record the licence, supplier permission or your ownership. Include the date or evidence link." />
+                    <span className="mt-1 block text-xs font-normal text-content-muted">Visual review confirms relevance only, not permission. Review these notes whenever you replace or add photos.</span>
+                  </label>
 
                   <label className="block text-xs font-bold text-brand-ink">Draft reason<Input value={productForm.draft_reason} onChange={(event) => setProductForm((current) => ({ ...current, draft_reason: event.target.value }))} className="mt-2 h-11" /></label>
 
@@ -712,6 +758,14 @@ export default function AdminPanel({
                   <label className="block text-xs font-bold text-brand-ink">
                     Category image URL
                     <Input value={categoryForm.image_url} onChange={(event) => setCategoryForm((current) => ({ ...current, image_url: event.target.value }))} className="mt-2 h-11" />
+                  </label>
+
+                  <label className="block text-sm font-bold text-brand-ink">Image source
+                    <Input type="url" value={categoryForm.image_source_url} onChange={(event) => setCategoryForm((current) => ({ ...current, image_source_url: event.target.value }))} className="mt-2 h-11" />
+                  </label>
+                  <label className="block text-sm font-bold text-brand-ink">Image rights / licence notes
+                    <textarea value={categoryForm.image_license} onChange={(event) => setCategoryForm((current) => ({ ...current, image_license: event.target.value }))} rows={3} className="mt-2 w-full rounded-2xl border border-input bg-white px-4 py-3 text-sm font-normal outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+                    <span className="mt-1 block text-xs font-normal text-content-muted">Only use owned, licensed or supplier-authorised artwork. Update the permission notes whenever you replace it.</span>
                   </label>
 
                   <div className="rounded-[1.5rem] border border-border/80 bg-brand-cloud/45 p-4">

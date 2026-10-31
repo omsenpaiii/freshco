@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getNeonPool } from '@/lib/neon'
-import { getDeliveryFee } from '@/lib/store'
+import { COLLECTION, STORE } from '@/lib/store'
 import { getStripe } from '@/lib/stripe'
 import { auth } from '@/lib/auth/server'
 
@@ -10,10 +10,6 @@ type CheckoutLine = { productId?: unknown; variantId?: unknown; quantity?: unkno
 type CheckoutBody = {
   name?: unknown
   email?: unknown
-  address?: unknown
-  city?: unknown
-  state?: unknown
-  postcode?: unknown
   lines?: unknown
 }
 
@@ -35,16 +31,12 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json() as CheckoutBody
-    const shipping = {
+    const contact = {
       name: text(body.name, 120),
       email: text(body.email, 254).toLowerCase(),
-      address: text(body.address, 240),
-      city: text(body.city, 100),
-      state: text(body.state, 40).toUpperCase(),
-      postcode: text(body.postcode, 12),
     }
-    if (!shipping.name || !/^\S+@\S+\.\S+$/.test(shipping.email) || !shipping.address || !shipping.city || !shipping.state || !shipping.postcode) {
-      return NextResponse.json({ error: 'Please complete every shipping field.' }, { status: 400 })
+    if (!contact.name || !/^\S+@\S+\.\S+$/.test(contact.email)) {
+      return NextResponse.json({ error: 'Please enter the collection contact’s name and a valid email address.' }, { status: 400 })
     }
 
     if (!Array.isArray(body.lines) || body.lines.length === 0 || body.lines.length > 50) {
@@ -91,8 +83,7 @@ export async function POST(request: Request) {
     }
 
     subtotal = Math.round(subtotal * 100) / 100
-    const deliveryFee = getDeliveryFee(subtotal)
-    const total = Math.round((subtotal + deliveryFee) * 100) / 100
+    const total = subtotal
     let profileId: string | null = null
     try {
       const { data: session } = await auth.getSession()
@@ -106,7 +97,9 @@ export async function POST(request: Request) {
     const { rows: orderRows } = await pool.query(`INSERT INTO orders
       (profile_id,total_amount,status,payment_status,currency,shipping_name,shipping_email,shipping_address,shipping_city,shipping_state,shipping_postal_code,shipping_country)
       VALUES($1,$2,'pending','unpaid','aud',$3,$4,$5,$6,$7,$8,'Australia') RETURNING id`,
-      [profileId,total,shipping.name,shipping.email,shipping.address,shipping.city,shipping.state,shipping.postcode])
+      // Preserve the existing order schema while clearly recording the pickup
+      // destination, not a customer delivery address, for all new orders.
+      [profileId,total,contact.name,contact.email,COLLECTION.orderAddress,STORE.suburb,STORE.state,STORE.postcode])
     const order = orderRows[0]
     if (!order) throw new Error('Order could not be created.')
     orderId = order.id
@@ -131,9 +124,23 @@ export async function POST(request: Request) {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       locale: 'en-GB',
-      customer_email: shipping.email,
+      customer_email: contact.email,
       client_reference_id: order.id,
-      metadata: { order_id: order.id },
+      metadata: {
+        order_id: order.id,
+        fulfillment_method: COLLECTION.method,
+        collection_location: COLLECTION.location,
+      },
+      payment_intent_data: {
+        metadata: {
+          order_id: order.id,
+          fulfillment_method: COLLECTION.method,
+          collection_location: COLLECTION.location,
+        },
+      },
+      custom_text: {
+        submit: { message: `Click & Collect only from ${COLLECTION.location}, ${COLLECTION.address}. No delivery service is available. Please contact the deli to confirm collection arrangements.` },
+      },
       success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}/checkout?canceled=1`,
       line_items: [
@@ -153,14 +160,6 @@ export async function POST(request: Request) {
             },
           }
         }),
-        ...(deliveryFee > 0 ? [{
-          quantity: 1,
-          price_data: {
-            currency: 'aud',
-            unit_amount: Math.round(deliveryFee * 100),
-            product_data: { name: 'Local delivery' },
-          },
-        }] : []),
       ],
     }, { idempotencyKey: `freshco-checkout-${order.id}` })
     stripeSessionId = session.id

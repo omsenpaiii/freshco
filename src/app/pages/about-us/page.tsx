@@ -33,14 +33,14 @@ const storyPillars = [
     icon: ShieldCheck,
     title: 'Designed for practical local shopping',
     copy:
-      'Clear pricing in AUD, GST-inclusive totals, Melbourne delivery messaging and fast contact actions keep the experience grounded in how people here really shop.',
+      'Browse the range with clear AUD prices, order online and collect from our Northcote Plaza store. Contact the local team for availability and collection details.',
   },
 ]
 
 const localSignals = [
   { label: 'Based in', value: 'Northcote Plaza' },
   { label: 'Phone', value: STORE.phone },
-  { label: 'Delivery', value: 'Free over A$50' },
+  { label: 'Order online', value: 'Click & Collect' },
   { label: 'Style', value: 'Melbourne deli energy' },
 ]
 
@@ -66,7 +66,7 @@ export default function AboutUsPage() {
           <div className="absolute inset-x-0 top-0 h-1.5 bg-[linear-gradient(90deg,var(--fresh-blue)_0%,var(--fresh-red)_65%,var(--fresh-amber)_100%)]" />
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
-              <span className="red-stamp">Northcote local since day one</span>
+              <span className="red-stamp">Your Northcote deli</span>
               <h1 className="section-title max-w-4xl">
                 FreshCo brings Melbourne deli warmth to everyday grocery shopping.
               </h1>
@@ -126,17 +126,16 @@ export default function AboutUsPage() {
           >
             <span className="eyebrow">Our approach</span>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-[-0.03em] text-brand-ink md:text-4xl">
-              A cleaner, friendlier storefront shaped around local trust.
+              Good food, familiar favourites and a local welcome.
             </h2>
             <p className="mt-4 text-sm leading-7 text-content-muted md:text-base">
-              The FreshCo experience is intentionally calmer than the original template. We
-              use stronger hierarchy, clearer actions and more thoughtful spacing so the
-              brand feels like a credible Melbourne deli rather than a placeholder shop.
+              Explore Greek cheese, deli favourites, frozen pastries and pantry essentials
+              at your own pace. Find the products you know, discover something for the
+              table and collect your online order from our Northcote Plaza store.
             </p>
             <p className="mt-4 text-sm leading-7 text-content-muted md:text-base">
               That means practical details stay visible: where the store is, how to reach
-              us, what the delivery threshold is and why shoppers can feel confident adding
-              favourites to their basket.
+              us and how to arrange collection. We do not currently offer delivery.
             </p>
           </motion.article>
 

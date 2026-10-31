@@ -1,37 +1,18 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useStore } from '@/context/store-context'
-import { Trash2, Plus, Minus, ShoppingBag, ChevronRight, Gift } from 'lucide-react'
-import { formatAUD, getDeliveryFee } from '@/lib/store'
+import { Trash2, Plus, Minus, ShoppingBag, ChevronRight, MapPin } from 'lucide-react'
+import { COLLECTION, formatAUD } from '@/lib/store'
 
 export default function CartPage() {
   const router = useRouter()
   const { cart, updateCartQuantity, removeFromCart } = useStore()
-  const [couponCode, setCouponCode] = useState('')
-  const [discountAmount, setDiscountAmount] = useState(0)
-  const [couponError, setCouponError] = useState('')
-  const [couponSuccess, setCouponSuccess] = useState('')
-
   const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0)
-  const shipping = getDeliveryFee(subtotal)
-  const total = subtotal - discountAmount + shipping
-
-  const handleApplyCoupon = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (couponCode.toUpperCase() === 'FRESH10') {
-      const discount = subtotal * 0.10 // 10% off
-      setDiscountAmount(discount)
-      setCouponSuccess('10% discount applied successfully!')
-      setCouponError('')
-    } else {
-      setCouponError('Invalid coupon code. Try FRESH10!')
-      setCouponSuccess('')
-    }
-  }
+  const total = subtotal
 
   return (
     <div className="w-full bg-white px-4 md:px-8 py-10">
@@ -46,7 +27,7 @@ export default function CartPage() {
 
         <div className="border-b border-border-theme pb-4 mb-8">
           <h1 className="text-xl md:text-2xl font-extrabold text-content-strong">Your Cart</h1>
-          <p className="text-xs text-content-muted mt-1">Review the fresh products in your cart before check out.</p>
+          <p className="text-sm text-content-muted mt-1">Review your order for collection from {COLLECTION.location}. Delivery is not available.</p>
         </div>
 
         {cart.length === 0 ? (
@@ -147,28 +128,10 @@ export default function CartPage() {
             {/* Right Summary Column */}
             <div className="space-y-6">
               
-              {/* Promo Coupon Form */}
-              <div className="border border-border-theme bg-gray-50 rounded-2xl p-5 space-y-4">
-                <div className="flex items-center gap-2 text-xs font-bold text-content-strong uppercase tracking-wider border-b border-border-theme pb-3">
-                  <Gift size={16} className="text-primary" /> Apply Coupon
-                </div>
-                <form onSubmit={handleApplyCoupon} className="flex gap-2">
-                  <input 
-                    type="text" 
-                    placeholder="Enter code (e.g. FRESH10)" 
-                    value={couponCode}
-                    onChange={(e) => setCouponCode(e.target.value)}
-                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs focus:outline-none focus:border-primary text-content-strong"
-                  />
-                  <button 
-                    type="submit" 
-                    className="bg-primary hover:bg-[#d89311] text-white text-[10px] font-bold px-4 py-2 rounded-lg transition uppercase cursor-pointer"
-                  >
-                    Apply
-                  </button>
-                </form>
-                {couponError && <p className="text-[10px] text-red-500 font-semibold">{couponError}</p>}
-                {couponSuccess && <p className="text-[10px] text-green-600 font-semibold">{couponSuccess}</p>}
+              <div className="border border-border-theme bg-brand-cloud rounded-2xl p-5 space-y-3">
+                <h2 className="flex items-center gap-2 text-base font-bold text-content-strong"><MapPin size={20} className="text-primary" /> Click & Collect</h2>
+                <p className="text-sm leading-6 text-content-muted">Collect from {COLLECTION.location}, {COLLECTION.address}. There is no collection fee.</p>
+                <Link href="/pages/shipping-policy" className="inline-block text-sm font-bold text-primary underline underline-offset-4">Collection details</Link>
               </div>
 
               {/* Cart Totals */}
@@ -182,15 +145,9 @@ export default function CartPage() {
                     <span className="text-content-muted">Cart Subtotal:</span>
                     <span>{formatAUD(subtotal)}</span>
                   </div>
-                  {discountAmount > 0 && (
-                    <div className="flex justify-between text-green-600">
-                      <span>Discount (10%):</span>
-                      <span>−{formatAUD(discountAmount)}</span>
-                    </div>
-                  )}
                   <div className="flex justify-between">
-                    <span className="text-content-muted">Shipping:</span>
-                    <span>{shipping === 0 ? 'Free delivery' : formatAUD(shipping)}</span>
+                    <span className="text-content-muted">Click & Collect:</span>
+                    <span>No collection fee</span>
                   </div>
                   <div className="flex justify-between text-muted-foreground"><span>GST:</span><span>Included</span></div>
                 </div>

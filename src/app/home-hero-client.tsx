@@ -23,10 +23,10 @@ export default function HomeHeroClient() {
   const goTo = useCallback((index: number) => setCurrentSlide((index + slides.length) % slides.length), [])
 
   useEffect(() => {
-    if (isPaused) return
+    if (isPaused || reduceMotion) return
     const timer = window.setInterval(() => setCurrentSlide((slide) => (slide + 1) % slides.length), 6500)
     return () => window.clearInterval(timer)
-  }, [isPaused])
+  }, [isPaused, reduceMotion])
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -57,10 +57,10 @@ export default function HomeHeroClient() {
         <motion.div key={`copy-${slide.id}`} initial={reduceMotion ? false : { opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .5 }} className="max-w-3xl text-white">
           <div data-hero-copy className="mb-6 flex items-center gap-3">
             <span className="red-stamp">{slide.subtitle}</span>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/70">{slide.note}</span>
+            <span className="text-sm font-bold uppercase tracking-[0.12em] text-white/90">{slide.note}</span>
           </div>
           <h1 data-hero-copy className="max-w-3xl font-heading text-5xl font-bold leading-[0.92] tracking-[-0.055em] text-white sm:text-6xl md:text-7xl lg:text-[6.2rem]">{slide.title}</h1>
-          <p data-hero-copy className="mt-7 max-w-xl text-base leading-7 text-white/80 md:text-lg md:leading-8">{slide.desc}</p>
+          <p data-hero-copy className="mt-7 max-w-xl text-lg leading-8 text-white/90 md:text-xl">{slide.desc} Order online for collection at Northcote Plaza.</p>
           <div data-hero-copy className="mt-9 flex flex-wrap items-center gap-4">
             <Link href={slide.link} className={cn(buttonVariants({ size: 'lg' }), 'h-13 rounded-full bg-primary px-7 text-sm font-extrabold shadow-xl shadow-blue-950/20 hover:bg-white hover:text-primary')}>
               {slide.btnText}<ArrowUpRight data-icon="inline-end" />

@@ -2,19 +2,18 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { LockKeyhole, ShieldCheck, User } from 'lucide-react'
+import { LockKeyhole, MapPin, ShieldCheck, User } from 'lucide-react'
 import { useStore } from '@/context/store-context'
-import { formatAUD, getDeliveryFee } from '@/lib/store'
+import { COLLECTION, formatAUD, STORE } from '@/lib/store'
 
 export default function CheckoutPage() {
   const { cart } = useStore()
-  const [form, setForm] = useState({ name: '', email: '', address: '', city: '', state: '', postcode: '' })
+  const [form, setForm] = useState({ name: '', email: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState('')
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  const shipping = getDeliveryFee(subtotal)
-  const total = subtotal + shipping
+  const total = subtotal
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm((current) => ({ ...current, [event.target.name]: event.target.value }))
@@ -55,20 +54,27 @@ export default function CheckoutPage() {
   return (
     <div className="w-full bg-[#f8f9fa] px-4 py-12 md:px-8">
       <div className="mx-auto max-w-6xl">
-        <h1 className="mb-8 border-b border-border-theme pb-4 text-2xl font-extrabold text-content-strong">Checkout securely</h1>
+        <h1 className="mb-3 text-3xl font-extrabold text-content-strong">Click & Collect checkout</h1>
+        <p className="mb-8 border-b border-border-theme pb-5 text-base leading-7 text-content-muted">Order online and collect from FreshCo Deli at Northcote Plaza. Delivery is not available.</p>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-8 text-left lg:grid-cols-12">
           <div className="space-y-6 lg:col-span-8">
             <section className="space-y-4 rounded-2xl border border-border-theme bg-white p-6 shadow-2xs">
-              <h2 className="flex items-center gap-2 border-b border-gray-100 pb-3 text-sm font-bold uppercase tracking-wider text-content-strong"><User size={16} className="text-primary" /> Shipping address</h2>
+              <h2 className="flex items-center gap-2 border-b border-gray-100 pb-3 text-lg font-bold text-content-strong"><User size={20} className="text-primary" /> Collection contact</h2>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <Field label="Full name" name="name" value={form.name} onChange={handleChange} autoComplete="name" />
                 <Field label="Email address" name="email" type="email" value={form.email} onChange={handleChange} autoComplete="email" />
               </div>
-              <Field label="Address line 1" name="address" value={form.address} onChange={handleChange} autoComplete="street-address" placeholder="Street address" />
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                <Field label="Suburb" name="city" value={form.city} onChange={handleChange} autoComplete="address-level2" />
-                <Field label="State" name="state" value={form.state} onChange={handleChange} autoComplete="address-level1" placeholder="VIC" maxLength={3} />
-                <Field label="Postcode" name="postcode" value={form.postcode} onChange={handleChange} autoComplete="postal-code" inputMode="numeric" maxLength={4} />
+              <p className="text-sm leading-6 text-content-muted">Use the name of the person collecting the order and an email address for the payment receipt.</p>
+            </section>
+
+            <section className="space-y-3 rounded-2xl border border-border-theme bg-white p-6 shadow-2xs">
+              <h2 className="flex items-center gap-2 text-lg font-bold text-content-strong"><MapPin size={20} className="text-primary" /> Collect from the deli</h2>
+              <p className="text-base font-bold text-content-strong">{COLLECTION.location}</p>
+              <p className="text-sm text-content-muted">{COLLECTION.address}</p>
+              <p className="text-sm leading-6 text-content-muted">Please call the deli to confirm your collection arrangements. Placing an order does not guarantee an immediate pickup time.</p>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-primary">
+                <a href={STORE.phoneHref} className="underline underline-offset-4">{STORE.phone}</a>
+                <a href={STORE.mapsUrl} target="_blank" rel="noreferrer" className="underline underline-offset-4">Get directions</a>
               </div>
             </section>
 
@@ -76,8 +82,8 @@ export default function CheckoutPage() {
               <div className="flex gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-blue-700"><LockKeyhole size={19} /></div>
                 <div className="space-y-1">
-                  <h2 className="text-sm font-extrabold text-content-strong">Payment handled securely by Stripe</h2>
-                  <p className="text-xs leading-5 text-content-muted">After you review your order, you’ll continue to Stripe’s encrypted checkout to choose an available payment method. FreshCo Deli never sees or stores your card number.</p>
+                  <h2 className="text-base font-extrabold text-content-strong">Payment handled securely by Stripe</h2>
+                  <p className="text-sm leading-6 text-content-muted">After you review your order, you’ll continue to Stripe’s encrypted checkout to choose an available payment method. FreshCo Deli never sees or stores your card number.</p>
                 </div>
               </div>
             </section>
@@ -96,7 +102,7 @@ export default function CheckoutPage() {
               </div>
               <div className="space-y-2 border-t border-border-theme pt-4 text-xs font-semibold text-content-strong">
                 <div className="flex justify-between"><span className="text-content-muted">Subtotal</span><span>{formatAUD(subtotal)}</span></div>
-                <div className="flex justify-between"><span className="text-content-muted">Delivery</span><span>{shipping === 0 ? 'Free' : formatAUD(shipping)}</span></div>
+                <div className="flex justify-between"><span className="text-content-muted">Click & Collect</span><span>No collection fee</span></div>
                 <div className="flex justify-between"><span className="text-content-muted">GST</span><span>Included</span></div>
               </div>
               <div className="flex items-center justify-between border-t border-border-theme pt-4 font-bold text-content-strong"><span className="text-sm">Total</span><span className="text-lg text-primary">{formatAUD(total)}</span></div>
@@ -116,8 +122,8 @@ type FieldProps = React.InputHTMLAttributes<HTMLInputElement> & { label: string;
 function Field({ label, name, ...props }: FieldProps) {
   return (
     <label className="space-y-1">
-      <span className="block text-[10px] font-bold uppercase text-content-muted">{label}</span>
-      <input name={name} required {...props} className="w-full rounded-lg border border-border-theme bg-white px-4 py-2 text-xs font-semibold text-content-strong focus:border-primary focus:outline-none" />
+      <span className="block text-sm font-bold text-content-muted">{label}</span>
+      <input name={name} required {...props} className="min-h-12 w-full rounded-lg border border-border-theme bg-white px-4 py-3 text-base font-semibold text-content-strong focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
     </label>
   )
 }

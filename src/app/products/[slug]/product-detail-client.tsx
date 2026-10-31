@@ -4,9 +4,10 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { useStore } from '@/context/store-context'
 import { 
-  Heart, ShoppingBag, Plus, Minus, Star, Truck, Check, RefreshCw 
+  Heart, ShoppingBag, Plus, Minus, Star, MapPin, Check, RefreshCw
 } from 'lucide-react'
-import { formatAUD } from '@/lib/store'
+import { COLLECTION, formatAUD, STORE } from '@/lib/store'
+import { hasConfirmedPrice, isVariantPurchasable } from '@/lib/catalog-pricing'
 import type { CatalogProduct, ProductVariant } from '@/lib/catalog-types'
 
 interface ProductDetailClientProps {
@@ -30,12 +31,14 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
     product.images?.[0] || 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600'
   )
   const [quantity, setQuantity] = useState(1)
+  const isIllustrativeImage = /pexels license|generic illustrative/i.test(product.image_license || '') || /\/generic-\d{8}\.jpg(?:[?#]|$)/i.test(activeImage)
   const hasOptions = product.variants.length > 1
   const hasWeightOptions = product.variants.some((variant) => variant.weight_grams != null)
-  const pricePending = !Number.isFinite(product.price) || product.price <= 0
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
     hasOptions ? null : (product.variants.find((variant) => variant.is_default) || product.variants[0] || null)
   )
+  const pricePending = !hasConfirmedPrice(selectedVariant?.price ?? product.price)
+  const outOfStock = Boolean(selectedVariant && selectedVariant.inventory_quantity <= 0)
   const [activeTab, setActiveTab] = useState<'description' | 'reviews' | 'shipping'>('description')
   const shortDescription = product.description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220)
 
@@ -49,7 +52,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
   }
 
   const handleAddToCart = () => {
-    if (pricePending || !selectedVariant || selectedVariant.price <= 0) return
+    if (pricePending || !selectedVariant || !isVariantPurchasable(selectedVariant)) return
     addToCart({
       id: product.id,
       name: product.name,
@@ -88,10 +91,11 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             src={activeImage}
             alt={product.name}
             fill
-            className="object-contain p-8 transition-all duration-300"
+            className={`${isIllustrativeImage ? 'object-cover' : 'object-contain p-5'} transition-all duration-300`}
             priority
             sizes="(max-width: 768px) 100vw, 50vw"
           />
+          {isIllustrativeImage && <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-brand-ink">Illustrative image · actual packaging may differ</span>}
         </div>
 
         {/* Thumbnail strip */}
@@ -142,8 +146,8 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               {formatAUD(product.compare_at_price)}
             </span>
           )}
-          <span className={`ml-2 flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-bold ${pricePending ? 'border-amber-100 bg-amber-50 text-amber-800' : 'border-green-100 bg-green-50 text-green-600'}`}>
-            {pricePending ? 'Not yet available to purchase' : <><Check size={12} /> In Stock</>}
+          <span className={`ml-2 flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-bold ${pricePending || outOfStock ? 'border-amber-100 bg-amber-50 text-amber-800' : 'border-green-100 bg-green-50 text-green-600'}`}>
+            {pricePending ? 'Not yet available to purchase' : outOfStock ? 'Out of stock' : selectedVariant ? <><Check size={12} /> In stock</> : 'Choose an option'}
           </span>
         </div>
 
@@ -169,7 +173,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                   aria-pressed={selectedVariant?.id === variant.id}
                   className={`min-h-11 rounded-full border px-4 py-2.5 text-sm font-bold transition duration-300 ${selectedVariant?.id === variant.id ? 'border-primary bg-primary text-white shadow-[0_8px_22px_-12px_rgba(41,101,241,.9)]' : 'border-border bg-white text-brand-ink hover:border-primary hover:bg-brand-cloud'}`}
                 >
-                  {pricePending ? `${variant.title} · Price pending` : `${variant.title} · ${formatAUD(variant.price)}`}
+                  {!hasConfirmedPrice(variant.price) ? `${variant.title} · Price pending` : `${variant.title} · ${formatAUD(variant.price)}${variant.inventory_quantity <= 0 ? ' · Out of stock' : ''}`}
                 </button>
               ))}
             </div>
@@ -205,10 +209,10 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
             <button
               onClick={handleAddToCart}
-              disabled={pricePending || !selectedVariant || selectedVariant.price <= 0}
+              disabled={pricePending || !isVariantPurchasable(selectedVariant)}
               className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-extrabold text-white shadow-[0_14px_30px_-16px_rgba(41,101,241,.9)] transition duration-300 hover:-translate-y-0.5 hover:bg-brand-ink disabled:cursor-not-allowed disabled:opacity-45"
             >
-              {pricePending ? 'Price pending' : selectedVariant ? 'Add to bag' : 'Choose a weight'} <ShoppingBag size={17} />
+              {pricePending ? 'Price pending' : outOfStock ? 'Out of stock' : selectedVariant ? 'Add to bag' : hasWeightOptions ? 'Choose a weight' : 'Choose an option'} <ShoppingBag size={17} />
             </button>
 
             <button
@@ -229,10 +233,10 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
         {/* Brand Perks bullet row */}
         <div className="pt-6 border-t border-border-theme grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-semibold text-content-strong">
           <div className="flex items-center gap-2">
-            <Truck size={16} className="text-primary" /> Free local delivery on orders over A$50.00
+            <MapPin size={18} className="text-primary" /> Click & Collect at Northcote Plaza
           </div>
           <div className="flex items-center gap-2">
-            <RefreshCw size={16} className="text-primary" /> Easy 14-day hassle free returns
+            <RefreshCw size={18} className="text-primary" /> Contact the deli for product support
           </div>
         </div>
       </div>
@@ -240,12 +244,12 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
       {/* 3. Below the fold Tabs panel */}
       <div className="mt-12 overflow-hidden rounded-3xl border border-border bg-white md:col-span-2">
         {/* Tab Headers */}
-        <div className="flex border-b border-border-theme bg-[#f8f9fa] text-xs font-bold uppercase tracking-wider">
+        <div className="flex overflow-x-auto border-b border-border-theme bg-[#f8f9fa] text-xs font-bold uppercase tracking-wider">
           <button 
             onClick={() => setActiveTab('description')}
             role="tab"
             aria-selected={activeTab === 'description'}
-            className={`py-4 px-6 border-r border-border-theme cursor-pointer transition ${
+            className={`shrink-0 whitespace-nowrap py-4 px-6 border-r border-border-theme cursor-pointer transition ${
               activeTab === 'description' ? 'bg-white text-primary border-b-2 border-b-primary' : 'text-content-strong hover:bg-gray-100'
             }`}
           >
@@ -255,7 +259,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             onClick={() => setActiveTab('reviews')}
             role="tab"
             aria-selected={activeTab === 'reviews'}
-            className={`py-4 px-6 border-r border-border-theme cursor-pointer transition ${
+            className={`shrink-0 whitespace-nowrap py-4 px-6 border-r border-border-theme cursor-pointer transition ${
               activeTab === 'reviews' ? 'bg-white text-primary border-b-2 border-b-primary' : 'text-content-strong hover:bg-gray-100'
             }`}
           >
@@ -265,11 +269,11 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             onClick={() => setActiveTab('shipping')}
             role="tab"
             aria-selected={activeTab === 'shipping'}
-            className={`py-4 px-6 cursor-pointer transition ${
+            className={`shrink-0 whitespace-nowrap py-4 px-6 cursor-pointer transition ${
               activeTab === 'shipping' ? 'bg-white text-primary border-b-2 border-b-primary' : 'text-content-strong hover:bg-gray-100'
             }`}
           >
-            Shipping Info
+            Click & Collect
           </button>
         </div>
 
@@ -287,12 +291,12 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           {/* Tab: Shipping Info */}
           {activeTab === 'shipping' && (
             <div className="space-y-4 text-content-strong">
-              <h4 className="font-bold text-sm">Shipping Policy</h4>
-              <p>We pack chilled, frozen and pantry items according to their handling needs. Typical delivery schedules are as follows:</p>
+              <h4 className="font-bold text-base">Collection information</h4>
+              <p>Shop online and collect your order from {COLLECTION.location}, {COLLECTION.address}. FreshCo Deli does not currently offer delivery.</p>
               <ul className="list-disc pl-5 space-y-1.5 text-gray-500">
-                <li>Local orders placed before 10 AM qualify for same-day evening delivery.</li>
-                <li>Standard delivery within the county takes 1 to 2 business days.</li>
-                <li>Chilled and frozen products are transported with temperature-conscious packing.</li>
+                <li>There is no collection fee.</li>
+                <li>Please call <a href={STORE.phoneHref} className="font-semibold text-primary underline underline-offset-4">{STORE.phone}</a> to confirm collection arrangements before travelling.</li>
+                <li>Transport chilled and frozen items home promptly and follow the product’s storage instructions.</li>
               </ul>
             </div>
           )}

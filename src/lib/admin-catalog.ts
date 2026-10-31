@@ -2,6 +2,7 @@ import 'server-only'
 
 import { getNeonPool, query } from '@/lib/neon'
 import { normalizeImageUrls, normalizeVariants, slugify } from '@/lib/catalog'
+import { provenanceText } from '@/lib/catalog-provenance'
 import type { AdminCatalogCategory, AdminCatalogProduct } from '@/lib/admin-types'
 
 type ProductVariantInput = ReturnType<typeof normalizeVariants>[number]
@@ -85,10 +86,12 @@ export async function saveAdminProduct(payload: Record<string, unknown>, product
   const id = productId ?? Date.now()
   try {
     await client.query('BEGIN')
+    let existingProvenance: Record<string, unknown> = {}
     if (productId) {
-      const existing = await client.query('SELECT category_id FROM products WHERE id=$1 FOR UPDATE', [productId])
+      const existing = await client.query('SELECT category_id,product_source_url,image_source_url,image_license FROM products WHERE id=$1 FOR UPDATE', [productId])
       if (!existing.rows[0]) throw new AdminCatalogError('Product not found.', 404)
       previousCategoryId = existing.rows[0].category_id == null ? null : Number(existing.rows[0].category_id)
+      existingProvenance = existing.rows[0]
     }
 
     const productValues = [
@@ -110,9 +113,9 @@ export async function saveAdminProduct(payload: Record<string, unknown>, product
       String(payload.subcategory_2 || '').trim(),
       status,
       imageMatchStatus,
-      String(payload.product_source_url || '').trim() || null,
-      String(payload.image_source_url || '').trim() || null,
-      String(payload.image_license || '').trim() || null,
+      provenanceText(payload, 'product_source_url', existingProvenance.product_source_url),
+      provenanceText(payload, 'image_source_url', existingProvenance.image_source_url),
+      provenanceText(payload, 'image_license', existingProvenance.image_license),
       String(payload.draft_reason || '').trim() || null,
     ]
 

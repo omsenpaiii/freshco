@@ -8,6 +8,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { useStore } from '@/context/store-context'
 import { Badge } from '@/components/ui/badge'
 import { formatAUD } from '@/lib/store'
+import { hasConfirmedPrice, isVariantPurchasable } from '@/lib/catalog-pricing'
 import type { ProductVariant } from '@/lib/catalog-types'
 
 export interface ProductCardProps { id: number; name: string; slug: string; price: number; compare_at_price: number | null; images: string[]; is_featured?: boolean; is_trending?: boolean; category_name?: string; brand?: string; image_license?: string | null; variants?: ProductVariant[] }
@@ -36,10 +37,11 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
   const [imageFailed, setImageFailed] = useState(false)
   const hasImage = Boolean(image && !imageFailed)
   const hasHoverImage = hasImage && hoverImage !== image
-  const discount = compare_at_price && compare_at_price > price ? Math.round(((compare_at_price - price) / compare_at_price) * 100) : 0
+  const pricePending = !hasConfirmedPrice(price)
+  const discount = !pricePending && compare_at_price && compare_at_price > price ? Math.round(((compare_at_price - price) / compare_at_price) * 100) : 0
   const hasOptions = variants.length > 1
   const defaultVariant = variants.find((variant) => variant.is_default) || variants[0]
-  const pricePending = !Number.isFinite(price) || price <= 0
+  const canAddDefault = isVariantPurchasable(defaultVariant)
   const [imageLoaded, setImageLoaded] = useState(false)
 
   useEffect(() => {
@@ -89,6 +91,7 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
             </span>
           )}
         </Link>
+        {isIllustrativeImage && hasImage && <span className="pointer-events-none absolute bottom-3 left-3 z-20 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand-ink">Illustrative image</span>}
         <div className="absolute left-3.5 top-3.5 z-10 flex flex-col items-start gap-1.5 sm:left-4 sm:top-4">
           {discount > 0 && <Badge variant="destructive" className="rounded-full border border-white/25 bg-brand-red px-3 py-1.5 text-[10px] font-extrabold tracking-wide shadow-lg">SAVE {discount}%</Badge>}
         </div>
@@ -104,8 +107,8 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
       </div>
 
       <div className="flex flex-1 flex-col px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5">
-        <span className="truncate text-[10px] font-extrabold uppercase tracking-[0.17em] text-primary">{brand || category_name}</span>
-        <h3 className="mt-2 min-h-10 font-heading text-sm font-bold leading-5 text-brand-ink sm:text-base">
+        <span className="truncate text-[12px] font-extrabold uppercase tracking-[0.14em] text-primary">{brand || category_name}</span>
+        <h3 className="mt-2 min-h-12 font-heading text-base font-bold leading-6 text-brand-ink sm:text-lg">
           <Link href={`/products/${slug}`} className="transition-colors hover:text-primary">{name}</Link>
         </h3>
 
@@ -115,26 +118,26 @@ export default function ProductCard({ id, name, slug, price, compare_at_price, i
             {!pricePending && compare_at_price && compare_at_price > price && <span className="text-xs font-semibold text-muted-foreground line-through">{formatAUD(compare_at_price)}</span>}
           </div>
           {pricePending ? (
-            <button type="button" disabled className="inline-flex min-h-12 w-full cursor-not-allowed items-center justify-center rounded-full bg-muted px-4 text-xs font-extrabold text-muted-foreground sm:text-sm">
+            <button type="button" disabled className="inline-flex min-h-12 w-full cursor-not-allowed items-center justify-center rounded-full bg-muted px-4 text-sm font-extrabold text-muted-foreground sm:text-base">
               Price pending
             </button>
           ) : hasOptions ? (
-            <Link href={`/products/${slug}`} className="group/action inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-brand-ink px-4 text-xs font-extrabold text-white shadow-sm transition duration-300 hover:bg-primary hover:shadow-[0_12px_28px_-14px_rgba(41,101,241,.8)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/25 sm:text-sm">
+            <Link href={`/products/${slug}`} className="group/action inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-brand-ink px-4 text-sm font-extrabold text-white shadow-sm transition duration-300 hover:bg-primary hover:shadow-[0_12px_28px_-14px_rgba(41,101,241,.8)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/25 sm:text-base">
               Choose options <ArrowRight size={16} className="transition-transform duration-300 group-hover/action:translate-x-1" />
             </Link>
           ) : (
             <button
               type="button"
               aria-label={added ? `${name} added to bag` : `Add ${name} to bag`}
-              disabled={!defaultVariant}
+              disabled={!canAddDefault}
               onClick={() => {
-                if (!defaultVariant) return
+                if (!defaultVariant || !canAddDefault) return
                 addToCart({ id, name, slug, image, variant: defaultVariant }, 1)
                 setAdded(true)
               }}
-              className={`group/action inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full px-4 text-xs font-extrabold text-white shadow-sm transition duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/25 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground sm:text-sm ${added ? 'bg-brand-green' : 'bg-primary hover:bg-brand-ink hover:shadow-[0_12px_28px_-14px_rgba(41,101,241,.8)]'}`}
+              className={`group/action inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full px-4 text-sm font-extrabold text-white shadow-sm transition duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/25 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground sm:text-base ${added ? 'bg-brand-green' : 'bg-primary hover:bg-brand-ink hover:shadow-[0_12px_28px_-14px_rgba(41,101,241,.8)]'}`}
             >
-              {added ? <><Check size={17} /> Added to bag</> : <>Add to bag <ShoppingBag size={17} className="transition-transform duration-300 group-hover/action:-translate-y-0.5" /></>}
+              {!canAddDefault ? 'Out of stock' : added ? <><Check size={17} /> Added to bag</> : <>Add to bag <ShoppingBag size={17} className="transition-transform duration-300 group-hover/action:-translate-y-0.5" /></>}
             </button>
           )}
         </div>

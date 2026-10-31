@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ChevronRight } from 'lucide-react'
+import { COLLECTION, STORE } from '@/lib/store'
 
 // Define the static routes to pre-compile them during build time
 export async function generateStaticParams() {
@@ -19,7 +20,7 @@ const policyPages: Record<string, { title: string; content: string[] }> = {
     title: "Privacy Policy",
     content: [
       "Your privacy is critically important to us. This Privacy Policy outlines the types of personal information collected by FreshCo Deli and how we use it to fulfil orders and improve your browsing experience.",
-      "We collect email addresses, shipping details, and account preferences when you register or execute orders. Payment card numbers are processed directly by our secure payment partners (such as Stripe or PayPal) and are never stored on our local database servers.",
+      "We collect contact details and account preferences when you register or place an order. Payment card numbers are processed directly by Stripe and are not stored in the FreshCo Deli database.",
       "We employ cookies to track cart items, wishlist status, and visitor preferences. You may choose to disable cookies in your browser settings, though some interactive elements like the cart drawer may not operate correctly as a result."
     ]
   },
@@ -27,16 +28,16 @@ const policyPages: Record<string, { title: string; content: string[] }> = {
     title: "Return & Refund Policy",
     content: [
       "Chilled and frozen food requires careful handling, so our return policy is designed to protect product quality while supporting your consumer rights.",
-      "If cheese or a frozen item arrives damaged or at an unsuitable temperature, contact FreshCo Deli promptly with your order details and a photograph so the team can review a replacement or refund.",
+      "If you notice a problem with a collected item, contact FreshCo Deli promptly with your order details and a photograph so the team can review the appropriate next step.",
       "Unopened pantry products may be eligible for return in their original packaging. Contact the deli before returning an item so the team can confirm the appropriate next step."
     ]
   },
   'shipping-policy': {
-    title: "Shipping & Delivery Policy",
+    title: "Click & Collect Information",
     content: [
-      "FreshCo Deli prepares cheese, frozen filo products and pantry goods according to their different handling needs.",
-      "Delivery availability and timing depend on the destination and order time. Chilled and frozen products are packed with temperature-conscious handling.",
-      "Local Melbourne delivery is free for orders over A$50. Orders below the threshold carry a flat A$4.99 delivery fee. All displayed prices include GST."
+      "FreshCo Deli currently offers Click & Collect only. We do not offer a delivery service, and no delivery or collection fee is added to your order.",
+      `Collect your order from ${COLLECTION.location}, ${COLLECTION.address}. Please contact the deli on ${STORE.phone} to confirm collection arrangements before travelling. Placing an online order does not guarantee an immediate pickup time.`,
+      "Please transport chilled and frozen items home promptly and follow the storage instructions on each product. All displayed prices are in AUD and include GST."
     ]
   },
   'terms-conditions': {
@@ -50,9 +51,9 @@ const policyPages: Record<string, { title: string; content: string[] }> = {
   'payment-policy': {
     title: "Secure Payment Policy",
     content: [
-      "FreshCo Deli uses an encrypted checkout environment for order details.",
-      "All checkout data transactions are protected using Secure Sockets Layer (SSL) certificates and robust encryption protocols. We process payments via Level 1 PCI-compliant payment gateways, ensuring that card credentials remain fully masked.",
-      "For local demonstration and development sandboxes, we support Mock Checkout cards for simulation. Genuine billing cycles will only be processed under live configurations."
+      "FreshCo Deli uses Stripe-hosted Checkout for online payments. The total is checked against the current catalog on the server before checkout opens.",
+      "You enter your payment details on Stripe’s secure checkout. FreshCo Deli does not receive or store your full card number.",
+      "Online orders are for collection from Northcote Plaza only. Products marked Price pending cannot be purchased until the deli confirms their price."
     ]
   }
 }

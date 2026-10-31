@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getAdminSessionUser } from '@/lib/admin'
 import { query } from '@/lib/neon'
 import { slugify } from '@/lib/catalog'
+import { provenanceText } from '@/lib/catalog-provenance'
 
 type RouteContext = { params: Promise<{ id: string }> }
 
@@ -16,10 +17,14 @@ export async function PATCH(request: NextRequest, { params }: RouteContext) {
   }
 
   try {
-    const { rows } = await query(`UPDATE categories SET name=$2,slug=$3,description=$4,image_url=$5,image_source_url=$6,image_license=$7
+    const { rows } = await query(`UPDATE categories SET name=$2,slug=$3,description=$4,image_url=$5,
+      image_source_url=CASE WHEN $8::boolean THEN $6 ELSE image_source_url END,
+      image_license=CASE WHEN $9::boolean THEN $7 ELSE image_license END
       WHERE id=$1 RETURNING *`, [categoryId, name, slug, String(payload.description || '').trim() || null,
-      String(payload.image_url || '').trim() || null, String(payload.image_source_url || '').trim() || null,
-      String(payload.image_license || '').trim() || null])
+      String(payload.image_url || '').trim() || null, provenanceText(payload, 'image_source_url'),
+      provenanceText(payload, 'image_license'),
+      Object.prototype.hasOwnProperty.call(payload, 'image_source_url'),
+      Object.prototype.hasOwnProperty.call(payload, 'image_license')])
     if (!rows[0]) return NextResponse.json({ error: 'Category not found.' }, { status: 404 })
     return NextResponse.json({ category: rows[0] })
   } catch (error) {

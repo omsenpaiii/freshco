@@ -6,16 +6,14 @@ import ProductCard from '@/components/ui/product-card'
 import HomeHeroClient from './home-hero-client'
 import DealOfTheDayClient from './deal-of-the-day-client'
 import SectionReveal from '@/components/ui/section-reveal'
-import { ArrowRight, Leaf, ShieldCheck, Truck, Sparkles } from 'lucide-react'
+import { ArrowRight, Leaf, ShieldCheck, Store, ShoppingBag } from 'lucide-react'
 
 // Force Next.js to render page dynamically so it grabs latest products/DB state
 export const revalidate = 0
 
 export default async function Home() {
-  const categories = await getCategories()
-  const allProducts = await getProducts()
+  const [categories, allProducts, blogPosts] = await Promise.all([getCategories(), getProducts(), getBlogPosts()])
   const trendingProducts = allProducts.slice(8, 12)
-  const blogPosts = await getBlogPosts()
 
   // Get subset of featured categories for homepage circles (limit to 8)
   const featuredCategories = categories
@@ -33,11 +31,11 @@ export default async function Home() {
         <SectionReveal className="site-container grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
             <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
-              <Truck size={24} />
+              <Store size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-content-strong">Free Shipping</h4>
-              <p className="text-xs text-content-muted mt-0.5">Across Melbourne on orders over A$50</p>
+              <h4 className="text-base font-bold text-content-strong">Click & Collect</h4>
+              <p className="text-sm text-content-muted mt-1">Order online. Collect at Northcote Plaza.</p>
             </div>
           </div>
           <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
@@ -45,8 +43,8 @@ export default async function Home() {
               <Leaf size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-content-strong">Deli selection</h4>
-              <p className="text-xs text-content-muted mt-0.5">Cheese, frozen filo and pantry staples</p>
+              <h4 className="text-base font-bold text-content-strong">Deli selection</h4>
+              <p className="text-sm text-content-muted mt-1">Cheese, frozen filo and pantry staples</p>
             </div>
           </div>
           <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
@@ -54,17 +52,17 @@ export default async function Home() {
               <ShieldCheck size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-content-strong">Secure Payments</h4>
-              <p className="text-xs text-content-muted mt-0.5">100% SSL protected checkout</p>
+              <h4 className="text-base font-bold text-content-strong">Secure checkout</h4>
+              <p className="text-sm text-content-muted mt-1">Card payments handled by Stripe</p>
             </div>
           </div>
           <div className="flex items-center gap-4 rounded-2xl border border-white bg-white/70 p-5">
             <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
-              <Sparkles size={24} />
+              <ShoppingBag size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-content-strong">Verified packs</h4>
-              <p className="text-xs text-content-muted mt-0.5">Images reviewed for product relevance</p>
+              <h4 className="text-base font-bold text-content-strong">Your local deli</h4>
+              <p className="text-sm text-content-muted mt-1">In-store collection only. No delivery.</p>
             </div>
           </div>
         </SectionReveal>
@@ -101,13 +99,13 @@ export default async function Home() {
                     className="z-0 object-cover transition duration-700 ease-out group-hover:scale-110"
                   />
                   <div aria-hidden="true" className="absolute inset-0 z-10 bg-gradient-to-t from-brand-ink/90 via-brand-ink/15 to-brand-ink/10 transition duration-500 group-hover:from-brand-ink/95" />
-                  <span className="absolute left-3.5 top-3.5 z-20 rounded-full border border-white/35 bg-white/90 px-3 py-1.5 text-[0.62rem] font-extrabold uppercase tracking-[0.12em] text-brand-ink shadow-sm backdrop-blur sm:left-4 sm:top-4">
+                  <span className="absolute left-3.5 top-3.5 z-20 rounded-full border border-white/35 bg-white/90 px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.08em] text-brand-ink shadow-sm backdrop-blur sm:left-4 sm:top-4">
                     {cat.products_count} {cat.products_count === 1 ? 'item' : 'items'}
                   </span>
                   <div className="relative z-20 mt-auto flex w-full items-end justify-between gap-2 p-3.5 text-white sm:p-5">
                     <div className="min-w-0">
-                      <h3 className="truncate font-heading text-lg font-bold tracking-tight !text-white sm:text-xl">{cat.name}</h3>
-                      <span className="mt-1 block text-xs font-semibold text-white/75 transition-colors group-hover:text-white">Explore the aisle</span>
+                      <h3 className="font-heading text-xl font-bold leading-tight tracking-tight !text-white sm:text-2xl">{cat.name}</h3>
+                      <span className="mt-2 block text-sm font-semibold text-white/90 transition-colors group-hover:text-white">Explore the aisle</span>
                     </div>
                     <span aria-hidden="true" className="mb-0.5 flex size-10 shrink-0 items-center justify-center rounded-full border border-white/40 bg-white/15 text-white backdrop-blur transition duration-300 group-hover:translate-x-0.5 group-hover:border-white group-hover:bg-white group-hover:text-primary sm:size-11">
                       <ArrowRight size={18} />
