@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { authClient } from '@/lib/auth/client'
+import { isAdminEmail } from '@/lib/admin-access'
 import { Mail, Lock, AlertCircle } from 'lucide-react'
 
 export default function LoginPage() {
@@ -13,13 +14,17 @@ export default function LoginPage() {
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
   const [loading, setLoading] = useState(false)
+  const [verificationEmail, setVerificationEmail] = useState('')
+  const [otp, setOtp] = useState('')
+  const [otpSent, setOtpSent] = useState(false)
+  const [verificationLoading, setVerificationLoading] = useState<'send' | 'verify' | null>(null)
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const noticeText = params.get('verified') === '1'
       ? 'Email confirmed. You can now log in to FreshCo Deli.'
       : params.get('created') === '1'
-        ? 'Your account is ready. You can now log in to FreshCo Deli.'
+        ? 'Your account was created. Sign in to continue; admin access requires a verified email.'
         : ''
     if (noticeText) {
       const timer = window.setTimeout(() => setNotice(noticeText), 0)
@@ -31,27 +36,101 @@ export default function LoginPage() {
     e.preventDefault()
     setLoading(true)
     setError('')
+    setNotice('')
+    setVerificationEmail('')
+    setOtp('')
+    setOtpSent(false)
 
     try {
-      const { error: authErr } = await authClient.signIn.email({ email, password })
+      const { data, error: authErr } = await authClient.signIn.email({ email, password })
       if (authErr) {
         setError(authErr.message || 'Unable to log in.')
         return
       }
 
-      try {
-        const adminResponse = await fetch('/api/admin/status')
-        const adminJson = adminResponse.ok ? await adminResponse.json() : null
-        router.push(adminJson?.isAdmin ? '/admin' : '/account')
-        router.refresh()
-      } catch {
-        router.push('/account')
-        router.refresh()
+      if (isAdminEmail(data?.user?.email ?? email) && data?.user?.emailVerified !== true) {
+        setVerificationEmail(data?.user?.email ?? email.trim())
+        setNotice('Verify this email address before opening FreshCo admin tools. Request a code below when you are ready.')
+        return
       }
+
+      const adminResponse = await fetch('/api/admin/status', { cache: 'no-store' })
+      const adminJson = adminResponse.ok ? await adminResponse.json() : null
+      router.push(adminJson?.isAdmin === true ? '/admin' : '/account')
+      router.refresh()
     } catch {
       setError('We could not reach the account service. Please try again in a moment.')
     } finally {
       setLoading(false)
+    }
+  }
+
+  const handleSendVerificationCode = async () => {
+    if (!verificationEmail || !isAdminEmail(verificationEmail)) return
+    setVerificationLoading('send')
+    setError('')
+    setNotice('')
+
+    try {
+      const { data, error: otpError } = await authClient.emailOtp.sendVerificationOtp({
+        email: verificationEmail,
+        type: 'email-verification',
+      })
+      if (otpError || data?.success !== true) {
+        setError(otpError?.message || 'We could not send a verification code. Please try again.')
+        return
+      }
+      setOtpSent(true)
+      setNotice(`A verification code was sent to ${verificationEmail}.`)
+    } catch {
+      setError('We could not send a verification code. Please try again in a moment.')
+    } finally {
+      setVerificationLoading(null)
+    }
+  }
+
+  const handleVerifyEmail = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!verificationEmail || !isAdminEmail(verificationEmail)) return
+    setVerificationLoading('verify')
+    setError('')
+    setNotice('')
+    let emailVerified = false
+
+    try {
+      const { data, error: otpError } = await authClient.emailOtp.verifyEmail({
+        email: verificationEmail,
+        otp: otp.trim(),
+      })
+      if (otpError || data?.status !== true) {
+        setError(otpError?.message || 'That code could not be verified. Check it and try again.')
+        return
+      }
+      emailVerified = true
+
+      const adminResponse = await fetch('/api/admin/status', { cache: 'no-store' })
+      const adminJson = adminResponse.ok ? await adminResponse.json() : null
+      if (adminJson?.isAdmin === true) {
+        router.push('/admin')
+        router.refresh()
+        return
+      }
+
+      setVerificationEmail('')
+      setOtp('')
+      setOtpSent(false)
+      setNotice('Email verified. Sign in again to continue; admin access is checked after sign-in.')
+    } catch {
+      if (emailVerified) {
+        setVerificationEmail('')
+        setOtp('')
+        setOtpSent(false)
+        setNotice('Email verified. Sign in again to continue; admin access is checked after sign-in.')
+      } else {
+        setError('We could not verify that code. Please try again.')
+      }
+    } finally {
+      setVerificationLoading(null)
     }
   }
 
@@ -72,6 +151,47 @@ export default function LoginPage() {
         )}
 
         {notice && <div role="status" className="rounded-xl border border-green-100 bg-green-50 p-3.5 text-xs font-semibold text-green-700">{notice}</div>}
+
+        {verificationEmail && (
+          <section aria-label="Verify admin email" className="rounded-xl border border-blue-100 bg-blue-50 p-4 space-y-3">
+            <div>
+              <h2 className="text-sm font-bold text-content-strong">Verify your email</h2>
+              <p className="mt-1 text-xs text-content-muted">Administrator access is available only after verifying {verificationEmail}.</p>
+            </div>
+            <button
+              type="button"
+              onClick={handleSendVerificationCode}
+              disabled={verificationLoading !== null}
+              className="w-full rounded-full border border-primary bg-white py-2.5 text-xs font-bold uppercase tracking-wider text-primary transition hover:bg-blue-50 disabled:opacity-60"
+            >
+              {verificationLoading === 'send' ? 'Sending code...' : otpSent ? 'Send a new code' : 'Send verification code'}
+            </button>
+            {otpSent && (
+              <form onSubmit={handleVerifyEmail} className="space-y-3">
+                <label className="block space-y-1">
+                  <span className="text-[10px] uppercase font-bold text-content-muted">Verification code</span>
+                  <input
+                    type="text"
+                    required
+                    autoComplete="one-time-code"
+                    inputMode="numeric"
+                    value={otp}
+                    onChange={(event) => setOtp(event.target.value)}
+                    className="w-full rounded-lg border border-border-theme bg-white px-4 py-2.5 text-sm font-semibold text-content-strong focus:outline-none focus:border-primary"
+                    placeholder="Enter the code from your email"
+                  />
+                </label>
+                <button
+                  type="submit"
+                  disabled={verificationLoading !== null || !otp.trim()}
+                  className="w-full rounded-full bg-primary py-3 text-xs font-bold uppercase tracking-wider text-white transition disabled:bg-gray-300"
+                >
+                  {verificationLoading === 'verify' ? 'Verifying...' : 'Verify email'}
+                </button>
+              </form>
+            )}
+          </section>
+        )}
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div className="space-y-1">

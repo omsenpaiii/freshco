@@ -13,6 +13,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { motion } from 'motion/react'
 import { formatAUD, STORE } from '@/lib/store'
 import { isAdminEmail } from '@/lib/admin-access'
+import HomeNavigation from '@/components/layout/home-navigation'
 
 const navItems = [
   ['Home', '/'], ['Shop', '/collections'], ['Stories', '/blogs/news'], ['About', '/pages/about-us'], ['Contact', '/pages/contact-us'], ['FAQs', '/pages/faqs'],
@@ -23,9 +24,18 @@ interface HeaderProps {
   initialProducts: Array<{ id: number; name: string; slug: string; price: number; images: string[] }>
 }
 
-export default function Header({ initialCategories, initialProducts }: HeaderProps) {
-  const router = useRouter()
+export default function Header(props: HeaderProps) {
   const pathname = usePathname()
+
+  if (pathname === '/') {
+    return <HomeNavigation initialProducts={props.initialProducts} />
+  }
+
+  return <StandardHeader {...props} pathname={pathname} />
+}
+
+function StandardHeader({ initialCategories, initialProducts, pathname }: HeaderProps & { pathname: string }) {
+  const router = useRouter()
   const { cart, wishlist, setCartOpen, user } = useStore()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')

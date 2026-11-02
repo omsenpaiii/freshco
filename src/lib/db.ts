@@ -1,3 +1,4 @@
+import { cache } from 'react'
 import categoriesData from '@/data/categories.json'
 import productsData from '@/data/products.json'
 import type { CatalogProduct } from '@/lib/catalog-types'
@@ -40,7 +41,7 @@ const fallbackBlogs = [
 // Categories Fetching
 // Database rows and the static fallback intentionally share a loose shape for resilience.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function getCategories(): Promise<any[]> {
+export const getCategories = cache(async function getCategories(): Promise<any[]> {
   if (isNeonConfigured()) {
     try {
       const { rows } = await query('SELECT * FROM categories ORDER BY name')
@@ -50,7 +51,7 @@ export async function getCategories(): Promise<any[]> {
     }
   }
   return categoriesData.filter((category) => Number(category.products_count) > 0)
-}
+})
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function getCategoryBySlug(slug: string): Promise<any | null> {
@@ -91,7 +92,7 @@ const normalizeProduct = (input: unknown): CatalogProduct => {
   } as unknown as CatalogProduct
 }
 
-export async function getProducts(options: GetProductsOptions = {}): Promise<CatalogProduct[]> {
+export const getProducts = cache(async function getProducts(options: GetProductsOptions = {}): Promise<CatalogProduct[]> {
   const { categorySlug, isFeatured, isTrending, search, sortBy, brand, subcategory } = options
 
   if (isNeonConfigured()) {
@@ -151,7 +152,7 @@ export async function getProducts(options: GetProductsOptions = {}): Promise<Cat
   }
 
   return filtered
-}
+})
 
 export async function getProductBySlug(slug: string): Promise<CatalogProduct | null> {
   if (isNeonConfigured()) {

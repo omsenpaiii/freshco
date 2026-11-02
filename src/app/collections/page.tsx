@@ -45,7 +45,7 @@ export default async function CollectionsPage({ searchParams }: CollectionsPageP
             <span className="red-stamp">The whole market</span>
             <h1 className="mt-4 text-4xl font-bold text-white md:text-6xl">Good food starts here.</h1>
             <p className="mt-4 max-w-xl text-sm leading-7 text-white/65 md:text-base">
-              Shop colourful produce, bakery favourites, pantry staples and delightful extras—all picked with FreshCo care.
+              Explore Greek cheeses, deli antipasti, frozen filo favourites and pantry staples. Order online for Click &amp; Collect at Northcote Plaza.
             </p>
           </div>
         </div>

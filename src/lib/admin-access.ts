@@ -12,3 +12,7 @@ export function isAdminEmail(email?: string | null) {
   return !!email && ADMIN_EMAIL_SET.has(email.trim().toLowerCase())
 }
 
+export function isVerifiedAdmin(email?: string | null, emailVerified?: unknown) {
+  return emailVerified === true && isAdminEmail(email)
+}
+

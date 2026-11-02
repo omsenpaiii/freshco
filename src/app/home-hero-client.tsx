@@ -1,86 +1,33 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import { ChevronLeft, ChevronRight, Pause, Play, ArrowUpRight } from 'lucide-react'
-import { buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
+import { getImageProps } from 'next/image'
+import { ArrowRight } from 'lucide-react'
+import { motion, useReducedMotion } from 'motion/react'
 
-const slides = [
-  { id: 1, title: 'Greek cheese, ready for the table.', subtitle: 'From the deli fridge', desc: 'Dodoni feta and speciality cheeses in carefully matched pack sizes.', image: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=85&w=1600&auto=format&fit=crop', btnText: 'Shop cheese', link: '/collections/cheese', note: 'Chilled selection' },
-  { id: 2, title: 'Filo favourites for the freezer.', subtitle: 'Filosophy pies', desc: 'Spirals, family pies and bite-size pastries for effortless sharing.', image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=85&w=1600&auto=format&fit=crop', btnText: 'Shop frozen', link: '/collections/frozen', note: 'Freezer ready' },
-  { id: 3, title: 'Greek pasta for every pantry.', subtitle: 'Misko classics', desc: 'Long, short and soup pasta shapes, each in the supplied 500 g pack.', image: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=85&w=1600&auto=format&fit=crop', btnText: 'Shop grocery', link: '/collections/grocery', note: 'Pantry staples' },
-]
+const common = { alt: '', sizes: '100vw', loading: 'eager' as const, fetchPriority: 'high' as const }
+const { props: { srcSet: desktop } } = getImageProps({ ...common, src: '/images/home/fresh-picks-hero-desktop.webp', width: 1866, height: 843 })
+const { props: { srcSet: mobile, ...imageProps } } = getImageProps({ ...common, src: '/images/home/fresh-picks-mobile-light.webp', width: 1024, height: 1536 })
 
 export default function HomeHeroClient() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
   const reduceMotion = useReducedMotion()
-  const rootRef = useRef<HTMLElement>(null)
-
-  const goTo = useCallback((index: number) => setCurrentSlide((index + slides.length) % slides.length), [])
-
-  useEffect(() => {
-    if (isPaused || reduceMotion) return
-    const timer = window.setInterval(() => setCurrentSlide((slide) => (slide + 1) % slides.length), 6500)
-    return () => window.clearInterval(timer)
-  }, [isPaused, reduceMotion])
-
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    let cleanup = () => {}
-    void import('gsap').then(({ gsap }) => {
-      if (!rootRef.current) return
-      const context = gsap.context(() => {
-        gsap.fromTo('[data-hero-copy]', { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.75, ease: 'power3.out', stagger: 0.08 })
-      }, rootRef)
-      cleanup = () => context.revert()
-    })
-    return () => cleanup()
-  }, [currentSlide])
-
-  const slide = slides[currentSlide]
-
   return (
-    <section ref={rootRef} aria-roledescription="carousel" aria-label="FreshCo seasonal highlights" className="relative isolate mx-3 mt-3 min-h-[580px] overflow-hidden rounded-[1.6rem] border border-brand-ink/10 bg-brand-ink shadow-[0_28px_80px_-48px_rgba(23,33,58,.75)] sm:mx-5 sm:mt-5 sm:rounded-[2rem] md:mx-7 md:mt-7 md:min-h-[660px]">
-      <AnimatePresence initial={false} mode="sync">
-        <motion.div key={slide.id} initial={reduceMotion ? false : { opacity: 0, scale: 1.025 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: .75, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-0">
-          <Image src={slide.image} alt="" fill loading="eager" className="object-cover object-center" sizes="100vw" />
-        </motion.div>
-      </AnimatePresence>
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,22,52,.92)_0%,rgba(15,31,67,.72)_48%,rgba(15,31,67,.18)_100%)]" />
-      <div className="absolute inset-0 opacity-25 [background-image:radial-gradient(circle_at_75%_20%,#2965f1_0,transparent_34%),radial-gradient(circle_at_20%_90%,#ff3038_0,transparent_24%)]" />
-
-      <div className="site-container relative z-10 flex min-h-[580px] items-center py-20 md:min-h-[660px]">
-        <motion.div key={`copy-${slide.id}`} initial={reduceMotion ? false : { opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .5 }} className="max-w-3xl text-white">
-          <div data-hero-copy className="mb-6 flex items-center gap-3">
-            <span className="red-stamp">{slide.subtitle}</span>
-            <span className="text-sm font-bold uppercase tracking-[0.12em] text-white/90">{slide.note}</span>
-          </div>
-          <h1 data-hero-copy className="max-w-3xl font-heading text-5xl font-bold leading-[0.92] tracking-[-0.055em] text-white sm:text-6xl md:text-7xl lg:text-[6.2rem]">{slide.title}</h1>
-          <p data-hero-copy className="mt-7 max-w-xl text-lg leading-8 text-white/90 md:text-xl">{slide.desc} Order online for collection at Northcote Plaza.</p>
-          <div data-hero-copy className="mt-9 flex flex-wrap items-center gap-4">
-            <Link href={slide.link} className={cn(buttonVariants({ size: 'lg' }), 'h-13 rounded-full bg-primary px-7 text-sm font-extrabold shadow-xl shadow-blue-950/20 hover:bg-white hover:text-primary')}>
-              {slide.btnText}<ArrowUpRight data-icon="inline-end" />
-            </Link>
-            <Link href="/collections" className="rounded-full px-5 py-3 text-sm font-bold text-white underline decoration-white/30 underline-offset-8 transition hover:decoration-white">Browse every aisle</Link>
+    <section className="home-hero" aria-labelledby="home-hero-title">
+      <picture className="home-hero-picture">
+        <source media="(min-width: 901px)" srcSet={desktop} />
+        <source media="(max-width: 900px)" srcSet={mobile} />
+        {/* getImageProps supplies Next's responsive URLs for art direction. */}
+        <img {...imageProps} alt="" aria-hidden="true" className="home-hero-image" />
+      </picture>
+      <div className="home-hero-inner">
+        <motion.div className="home-hero-copy" initial={reduceMotion ? false : { y: 16 }} animate={{ y: 0 }} transition={{ duration: .65, ease: [0.22, 1, 0.36, 1] }}>
+          <h1 id="home-hero-title"><span>Fresh picks.</span><span>Big flavours.</span></h1>
+          <p>Your Greek deli favourites, ready for<br className="home-hero-desktop-break" /> Click &amp; Collect at Northcote Plaza.</p>
+          <div className="home-hero-actions">
+            <Link href="/collections" className="home-hero-button home-hero-button-primary">Shop the deli <ArrowRight aria-hidden="true" /></Link>
+            <Link href="/pages/shipping-policy" className="home-hero-button home-hero-button-secondary">How to collect <ArrowRight aria-hidden="true" /></Link>
           </div>
         </motion.div>
-      </div>
-
-      <div className="absolute bottom-6 left-0 right-0 z-20">
-        <div className="site-container flex items-center justify-between">
-          <div className="flex items-center gap-2" aria-label={`Slide ${currentSlide + 1} of ${slides.length}`}>
-            {slides.map((item, index) => <button key={item.id} aria-label={`Show slide ${index + 1}`} aria-current={index === currentSlide} onClick={() => goTo(index)} className={cn('h-1.5 rounded-full bg-white/35 transition-all', index === currentSlide ? 'w-10 bg-white' : 'w-4')} />)}
-          </div>
-          <div className="flex gap-2">
-            <button aria-label={isPaused ? 'Play carousel' : 'Pause carousel'} onClick={() => setIsPaused((paused) => !paused)} className="flex size-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition hover:bg-white hover:text-primary">{isPaused ? <Play /> : <Pause />}</button>
-            <motion.button whileHover={reduceMotion ? undefined : { scale: 1.08 }} whileTap={reduceMotion ? undefined : { scale: .92 }} aria-label="Previous slide" onClick={() => goTo(currentSlide - 1)} className="flex size-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition hover:bg-white hover:text-primary"><ChevronLeft /></motion.button>
-            <motion.button whileHover={reduceMotion ? undefined : { scale: 1.08 }} whileTap={reduceMotion ? undefined : { scale: .92 }} aria-label="Next slide" onClick={() => goTo(currentSlide + 1)} className="flex size-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition hover:bg-white hover:text-primary"><ChevronRight /></motion.button>
-          </div>
-        </div>
       </div>
     </section>
   )

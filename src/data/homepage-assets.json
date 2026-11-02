@@ -1,0 +1,15 @@
+{
+  "updated_at": "2026-11-02",
+  "visual_direction": "Fresh Picks: latest user-attached light-blue design supersedes Blue Hour",
+  "generation_method": "Built-in image generation using the user-selected screenshot as a composition reference; original editorial photography and flat blue/red illustrations, with no third-party packaging or logos generated.",
+  "usage": "Illustrative homepage and collection imagery only; not exact product pack shots. Existing product image permissions are a separate review.",
+  "brand_asset": "The existing public/logo.png is used unchanged as code-native navigation media.",
+  "assets": [
+    { "path": "/images/home/fresh-picks-hero-desktop.webp", "subject": "Feta, olives and triangular filo pastries with blue/red food illustrations on light blue", "width": 1866, "height": 843 },
+    { "path": "/images/home/fresh-picks-mobile-light.webp", "subject": "Same light-blue deli scene art-directed for portrait", "width": 1024, "height": 1536 },
+    { "path": "/images/home/fresh-picks-cheese.webp", "subject": "Feta, herbs and olive oil", "width": 1536, "height": 1024 },
+    { "path": "/images/home/fresh-picks-deli.webp", "subject": "Antipasti: eggplant, artichokes, cheese-filled peppers and olives", "width": 1536, "height": 1024 },
+    { "path": "/images/home/fresh-picks-frozen.webp", "subject": "Pale flour-dusted filo pastries", "width": 1536, "height": 1024 },
+    { "path": "/images/home/fresh-picks-pantry.webp", "subject": "Olive oil and preserved vegetables in glass pantry jars", "width": 1536, "height": 1024 }
+  ]
+}

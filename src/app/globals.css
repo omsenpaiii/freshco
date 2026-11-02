@@ -190,3 +190,99 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
+
+/* Selected Fresh Picks homepage. All text and controls remain live HTML. */
+.freshco-home { background: #faf8f5; }
+.home-container { width: calc(100% - 128px); max-width: 1600px; margin-inline: auto; }
+.home-hero { position: relative; isolation: isolate; height: clamp(640px, 45.1vw, 820px); overflow: hidden; background: #cceafa; }
+.home-hero-picture, .home-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; }
+.home-hero-image { object-fit: cover; object-position: center; }
+.home-hero-inner { position: relative; height: 100%; padding: clamp(156px, 11vw, 210px) 4.6vw 64px; }
+.home-hero-copy { max-width: 850px; }
+.home-hero h1 { margin: 0; color: #08132e; font-family: var(--font-inter), var(--font-manrope), sans-serif; font-size: clamp(64px, 8.1vw, 140px); font-weight: 900; line-height: .84; letter-spacing: -.045em; text-wrap: initial; }
+.home-hero h1 span { display: block; }
+.home-hero-copy > p { margin-top: 26px; color: #17213a; font-size: clamp(20px, 1.64vw, 28px); font-weight: 600; line-height: 1.32; letter-spacing: -.025em; }
+.home-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 22px; }
+.home-hero-button { display: inline-flex; min-height: 66px; align-items: center; justify-content: center; gap: 28px; border: 2px solid transparent; border-radius: 999px; padding: 14px 28px; color: white; font-size: 22px; font-weight: 800; line-height: 1.2; letter-spacing: -.03em; transition: transform .25s ease, background-color .25s ease, color .25s ease; }
+.home-hero-button svg { width: 26px; height: 26px; stroke-width: 2; transition: transform .25s ease; }
+.home-hero-button:hover svg { transform: translateX(4px); }
+.home-hero-button-primary { min-width: 250px; background: var(--fresh-blue); }
+.home-hero-button-primary:hover { background: #174ee1; transform: translateY(-2px); }
+.home-hero-button-secondary { min-width: 250px; gap: 18px; padding-inline: 24px; color: var(--fresh-ink); border-color: var(--fresh-ink); background: transparent; }
+.home-hero-button-secondary:hover { background: var(--fresh-ink); color: white; transform: translateY(-2px); }
+.home-collections { padding-block: 42px 64px; }
+.home-section-title { margin: 0; font-family: var(--font-inter), var(--font-manrope), sans-serif; font-size: clamp(32px, 3.9vw, 64px); font-weight: 900; line-height: 1.12; letter-spacing: -.025em; color: #08132e; }
+.home-category-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+.home-category-link { position: relative; display: block; aspect-ratio: 3 / 2; overflow: hidden; border-radius: 9px; isolation: isolate; background: var(--fresh-ink); }
+.home-category-image { object-fit: cover; transition: transform .65s cubic-bezier(.22, 1, .36, 1); }
+.home-category-link:hover .home-category-image { transform: scale(1.055); }
+.home-category-shade { position: absolute; inset: 0; background: linear-gradient(transparent 45%, rgba(10, 20, 35, .48)); }
+.home-category-label { position: absolute; bottom: 18px; left: 24px; color: white; font-size: clamp(24px, 2.6vw, 42px); font-weight: 800; line-height: 1; letter-spacing: -.055em; }
+.home-category-arrow { position: absolute; right: 16px; bottom: 16px; display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: white; color: var(--fresh-ink); transition: transform .25s ease; }
+.home-category-arrow svg { width: 21px; height: 21px; }
+.home-category-link:hover .home-category-arrow { transform: rotate(-35deg); }
+.home-products { padding-block: 40px 88px; }
+.home-section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 32px; }
+.home-text-link { display: inline-flex; flex-shrink: 0; align-items: center; gap: 10px; min-height: 44px; color: var(--fresh-blue); font-size: 17px; font-weight: 800; }
+.home-text-link svg { width: 20px; height: 20px; transition: transform .25s ease; }
+.home-text-link:hover svg { transform: translateX(4px); }
+.home-product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.home-stories { padding-block: 72px 88px; background: white; }
+.home-story-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.home-story-link { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.home-story-image { position: relative; width: 100%; aspect-ratio: 3 / 2; overflow: hidden; border-radius: 12px; background: var(--fresh-cloud); }
+.home-story-image img { object-fit: cover; transition: transform .6s ease; }
+.home-story-link:hover img { transform: scale(1.04); }
+.home-story-link .home-story-author { margin-top: 8px; color: var(--content-muted); font-size: 14px; font-weight: 700; }
+.home-story-link h3 { font-family: var(--font-manrope), sans-serif; font-size: 23px; font-weight: 800; line-height: 1.28; letter-spacing: -.04em; transition: color .2s ease; }
+.home-story-link:hover h3 { color: var(--fresh-blue); }
+.home-story-link > p:not(.home-story-author) { color: var(--content-muted); font-size: 16px; line-height: 1.65; }
+.home-story-read { display: inline-flex; min-height: 44px; align-items: center; gap: 10px; color: var(--fresh-blue); font-size: 15px; font-weight: 800; }
+.home-story-read svg { width: 18px; height: 18px; }
+@media (min-width: 1800px) { .home-hero-inner { max-width: 1800px; margin-inline: auto; } }
+@media (max-width: 1100px) {
+  .home-container { width: calc(100% - 64px); }
+  .home-category-label { left: 16px; bottom: 18px; font-size: 25px; }
+  .home-category-arrow { width: 30px; height: 30px; right: 12px; bottom: 12px; }
+  .home-product-grid { gap: 16px; }
+}
+@media (max-width: 900px) {
+  .home-hero { height: 800px; }
+  .home-hero-inner { padding: 180px 32px 48px; }
+  .home-hero-copy { max-width: 680px; }
+  .home-hero h1 { font-size: clamp(55px, 8vw, 72px); }
+  .home-hero-copy > p { max-width: 520px; font-size: 22px; }
+  .home-hero-button-secondary { background: #cceafa; }
+  .home-category-grid, .home-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-category-label { font-size: 30px; }
+  .home-category-arrow { width: 36px; height: 36px; right: 16px; bottom: 16px; }
+  .home-stories { padding-block: 56px; }
+  .home-story-grid { gap: 18px; }
+  .home-story-link h3 { font-size: 20px; }
+}
+@media (max-width: 640px) {
+  .home-container { width: calc(100% - 40px); }
+  .home-hero { height: 800px; min-height: 760px; }
+  .home-hero-image { object-position: center; }
+  .home-hero-inner { padding: 180px 20px 36px; }
+  .home-hero h1 { font-size: clamp(39px, 11.9vw, 66px); line-height: .98; letter-spacing: -.055em; }
+  .home-hero-copy > p { max-width: 360px; margin-top: 22px; font-size: 18px; line-height: 1.5; letter-spacing: -.025em; }
+  .home-hero-desktop-break { display: none; }
+  .home-hero-actions { align-items: stretch; flex-direction: column; gap: 12px; margin-top: 24px; max-width: 300px; }
+  .home-hero-button { min-height: 56px; min-width: 0; justify-content: space-between; padding: 12px 22px; font-size: 18px; }
+  .home-hero-button svg { width: 23px; height: 23px; }
+  .home-collections { padding-block: 28px 36px; }
+  .home-section-title { font-size: 33px; line-height: 1.1; }
+  .home-category-grid { gap: 12px; margin-top: 22px; }
+  .home-category-link { aspect-ratio: 4 / 3; }
+  .home-category-label { left: 12px; bottom: 15px; font-size: 24px; }
+  .home-category-arrow { right: 10px; bottom: 10px; width: 28px; height: 28px; }
+  .home-category-arrow svg { width: 17px; height: 17px; }
+  .home-products { padding-block: 28px 52px; }
+  .home-section-heading { align-items: flex-start; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+  .home-text-link { min-height: 36px; font-size: 16px; }
+  .home-product-grid { gap: 12px; }
+  .home-stories { padding-block: 44px; }
+  .home-story-grid { grid-template-columns: 1fr; gap: 36px; }
+  .home-story-link h3 { font-size: 24px; }
+}

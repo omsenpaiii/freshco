@@ -47,7 +47,16 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<StoreUser | null>(null)
   const [isStorageHydrated, setStorageHydrated] = useState(false)
   useEffect(() => {
-    authClient.getSession().then(({ data }) => setUser(data?.user ? { id: data.user.id, email: data.user.email, name: data.user.name } : null))
+    let active = true
+    authClient.getSession()
+      .then(({ data }) => {
+        if (active) setUser(data?.user ? { id: data.user.id, email: data.user.email, name: data.user.name } : null)
+      })
+      .catch(() => {
+        // A temporary account-service outage must not break the public shop.
+        if (active) setUser(null)
+      })
+    return () => { active = false }
   }, [])
 
   useEffect(() => {
