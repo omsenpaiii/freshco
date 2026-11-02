@@ -11,7 +11,8 @@ export default function HomeMotion({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     if (reduced || !scope.current) return
     const running: ReturnType<typeof animate>[] = []
-    const stops = Array.from(scope.current.querySelectorAll<HTMLElement>('[data-reveal]')).map((element) =>
+    const elements = Array.from(scope.current.querySelectorAll<HTMLElement>('[data-reveal]'))
+    const stops = elements.map((element) =>
       inView(element, () => {
         const index = Number(element.dataset.revealIndex || 0)
         const direction = Number(element.dataset.revealDirection || 0)
@@ -22,7 +23,11 @@ export default function HomeMotion({ children }: { children: React.ReactNode }) 
         running.push(animation)
       }, { amount: .12, margin: '0px 0px -24px 0px' }),
     )
-    return () => { stops.forEach(stop => stop()); running.forEach(animation => animation.stop()) }
+    return () => {
+      stops.forEach(stop => stop())
+      running.forEach(animation => animation.stop())
+      elements.forEach(element => { element.style.removeProperty('opacity'); element.style.removeProperty('transform') })
+    }
   }, [reduced])
 
   return <div ref={scope}>{children}</div>

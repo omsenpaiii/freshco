@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { getImageProps } from 'next/image'
 import { ArrowRight } from 'lucide-react'
-import { useRef } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
+import { useEffect, useRef } from 'react'
+import { animate, motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 
 const common = { alt: '', sizes: '100vw', loading: 'eager' as const, fetchPriority: 'high' as const }
 const { props: { srcSet: desktop } } = getImageProps({ ...common, src: '/images/home/fresh-picks-hero-desktop.webp', width: 1866, height: 843 })
@@ -16,6 +16,15 @@ export default function HomeHeroClient() {
   const { scrollYProgress } = useScroll({ target: hero, offset: ['start start', 'end start'] })
   const artworkY = useTransform(scrollYProgress, [0, 1], [0, 64])
   const copyY = useTransform(scrollYProgress, [0, 1], [0, -36])
+  useEffect(() => {
+    if (reduceMotion || !hero.current) return
+    const lines = Array.from(hero.current.querySelectorAll('h1 span'))
+    const animations = lines.map((line, index) => animate(line, { y: [30, 0], opacity: [0, 1] }, { duration: .8, delay: index * .12, ease: [.22, 1, .36, 1] }))
+    return () => {
+      animations.forEach(animation => animation.stop())
+      lines.forEach(line => { (line as HTMLElement).style.removeProperty('opacity'); (line as HTMLElement).style.removeProperty('transform') })
+    }
+  }, [reduceMotion])
   return (
     <section ref={hero} className="home-hero" aria-labelledby="home-hero-title">
       <motion.picture className="home-hero-picture" style={reduceMotion ? undefined : { y: artworkY }}>
@@ -27,7 +36,7 @@ export default function HomeHeroClient() {
       </motion.picture>
       <div className="home-hero-inner">
         <motion.div className="home-hero-copy" style={reduceMotion ? undefined : { y: copyY }}>
-          <h1 id="home-hero-title">{['Fresh picks.', 'Big flavours.'].map((line, index) => <motion.span key={line} initial={reduceMotion ? false : { y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: .8, delay: index * .12, ease: [.22, 1, .36, 1] }}>{line}</motion.span>)}</h1>
+          <h1 id="home-hero-title"><span>Fresh picks.</span><span>Big flavours.</span></h1>
           <p>Your Greek deli favourites, ready for<br className="home-hero-desktop-break" /> Click &amp; Collect at Northcote Plaza.</p>
           <div className="home-hero-actions">
             <Link href="/collections" className="home-hero-button home-hero-button-primary">Shop the deli <ArrowRight aria-hidden="true" /></Link>
