@@ -32,7 +32,7 @@ export default async function RootLayout({
         <a href="#main-content" className="sr-only fixed left-4 top-4 z-[100] rounded-full bg-primary px-5 py-3 font-bold text-white focus:not-sr-only">Skip to main content</a>
         <StoreProvider>
           <Header initialCategories={categories} initialProducts={products} />
-          <main id="main-content" className="flex-grow">
+          <main id="main-content" className="flex-grow min-h-[70svh]">
             {children}
           </main>
           <Footer />
