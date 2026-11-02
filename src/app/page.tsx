@@ -30,7 +30,7 @@ export default async function Home() {
           <h2 id="home-collections-title" className="home-section-title" data-reveal>A deli for every craving.</h2>
           <div className="home-category-grid">
             {featuredCategories.map((category, index) => (
-              <Link key={category.id} href={`/collections/${category.slug}`} className="home-category-link" data-reveal data-reveal-index={index} data-reveal-direction={index < 2 ? -1 : 1}>
+              <Link key={category.id} href={`/collections/${category.slug}`} className="home-category-link" data-reveal="card" data-reveal-index={index} data-reveal-direction={index < 2 ? -1 : 1}>
                 <Image src={collectionImages[category.slug].src} alt={collectionImages[category.slug].alt} fill sizes="(max-width: 1024px) 50vw, 25vw" className="home-category-image" />
                 <span className="home-category-shade" aria-hidden="true" />
                 <span className="home-category-label">{category.name}</span>
@@ -54,7 +54,7 @@ export default async function Home() {
           </div>
           <div className="home-product-grid">
             {products.slice(0, 8).map((product, index) => (
-              <div key={product.id} data-reveal data-reveal-index={index % 4}><ProductCard id={product.id} name={product.name} slug={product.slug} price={product.price} compare_at_price={product.compare_at_price} images={product.images} category_name={product.categories?.name} brand={product.brand} image_license={product.image_license} variants={product.variants} /></div>
+              <div key={product.id} data-reveal="card" data-reveal-index={index % 4}><ProductCard id={product.id} name={product.name} slug={product.slug} price={product.price} compare_at_price={product.compare_at_price} images={product.images} category_name={product.categories?.name} brand={product.brand} image_license={product.image_license} variants={product.variants} /></div>
             ))}
           </div>
         </div>

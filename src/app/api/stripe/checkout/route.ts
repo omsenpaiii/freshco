@@ -3,6 +3,7 @@ import { getNeonPool } from '@/lib/neon'
 import { COLLECTION, STORE } from '@/lib/store'
 import { getStripe } from '@/lib/stripe'
 import { auth } from '@/lib/auth/server'
+import { checkoutOrigin } from '@/lib/checkout-url'
 
 export const runtime = 'nodejs'
 
@@ -119,7 +120,7 @@ export async function POST(request: Request) {
     for (const item of orderItems) await pool.query(`INSERT INTO order_items(order_id,product_id,variant_id,variant_title,sku,quantity,price)
       VALUES($1,$2,$3,$4,$5,$6,$7)`, [item.order_id,item.product_id,item.variant_id,item.variant_title,item.sku,item.quantity,item.price])
 
-    const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || new URL(request.url).origin).replace(/\/$/, '')
+    const siteUrl = checkoutOrigin(request.url, process.env.NEXT_PUBLIC_SITE_URL, process.env.VERCEL_ENV)
     const stripe = getStripe()
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',

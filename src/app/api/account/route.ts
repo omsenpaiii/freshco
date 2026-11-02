@@ -9,11 +9,8 @@ export async function GET() {
   const { data: session, error } = await auth.getSession()
   if (error || !session?.user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   try {
-    const [addresses, orders] = await Promise.all([
-      query('SELECT * FROM addresses WHERE profile_id=$1 ORDER BY created_at DESC', [session.user.id]),
-      query('SELECT id,created_at,total_amount,status FROM orders WHERE profile_id=$1 ORDER BY created_at DESC LIMIT 100', [session.user.id]),
-    ])
-    return NextResponse.json({ addresses: addresses.rows, orders: orders.rows })
+    const orders = await query('SELECT id,created_at,total_amount,status,payment_status FROM orders WHERE profile_id=$1 ORDER BY created_at DESC LIMIT 100', [session.user.id])
+    return NextResponse.json({ orders: orders.rows })
   } catch (cause) {
     console.error('Neon account read failed:', cause)
     return NextResponse.json({ error: 'Could not load account details.' }, { status: 500 })

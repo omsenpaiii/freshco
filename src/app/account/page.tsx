@@ -1,279 +1,71 @@
 'use client'
 
-import React, { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useStore } from '@/context/store-context'
+import { MapPin, ShoppingBag, LogOut, ArrowRight } from 'lucide-react'
 import { authClient } from '@/lib/auth/client'
-import { formatAUD } from '@/lib/store'
-import { 
-  MapPin, ShoppingBag, Plus, Trash2, LogOut, CheckCircle, ShieldCheck
-} from 'lucide-react'
+import { COLLECTION, STORE, formatAUD } from '@/lib/store'
+import { useStore } from '@/context/store-context'
 
-interface SavedAddress { id: string; address_line_1: string; city: string; state: string; postal_code: string; phone: string }
-interface OrderSummary { id: string; created_at: string; total_amount: number; status: string }
+interface OrderSummary { id: string; created_at: string; total_amount: number; status: string; payment_status: string }
 
 export default function AccountDashboardPage() {
   const router = useRouter()
-  const { user, clearCart } = useStore()
-  const [addresses, setAddresses] = useState<SavedAddress[]>([])
+  const { clearCart, setUser } = useStore()
+  const [email, setEmail] = useState('')
   const [orders, setOrders] = useState<OrderSummary[]>([])
   const [loading, setLoading] = useState(true)
-  const [isAdmin, setIsAdmin] = useState(false)
-  const [accountError, setAccountError] = useState('')
-  const [newAddress, setNewAddress] = useState({
-    line1: '', city: '', state: '', zip: '', phone: ''
-  })
-  const [showAddressForm, setShowAddressForm] = useState(false)
-  const fetchAccountData = useCallback(async () => {
-    try {
-      const response = await fetch('/api/account', { cache: 'no-store' })
-      const result = await response.json()
-      if (!response.ok) throw new Error(result.error || 'Could not load account details.')
-      setAddresses(result.addresses || [])
-      setOrders(result.orders || [])
-    } catch (e) {
-      console.warn('Failed to fetch account details', e)
-      setAccountError(e instanceof Error ? e.message : 'Could not load account details.')
-    } finally {
-      setLoading(false)
-    }
-  }, [])
+  const [error, setError] = useState('')
 
   useEffect(() => {
-    const checkAuth = async () => {
-      const { data } = await authClient.getSession()
-      if (!data?.user) router.push('/account/login')
-      else {
-        const adminResponse = await fetch('/api/admin/status')
-        const adminJson = await adminResponse.json()
-        if (adminJson.isAdmin) {
-          setIsAdmin(true)
-          router.replace('/admin')
-          return
-        }
-        void fetchAccountData()
+    let active = true
+    async function load() {
+      try {
+        const { data, error: sessionError } = await authClient.getSession()
+        if (!active) return
+        if (sessionError) throw new Error('Your account session could not be loaded. Please sign in again.')
+        if (!data?.user) { router.replace('/account/login'); return }
+        setEmail(data.user.email)
+        const response = await fetch('/api/account', { cache: 'no-store' })
+        const result = await response.json()
+        if (!response.ok) throw new Error(result.error || 'Your orders could not be loaded.')
+        if (active) setOrders(result.orders || [])
+      } catch (cause) {
+        if (active) setError(cause instanceof Error ? cause.message : 'Your account could not be loaded.')
+      } finally {
+        if (active) setLoading(false)
       }
     }
-    void checkAuth()
-  }, [fetchAccountData, router])
+    void load()
+    return () => { active = false }
+  }, [router])
 
-  const handleAddAddress = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!user) return
-
-    try {
-      const response = await fetch('/api/account', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ address_line_1: newAddress.line1, city: newAddress.city, state: newAddress.state, postal_code: newAddress.zip, phone: newAddress.phone }),
-      })
-      const result = await response.json()
-      if (!response.ok) throw new Error(result.error || 'Could not save address.')
-      setAddresses((prev) => [result.address, ...prev])
-      setNewAddress({ line1: '', city: '', state: '', zip: '', phone: '' })
-      setShowAddressForm(false)
-      setAccountError('')
-    } catch (err) {
-      console.error(err)
-      setAccountError(err instanceof Error ? err.message : 'Could not save address.')
-    }
-  }
-
-  const handleDeleteAddress = async (addrId: string) => {
-    try {
-      const response = await fetch(`/api/account/addresses/${encodeURIComponent(addrId)}`, { method: 'DELETE' })
-      const result = await response.json()
-      if (!response.ok) throw new Error(result.error || 'Could not delete address.')
-      setAddresses((prev) => prev.filter((address) => address.id !== addrId))
-    } catch (err) {
-      console.error(err)
-      setAccountError(err instanceof Error ? err.message : 'Could not delete address.')
-    }
-  }
-
-  const handleLogout = async () => {
+  const signOut = async () => {
     await authClient.signOut()
+    setUser(null)
     clearCart()
     router.push('/account/login')
     router.refresh()
   }
 
-  if (loading) {
-    return (
-      <div className="w-full bg-white py-20 text-center text-xs font-semibold text-content-muted">
-        Loading dashboard details...
-      </div>
-    )
-  }
-
   return (
-    <div className="w-full bg-[#f8f9fa] px-4 md:px-8 py-12">
-      <div className="max-w-6xl mx-auto space-y-8">
-        
-        {/* Header Breadcrumbs Row */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-border-theme pb-5">
-          <div className="text-left">
-            <h1 className="text-xl md:text-2xl font-extrabold text-content-strong">My Account</h1>
-            <p className="text-xs text-content-muted mt-1">Hello, <span className="text-content-strong font-bold">{user?.email}</span></p>
-            {isAdmin ? <Link href="/admin" className="mt-2 inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline"><ShieldCheck size={14} />Open admin panel</Link> : null}
-          </div>
-          <button 
-            onClick={handleLogout}
-            className="flex items-center gap-1.5 text-xs font-bold text-red-500 hover:text-red-600 transition cursor-pointer"
-          >
-            <LogOut size={14} /> Log Out
-          </button>
+    <div className="account-login-surface px-5 py-14 sm:px-8">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-10 flex flex-wrap items-end justify-between gap-5">
+          <div><span className="eyebrow">FreshCo Deli · Click & Collect</span><h1 className="home-section-title mt-3">Your deli orders.</h1><p className="mt-3 text-content-muted">{email || 'Your favourites, ready for a local pickup.'}</p></div>
+          {email && <button onClick={signOut} className="inline-flex min-h-11 items-center gap-2 font-bold text-brand-green"><LogOut size={18} />Sign out</button>}
         </div>
-
-        {accountError ? <div role="alert" className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-xs font-semibold text-red-700">{accountError}</div> : null}
-
-        {/* Dashboard Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          {/* Column 1: Addresses */}
-          <div className="md:col-span-1 bg-white border border-border-theme p-6 rounded-2xl shadow-2xs space-y-6 text-left">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-              <h3 className="text-sm font-bold text-content-strong flex items-center gap-2 uppercase tracking-wider">
-                <MapPin size={16} className="text-primary" /> Saved Addresses
-              </h3>
-              <button 
-                onClick={() => setShowAddressForm(!showAddressForm)}
-                className="text-primary hover:text-[#d89311] p-1 cursor-pointer"
-              >
-                <Plus size={16} />
-              </button>
-            </div>
-
-            {showAddressForm && (
-              <form onSubmit={handleAddAddress} className="bg-gray-50 border border-border-theme p-4 rounded-xl space-y-3">
-                <div className="space-y-1">
-                  <label className="block text-[9px] uppercase font-bold text-content-muted">Street Address</label>
-                  <input 
-                    type="text" 
-                    required 
-                    value={newAddress.line1}
-                    onChange={(e) => setNewAddress({ ...newAddress, line1: e.target.value })}
-                    className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-content-strong"
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="space-y-1">
-                    <label className="block text-[9px] uppercase font-bold text-content-muted">Suburb</label>
-                    <input 
-                      type="text" 
-                      required 
-                      value={newAddress.city}
-                      onChange={(e) => setNewAddress({ ...newAddress, city: e.target.value })}
-                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-content-strong"
-                    />
-                  </div>
-                  <div className="space-y-1">
-                    <label className="block text-[9px] uppercase font-bold text-content-muted">State</label>
-                    <input 
-                      type="text" 
-                      required 
-                      value={newAddress.state}
-                      onChange={(e) => setNewAddress({ ...newAddress, state: e.target.value })}
-                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-content-strong"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="space-y-1">
-                    <label className="block text-[9px] uppercase font-bold text-content-muted">Postcode</label>
-                    <input 
-                      type="text" 
-                      required 
-                      value={newAddress.zip}
-                      onChange={(e) => setNewAddress({ ...newAddress, zip: e.target.value })}
-                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-content-strong"
-                    />
-                  </div>
-                  <div className="space-y-1">
-                    <label className="block text-[9px] uppercase font-bold text-content-muted">Phone</label>
-                    <input 
-                      type="text" 
-                      required 
-                      value={newAddress.phone}
-                      onChange={(e) => setNewAddress({ ...newAddress, phone: e.target.value })}
-                      className="w-full bg-white border border-border-theme rounded-lg py-2 px-3 text-xs text-content-strong"
-                    />
-                  </div>
-                </div>
-                <button 
-                  type="submit"
-                  className="w-full bg-primary hover:bg-[#d89311] text-white text-[10px] font-bold py-2 rounded-lg transition uppercase tracking-wider"
-                >
-                  Save Address
-                </button>
-              </form>
-            )}
-
-            {/* List saved addresses */}
-            <div className="space-y-4">
-              {addresses.length === 0 ? (
-                <p className="text-xs text-content-muted italic">No saved addresses yet.</p>
-              ) : (
-                addresses.map((addr) => (
-                  <div key={addr.id} className="border border-border-theme rounded-xl p-4 space-y-2 relative bg-gray-50/50">
-                    <p className="text-xs text-content-strong font-semibold leading-relaxed">
-                      {addr.address_line_1}<br />
-                      {addr.city}, {addr.state} {addr.postal_code}<br />
-                      <span className="text-[10px] text-content-muted">Tel: {addr.phone}</span>
-                    </p>
-                    <button 
-                      onClick={() => handleDeleteAddress(addr.id)}
-                      className="absolute top-2 right-2 text-content-muted hover:text-red-500 transition p-1 cursor-pointer"
-                    >
-                      <Trash2 size={13} />
-                    </button>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-
-          {/* Column 2: Order History */}
-          <div className="md:col-span-2 bg-white border border-border-theme p-6 rounded-2xl shadow-2xs space-y-6 text-left">
-            <h3 className="text-sm font-bold text-content-strong flex items-center gap-2 border-b border-gray-100 pb-3 uppercase tracking-wider">
-              <ShoppingBag size={16} className="text-primary" /> Order History ({orders.length})
-            </h3>
-
-            <div className="space-y-4">
-              {orders.length === 0 ? (
-                <div className="text-center py-10 space-y-3">
-                  <p className="text-xs text-content-muted italic">You haven’t placed any orders yet.</p>
-                  <Link 
-                    href="/collections"
-                    className="bg-primary hover:bg-[#d89311] text-white text-[10px] font-bold px-6 py-2 rounded-full uppercase tracking-wider inline-block"
-                  >
-                    Start Shopping
-                  </Link>
-                </div>
-              ) : (
-                orders.map((ord) => (
-                  <div key={ord.id} className="border border-border-theme rounded-xl p-4 flex justify-between items-center bg-gray-50/50">
-                    <div className="space-y-1">
-                      <h4 className="text-xs font-bold text-content-strong">ID: {ord.id.substring(0, 8).toUpperCase()}</h4>
-                      <div className="flex gap-3 text-[10px] text-content-muted font-semibold">
-                        <span>{new Date(ord.created_at).toLocaleDateString()}</span>
-                        <span>•</span>
-                        <span className="text-primary font-bold">{formatAUD(ord.total_amount)}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-1.5 text-[10px] uppercase font-extrabold tracking-wider px-3 py-1 bg-green-50 text-green-600 border border-green-150 rounded-full">
-                      <CheckCircle size={12} /> {ord.status}
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-
+        {error && <div role="alert" className="mb-6 rounded-xl bg-red-50 p-4 text-red-700">{error} <Link className="font-bold underline" href="/account/login">Sign in</Link></div>}
+        <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
+          <section aria-labelledby="account-orders-title" className="rounded-[2rem] border border-border bg-white p-6 sm:p-8">
+            <h2 id="account-orders-title" className="mb-6 flex items-center gap-3 text-2xl font-bold"><ShoppingBag className="text-brand-green" />Order history</h2>
+            {loading ? <p role="status" className="py-12 text-content-muted">Loading your collection orders…</p> : orders.length ? <ul className="divide-y divide-border">{orders.map(order => <li key={order.id} className="flex flex-wrap items-center justify-between gap-4 py-5"><div><p className="font-bold">Order {order.id.slice(0, 8).toUpperCase()}</p><p className="text-sm text-content-muted">{new Date(order.created_at).toLocaleDateString('en-AU')} · Click & Collect</p><p className="mt-1 text-sm capitalize text-content-muted">{order.status} · {order.payment_status || 'Payment pending'}</p></div><strong className="text-xl">{formatAUD(Number(order.total_amount))}</strong></li>)}</ul> : <div className="py-10"><h3 className="text-2xl font-bold">Your next deli run starts here.</h3><p className="my-4 text-content-muted">Your collection orders will appear here when you order while signed in.</p><Link href="/collections" className="home-text-link">Browse the deli <ArrowRight size={20} /></Link></div>}
+          </section>
+          <aside className="self-start rounded-[2rem] bg-[#cceafa] p-7">
+            <MapPin className="mb-5 size-8 text-brand-green" /><h2 className="text-2xl font-bold">Collect locally.</h2><p className="mt-4 font-bold">{COLLECTION.location}</p><p className="mt-2 text-content-muted">{COLLECTION.address}</p><p className="my-4 text-sm text-content-muted">We’re Click & Collect only. No delivery address is needed.</p><a href={STORE.mapsUrl} target="_blank" rel="noreferrer" className="home-text-link">Get directions <ArrowRight size={18} /></a>
+          </aside>
         </div>
-
       </div>
     </div>
   )

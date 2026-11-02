@@ -19,6 +19,7 @@ import { useStore } from '@/context/store-context'
 import { isAdminEmail } from '@/lib/admin-access'
 import { authClient } from '@/lib/auth/client'
 import { formatAUD } from '@/lib/store'
+import { useMotionValueEvent, useScroll, motion, useReducedMotion } from 'motion/react'
 
 const desktopLinks = [
   { label: 'Shop', href: '/collections' },
@@ -38,14 +39,18 @@ interface HomeNavigationProps {
   initialProducts: Array<{ id: number; name: string; slug: string; price: number; images: string[] }>
 }
 
-const iconButtonClassName = 'inline-flex size-11 shrink-0 items-center justify-center rounded-full text-brand-ink transition-colors hover:bg-brand-ink/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-ink'
+const iconButtonClassName = 'inline-flex size-11 shrink-0 items-center justify-center rounded-full text-brand-green transition-colors hover:bg-brand-green/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-green'
 
 export default function HomeNavigation({ initialProducts }: HomeNavigationProps) {
   const router = useRouter()
-  const { cart, setCartOpen, user } = useStore()
+  const { cart, setCartOpen, user, setUser } = useStore()
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const [scrolled, setScrolled] = useState(false)
+  const { scrollY, scrollYProgress } = useScroll()
+  const reduced = useReducedMotion()
+  useMotionValueEvent(scrollY, 'change', (value) => setScrolled(value > 32))
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0)
   const adminUser = isAdminEmail(user?.email)
   const normalizedQuery = searchQuery.trim().toLowerCase()
@@ -56,8 +61,8 @@ export default function HomeNavigation({ initialProducts }: HomeNavigationProps)
       .slice(0, 6)
   }, [initialProducts, normalizedQuery])
 
-  const accountHref = adminUser ? '/admin' : user ? '/account' : '/account/login'
-  const accountLabel = adminUser ? 'Admin panel' : user ? 'Your account' : 'Sign in'
+  const accountHref = user ? '/account' : '/account/login'
+  const accountLabel = user ? 'Your account' : 'Customer sign in'
   const drawerLinks = [
     ...mobileLinks,
     ...(adminUser ? [{ label: 'Admin panel', href: '/admin' }] : []),
@@ -79,17 +84,18 @@ export default function HomeNavigation({ initialProducts }: HomeNavigationProps)
 
   const signOut = async () => {
     await authClient.signOut()
+    setUser(null)
     router.refresh()
     setMenuOpen(false)
   }
 
   return (
-    <header className="absolute inset-x-0 top-0 z-40 w-full bg-transparent">
-      <div className="relative mx-auto flex h-20 w-full max-w-[1800px] items-center justify-between px-5 sm:px-8 lg:h-[128px] lg:px-[4.6vw]">
+    <header className={`home-navigation ${scrolled ? 'is-scrolled' : ''}`}>
+      <div className="home-navigation-inner">
         <Link
           href="/"
           aria-label="FreshCo Deli home"
-          className="relative z-10 shrink-0 lg:translate-y-2"
+          className="home-navigation-logo relative z-10 shrink-0"
         >
           <Image
             src="/logo.png"
@@ -99,13 +105,13 @@ export default function HomeNavigation({ initialProducts }: HomeNavigationProps)
             sizes="(max-width: 639px) 116px, (max-width: 1023px) 152px, 220px"
             preload
             style={{ height: 'auto' }}
-            className="w-[100px] min-[360px]:w-[116px] sm:w-[152px] lg:w-[220px]"
+            className="home-navigation-logo-image"
           />
         </Link>
 
         <nav
           aria-label="Primary navigation"
-          className="absolute left-[35.5%] top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-12 xl:flex"
+          className="home-navigation-links hidden items-center gap-10 xl:flex"
         >
           {desktopLinks.map(({ label, href }) => (
             <Link
@@ -118,7 +124,7 @@ export default function HomeNavigation({ initialProducts }: HomeNavigationProps)
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-0.5 sm:gap-1 lg:gap-5">
+        <div className="home-navigation-actions ml-auto flex items-center gap-0.5 sm:gap-1 lg:gap-5">
           <Sheet open={searchOpen} onOpenChange={setSearchOpen}>
             <SheetTrigger render={<button type="button" className={iconButtonClassName} aria-label="Search products" />}>
               <Search aria-hidden="true" className="size-7" strokeWidth={1.8} />
@@ -223,6 +229,7 @@ export default function HomeNavigation({ initialProducts }: HomeNavigationProps)
           </Sheet>
         </div>
       </div>
+      {!reduced && <motion.div className="home-scroll-progress" style={{ scaleX: scrollYProgress }} aria-hidden="true" />}
     </header>
   )
 }

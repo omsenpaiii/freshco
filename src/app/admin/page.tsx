@@ -7,7 +7,7 @@ export default async function AdminPage() {
   const user = await getAdminSessionUser()
 
   if (!user) {
-    redirect('/account/login')
+    redirect('/admin/login')
   }
 
   const { categories, products } = await getAdminCatalog()

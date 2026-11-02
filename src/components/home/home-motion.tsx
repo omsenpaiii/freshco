@@ -16,9 +16,11 @@ export default function HomeMotion({ children }: { children: React.ReactNode }) 
       inView(element, () => {
         const index = Number(element.dataset.revealIndex || 0)
         const direction = Number(element.dataset.revealDirection || 0)
+        const card = element.dataset.reveal === 'card'
         const animation = animate(element, {
           opacity: [0, 1], y: [36, 0], x: [direction * 42, 0],
           rotate: [direction * 2, 0],
+          ...(card ? { scale: [.96, 1] } : {}),
         }, { duration: .75, delay: Math.min(index * .075, .3), ease: [.22, 1, .36, 1] })
         running.push(animation)
       }, { amount: .12, margin: '0px 0px -24px 0px' }),
