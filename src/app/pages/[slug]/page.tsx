@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ChevronRight } from 'lucide-react'
 import { COLLECTION, STORE } from '@/lib/store'
+import { pageMetadata, plainDescription } from '@/lib/seo'
 
 // Define the static routes to pre-compile them during build time
 export async function generateStaticParams() {
@@ -60,6 +61,12 @@ const policyPages: Record<string, { title: string; content: string[] }> = {
 
 interface DynamicPolicyPageProps {
   params: Promise<{ slug: string }>
+}
+
+export async function generateMetadata({ params }: DynamicPolicyPageProps) {
+  const { slug } = await params
+  const page = policyPages[slug]
+  return page ? pageMetadata(page.title, `/pages/${slug}`, plainDescription(page.content[0])) : { title: 'Page unavailable', robots: { index: false } }
 }
 
 export default async function DynamicPolicyPage({ params }: DynamicPolicyPageProps) {

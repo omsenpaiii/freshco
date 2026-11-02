@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { cache } from 'react'
 import Link from 'next/link'
 import { getBlogPostBySlug, getBlogComments } from '@/lib/db'
 import BlogDetailClient from './blog-detail-client'
 import { ChevronRight } from 'lucide-react'
+import { pageMetadata, plainDescription } from '@/lib/seo'
+
+const loadPost = cache(getBlogPostBySlug)
+
+export async function generateMetadata({ params }: BlogPostPageProps) {
+  const { slug } = await params
+  const post = await loadPost(slug)
+  if (!post) return { title: 'Article unavailable', robots: { index: false } }
+  return pageMetadata(post.title, `/blogs/news/${post.slug}`, plainDescription(post.excerpt), post.image_url)
+}
 
 // Force Next.js to render page dynamically so it grabs latest products/DB state
 export const revalidate = 0
@@ -15,7 +25,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const resolvedParams = await params
   const { slug } = resolvedParams
 
-  const post = await getBlogPostBySlug(slug)
+  const post = await loadPost(slug)
 
   if (!post) {
     return (

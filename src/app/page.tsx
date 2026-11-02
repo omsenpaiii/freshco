@@ -6,6 +6,10 @@ import ProductCard from '@/components/ui/product-card'
 import HomeHeroClient from './home-hero-client'
 import HomeMotion from '@/components/home/home-motion'
 import CollectionMoment from '@/components/home/collection-moment'
+import { pageMetadata, serializeJsonLd, SITE_TITLE, SITE_URL } from '@/lib/seo'
+import { STORE } from '@/lib/store'
+
+export const metadata = { ...pageMetadata(SITE_TITLE, '/'), title: { absolute: SITE_TITLE } }
 
 export const revalidate = 0
 
@@ -24,6 +28,12 @@ export default async function Home() {
   })
   return (
     <HomeMotion><div className="freshco-home">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd({
+        '@context': 'https://schema.org', '@graph': [
+          { '@type': 'WebSite', '@id': `${SITE_URL}/#website`, name: STORE.name, url: SITE_URL, inLanguage: 'en-AU' },
+          { '@type': 'GroceryStore', '@id': `${SITE_URL}/#store`, name: STORE.name, url: SITE_URL, logo: `${SITE_URL}/logo.png`, image: `${SITE_URL}/opengraph-image`, telephone: '+61385890447', description: 'Greek deli favourites for Click & Collect at Northcote Plaza. Delivery is not available.', address: { '@type': 'PostalAddress', streetAddress: `${STORE.unit}, ${STORE.centre}, ${STORE.street}`, addressLocality: STORE.suburb, addressRegion: STORE.state, postalCode: STORE.postcode, addressCountry: 'AU' }, hasMap: STORE.mapsUrl },
+        ],
+      }) }} />
       <HomeHeroClient />
       <section className="home-collections" aria-labelledby="home-collections-title">
         <div className="home-container">

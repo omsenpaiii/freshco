@@ -7,6 +7,7 @@ import ProductCard from '@/components/ui/product-card'
 import { ChevronRight, Filter } from 'lucide-react'
 import CollectionSort from '@/components/collections/collection-sort'
 import SectionReveal from '@/components/ui/section-reveal'
+import { pageMetadata } from '@/lib/seo'
 
 // Force Next.js to render page dynamically so it grabs latest products/DB state
 export const revalidate = 0
@@ -37,6 +38,13 @@ function uniqueLabels(values: Array<string | null | undefined>) {
 interface CollectionPageProps {
   params: Promise<{ slug: string }>
   searchParams: Promise<{ sortBy?: string; search?: string; brand?: string; subcategory?: string }>
+}
+
+export async function generateMetadata({ params, searchParams }: CollectionPageProps) {
+  const [{ slug }, filters, categories] = await Promise.all([params, searchParams, getCategories()])
+  const category = categories.find(category => category.slug === slug)
+  if (!category) return { title: 'Collection unavailable', robots: { index: false } }
+  return { ...pageMetadata(category.name, `/collections/${slug}`, `Shop ${category.name.toLowerCase()} at FreshCo Deli. Order online for Click & Collect from Northcote Plaza, Melbourne.`), ...(Object.values(filters).some(Boolean) ? { robots: { index: false, follow: true } } : {}) }
 }
 
 export default async function CollectionPage({ params, searchParams }: CollectionPageProps) {

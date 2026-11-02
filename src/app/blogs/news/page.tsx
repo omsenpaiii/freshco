@@ -3,6 +3,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getBlogPosts } from '@/lib/db'
 import { ChevronRight } from 'lucide-react'
+import { pageMetadata } from '@/lib/seo'
+
+export const metadata = pageMetadata('Stories from the deli', '/blogs/news', 'Greek cheese boards, filo favourites and pantry inspiration from FreshCo Deli in Northcote.')
 
 // Force Next.js to render page dynamically so it grabs latest products/DB state
 export const revalidate = 0

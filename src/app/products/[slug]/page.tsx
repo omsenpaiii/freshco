@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { cache } from 'react'
 import Link from 'next/link'
 import { getProductBySlug, getProducts } from '@/lib/db'
 import ProductDetailClient from './product-detail-client'
 import ProductCard from '@/components/ui/product-card'
 import { ChevronRight } from 'lucide-react'
+import { pageMetadata, plainDescription, serializeJsonLd, SITE_URL } from '@/lib/seo'
+
+const loadProduct = cache(getProductBySlug)
+
+export async function generateMetadata({ params }: ProductPageProps) {
+  const { slug } = await params
+  const product = await loadProduct(slug)
+  if (!product || product.status !== 'published') return { title: 'Product unavailable', robots: { index: false, follow: false } }
+  return pageMetadata(product.name, `/products/${product.slug}`, plainDescription(product.description, `${product.name} at FreshCo Deli. Shop online for Click & Collect at Northcote Plaza.`), product.images[0])
+}
 
 // Force Next.js to render page dynamically so it grabs latest products/DB state
 export const revalidate = 0
@@ -16,7 +26,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const resolvedParams = await params
   const { slug } = resolvedParams
 
-  const product = await getProductBySlug(slug)
+  const product = await loadProduct(slug)
 
   if (!product) {
     return (
@@ -38,6 +48,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <div className="min-h-screen bg-brand-cloud py-10 md:py-14">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd({
+        '@context': 'https://schema.org', '@type': 'Product', name: product.name,
+        description: plainDescription(product.description), image: product.images, sku: product.sku,
+        ...(product.brand ? { brand: { '@type': 'Brand', name: product.brand } } : {}),
+        ...(product.variants.some(variant => variant.price > 0) ? { offers: product.variants.filter(variant => variant.price > 0).map(variant => ({ '@type': 'Offer', name: variant.title, sku: variant.sku, price: variant.price.toFixed(2), priceCurrency: 'AUD', url: `${SITE_URL}/products/${product.slug}`, availability: `https://schema.org/${variant.inventory_quantity > 0 ? 'InStock' : 'OutOfStock'}`, seller: { '@id': `${SITE_URL}/#store` } })) } : {}),
+      }) }} />
       <div className="site-container">
         
         {/* Breadcrumbs */}

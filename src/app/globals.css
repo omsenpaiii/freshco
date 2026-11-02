@@ -5,11 +5,11 @@
 .home-navigation { position: fixed; inset: 0 0 auto; z-index: 40; width: 100%; padding: 0; transition: padding .3s ease; }
 .home-navigation-inner { position: relative; display: flex; align-items: center; max-width: 1800px; height: 128px; margin: auto; padding-inline: 4.6vw; border: 1px solid transparent; transition: height .3s, background .3s, box-shadow .3s, border-color .3s, border-radius .3s; }
 .home-navigation-logo-image { width: 220px; height: auto; transition: width .3s; }
-.home-navigation-links { margin-left: clamp(70px, 8vw, 160px); }
+.home-navigation-links { margin-left: clamp(48px, 5vw, 96px); }
 .home-navigation.is-scrolled { padding: 12px 20px 0; }
 .home-navigation.is-scrolled .home-navigation-inner { height: 88px; border-radius: 24px; background: rgba(236,247,252,.86); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-color: rgba(255,255,255,.75); box-shadow: 0 8px 40px -20px #17213a55; }
 .home-navigation.is-scrolled .home-navigation-logo-image { width: 148px; }
-.home-navigation.is-scrolled .home-navigation-links { margin-left: clamp(60px, 7vw, 130px); }
+.home-navigation.is-scrolled .home-navigation-links { margin-left: clamp(44px, 5vw, 90px); }
 .home-scroll-progress { height: 2px; background: var(--fresh-green); transform-origin: left; margin-inline: 24px; }
 .home-navigation:not(.is-scrolled) .home-scroll-progress { opacity: 0; }
 @media (max-width: 359px) {
